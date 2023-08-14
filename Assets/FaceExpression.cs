@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Metaface.Debug
 {
@@ -28,6 +30,19 @@ namespace Metaface.Debug
 
         [SerializeField] private float _smileTime;
         [SerializeField] private float _puckerTime;
+
+        [SerializeField] private Slider _mouthValueSlider;
+        [SerializeField] private TMP_Text _mouthValueText;
+        
+        [SerializeField] private Slider _smileTimeSlider;
+        [SerializeField] private TMP_Text _smileTimeText;
+
+        [SerializeField] private Slider _progressValueSlider;
+        [SerializeField] private TMP_Text _progressValueText;
+        
+        [SerializeField] private Slider _puckerTimeSlider;
+        [SerializeField] private TMP_Text _puckerTimeText;
+
         
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
@@ -60,14 +75,14 @@ namespace Metaface.Debug
 
             bool wasSmiling = _smiling;
             _smiling = smileValue > _smileThreshold;
-            if (!wasSmiling && _smiling) _puckerStopwatch.Restart();
+            if (!wasSmiling && _smiling) _smileStopwatch.Restart();
             
             bool wasPucker = _pucker;
             _pucker = puckerValue > _puckerThreshold;
-            if(!wasPucker && _pucker) _smileStopwatch.Restart();
+            if(!wasPucker && _pucker) _puckerStopwatch.Restart();
 
-            _puckerTime = _puckerStopwatch.ElapsedMilliseconds / 1000;
-            _smileTime = _smileStopwatch.ElapsedMilliseconds / 1000;
+            _puckerTime = _puckerStopwatch.ElapsedMilliseconds / 1000f;
+            _smileTime = _smileStopwatch.ElapsedMilliseconds / 1000f;
             
             bool wasNeutral = _neutral;
             _neutral = smileValue < _smileThreshold && puckerValue < _puckerThreshold;
@@ -80,9 +95,18 @@ namespace Metaface.Debug
                     _smileStopwatch.ElapsedMilliseconds > _smileTimingThreshold)
                     _progress++;
             }
-  
-            //if (_smileStopwatch.ElapsedMilliseconds == _smileTimingThreshold) 
-                
+
+            _mouthValueSlider.value = _mouthValue;
+            _mouthValueText.text = _mouthValue.ToString();
+
+            _smileTimeSlider.value = _smileTime;
+            _smileTimeText.text = _smileTime + "s";
+
+            _progressValueSlider.value = _progress;
+            _progressValueText.text = _progress.ToString();
+
+            _puckerTimeSlider.value = _puckerTime;
+            _puckerTimeText.text = _puckerTime + "s";
         }
 
     }
