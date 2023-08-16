@@ -42,7 +42,6 @@ namespace Metaface.Debug
         
         [SerializeField] private Slider _puckerTimeSlider;
         [SerializeField] private TMP_Text _puckerTimeText;
-
         
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
@@ -73,27 +72,18 @@ namespace Metaface.Debug
             float puckerValue = (_lipPucker.x + _lipPucker.y) / 2;
             _mouthValue = smileValue - puckerValue;
 
-            bool wasSmiling = _smiling;
-            _smiling = smileValue > _smileThreshold;
-            if (!wasSmiling && _smiling) _smileStopwatch.Restart();
-            
-            bool wasPucker = _pucker;
+            _smiling = smileValue > _smileThreshold; 
             _pucker = puckerValue > _puckerThreshold;
-            if(!wasPucker && _pucker) _puckerStopwatch.Restart();
 
             _puckerTime = _puckerStopwatch.ElapsedMilliseconds / 1000f;
             _smileTime = _smileStopwatch.ElapsedMilliseconds / 1000f;
             
             bool wasNeutral = _neutral;
             _neutral = smileValue < _smileThreshold && puckerValue < _puckerThreshold;
-            if(!wasNeutral && _neutral) {
+            
+            if (!wasNeutral && _neutral) {
                 _puckerStopwatch.Stop();
                 _smileStopwatch.Stop();
-                if (wasPucker && 
-                    !_pucker && 
-                    _puckerStopwatch.ElapsedMilliseconds > _puckerTimingThreshold &&
-                    _smileStopwatch.ElapsedMilliseconds > _smileTimingThreshold)
-                    _progress++;
             }
 
             _mouthValueSlider.value = _mouthValue;
