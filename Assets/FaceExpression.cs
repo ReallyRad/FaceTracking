@@ -22,8 +22,9 @@ namespace Metaface.Debug
         [SerializeField] private float _smileThreshold;
 
         [SerializeField] private bool _smiling;
-        [SerializeField] private bool _neutral;
+        [SerializeField] private bool _slightSmile;
         [SerializeField] private bool _pucker;
+        [SerializeField] private bool _slightPucker;
 
         [SerializeField] private float _smileTimingThreshold;
         [SerializeField] private float _puckerTimingThreshold;
@@ -98,29 +99,36 @@ namespace Metaface.Debug
                 }
             }
 
-            _smiling = smileValue >= _smileThreshold; 
+            bool wasSlightSmile = _slightSmile;
+            bool wasSlightPucker = _slightPucker;
+            
+            _smiling = smileValue >= _smileThreshold;
+            _slightSmile = smileValue < _smileThreshold && _mouthValue > 0;
             _pucker = puckerValue >= _puckerThreshold;
+            _slightPucker = puckerValue < _puckerThreshold && _mouthValue < 0;
 
             _puckerTime = _puckerStopwatch.ElapsedMilliseconds / 1000f;
             _smileTime = _smileStopwatch.ElapsedMilliseconds / 1000f;
-            
-            bool wasNeutral = _neutral;
-            _neutral = smileValue < _smileThreshold && puckerValue < _puckerThreshold;
-            
-            if (!wasNeutral && _neutral) { //TODO pause stopwatches instead of resetting them when going under 
-                _puckerStopwatch.Stop();
-                _puckerStopwatch.Reset();
+
+            if (_slightSmile) { 
                 _smileStopwatch.Stop();
-                _smileStopwatch.Reset();
                 _progressStopwatch.Stop();
-            } else if (_smiling) {
+                if (wasSlightPucker) _puckerStopwatch.Reset();
+            } 
+            else if (_slightPucker) {
+                _puckerStopwatch.Stop();
+                _progressStopwatch.Stop();
+                if (wasSlightSmile) _smileStopwatch.Reset();
+            }
+            else if (_smiling) {
                 _smileStopwatch.Start();
             } else if (_pucker) {
                 _puckerStopwatch.Start();
             }
 
-            if (_puckerStopwatch.ElapsedMilliseconds > _smileTimingThreshold ||
-                _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold)
+            if ((_puckerStopwatch.ElapsedMilliseconds > _smileTimingThreshold ||
+                _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold) && 
+                !_slightPucker && !_slightSmile)
                 //_progress = (_puckerStopwatch.ElapsedMilliseconds - 3000 + _smileStopwatch.ElapsedMilliseconds - 3000) / 1000;
                 _progressStopwatch.Start();
             
