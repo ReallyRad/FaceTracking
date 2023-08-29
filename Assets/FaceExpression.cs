@@ -9,6 +9,8 @@ namespace Metaface.Debug
 {
     public class FaceExpression : MonoBehaviour
     {
+        public float mappedValue;
+        
         [SerializeField] private OVRFaceExpressions faceExpressions;
         
         [SerializeField] private Vector2 _lipCornerPuller;
@@ -26,8 +28,6 @@ namespace Metaface.Debug
         [SerializeField] private float _smileTimingThreshold;
         [SerializeField] private float _puckerTimingThreshold;
 
-        [SerializeField] private float _progress;
-
         [SerializeField] private float _smileTime;
         [SerializeField] private float _puckerTime;
 
@@ -43,8 +43,11 @@ namespace Metaface.Debug
         [SerializeField] private Slider _puckerTimeSlider;
         [SerializeField] private TMP_Text _puckerTimeText;
         
+        [SerializeField] private Material _skyboxMaterial;
+        
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
+        private Stopwatch _progressStopwatch;
         
         void Start()
         {
@@ -53,6 +56,7 @@ namespace Metaface.Debug
 
             _smileStopwatch = new Stopwatch();
             _puckerStopwatch = new Stopwatch();
+            _progressStopwatch = new Stopwatch();
         }
 
         void Update()
@@ -83,20 +87,46 @@ namespace Metaface.Debug
             
             if (!wasNeutral && _neutral) {
                 _puckerStopwatch.Stop();
+                _puckerStopwatch.Reset();
                 _smileStopwatch.Stop();
+                _smileStopwatch.Reset();
+                _progressStopwatch.Stop();
+            } else if (_smiling) {
+                _smileStopwatch.Start();
+            } else if (_pucker) {
+                _puckerStopwatch.Start();
             }
 
+            if (_puckerStopwatch.ElapsedMilliseconds > _smileTimingThreshold ||
+                _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold)
+                //_progress = (_puckerStopwatch.ElapsedMilliseconds - 3000 + _smileStopwatch.ElapsedMilliseconds - 3000) / 1000;
+                _progressStopwatch.Start();
+            
             _mouthValueSlider.value = _mouthValue;
             _mouthValueText.text = _mouthValue.ToString();
 
             _smileTimeSlider.value = _smileTime;
             _smileTimeText.text = _smileTime + "s";
 
-            _progressValueSlider.value = _progress;
-            _progressValueText.text = _progress.ToString();
+            _progressValueSlider.value = _progressStopwatch.ElapsedMilliseconds/1000;
+            _progressValueText.text = (_progressStopwatch.ElapsedMilliseconds/1000).ToString();
 
             _puckerTimeSlider.value = _puckerTime;
             _puckerTimeText.text = _puckerTime + "s";
+
+            mappedValue = map(
+                _progressStopwatch.ElapsedMilliseconds,
+                0f,
+                15000f,
+                4f,
+                0.5f);
+            
+            RenderSettings.skybox.SetFloat("_Exposure", mappedValue);
+        }
+        
+        float map(float s, float a1, float a2, float b1, float b2)
+        {
+            return b1 + (s-a1)*(b2-b1)/(a2-a1);
         }
 
     }
