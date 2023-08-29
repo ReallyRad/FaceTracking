@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using OVR.OpenVR;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +45,10 @@ namespace Metaface.Debug
         [SerializeField] private bool _setSkyboxExposure;
         [SerializeField] private bool _setBlockerTransparency;
         [SerializeField] private Material _occluderMaterial;
+        
+        [SerializeField] private bool _progressOnBreatheIn;
+        [SerializeField] private bool _progressOnBreatheOut;
+
         
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
@@ -127,10 +128,15 @@ namespace Metaface.Debug
             }
 
             if ((_puckerStopwatch.ElapsedMilliseconds > _smileTimingThreshold ||
-                _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold) && 
-                !_slightPucker && !_slightSmile)
-                //_progress = (_puckerStopwatch.ElapsedMilliseconds - 3000 + _smileStopwatch.ElapsedMilliseconds - 3000) / 1000;
-                _progressStopwatch.Start();
+                 _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold) &&
+                !_slightPucker &&
+                !_slightSmile)
+            {
+                if (_progressOnBreatheIn && _smiling || _progressOnBreatheOut && _pucker)
+                {
+                    _progressStopwatch.Start();
+                }
+            }
             
             _mouthValueSlider.value = _mouthValue;
             _mouthValueText.text = _mouthValue.ToString();
@@ -146,31 +152,19 @@ namespace Metaface.Debug
 
             if (_setSkyboxExposure)
             {
-                float mappedValue = map(
-                    _progressStopwatch.ElapsedMilliseconds,
-                    0f,
-                    35000f,
-                    4f,
-                    0.5f);
-                
+                float mappedValue = Map(_progressStopwatch.ElapsedMilliseconds, 0f, 35000f, 4f, 0.5f);
                 RenderSettings.skybox.SetFloat("_Exposure", mappedValue);
             }
 
             if (_setBlockerTransparency)
             {
-                float mappedValue = map(
-                    _progressStopwatch.ElapsedMilliseconds,
-                    0f,
-                    35000f,
-                    1f,
-                    0f);
-
+                float mappedValue = Map(_progressStopwatch.ElapsedMilliseconds, 0f, 35000f, 1f, 0f);
                 Color color = new Color(1,1,1,mappedValue);
                 _occluderMaterial.SetColor("_Color", color);
             }
         }
         
-        float map(float s, float a1, float a2, float b1, float b2)
+        private float Map(float s, float a1, float a2, float b1, float b2)
         {
             return b1 + (s-a1)*(b2-b1)/(a2-a1);
         }
