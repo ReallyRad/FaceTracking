@@ -542,6 +542,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2272303278437845212, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
+      propertyPath: _skyboxMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
+    - target: {fileID: 2272303278437845212, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
       propertyPath: faceExpressions
       value: 
       objectReference: {fileID: 8532926148001288498}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using OVR.OpenVR;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,13 +10,12 @@ namespace Metaface.Debug
 {
     public class FaceExpression : MonoBehaviour
     {
-        public float mappedValue;
-        
         [SerializeField] private OVRFaceExpressions faceExpressions;
         
         [SerializeField] private Vector2 _lipCornerPuller;
         [SerializeField] private Vector2 _lipPucker;
 
+        [Range(-0.05f, 0.05f)]
         [SerializeField] private float _mouthValue; //from -1 to +1
 
         [SerializeField] private float _puckerThreshold;
@@ -43,12 +43,15 @@ namespace Metaface.Debug
         [SerializeField] private Slider _puckerTimeSlider;
         [SerializeField] private TMP_Text _puckerTimeText;
         
-        [SerializeField] private Material _skyboxMaterial;
+        [SerializeField] private bool _manualSmileControl;
+        [SerializeField] private bool _setSkyboxExposure;
+        [SerializeField] private bool _setBlockerTransparency;
+        [SerializeField] private Material _occluderMaterial;
         
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
         private Stopwatch _progressStopwatch;
-        
+
         void Start()
         {
             _lipCornerPuller = new Vector2();
@@ -72,12 +75,31 @@ namespace Metaface.Debug
             faceExpressions.TryGetFaceExpressionWeight(OVRFaceExpressions.FaceExpression.LipCornerPullerR, out w);
             _lipCornerPuller.y = w;
 
-            float smileValue = (_lipCornerPuller.x + _lipCornerPuller.y) / 2;
-            float puckerValue = (_lipPucker.x + _lipPucker.y) / 2;
-            _mouthValue = smileValue - puckerValue;
+            float smileValue = 0f;
+            float puckerValue = 0f;
+            
+            if (!_manualSmileControl)
+            {
+                smileValue = (_lipCornerPuller.x + _lipCornerPuller.y) / 2;
+                puckerValue = (_lipPucker.x + _lipPucker.y) / 2;
+                _mouthValue = smileValue - puckerValue;    
+            }
+            else
+            {
+                if (_mouthValue < 0)
+                {
+                    puckerValue = - _mouthValue;
+                    smileValue = 0;
+                }
+                else if (_mouthValue > 0)
+                {
+                    smileValue = _mouthValue;
+                    puckerValue = 0;
+                }
+            }
 
-            _smiling = smileValue > _smileThreshold; 
-            _pucker = puckerValue > _puckerThreshold;
+            _smiling = smileValue >= _smileThreshold; 
+            _pucker = puckerValue >= _puckerThreshold;
 
             _puckerTime = _puckerStopwatch.ElapsedMilliseconds / 1000f;
             _smileTime = _smileStopwatch.ElapsedMilliseconds / 1000f;
@@ -85,7 +107,7 @@ namespace Metaface.Debug
             bool wasNeutral = _neutral;
             _neutral = smileValue < _smileThreshold && puckerValue < _puckerThreshold;
             
-            if (!wasNeutral && _neutral) {
+            if (!wasNeutral && _neutral) { //TODO pause stopwatches instead of resetting them when going under 
                 _puckerStopwatch.Stop();
                 _puckerStopwatch.Reset();
                 _smileStopwatch.Stop();
@@ -114,14 +136,30 @@ namespace Metaface.Debug
             _puckerTimeSlider.value = _puckerTime;
             _puckerTimeText.text = _puckerTime + "s";
 
-            mappedValue = map(
-                _progressStopwatch.ElapsedMilliseconds,
-                0f,
-                15000f,
-                4f,
-                0.5f);
-            
-            RenderSettings.skybox.SetFloat("_Exposure", mappedValue);
+            if (_setSkyboxExposure)
+            {
+                float mappedValue = map(
+                    _progressStopwatch.ElapsedMilliseconds,
+                    0f,
+                    35000f,
+                    4f,
+                    0.5f);
+                
+                RenderSettings.skybox.SetFloat("_Exposure", mappedValue);
+            }
+
+            if (_setBlockerTransparency)
+            {
+                float mappedValue = map(
+                    _progressStopwatch.ElapsedMilliseconds,
+                    0f,
+                    35000f,
+                    1f,
+                    0f);
+
+                Color color = new Color(1,1,1,mappedValue);
+                _occluderMaterial.SetColor("_Color", color);
+            }
         }
         
         float map(float s, float a1, float a2, float b1, float b2)

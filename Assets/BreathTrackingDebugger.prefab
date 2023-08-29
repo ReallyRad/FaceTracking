@@ -2674,7 +2674,6 @@ MonoBehaviour:
   _pucker: 0
   _smileTimingThreshold: 3000
   _puckerTimingThreshold: 3000
-  _progress: 0
   _smileTime: 0
   _puckerTime: 0
   _mouthValueSlider: {fileID: 2272303276824555868}
@@ -2685,6 +2684,10 @@ MonoBehaviour:
   _progressValueText: {fileID: 2272303278081253868}
   _puckerTimeSlider: {fileID: 2272303278283084320}
   _puckerTimeText: {fileID: 2272303276923766292}
+  _manualSmileControl: 1
+  _setSkyboxExposure: 0
+  _setBlockerTransparency: 1
+  _occluderMaterial: {fileID: 2100000, guid: 5b6233daf48eef848b1087d9354afe61, type: 2}
 --- !u!1 &2272303278575172391
 GameObject:
   m_ObjectHideFlags: 0
