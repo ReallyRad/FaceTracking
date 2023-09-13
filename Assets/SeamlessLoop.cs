@@ -1,27 +1,25 @@
+using System;
 using UnityEngine;
 using System.Collections;
-
-// Basic demonstration of a music system that uses PlayScheduled to preload and sample-accurately
-// stitch two AudioClips in an alternating fashion.  The code assumes that the music pieces are
-// each 16 bars (4 beats / bar) at a tempo of 140 beats per minute.
-// To make it stitch arbitrary clips just replace the line
-//   nextEventTime += (60.0 / bpm) * numBeatsPerSegment
-// by
-//   nextEventTime += clips[flip].length;
+using Metaface.Debug;
 
 public class SeamlessLoop : MonoBehaviour
 {
     public float bpm;
     public int numBeatsPerSegment = 16;
-
+    //[SerializeField] [Range(0,1)]
+    private float _volume; 
+    
     private double nextEventTime;
     [SerializeField] private AudioSource[] audioSources;
     
-    private int currentClipIndex = 0;
+    private int currentClipIndex = 0; //basically a flip index variable
+
 
     void Start()
     {
         nextEventTime = AudioSettings.dspTime + 4.0f;
+        _volume = 0f;
     }
 
     void Update()
@@ -37,13 +35,20 @@ public class SeamlessLoop : MonoBehaviour
             audioSources[(currentClipIndex + 1) % audioSources.Length].PlayScheduled(nextEventTime);
             audioSources[currentClipIndex].SetScheduledEndTime(nextEventTime); 
             
-            Debug.Log("Scheduled source " + currentClipIndex + " to start at time " + nextEventTime);
-
             // Place the next event 16 beats from here at a rate of 140 beats per minute
             nextEventTime += 60.0f / bpm * numBeatsPerSegment;
 
             // Flip between two audio sources so that the loading process of one does not interfere with the one that's playing out
             currentClipIndex = (currentClipIndex + 1) % audioSources.Length;
         }
+
+        foreach (AudioSource audioSource in audioSources)
+            audioSource.volume = _volume;
     }
+
+    public void SetVolume(float volume)
+    {
+        _volume = volume;
+    }
+
 }

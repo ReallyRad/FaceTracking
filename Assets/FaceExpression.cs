@@ -49,11 +49,15 @@ namespace Metaface.Debug
         [SerializeField] private bool _progressOnBreatheIn;
         [SerializeField] private bool _progressOnBreatheOut;
 
-        
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
         private Stopwatch _progressStopwatch;
 
+        public delegate void OnLevelUp();
+        public static OnLevelUp LevelUp;
+        private int _previousProgressValue;
+        private int _progressValue;
+        
         void Start()
         {
             _lipCornerPuller = new Vector2();
@@ -144,9 +148,15 @@ namespace Metaface.Debug
             _smileTimeSlider.value = _smileTime;
             _smileTimeText.text = _smileTime + "s";
 
+            _previousProgressValue = _progressValue;
+            _progressValue = (int) _progressStopwatch.ElapsedMilliseconds/1000; 
+                
             _progressValueSlider.value = _progressStopwatch.ElapsedMilliseconds/1000;
             _progressValueText.text = (_progressStopwatch.ElapsedMilliseconds/1000).ToString();
 
+            if (_progressValue > _previousProgressValue)
+                LevelUp();
+            
             _puckerTimeSlider.value = _puckerTime;
             _puckerTimeText.text = _puckerTime + "s";
 
