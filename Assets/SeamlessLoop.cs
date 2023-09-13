@@ -7,7 +7,7 @@ public class SeamlessLoop : MonoBehaviour
 {
     public float bpm;
     public int numBeatsPerSegment = 16;
-    //[SerializeField] [Range(0,1)]
+    [SerializeField] [Range(0,1)]
     private float _volume; 
     
     private double nextEventTime;
