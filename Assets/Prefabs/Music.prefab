@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9068146263842655302}
+  - component: {fileID: 2573602179937816685}
   m_Layer: 0
   m_Name: Music
   m_TagString: Untagged
@@ -39,6 +40,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2573602179937816685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2451920120223082122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ab6bac6b0ad4cd6b9cd709ee140ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _seamlessLoops:
+  - {fileID: 2782665024516543189}
+  - {fileID: 2782665024358920589}
+  - {fileID: 2782665024674318966}
+  - {fileID: 2782665024206967897}
+  - {fileID: 2782665025459062375}
+  - {fileID: 2782665024587221937}
+  - {fileID: 2782665025627391334}
+  - {fileID: 2782665024770360349}
+  _progress: 0
+  _currentLoopIndex: 0
 --- !u!1 &2782665023584816053
 GameObject:
   m_ObjectHideFlags: 0
