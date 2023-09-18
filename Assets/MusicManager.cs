@@ -13,12 +13,12 @@ public class MusicManager : MonoBehaviour
     
     private void OnEnable()
     {
-        FaceExpression.LevelUp += LevelUp;
+        FaceTrackingManager.LevelUp += LevelUp;
     }
 
     private void OnDisable()
     {
-        FaceExpression.LevelUp -= LevelUp;
+        FaceTrackingManager.LevelUp -= LevelUp;
     }
     
     private void LevelUp()
