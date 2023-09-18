@@ -49,6 +49,7 @@ namespace Metaface.Debug
         [SerializeField] private bool _progressOnBreatheIn;
         [SerializeField] private bool _progressOnBreatheOut;
 
+        
         private Stopwatch _smileStopwatch;
         private Stopwatch _puckerStopwatch;
         private Stopwatch _progressStopwatch;
@@ -58,7 +59,7 @@ namespace Metaface.Debug
         private int _previousProgressValue;
         private int _progressValue;
         
-        void Start()
+        private void Start()
         {
             _lipCornerPuller = new Vector2();
             _lipPucker = new Vector2();
@@ -68,18 +69,13 @@ namespace Metaface.Debug
             _progressStopwatch = new Stopwatch();
         }
 
-        void Update()
+        private void Update()
         {
-            float w;
-            faceExpressions.TryGetFaceExpressionWeight(OVRFaceExpressions.FaceExpression.LipPuckerL, out w);
-            _lipPucker.x = w;
-            faceExpressions.TryGetFaceExpressionWeight(OVRFaceExpressions.FaceExpression.LipPuckerR, out w);
-            _lipPucker.y = w;
+            _lipPucker = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipPuckerL,
+                OVRFaceExpressions.FaceExpression.LipPuckerR);
             
-            faceExpressions.TryGetFaceExpressionWeight(OVRFaceExpressions.FaceExpression.LipCornerPullerL, out w);
-            _lipCornerPuller.x = w;
-            faceExpressions.TryGetFaceExpressionWeight(OVRFaceExpressions.FaceExpression.LipCornerPullerR, out w);
-            _lipCornerPuller.y = w;
+            _lipCornerPuller = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipCornerPullerL,
+                OVRFaceExpressions.FaceExpression.LipCornerPullerR);
 
             float smileValue = 0f;
             float puckerValue = 0f;
@@ -179,5 +175,17 @@ namespace Metaface.Debug
             return b1 + (s-a1)*(b2-b1)/(a2-a1);
         }
 
+        private Vector2 GetExpressionValue(OVRFaceExpressions.FaceExpression key1,
+            OVRFaceExpressions.FaceExpression key2)
+        {
+            float w;
+            Vector2 expressionVector = new Vector2();
+            faceExpressions.TryGetFaceExpressionWeight(key1, out w);
+            expressionVector.x = w;
+            faceExpressions.TryGetFaceExpressionWeight(key2, out w);
+            expressionVector.y = w;
+
+            return expressionVector;
+        }
     }
 }
