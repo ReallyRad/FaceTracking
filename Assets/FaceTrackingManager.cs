@@ -93,9 +93,10 @@ public class FaceTrackingManager : MonoBehaviour
                 smileValue = _mouthValue;
                 puckerValue = 0;
             }
-            MouthValue(_mouthValue);
+            
         }
-
+        MouthValue(_mouthValue);
+        
         bool wasSlightSmile = _slightSmile;
         bool wasSlightPucker = _slightPucker;
         
