@@ -51,9 +51,6 @@ public class FaceTrackingManager : MonoBehaviour
     public delegate void OnBLockValue(float progressValue);
     public static OnBLockValue BlockValue;
     
-    public delegate void OnSkyboxExposure(float progressValue);
-    public static OnSkyboxExposure SkyboxExposure;
-
     private int _previousProgressValue;
     private int _progressValue;
     
@@ -139,8 +136,6 @@ public class FaceTrackingManager : MonoBehaviour
         if (_progressValue > _previousProgressValue)
             LevelUp();
 
-        BlockValue(_progressStopwatch.ElapsedMilliseconds);
-        SkyboxExposure(_progressStopwatch.ElapsedMilliseconds);
     }
     
     private Vector2 GetExpressionValue(OVRFaceExpressions.FaceExpression key1,
