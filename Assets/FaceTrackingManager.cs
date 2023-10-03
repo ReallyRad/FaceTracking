@@ -6,6 +6,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public class SmileState
+{
+    public bool smiling;
+    public bool slightSmile;
+    public bool pucker;
+    public bool slightPucker;
+}
+
 public class FaceTrackingManager : MonoBehaviour
 {
     [SerializeField] private OVRFaceExpressions faceExpressions;
@@ -20,49 +28,26 @@ public class FaceTrackingManager : MonoBehaviour
     [SerializeField] private bool _slightSmile;
     [SerializeField] private bool _pucker;
     [SerializeField] private bool _slightPucker;
-
-    [SerializeField] private float _smileTimingThreshold;
-    [SerializeField] private float _puckerTimingThreshold;
-
+    
     [SerializeField] private bool _manualSmileControl;
-    
-    [SerializeField] private bool _progressOnBreatheIn;
-    [SerializeField] private bool _progressOnBreatheOut;
-    
-    private Stopwatch _smileStopwatch;
-    private Stopwatch _puckerStopwatch;
-    private Stopwatch _progressStopwatch;
-
-    public delegate void OnLevelUp();
-    public static OnLevelUp LevelUp;
     
     public delegate void OnMouthValue(float mouthValue);
     public static OnMouthValue MouthValue;
     
-    public delegate void OnProgressValue(float progressValue);
-    public static OnProgressValue ProgressValue;
-
-    public delegate void OnPuckerTime(float puckerTime);
-    public static OnPuckerTime PuckerTime;
+    public delegate void OnPucker();
+    public static OnPucker Pucker;
     
-    public delegate void OnSmileTime(float puckerTime);
-    public static OnSmileTime SmileTime;
+    public delegate void OnSmile();
+    public static OnSmile Smile;
 
-    public delegate void OnBLockValue(float progressValue);
-    public static OnBLockValue BlockValue;
+    public delegate void OnSlightSmile();
+    public static OnSlightSmile SlightSmile;
+
+    public delegate void OnSlightPucker();
+    public static OnSlightPucker SlightPucker;
     
-    public delegate void OnSkyboxExposure(float progressValue);
-    public static OnSkyboxExposure SkyboxExposure;
-
     private int _previousProgressValue;
     private int _progressValue;
-    
-    private void Start()
-    {
-        _smileStopwatch = new Stopwatch();
-        _puckerStopwatch = new Stopwatch();
-        _progressStopwatch = new Stopwatch();
-    }
 
     private void Update()
     {
@@ -93,53 +78,24 @@ public class FaceTrackingManager : MonoBehaviour
                 smileValue = _mouthValue;
                 puckerValue = 0;
             }
-            MouthValue(_mouthValue);
         }
-
+        
+        MouthValue(_mouthValue);
+        
         bool wasSlightSmile = _slightSmile;
         bool wasSlightPucker = _slightPucker;
+        bool wasSmile = _smiling;
+        bool wasPucker = _pucker;
         
         _smiling = smileValue >= _smileThreshold;
         _slightSmile = smileValue < _smileThreshold && _mouthValue > 0;
         _pucker = puckerValue >= _puckerThreshold;
         _slightPucker = puckerValue < _puckerThreshold && _mouthValue < 0;
 
-        PuckerTime(_puckerStopwatch.ElapsedMilliseconds / 1000f);
-        SmileTime(_smileStopwatch.ElapsedMilliseconds / 1000f);
-
-        if (_slightSmile) { 
-            _smileStopwatch.Stop();
-            _progressStopwatch.Stop();
-            if (wasSlightPucker) _puckerStopwatch.Reset();
-        } 
-        else if (_slightPucker) {
-            _puckerStopwatch.Stop();
-            _progressStopwatch.Stop();
-            if (wasSlightSmile) _smileStopwatch.Reset();
-        }
-        else if (_smiling)
-            _smileStopwatch.Start();
-        else if (_pucker) 
-            _puckerStopwatch.Start();
-        
-        if ((_puckerStopwatch.ElapsedMilliseconds > _smileTimingThreshold ||
-             _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold) &&
-            !_slightPucker &&
-            !_slightSmile)
-        {
-            if (_progressOnBreatheIn && _smiling || _progressOnBreatheOut && _pucker)
-                _progressStopwatch.Start();
-        }
-       
-        _previousProgressValue = _progressValue;
-        _progressValue = (int) _progressStopwatch.ElapsedMilliseconds/1000;
-        ProgressValue(_progressValue);
-        
-        if (_progressValue > _previousProgressValue)
-            LevelUp();
-
-        BlockValue(_progressStopwatch.ElapsedMilliseconds);
-        SkyboxExposure(_progressStopwatch.ElapsedMilliseconds);
+        if (!wasPucker && _pucker) Pucker();
+        if (!wasSmile && _smiling) Smile();
+        if (!wasSlightPucker && _slightPucker) SlightPucker();
+        if (!wasSlightSmile && _slightSmile) SlightSmile();
     }
     
     private Vector2 GetExpressionValue(OVRFaceExpressions.FaceExpression key1,
