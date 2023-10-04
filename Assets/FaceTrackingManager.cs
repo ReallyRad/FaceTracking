@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,6 +31,9 @@ public class FaceTrackingManager : MonoBehaviour
     [SerializeField] private bool _slightPucker;
     
     [SerializeField] private bool _manualSmileControl;
+
+    [SerializeField] private bool _autoDebugBreathing;
+    [SerializeField] private float _debugBreathRate;
     
     public delegate void OnMouthValue(float mouthValue);
     public static OnMouthValue MouthValue;
@@ -60,7 +64,23 @@ public class FaceTrackingManager : MonoBehaviour
         float smileValue = 0f;
         float puckerValue = 0f;
         
-        if (!_manualSmileControl)
+        if (_autoDebugBreathing)
+        {
+            _mouthValue = Mathf.Sin(Time.time * _debugBreathRate) * 0.075f;
+            //pucker value is the negative half of mouthvalue
+            if (_mouthValue < 0)
+            {
+                puckerValue = -_mouthValue;
+                smileValue = 0f;
+            }
+            //smile value is the positive half of mouthvalue
+            else if (_mouthValue > 0)
+            {
+                puckerValue = 0f;
+                smileValue = _mouthValue;
+            }            
+        }
+        else if (!_manualSmileControl)
         {
             smileValue = (lipCornerPuller.x + lipCornerPuller.y) / 2;
             puckerValue = (lipPucker.x + lipPucker.y) / 2;
