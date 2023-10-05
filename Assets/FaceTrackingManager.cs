@@ -53,6 +53,9 @@ public class FaceTrackingManager : MonoBehaviour
     private int _previousProgressValue;
     private int _progressValue;
 
+    public float smileValue = 0f;
+    public float puckerValue = 0f;
+    
     private void Update()
     {
         Vector2 lipPucker = new Vector2();
@@ -61,9 +64,6 @@ public class FaceTrackingManager : MonoBehaviour
         lipPucker = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipPuckerL, OVRFaceExpressions.FaceExpression.LipPuckerR);
         lipCornerPuller = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipCornerPullerL, OVRFaceExpressions.FaceExpression.LipCornerPullerR);
 
-        float smileValue = 0f;
-        float puckerValue = 0f;
-        
         if (_autoDebugBreathing)
         {
             _mouthValue = Mathf.Sin(Time.time * _debugBreathRate) * 0.075f;

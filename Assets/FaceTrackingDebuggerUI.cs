@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Diagnostics;
 using Oculus.Movement;
 using Oculus.Platform;
@@ -46,6 +47,7 @@ namespace Metaface.Debug
             _smileStopwatch = new Stopwatch();
             _puckerStopwatch = new Stopwatch();
             _progressStopwatch = new Stopwatch();
+            UnityEngine.Debug.Log("beotch");
         }
         
         private void OnEnable()
@@ -83,7 +85,9 @@ namespace Metaface.Debug
                 !_slightSmile)
             {
                 if (_progressOnBreatheIn && _smiling || _progressOnBreatheOut && _pucker)
+                {
                     _progressStopwatch.Start();
+                }
             }
         }
 
@@ -97,10 +101,11 @@ namespace Metaface.Debug
         {
             _pucker = true;
             _puckerStopwatch.Start();
+            StartCoroutine(BreathVibration());
             _wasSlightPucker = false;
         }
         
-        private void Smile( )
+        private void Smile()
         {
             _smiling = true;
             _smileStopwatch.Start();
@@ -110,6 +115,9 @@ namespace Metaface.Debug
         private void SlightPucker()
         {
             _pucker = false;
+            OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
+            UnityEngine.Debug.Log("stop breath vibration");
+            StopCoroutine("BreathVibration");
             _puckerStopwatch.Stop();
             _progressStopwatch.Stop();
             _wasSlightPucker = true;
@@ -122,7 +130,15 @@ namespace Metaface.Debug
             _smileStopwatch.Stop();
             _progressStopwatch.Stop();
             _wasSlightSmile = true;
-            if(_wasSlightPucker) _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+            if (_wasSlightPucker) _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+        }
+
+        private IEnumerator BreathVibration()
+        {
+            UnityEngine.Debug.Log("breath vibes");
+            OVRInput.SetControllerVibration(1, 0.2f, OVRInput.Controller.RTouch);
+            yield return new WaitForSeconds(2f);
+            if (_pucker) StartCoroutine(BreathVibration());
         }
     }
 }
