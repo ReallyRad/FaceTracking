@@ -52,12 +52,12 @@ public class FaceTrackingManager : MonoBehaviour
     
     private int _previousProgressValue;
     private int _progressValue;
-
-    public float smileValue = 0f;
-    public float puckerValue = 0f;
     
     private void Update()
     {
+        float smileValue = 0f;
+        float puckerValue = 0f;
+
         Vector2 lipPucker = new Vector2();
         Vector2 lipCornerPuller = new Vector2();
 
