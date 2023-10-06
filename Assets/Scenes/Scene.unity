@@ -589,6 +589,10 @@ PrefabInstance:
       propertyPath: faceExpressions
       value: 
       objectReference: {fileID: 8532926148001288498}
+    - target: {fileID: 2272303278437845212, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
+      propertyPath: _progressOnBreatheIn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2272303278437845214, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -711,25 +715,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
-      propertyPath: _mouthValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
       propertyPath: faceExpressions
       value: 
       objectReference: {fileID: 8532926148001288498}
-    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
-      propertyPath: _debugBreathRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
-      propertyPath: _autoDebugBreathing
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
-      propertyPath: _manualSmileControl
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3490325897906741644, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
       propertyPath: m_Name
       value: FaceTrackingManager

@@ -47,13 +47,12 @@ MonoBehaviour:
   faceExpressions: {fileID: 0}
   _mouthValue: 0
   _puckerThreshold: 0.05
+  _neutralThreshold: 0
   _smileThreshold: 0.05
   _smiling: 0
   _slightSmile: 0
   _pucker: 0
   _slightPucker: 0
-  _smileTimingThreshold: 3000
-  _puckerTimingThreshold: 3000
-  _manualSmileControl: 1
-  _progressOnBreatheIn: 1
-  _progressOnBreatheOut: 1
+  _manualSmileControl: 0
+  _autoDebugBreathing: 0
+  _debugBreathRate: 0.2

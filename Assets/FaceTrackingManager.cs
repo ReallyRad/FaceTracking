@@ -23,6 +23,7 @@ public class FaceTrackingManager : MonoBehaviour
     [SerializeField] private float _mouthValue; //from -1 to +1
 
     [SerializeField] private float _puckerThreshold;
+    [SerializeField] private float _neutralThreshold;
     [SerializeField] private float _smileThreshold;
 
     [SerializeField] private bool _smiling;
@@ -108,9 +109,9 @@ public class FaceTrackingManager : MonoBehaviour
         bool wasPucker = _pucker;
         
         _smiling = smileValue >= _smileThreshold;
-        _slightSmile = smileValue < _smileThreshold && _mouthValue > 0;
+        _slightSmile = smileValue < _smileThreshold && _mouthValue > _neutralThreshold;
         _pucker = puckerValue >= _puckerThreshold;
-        _slightPucker = puckerValue < _puckerThreshold && _mouthValue < 0;
+        _slightPucker = puckerValue < _puckerThreshold && _mouthValue < _neutralThreshold;
 
         if (!wasPucker && _pucker) Pucker();
         if (!wasSmile && _smiling) Smile();
