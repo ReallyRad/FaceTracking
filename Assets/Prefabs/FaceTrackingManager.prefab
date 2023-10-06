@@ -49,10 +49,7 @@ MonoBehaviour:
   _puckerThreshold: 0.05
   _neutralThreshold: 0
   _smileThreshold: 0.05
-  _smiling: 0
-  _slightSmile: 0
-  _pucker: 0
-  _slightPucker: 0
+  _faceData: {fileID: 11400000, guid: bdec2363c9ec54d808d2834efb069af7, type: 2}
   _manualSmileControl: 0
   _autoDebugBreathing: 0
   _debugBreathRate: 0.2

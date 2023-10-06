@@ -7,14 +7,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SmileState
-{
-    public bool smiling;
-    public bool slightSmile;
-    public bool pucker;
-    public bool slightPucker;
-}
-
 public class FaceTrackingManager : MonoBehaviour
 {
     [SerializeField] private OVRFaceExpressions faceExpressions;
@@ -26,11 +18,13 @@ public class FaceTrackingManager : MonoBehaviour
     [SerializeField] private float _neutralThreshold;
     [SerializeField] private float _smileThreshold;
 
-    [SerializeField] private bool _smiling;
-    [SerializeField] private bool _slightSmile;
-    [SerializeField] private bool _pucker;
-    [SerializeField] private bool _slightPucker;
-    
+    private bool _smiling;
+    private bool _slightSmile;
+    private bool _pucker;
+    private bool _slightPucker;
+
+    [SerializeField] private FaceData _faceData;  
+
     [SerializeField] private bool _manualSmileControl;
 
     [SerializeField] private bool _autoDebugBreathing;
@@ -39,17 +33,8 @@ public class FaceTrackingManager : MonoBehaviour
     public delegate void OnMouthValue(float mouthValue);
     public static OnMouthValue MouthValue;
     
-    public delegate void OnPucker();
-    public static OnPucker Pucker;
-    
-    public delegate void OnSmile();
-    public static OnSmile Smile;
-
-    public delegate void OnSlightSmile();
-    public static OnSlightSmile SlightSmile;
-
-    public delegate void OnSlightPucker();
-    public static OnSlightPucker SlightPucker;
+    public delegate void OnFaceExpression();
+    public static OnFaceExpression FaceExpression;
     
     private int _previousProgressValue;
     private int _progressValue;
@@ -102,21 +87,35 @@ public class FaceTrackingManager : MonoBehaviour
         }
         
         MouthValue(_mouthValue);
-        
-        bool wasSlightSmile = _slightSmile;
-        bool wasSlightPucker = _slightPucker;
-        bool wasSmile = _smiling;
-        bool wasPucker = _pucker;
-        
+
         _smiling = smileValue >= _smileThreshold;
         _slightSmile = smileValue < _smileThreshold && _mouthValue > _neutralThreshold;
         _pucker = puckerValue >= _puckerThreshold;
         _slightPucker = puckerValue < _puckerThreshold && _mouthValue < _neutralThreshold;
 
-        if (!wasPucker && _pucker) Pucker();
-        if (!wasSmile && _smiling) Smile();
-        if (!wasSlightPucker && _slightPucker) SlightPucker();
-        if (!wasSlightSmile && _slightSmile) SlightSmile();
+        if (!_faceData.previouslyPucker && _pucker) 
+        {
+            _faceData.SetData(false,false,false,true);
+            FaceExpression();
+        }
+
+        else if (!_faceData.previouslySmiling && _smiling)
+        {
+            _faceData.SetData(true,false,false,false);
+            FaceExpression();
+        }
+
+        else if (!_faceData.previouslySlightPucker && _slightPucker)
+        {
+            _faceData.SetData(false,false,true,false);
+            FaceExpression();
+        }
+
+        else if (!_faceData.previouslySlightSmile && _slightSmile)
+        {
+            _faceData.SetData(false,true,false,false);
+            FaceExpression();
+        }
     }
     
     private Vector2 GetExpressionValue(OVRFaceExpressions.FaceExpression key1,

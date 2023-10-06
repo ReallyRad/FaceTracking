@@ -2663,20 +2663,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1ce7984d889424eadafaa210251406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceExpressions: {fileID: 0}
-  _lipCornerPuller: {x: 0, y: 0}
-  _lipPucker: {x: 0, y: 0}
-  _mouthValue: 0
-  _puckerThreshold: 0.05
-  _smileThreshold: 0.05
-  _smiling: 0
-  _slightSmile: 0
-  _pucker: 0
-  _slightPucker: 0
-  _smileTimingThreshold: 3000
-  _puckerTimingThreshold: 3000
-  _smileTime: 0
-  _puckerTime: 0
   _mouthValueSlider: {fileID: 2272303276824555868}
   _mouthValueText: {fileID: 2272303276795865346}
   _smileTimeSlider: {fileID: 2272303277438434553}
@@ -2685,12 +2671,11 @@ MonoBehaviour:
   _progressValueText: {fileID: 2272303278081253868}
   _puckerTimeSlider: {fileID: 2272303278283084320}
   _puckerTimeText: {fileID: 2272303276923766292}
-  _manualSmileControl: 1
-  _setSkyboxExposure: 1
-  _setBlockerTransparency: 1
-  _occluderMaterial: {fileID: 2100000, guid: 5b6233daf48eef848b1087d9354afe61, type: 2}
   _progressOnBreatheIn: 1
   _progressOnBreatheOut: 1
+  _smileTimingThreshold: 3000
+  _puckerTimingThreshold: 3000
+  _faceExpression: {fileID: 11400000, guid: bdec2363c9ec54d808d2834efb069af7, type: 2}
 --- !u!1 &2272303278575172391
 GameObject:
   m_ObjectHideFlags: 0

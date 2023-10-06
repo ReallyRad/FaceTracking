@@ -33,41 +33,27 @@ namespace Metaface.Debug
         private Stopwatch _puckerStopwatch;
         private Stopwatch _progressStopwatch;
 
-        private bool _wasSlightSmile; //to differentiate between "stopped smiling and "stopped slight pucker"
-        private bool _wasSlightPucker; //to differentiate between "stopped pucker" and "stopped slight smile"
+        [SerializeField] private FaceData _faceExpression;
+        
+        private void OnEnable()
+        {
+            FaceTrackingManager.MouthValue += SetMouthValue;
+            FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
+        }
 
-        //TODO replace with data structure holding all 4?
-        [SerializeField] private bool _smiling;
-        [SerializeField] private bool _slightSmile;
-        [SerializeField] private bool _pucker;
-        [SerializeField] private bool _slightPucker;
+        private void OnDisable()
+        {
+            FaceTrackingManager.MouthValue -= SetMouthValue;
+            FaceTrackingManager.FaceExpression -= NewFaceExpressionAvailable;
+        }
         
         private void Start()
         {
             _smileStopwatch = new Stopwatch();
             _puckerStopwatch = new Stopwatch();
             _progressStopwatch = new Stopwatch();
-            UnityEngine.Debug.Log("beotch");
         }
         
-        private void OnEnable()
-        {
-            FaceTrackingManager.MouthValue += SetMouthValue;
-            FaceTrackingManager.Pucker += Pucker;
-            FaceTrackingManager.SlightPucker += SlightPucker;
-            FaceTrackingManager.SlightSmile += SlightSmile;
-            FaceTrackingManager.Smile += Smile;
-        }
-
-        private void OnDisable()
-        {
-            FaceTrackingManager.MouthValue -= SetMouthValue;
-            FaceTrackingManager.Pucker -= Pucker;
-            FaceTrackingManager.SlightPucker -= SlightPucker;
-            FaceTrackingManager.SlightSmile -= SlightSmile;
-            FaceTrackingManager.Smile -= Smile;
-        }
-
         private void Update()
         {
             _puckerTimeSlider.value = (float) _puckerStopwatch.ElapsedMilliseconds/1000;
@@ -81,10 +67,10 @@ namespace Metaface.Debug
             
             if ((_puckerStopwatch.ElapsedMilliseconds > _smileTimingThreshold ||
                  _smileStopwatch.ElapsedMilliseconds > _puckerTimingThreshold) &&
-                !_slightPucker &&
-                !_slightSmile)
+                !_faceExpression.slightPucker &&
+                !_faceExpression.slightSmile)
             {
-                if (_progressOnBreatheIn && _smiling || _progressOnBreatheOut && _pucker)
+                if (_progressOnBreatheIn && _faceExpression.smiling || _progressOnBreatheOut && _faceExpression.pucker)
                 {
                     _progressStopwatch.Start();
                 }
@@ -97,40 +83,40 @@ namespace Metaface.Debug
             _mouthValueText.text = mouthValue.ToString();
         }
 
+        private void NewFaceExpressionAvailable()
+        {
+            if (_faceExpression.smiling) Smile();
+            else if (_faceExpression.slightSmile) SlightSmile();
+            else if (_faceExpression.slightPucker) SlightPucker();
+            else if (_faceExpression.pucker) Pucker();
+        }
+        
         private void Pucker()
         {
-            _pucker = true;
             _puckerStopwatch.Start();
             StartCoroutine(BreathVibration());
-            _wasSlightPucker = false;
         }
         
         private void Smile()
         {
-            _smiling = true;
             _smileStopwatch.Start();
-            _wasSlightSmile = false;
         }
 
         private void SlightPucker()
         {
-            _pucker = false;
             OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
             UnityEngine.Debug.Log("stop breath vibration");
             StopCoroutine("BreathVibration");
             _puckerStopwatch.Stop();
             _progressStopwatch.Stop();
-            _wasSlightPucker = true;
-            if (_wasSlightSmile) _smileStopwatch.Reset(); //only reset stopwatch once we passed 0
+            if (_faceExpression.previouslySlightSmile) _smileStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
         
         private void SlightSmile()
         {
-            _smiling = false;
             _smileStopwatch.Stop();
             _progressStopwatch.Stop();
-            _wasSlightSmile = true;
-            if (_wasSlightPucker) _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+            if (_faceExpression.previouslySlightPucker) _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
 
         private IEnumerator BreathVibration()
@@ -138,7 +124,7 @@ namespace Metaface.Debug
             UnityEngine.Debug.Log("breath vibes");
             OVRInput.SetControllerVibration(1, 0.2f, OVRInput.Controller.RTouch);
             yield return new WaitForSeconds(2f);
-            if (_pucker) StartCoroutine(BreathVibration());
+            if (_faceExpression.pucker) StartCoroutine(BreathVibration());
         }
     }
 }
