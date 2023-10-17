@@ -41,8 +41,8 @@ public class DiscreteVfxControl : MonoBehaviour
         auraApproaching.gameObject.SetActive(false);
         waveChangingColor.gameObject.SetActive(false);
         fog = VolumetricFog.instance;
-        //fog.enabled = false;
-        //fogDisappearing.gameObject.SetActive(false);
+        fog.enabled = false;
+        fogDisappearing.gameObject.SetActive(false);
 
         currentBN = 0;
         increment = 1.5f;
@@ -77,12 +77,12 @@ public class DiscreteVfxControl : MonoBehaviour
     }
     private void OnEnable()
     {
-        FaceTrackingManager.NewFullBreath += CountingBreaths;
+        //FaceTrackingManager.NewFullBreath += CountingBreaths;
         DiscreteBreathingControl.NewFullBreath += CountingBreaths;
     }
     private void OnDisable()
     {
-        FaceTrackingManager.NewFullBreath -= CountingBreaths;
+        //FaceTrackingManager.NewFullBreath -= CountingBreaths;
         DiscreteBreathingControl.NewFullBreath -= CountingBreaths;
     }
 

@@ -7,14 +7,13 @@ using VolumetricFogAndMist;
 public class ContinuousVfxControl : MonoBehaviour
 {
     private VolumetricFog fog;
-
     public GameObject fogDisappearing;
     public static float fogDisappearingNumberOfExhalesIfCompleteToFinish;
     public static float fogDisappearingInitialDensity;
     public static float fogDisappearingFinalDensity;
     private float fogDisappearingStartTime;
     
-    public ParticleSystem auraApproaching;
+    private ParticleSystem auraApproaching;
     public static float auraApproachingNumberOfExhalesIfCompleteToFinish;
     public static Vector3 auraApproachingInitialPosition;
     public static Vector3 auraApproachingFinalPosition;
@@ -38,7 +37,6 @@ public class ContinuousVfxControl : MonoBehaviour
     {
         elapsedTime = 0;
 
-        
         waveEnlarging.gameObject.SetActive(false);
         auraApproaching.gameObject.SetActive(false);
         waveChangingColor.gameObject.SetActive(false);

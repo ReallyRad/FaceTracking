@@ -12,13 +12,13 @@ public class DiscreteWaveEnlargingControl : MonoBehaviour
 
     private void OnEnable()
     {
-        FaceTrackingManager.NewFullBreath += WholeEnlargementVFX;
+        //FaceTrackingManager.NewFullBreath += WholeEnlargementVFX;
         DiscreteBreathingControl.NewFullBreath += WholeEnlargementVFX;
     }
 
     private void OnDisable()
     {
-        FaceTrackingManager.NewFullBreath -= WholeEnlargementVFX;
+        //FaceTrackingManager.NewFullBreath -= WholeEnlargementVFX;
         DiscreteBreathingControl.NewFullBreath -= WholeEnlargementVFX;
     }
 

@@ -17,13 +17,13 @@ public class DiscreteFogDisappearningControl : MonoBehaviour
 
     private void OnEnable()
     {
-        FaceTrackingManager.NewFullBreath += WholeDisappearingFog;
+        //FaceTrackingManager.NewFullBreath += WholeDisappearingFog;
         DiscreteBreathingControl.NewFullBreath += WholeDisappearingFog;
     }
 
     private void OnDisable()
     {
-        FaceTrackingManager.NewFullBreath -= WholeDisappearingFog;
+        //FaceTrackingManager.NewFullBreath -= WholeDisappearingFog;
         DiscreteBreathingControl.NewFullBreath -= WholeDisappearingFog;
     }
 

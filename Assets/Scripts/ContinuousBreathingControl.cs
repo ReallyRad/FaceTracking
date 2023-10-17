@@ -42,6 +42,7 @@ public class ContinuousBreathingControl : MonoBehaviour
         }
         SetYScale(gapFluid, 0f);
         SetYScale(periodFluid, 0f);
+        
     }
     void Update()
     {
@@ -105,6 +106,7 @@ public class ContinuousBreathingControl : MonoBehaviour
         {
             timeElapsed = 0f;
             SetYScale(periodFluid, 0f);
+            
         }
     }
 

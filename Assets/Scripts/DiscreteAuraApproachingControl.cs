@@ -12,12 +12,12 @@ public class DiscreteAuraApproachingControl : MonoBehaviour
 
     private void OnEnable()
     {
-        FaceTrackingManager.NewFullBreath += WholeApproachingVFX;
+        //FaceTrackingManager.NewFullBreath += WholeApproachingVFX;
         DiscreteBreathingControl.NewFullBreath += WholeApproachingVFX;
     }
     private void OnDisable()
     {
-        FaceTrackingManager.NewFullBreath -= WholeApproachingVFX;
+        //FaceTrackingManager.NewFullBreath -= WholeApproachingVFX;
         DiscreteBreathingControl.NewFullBreath -= WholeApproachingVFX;
     }
     private void WholeApproachingVFX()

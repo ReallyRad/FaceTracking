@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2075433385433346714}
   - component: {fileID: 2693069613420465187}
   - component: {fileID: -5127262930036142617}
+  - component: {fileID: -320928417457394248}
+  - component: {fileID: -5288401458342227030}
   m_Layer: 0
   m_Name: BreathingManager
   m_TagString: Untagged
@@ -63,3 +65,35 @@ MonoBehaviour:
   gapFluid: {fileID: 0}
   periodMaterial: {fileID: 0}
   gapMaterial: {fileID: 0}
+--- !u!114 &-320928417457394248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540143349056926265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9b819aa3e348d4ba62f34b9d9fc604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _smiling: 0
+  _slightSmile: 0
+  _pucker: 0
+  _slightPucker: 0
+  exhalePeriodFluid: {fileID: 0}
+  inhalePeriodFluid: {fileID: 0}
+  exhaleMaterial: {fileID: 0}
+  inhaleMaterial: {fileID: 0}
+--- !u!114 &-5288401458342227030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5540143349056926265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693ac09e2ddafb94791582339337a7c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

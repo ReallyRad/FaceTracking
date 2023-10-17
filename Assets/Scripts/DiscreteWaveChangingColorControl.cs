@@ -12,13 +12,13 @@ public class DiscreteWaveChangingColorControl : MonoBehaviour
 
     private void OnEnable()
     {
-        FaceTrackingManager.NewFullBreath += WholeColorChangeVFX;
+        //FaceTrackingManager.NewFullBreath += WholeColorChangeVFX;
         DiscreteBreathingControl.NewFullBreath += WholeColorChangeVFX;
     }
 
     private void OnDisable()
     {
-        FaceTrackingManager.NewFullBreath -= WholeColorChangeVFX;
+        //FaceTrackingManager.NewFullBreath -= WholeColorChangeVFX;
         DiscreteBreathingControl.NewFullBreath -= WholeColorChangeVFX;
     }
 
