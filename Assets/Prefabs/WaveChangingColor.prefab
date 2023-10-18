@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 7085297983531542872}
   - component: {fileID: 5365976161869209765}
   - component: {fileID: 6610264667014674487}
-  - component: {fileID: 5768304756050221233}
-  - component: {fileID: 2257361804364514647}
+  - component: {fileID: 7390638323021547924}
   m_Layer: 0
   m_Name: WaveChangingColor
   m_TagString: Untagged
@@ -4872,7 +4871,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &5768304756050221233
+--- !u!114 &7390638323021547924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4881,18 +4880,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7204248108777920174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a6f736c7bb7fa4eb49e71a968c21c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2257361804364514647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7204248108777920174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02822df7bc699bb4a9fdb569e5c482b9, type: 3}
+  m_Script: {fileID: 11500000, guid: bb3d336e52debc342a1a82c0a34b22bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

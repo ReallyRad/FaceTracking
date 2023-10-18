@@ -22,6 +22,7 @@ public class AllVfxsControl : MonoBehaviour
     public static float fogDisappearingNumberOfExhalesIfCompleteToFinish;
     private float fogDisappearingStartTime;
 
+
     public GameObject auraApproachingPrefab;
     private GameObject auraApproachingInstance;
     private ParticleSystem auraApproaching;
@@ -33,6 +34,7 @@ public class AllVfxsControl : MonoBehaviour
     // Continuous
     public static float auraApproachingNumberOfExhalesIfCompleteToFinish;
     private float auraApproachingStartTime;
+
 
     public GameObject waveEnlargingPrefab;
     private GameObject waveEnlargingInstance;
@@ -46,6 +48,7 @@ public class AllVfxsControl : MonoBehaviour
     public static float waveEnlargingNumberOfExhalesIfCompleteToFinish;
     private float waveEnlargingStartTime;
 
+
     public GameObject waveChangingColorPrefab;
     private GameObject waveChangingColorInstance;
     private ParticleSystem waveChangingColor;
@@ -57,6 +60,35 @@ public class AllVfxsControl : MonoBehaviour
     // Continuous
     public static float waveChangingColorNumberOfExhalesIfCompleteToFinish;
     private float waveChangingColorStartTime;
+
+
+    public GameObject backgroundChangingPrefab;
+    private GameObject backgroundChangingInstance;
+    public Material backgroundMaterial;
+    public static float backgroundChangingInitialExposure;
+    public static float backgroundChangingFinalExposure;
+    public static float backgroundChangingInitialTransparency;
+    public static float backgroundChangingFinalTransparency;
+    // Discrete
+    public static int backgroundChangingStartBN;
+    public static int backgroundChangingEndBN;
+    // Continuous
+    public static float backgroundChangingNumberOfExhalesIfCompleteToFinish;
+    private float backgroundChangingStartTime;
+
+    public GameObject northernLightsPrefab;
+    private GameObject northernLightsInstance;
+    private ParticleSystem northernLights;
+    public static float northernLightsInitialEmissionRate;
+    public static float northernLightsFinalEmissionRate;
+    // Discrete
+    public static int northernLightsStartBN;
+    public static int northernLightsEndBN;
+    // Continuous
+    public static float northernLightsNumberOfExhalesIfCompleteToFinish;
+    private float northernLightsStartTime;
+
+
     private void OnEnable()
     {
         if (ModeControl.Discrete)
@@ -188,12 +220,64 @@ public class AllVfxsControl : MonoBehaviour
                 StartCoroutine(ActivateObject(waveEnlarging.gameObject, waveEnlargingStartTime));
             }
         }
+
+        if (ModeControl.backgroundChanging)
+        {
+            backgroundChangingInstance = Instantiate(backgroundChangingPrefab);
+
+            backgroundChangingInitialTransparency = 0.7f;
+            backgroundChangingFinalTransparency = 0.99f;
+            backgroundChangingInitialExposure = 0.02f;
+            backgroundChangingFinalExposure = 0.6f;
+
+            backgroundMaterial.SetFloat("_Exposure", backgroundChangingInitialExposure);
+            //Color color = backgroundMaterial.color;
+            //color.a = backgroundChangingInitialTransparency;
+
+            backgroundChangingInstance.gameObject.SetActive(false);
+
+            if (ModeControl.Discrete)
+            {
+                backgroundChangingStartBN = 12;
+                backgroundChangingEndBN = 15;
+            }
+            if (ModeControl.Continuous)
+            {
+                backgroundChangingNumberOfExhalesIfCompleteToFinish = 3;
+                backgroundChangingStartTime = 0.5f;
+                StartCoroutine(ActivateObject(backgroundChangingInstance.gameObject, backgroundChangingStartTime));
+            }
+        }
+
+        if (ModeControl.northernLights)
+        {
+            northernLightsInstance = Instantiate(northernLightsPrefab, 
+                                                 new Vector3(0f, 250f, 0f), 
+                                                 Quaternion.identity);
+            northernLights = northernLightsInstance.GetComponent<ParticleSystem>();
+
+            northernLightsInitialEmissionRate = 0.001f;
+            northernLightsFinalEmissionRate = 1f;
+
+            var emission = northernLights.emission;
+            emission.rateOverTime = northernLightsInitialEmissionRate;
+
+            northernLightsInstance.gameObject.SetActive(false);
+
+            if (ModeControl.Discrete)
+            {
+                northernLightsStartBN = 12;
+                northernLightsEndBN = 15;
+            }
+            if (ModeControl.Continuous)
+            {
+                northernLightsNumberOfExhalesIfCompleteToFinish = 3;
+                northernLightsStartTime = 0.5f;
+                StartCoroutine(ActivateObject(northernLightsInstance.gameObject, northernLightsStartTime));
+            }
+        }
     }
 
-    void Update()
-    {
-        
-    }
 
     IEnumerator ActivateObject(GameObject obj, float delay)
     {

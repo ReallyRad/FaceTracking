@@ -58,8 +58,8 @@ public class BreathingControl : MonoBehaviour
     public delegate void On_PeInPi_LongerThanMinimum(float howLongMore);
     public static On_PeInPi_LongerThanMinimum New_PeInPi_LongerThanMinimum;
 
-    private float minExDuration = 0f;
-    private float maxExDuration = 3f;
+    private float minExDuration = 0.5f;
+    private float maxExDuration = 4f;
     private float finishedExDuration;
     private float currentExDuration;
 
@@ -154,6 +154,7 @@ public class BreathingControl : MonoBehaviour
         }
         if (ModeControl.Visual)
         {
+            UnityEngine.Debug.Log("HELLLLLLLOOOOOOO");
             FaceTrackingManager.Pucker += Pucker;
             FaceTrackingManager.SlightPucker += SlightPucker;
             FaceTrackingManager.SlightSmile += SlightSmile;
@@ -201,8 +202,6 @@ public class BreathingControl : MonoBehaviour
                     {
                         ExFluidMaterial.color = higherThanMaxColor;
                     }
-
-                    UnityEngine.Debug.Log("EX: " + currentExDuration);
                 }
                 if (ModeControl.ContinuousACT_PeInPi)
                 {
@@ -282,22 +281,28 @@ public class BreathingControl : MonoBehaviour
                 if (ModeControl.ContinuousACT_Ex)
                 {
                     currentExDuration = (float)pucker_Sw.ElapsedMilliseconds / 1000.0f;
+                    //currentExDuration = currentExDuration / maxExDuration;
                     ExFluidScale = currentExDuration / maxExDuration;
                     SetYScale(ExFluid, ExFluidScale);
                     if (currentExDuration < minExDuration)
                     {
                         ExFluidMaterial.color = lowerThanMinColor;
+                        if(New_Ex_LongerThanMinimum != null) New_Ex_LongerThanMinimum(0f);
                     }
                     if (currentExDuration > minExDuration &&
                         currentExDuration < maxExDuration)
                     {
                         ExFluidMaterial.color = betweenMinAndMaxColor;
-                        New_Ex_LongerThanMinimum(currentExDuration);
+                        New_Ex_LongerThanMinimum(ExFluidScale);
                     }
                     if (currentExDuration > maxExDuration)
                     {
                         ExFluidMaterial.color = higherThanMaxColor;
+                        New_Ex_LongerThanMinimum(0f);
                     }
+
+                    //UnityEngine.Debug.Log("VISUAL-EXHALE: " + currentExDuration);
+
                 }
                 if (ModeControl.ContinuousACT_In)
                 {
