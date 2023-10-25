@@ -2675,7 +2675,7 @@ MonoBehaviour:
   _progressOnBreatheOut: 1
   _smileTimingThreshold: 3000
   _puckerTimingThreshold: 3000
-  _faceExpression: {fileID: 11400000, guid: bdec2363c9ec54d808d2834efb069af7, type: 2}
+  _faceExpression: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
 --- !u!1 &2272303278575172391
 GameObject:
   m_ObjectHideFlags: 0

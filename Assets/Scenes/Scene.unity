@@ -586,6 +586,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2272303278437845212, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
+      propertyPath: _faceExpression
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
+    - target: {fileID: 2272303278437845212, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
       propertyPath: faceExpressions
       value: 
       objectReference: {fileID: 8532926148001288498}
@@ -714,6 +718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
+      propertyPath: _faceData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
     - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
       propertyPath: faceExpressions
       value: 
