@@ -154,11 +154,11 @@ public class BreathingControl : MonoBehaviour
         }
         if (ModeControl.Visual)
         {
-            UnityEngine.Debug.Log("HELLLLLLLOOOOOOO");
-            FaceTrackingManager.Pucker += Pucker;
-            FaceTrackingManager.SlightPucker += SlightPucker;
-            FaceTrackingManager.SlightSmile += SlightSmile;
-            FaceTrackingManager.Smile += Smile;
+            //UnityEngine.Debug.Log("HELLLLLLLOOOOOOO");
+            //FaceTrackingManager.Pucker += Pucker;
+            //FaceTrackingManager.SlightPucker += SlightPucker;
+            //FaceTrackingManager.SlightSmile += SlightSmile;
+            //FaceTrackingManager.Smile += Smile;
         }
     }
     private void OnDisable()
@@ -171,10 +171,10 @@ public class BreathingControl : MonoBehaviour
         }
         if (ModeControl.Visual)
         {
-            FaceTrackingManager.Pucker -= Pucker;
-            FaceTrackingManager.SlightPucker -= SlightPucker;
-            FaceTrackingManager.SlightSmile -= SlightSmile;
-            FaceTrackingManager.Smile -= Smile;
+            //FaceTrackingManager.Pucker -= Pucker;
+            //FaceTrackingManager.SlightPucker -= SlightPucker;
+            //FaceTrackingManager.SlightSmile -= SlightSmile;
+            //FaceTrackingManager.Smile -= Smile;
         }
     }
     void Update()
