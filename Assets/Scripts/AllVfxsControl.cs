@@ -166,7 +166,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 auraApproachingNumberOfExhalesIfCompleteToFinish = 3;
-                auraApproachingStartTime = 12f;
+                auraApproachingStartTime = 1f;
                 StartCoroutine(ActivateObject(auraApproaching.gameObject, auraApproachingStartTime));
             }
         }
@@ -216,7 +216,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 waveEnlargingNumberOfExhalesIfCompleteToFinish = 3;
-                waveEnlargingStartTime = 24;
+                waveEnlargingStartTime = 13;
                 StartCoroutine(ActivateObject(waveEnlarging.gameObject, waveEnlargingStartTime));
             }
         }
@@ -243,11 +243,10 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 backgroundChangingNumberOfExhalesIfCompleteToFinish = 3;
-                backgroundChangingStartTime = 0.1f;
+                backgroundChangingStartTime = 25f;
                 StartCoroutine(ActivateObject(backgroundChangingInstance.gameObject, backgroundChangingStartTime));
             }
         }
-
         if (ModeControl.northernLights)
         {
             northernLightsInstance = Instantiate(northernLightsPrefab, 

@@ -97,24 +97,28 @@ public class FaceTrackingManager : MonoBehaviour
         {
             _faceData.SetData(false, false, false, true);
             FaceExpression();
+            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
         }
 
         else if (!_faceData.previouslySmiling && _smiling)
         {
             _faceData.SetData(true, false, false, false);
             FaceExpression();
+            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
         }
 
         else if (!_faceData.previouslySlightPucker && _slightPucker)
         {
             _faceData.SetData(false, false, true, false);
             FaceExpression();
+            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
         }
 
         else if (!_faceData.previouslySlightSmile && _slightSmile)
         {
             _faceData.SetData(false, true, false, false);
             FaceExpression();
+            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
         }
     }
 
