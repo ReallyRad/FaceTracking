@@ -54,7 +54,7 @@ public class BackgroundChanging : MonoBehaviour
             {
                 if (ModeControl.ContinuousACT_Ex)
                 {
-                    UnityEngine.Debug.Log("HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+                    //UnityEngine.Debug.Log("HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
                     BreathingControl.New_Ex_LongerThanMinimum += ContinuousInteractiveWhole;
                 }
                 if (ModeControl.ContinuousACT_In)

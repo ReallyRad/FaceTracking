@@ -156,8 +156,8 @@ public class BreathingControl : MonoBehaviour
         }
         if (ModeControl.Visual)
         {
+            UnityEngine.Debug.Log("Hellllllllllllllllllllllo");
             FaceTrackingManager.FaceExpression += WhichFaceExpression;
-            UnityEngine.Debug.Log("Helooooooooooooooooooooo");
         }
     }
     private void OnDisable()
@@ -383,7 +383,7 @@ public class BreathingControl : MonoBehaviour
 
     private void WhichFaceExpression()
     {
-        UnityEngine.Debug.Log("Byeeeeeeeeeeeeeeeeeeeeeeeeee");
+        UnityEngine.Debug.Log("Byeeeeeeeeeeeeeeeeeeeeee");
         if (faceExpression.smiling) Smile();
         if (faceExpression.pucker) Pucker();
         if (faceExpression.slightPucker) SlightPucker();
