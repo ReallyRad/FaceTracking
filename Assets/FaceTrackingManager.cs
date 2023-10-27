@@ -86,7 +86,7 @@ public class FaceTrackingManager : MonoBehaviour
             }
         }
 
-        MouthValue(_mouthValue);
+        //MouthValue(_mouthValue);
 
         _smiling = smileValue >= _smileThreshold;
         _slightSmile = smileValue < _smileThreshold && _mouthValue > _neutralThreshold;

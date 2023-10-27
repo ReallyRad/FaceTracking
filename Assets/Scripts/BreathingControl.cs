@@ -94,6 +94,8 @@ public class BreathingControl : MonoBehaviour
     private bool exhaleSounding;
     private bool quieting;
 
+    public FaceData faceExpression;
+
     void Start()
     {
         SetYScale(ExFluid, 0f);
@@ -154,11 +156,8 @@ public class BreathingControl : MonoBehaviour
         }
         if (ModeControl.Visual)
         {
-            //UnityEngine.Debug.Log("HELLLLLLLOOOOOOO");
-            //FaceTrackingManager.Pucker += Pucker;
-            //FaceTrackingManager.SlightPucker += SlightPucker;
-            //FaceTrackingManager.SlightSmile += SlightSmile;
-            //FaceTrackingManager.Smile += Smile;
+            FaceTrackingManager.FaceExpression += WhichFaceExpression;
+            UnityEngine.Debug.Log("Helooooooooooooooooooooo");
         }
     }
     private void OnDisable()
@@ -171,10 +170,7 @@ public class BreathingControl : MonoBehaviour
         }
         if (ModeControl.Visual)
         {
-            //FaceTrackingManager.Pucker -= Pucker;
-            //FaceTrackingManager.SlightPucker -= SlightPucker;
-            //FaceTrackingManager.SlightSmile -= SlightSmile;
-            //FaceTrackingManager.Smile -= Smile;
+            FaceTrackingManager.FaceExpression -= WhichFaceExpression;
         }
     }
     void Update()
@@ -385,6 +381,14 @@ public class BreathingControl : MonoBehaviour
         fluid.transform.localScale = newScale;
     }
 
+    private void WhichFaceExpression()
+    {
+        UnityEngine.Debug.Log("Byeeeeeeeeeeeeeeeeeeeeeeeeee");
+        if (faceExpression.smiling) Smile();
+        if (faceExpression.pucker) Pucker();
+        if (faceExpression.slightPucker) SlightPucker();
+        if (faceExpression.slightSmile) SlightSmile();
+    }
     private void Pucker()
     {
         puckering = true;
