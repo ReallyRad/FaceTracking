@@ -10,7 +10,7 @@ public class BackgroundChanging : MonoBehaviour
     {
         if (ModeControl.Discrete)
         {
-            if (ModeControl.auraApproachingRP == "Progressive")
+            if (ModeControl.backgroundChangingRP == "Progressive")
             {
                 if (ModeControl.DiscreteFB_In_Ex)
                 {
@@ -21,7 +21,7 @@ public class BackgroundChanging : MonoBehaviour
                     BreathingControl.New_PeInPi_Ex_FullBreath += DiscreteProgressiveWhole;
                 }
             }
-            if (ModeControl.auraApproachingRP == "Interactive")
+            if (ModeControl.backgroundChangingRP == "Interactive")
             {
                 if (ModeControl.DiscreteFB_In_Ex)
                 {
@@ -35,7 +35,7 @@ public class BackgroundChanging : MonoBehaviour
         }
         if (ModeControl.Continuous)
         {
-            if (ModeControl.auraApproachingRP == "Progressive")
+            if (ModeControl.backgroundChangingRP == "Progressive")
             {
                 if (ModeControl.ContinuousACT_Ex)
                 {
@@ -50,7 +50,7 @@ public class BackgroundChanging : MonoBehaviour
                     BreathingControl.New_PeInPi_LongerThanMinimum = ContinuousProgressiveWhole;
                 }
             }
-            if (ModeControl.auraApproachingRP == "Interactive")
+            if (ModeControl.backgroundChangingRP == "Interactive")
             {
                 if (ModeControl.ContinuousACT_Ex)
                 {

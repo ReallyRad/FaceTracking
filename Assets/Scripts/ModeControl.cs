@@ -67,10 +67,10 @@ public class ModeControl : MonoBehaviour
         fogDisappearing = false;
         fogDisappearingRP = "Progressive";
 
-        auraApproaching = false;
-        auraApproachingRP = "Interactive";
+        auraApproaching = true;
+        auraApproachingRP = "Progressive";
 
-        waveEnlarging = false;
+        waveEnlarging = true;
         waveEnlargingRP = "Progressive";
 
         waveChangingColor = false;

@@ -59,7 +59,7 @@ public class BreathingControl : MonoBehaviour
     public static On_PeInPi_LongerThanMinimum New_PeInPi_LongerThanMinimum;
 
     private float minExDuration = 0.5f;
-    private float maxExDuration = 4f;
+    private float maxExDuration = 3.5f;
     private float finishedExDuration;
     private float currentExDuration;
 
@@ -289,12 +289,12 @@ public class BreathingControl : MonoBehaviour
                         currentExDuration < maxExDuration)
                     {
                         ExFluidMaterial.color = betweenMinAndMaxColor;
-                        New_Ex_LongerThanMinimum(ExFluidScale);
+                        if (New_Ex_LongerThanMinimum != null) New_Ex_LongerThanMinimum(ExFluidScale);
                     }
                     if (currentExDuration > maxExDuration)
                     {
                         ExFluidMaterial.color = higherThanMaxColor;
-                        New_Ex_LongerThanMinimum(0f);
+                        if (New_Ex_LongerThanMinimum != null) New_Ex_LongerThanMinimum(0f);
                     }
 
                     //UnityEngine.Debug.Log("VISUAL-EXHALE: " + currentExDuration);

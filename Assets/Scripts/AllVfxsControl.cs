@@ -143,7 +143,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 fogDisappearingNumberOfExhalesIfCompleteToFinish = 3;
-                fogDisappearingStartTime = 0.1f;
+                fogDisappearingStartTime = 12f;
                 StartCoroutine(ActivateFog(fogDisappearing, fogDisappearingStartTime));
             }
         }
@@ -166,7 +166,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 auraApproachingNumberOfExhalesIfCompleteToFinish = 3;
-                auraApproachingStartTime = 48f;
+                auraApproachingStartTime = 12f;
                 StartCoroutine(ActivateObject(auraApproaching.gameObject, auraApproachingStartTime));
             }
         }
@@ -216,11 +216,10 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 waveEnlargingNumberOfExhalesIfCompleteToFinish = 3;
-                waveEnlargingStartTime = 72;
+                waveEnlargingStartTime = 24;
                 StartCoroutine(ActivateObject(waveEnlarging.gameObject, waveEnlargingStartTime));
             }
         }
-
         if (ModeControl.backgroundChanging)
         {
             backgroundChangingInstance = Instantiate(backgroundChangingPrefab);
@@ -244,7 +243,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 backgroundChangingNumberOfExhalesIfCompleteToFinish = 3;
-                backgroundChangingStartTime = 0.5f;
+                backgroundChangingStartTime = 0.1f;
                 StartCoroutine(ActivateObject(backgroundChangingInstance.gameObject, backgroundChangingStartTime));
             }
         }
@@ -272,7 +271,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 northernLightsNumberOfExhalesIfCompleteToFinish = 3;
-                northernLightsStartTime = 0.5f;
+                northernLightsStartTime = 0.1f;
                 StartCoroutine(ActivateObject(northernLightsInstance.gameObject, northernLightsStartTime));
             }
         }
