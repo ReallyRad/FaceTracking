@@ -209,7 +209,12 @@ public class BackgroundChanging : MonoBehaviour
             yield return null;
         }
     }
-
+    private float currentSaturation;
+    private float currentExposure;
+    private float currentContrast;
+    private float previousSaturation = AllVfxsControl.backgroundChangingInitialSaturation;
+    private float previousExposure = AllVfxsControl.backgroundChangingInitialExposure;
+    private float previousContrast = AllVfxsControl.backgroundChangingInitialContrast;
     private void ContinuousProgressiveWhole(float fraction)
     {
         float exposureChange = AllVfxsControl.backgroundChangingFinalExposure - AllVfxsControl.backgroundChangingInitialExposure;
@@ -224,15 +229,19 @@ public class BackgroundChanging : MonoBehaviour
         float currentSaturationIncrement = fraction * maxIncrementalSaturationChange * Time.deltaTime;
         float currentContrastIncrement = fraction * maxIncrementalContrastChange * Time.deltaTime;
 
-        //float currentExposure = backgroundMat.GetFloat("_Exposure");
-        float currentSaturation = backgroundMat.GetFloat("_Saturation");
-        float currentContrast = backgroundMat.GetFloat("_Contrast");
+        currentExposure = previousExposure + currentExposureIncrement;
+        currentSaturation = previousSaturation + currentSaturationIncrement;
+        currentContrast = previousContrast + currentContrastIncrement;
 
         if (Mathf.Abs(currentSaturation - AllVfxsControl.backgroundChangingFinalSaturation) > 0.05)
         {
-            //backgroundMat.SetFloat("_Exposure", currentExposure + currentExposureIncrement);
-            backgroundMat.SetFloat("_Saturation", currentSaturation + currentSaturationIncrement);
-            backgroundMat.SetFloat("_Contrast", currentContrast + currentContrastIncrement);
+            backgroundMat.SetFloat("_Exposure", currentExposure);
+            backgroundMat.SetFloat("_Saturation", currentSaturation);
+            backgroundMat.SetFloat("_Contrast", currentContrast);
+
+            previousExposure = currentExposure;
+            previousSaturation = currentSaturation;
+            previousContrast = currentContrast;
         }
         else
         {

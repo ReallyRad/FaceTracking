@@ -235,12 +235,12 @@ public class AllVfxsControl : MonoBehaviour
 
             backgroundChangingInitialContrast = 0.99f;
             backgroundChangingFinalContrast = 0.99f;
-            backgroundChangingInitialExposure = 0.02f;
+            backgroundChangingInitialExposure = 0.6f;
             backgroundChangingFinalExposure = 0.6f;
             backgroundChangingInitialSaturation = 0.1f;
             backgroundChangingFinalSaturation = 0.99f;
 
-            //backgroundMaterial.SetFloat("_Exposure", backgroundChangingInitialExposure);
+            backgroundMaterial.SetFloat("_Exposure", backgroundChangingInitialExposure);
             backgroundMaterial.SetFloat("_Contrast", backgroundChangingInitialContrast);
             backgroundMaterial.SetFloat("_Saturation", backgroundChangingInitialSaturation);
 
