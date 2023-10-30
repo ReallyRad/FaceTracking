@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: beach
-  m_Shader: {fileID: 4800000, guid: d7bb9d4ea887e4041877356986247bba, type: 3}
+  m_Shader: {fileID: 4800000, guid: 37f3f65d703f3c8499369afdac3dc9b5, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
   - STEREO_NONE
