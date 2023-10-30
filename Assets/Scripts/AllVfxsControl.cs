@@ -67,8 +67,10 @@ public class AllVfxsControl : MonoBehaviour
     public Material backgroundMaterial;
     public static float backgroundChangingInitialExposure;
     public static float backgroundChangingFinalExposure;
-    public static float backgroundChangingInitialTransparency;
-    public static float backgroundChangingFinalTransparency;
+    public static float backgroundChangingInitialContrast;
+    public static float backgroundChangingFinalContrast;
+    public static float backgroundChangingInitialSaturation;
+    public static float backgroundChangingFinalSaturation;
     // Discrete
     public static int backgroundChangingStartBN;
     public static int backgroundChangingEndBN;
@@ -88,6 +90,13 @@ public class AllVfxsControl : MonoBehaviour
     public static float northernLightsNumberOfExhalesIfCompleteToFinish;
     private float northernLightsStartTime;
 
+    public GameObject musicPrefab;
+    private GameObject musicInstance;
+    // Discrete
+    public static int musicStartBN;
+    public static int musicEndBN;
+    // Continuous
+    private float musicStartTime;
 
     private void OnEnable()
     {
@@ -165,7 +174,7 @@ public class AllVfxsControl : MonoBehaviour
             }
             if (ModeControl.Continuous)
             {
-                auraApproachingNumberOfExhalesIfCompleteToFinish = 3;
+                auraApproachingNumberOfExhalesIfCompleteToFinish = 6;
                 auraApproachingStartTime = 1f;
                 StartCoroutine(ActivateObject(auraApproaching.gameObject, auraApproachingStartTime));
             }
@@ -224,14 +233,16 @@ public class AllVfxsControl : MonoBehaviour
         {
             backgroundChangingInstance = Instantiate(backgroundChangingPrefab);
 
-            backgroundChangingInitialTransparency = 0.7f;
-            backgroundChangingFinalTransparency = 0.99f;
+            backgroundChangingInitialContrast = 0.99f;
+            backgroundChangingFinalContrast = 0.99f;
             backgroundChangingInitialExposure = 0.02f;
             backgroundChangingFinalExposure = 0.6f;
+            backgroundChangingInitialSaturation = 0.1f;
+            backgroundChangingFinalSaturation = 0.99f;
 
-            backgroundMaterial.SetFloat("_Exposure", backgroundChangingInitialExposure);
-            //Color color = backgroundMaterial.color;
-            //color.a = backgroundChangingInitialTransparency;
+            //backgroundMaterial.SetFloat("_Exposure", backgroundChangingInitialExposure);
+            backgroundMaterial.SetFloat("_Contrast", backgroundChangingInitialContrast);
+            backgroundMaterial.SetFloat("_Saturation", backgroundChangingInitialSaturation);
 
             backgroundChangingInstance.gameObject.SetActive(false);
 
@@ -243,7 +254,7 @@ public class AllVfxsControl : MonoBehaviour
             if (ModeControl.Continuous)
             {
                 backgroundChangingNumberOfExhalesIfCompleteToFinish = 3;
-                backgroundChangingStartTime = 25f;
+                backgroundChangingStartTime = 1f;
                 StartCoroutine(ActivateObject(backgroundChangingInstance.gameObject, backgroundChangingStartTime));
             }
         }
@@ -272,6 +283,22 @@ public class AllVfxsControl : MonoBehaviour
                 northernLightsNumberOfExhalesIfCompleteToFinish = 3;
                 northernLightsStartTime = 0.1f;
                 StartCoroutine(ActivateObject(northernLightsInstance.gameObject, northernLightsStartTime));
+            }
+        }
+        if (ModeControl.music)
+        {
+            musicInstance = Instantiate(musicPrefab);
+            musicInstance.gameObject.SetActive(false);
+
+            if (ModeControl.Discrete)
+            {
+                musicStartBN = 4;
+                musicEndBN = 7;
+            }
+            if (ModeControl.Continuous)
+            {
+                musicStartTime = 5;
+                StartCoroutine(ActivateObject(musicInstance.gameObject, musicStartTime));
             }
         }
     }

@@ -194,7 +194,7 @@ public class AuraApprochingControl : MonoBehaviour
 
         if (Vector3.Distance(ps.transform.position, AllVfxsControl.auraApproachingFinalPosition) > 0.05f)
         {
-            ps.transform.position += currentIncrementalMovement;
+            ps.transform.position += currentIncrementalMovement * Time.deltaTime;
         }
         else
         {

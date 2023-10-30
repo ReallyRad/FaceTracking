@@ -50,5 +50,8 @@ public class SeamlessLoop : MonoBehaviour
     {
         _volume = volume;
     }
-
+    public float GetVolume()
+    {
+        return _volume;
+    }
 }

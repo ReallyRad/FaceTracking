@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837a517475b208948a3940ca13576be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundMat: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
+  backgroundMat: {fileID: 2100000, guid: 4d73b38ea3f5540a5920f489610100c3, type: 2}

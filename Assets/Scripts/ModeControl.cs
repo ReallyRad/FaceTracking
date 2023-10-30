@@ -37,6 +37,9 @@ public class ModeControl : MonoBehaviour
     public static bool northernLights;
     public static string northernLightsRP;
 
+    public static bool music;
+    public static string musicRP;
+
     //public Canvas CanvasSetting;
     //public Canvas CanvasTracking;
     //public GameObject BreathingControl;
@@ -67,10 +70,10 @@ public class ModeControl : MonoBehaviour
         fogDisappearing = false;
         fogDisappearingRP = "Progressive";
 
-        auraApproaching = true;
-        auraApproachingRP = "Interactive";
+        auraApproaching = false;
+        auraApproachingRP = "Progressive";
 
-        waveEnlarging = true;
+        waveEnlarging = false;
         waveEnlargingRP = "Interactive";
 
         waveChangingColor = false;
@@ -81,6 +84,9 @@ public class ModeControl : MonoBehaviour
 
         northernLights = false;
         northernLightsRP = "Interactive";
+
+        music = true;
+        musicRP = "Progressive";
 
 
         // the temporalization mode
