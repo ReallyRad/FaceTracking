@@ -1,0 +1,34 @@
+{
+    "name": "Calcatz.CookieCutter",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f06555f75b070af458a003d92f9efb00",
+        "GUID:80e827ebd338f733e9e1d73f5c62b2e2",
+        "GUID:e36ab4f0a64bbd54ab731d0b2882ba05"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.calcatz.odininspector",
+            "expression": "0.0.0",
+            "define": "ODIN_INSPECTOR_AVAILABLE"
+        },
+        {
+            "name": "com.calcatz.moreeffectivecoroutines",
+            "expression": "1",
+            "define": "MEC_AVAILABLE"
+        },
+        {
+            "name": "com.unity.timeline",
+            "expression": "0.0.0",
+            "define": "TIMELINE_AVAILABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

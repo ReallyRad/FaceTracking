@@ -1,0 +1,25 @@
+{
+    "name": "Calcatz.Sequine",
+    "rootNamespace": "",
+    "references": [
+        "Calcatz.CookieCutter",
+        "Unity.TextMeshPro",
+        "Calcatz.OdinSerializer",
+        "Calcatz.CookieCutter.Audio"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.timeline",
+            "expression": "0.0.0",
+            "define": "TIMELINE_AVAILABLE"
+        }
+    ],
+    "noEngineReferences": false
+}

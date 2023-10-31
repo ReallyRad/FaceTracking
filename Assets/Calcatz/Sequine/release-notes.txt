@@ -1,0 +1,30 @@
+v1.3.0:
+- Any command that has Clip field now has in-point to set the clip dynamically
+- Added GetActionClipCommand to get the animation clip reference by specifying the action, enabling more procedural way of utilizing the action animations
+- Added PlayAnimationClipAtRangeCommand to play an animation clip within the specified time range percentage. Random range variation can also be added
+- CookieCutter has been updated to v1.1.0: Added RandomObjectSelectorCommand to get 1 random object from the specified list of objects
+
+v1.2.0:
+- Added PauseSequinePlayerCommand to pause Sequine Player
+- Added ResumeSequinePlayerCommand to resume Sequine Player
+- Added PauseAnimationClipCommand to pause an already playing animation clip
+- Added PauseActionAnimationCommand to pause an already playing action animation
+- Added ResumeAnimationClipCommand to resume a paused animation clip state
+- Added ResumeActionAnimationCommand to resume a paused action animation's clip state
+- Added PauseAnimationClipAtTimeCommand that pauses an animation clip, and samples the pose at the specified time
+- Added PauseActionAnimationAtTimeCommand that pauses an action animation, and samples the pose at the specified time
+
+v1.1.0:
+- SequineFlowExecutor: Overload Execute method with on complete action parameter
+- SequineFlowComponent: Overload Execute method with on complete action parameter
+
+v1.0.2:
+- Gizmos: Removed annotation warning when SetIconEnabled is not yet ready
+- SetGlobalVariableCommandNode: Fixed variable name declaration ambiguity that can't be resolved in project with API Compatibility level .NET 4.x
+
+v1.0.1:
+- Added search field to Global Data window
+- Use searchable popup for Global Variable commands
+
+v1.0.0:
+- First release

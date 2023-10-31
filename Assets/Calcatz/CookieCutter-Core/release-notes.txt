@@ -1,0 +1,5 @@
+v1.1.0:
+- Added RandomObjectSelectorCommand to get 1 random object from the specified list of objects
+
+v1.0.0:
+- First public version

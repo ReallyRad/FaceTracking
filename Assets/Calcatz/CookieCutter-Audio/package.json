@@ -1,0 +1,13 @@
+{
+    "name": "com.calcatz.cookiecutter-audio",
+    "displayName": "CookieCutter-Audio",
+    "version": "1.0.0",
+    "unity": "2019.4",
+    "description": "Audio management for Audio Source.",
+    "keywords": [
+        "audio",
+        "framework",
+        "unity"
+    ],
+    "category": "Unity"
+}

@@ -1,0 +1,13 @@
+{
+    "name": "com.calcatz.packages",
+    "displayName": "Calcatz",
+    "version": "1.0.0",
+    "unity": "2022.3",
+    "description": "Calcatz Packages.",
+    "keywords": [
+        "calcatz",
+	"packages",
+        "unity"
+    ],
+    "category": "Unity"
+}

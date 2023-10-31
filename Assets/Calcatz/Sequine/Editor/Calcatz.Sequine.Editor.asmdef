@@ -1,0 +1,21 @@
+{
+    "name": "Calcatz.Sequine.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Calcatz.Sequine",
+        "Calcatz.CookieCutter",
+        "Calcatz.CookieCutter.Editor",
+        "Calcatz.OdinSerializer"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

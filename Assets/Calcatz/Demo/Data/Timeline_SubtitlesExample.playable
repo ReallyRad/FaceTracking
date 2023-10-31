@@ -1,0 +1,821 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3158985169656100491
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97387fb0c1728db4a9e8a7d6796e56e9, type: 3}
+  m_Name: SequineFlowClip
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 3404060db6cb8d241858de30d4992912, type: 2}
+    - {fileID: 11400000, guid: 37314361b2579a14eb09a4ff935b752b, type: 2}
+    - {fileID: -3158985169656100491}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_commandData
+      Entry: 7
+      Data: 0|Calcatz.Sequine.SequineFlowCommandData, Calcatz.Sequine
+    - Name: pooledIds
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: currentId
+      Entry: 3
+      Data: 11
+    - Name: commands
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[Calcatz.CookieCutter.Command,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 4|Calcatz.Sequine.SequineFlowCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 1
+    - Name: nextIds
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 11
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 11
+    - Name: $v
+      Entry: 7
+      Data: 9|Calcatz.Sequine.TextAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 223.2
+    - Name: 
+      Entry: 4
+      Data: 199.799988
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 11
+    - Name: nextIds
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 16|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: text
+      Entry: 1
+      Data: This is the end of the demo.
+    - Name: appendWithPreviousText
+      Entry: 5
+      Data: false
+    - Name: behaviourProfile
+      Entry: 10
+      Data: 1
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_targetObject
+      Entry: 10
+      Data: 2
+    - Name: m_variables
+      Entry: 7
+      Data: 18|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[Calcatz.CookieCutter.CommandData+Variable,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  commandExecutor:
+    firstFrameHappened: 0
+  m_commandData:
+    pooledIds: 
+    currentId: 11
+    m_targetObject: {fileID: -3158985169656100491}
+--- !u!114 &-2294191209671461711
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97387fb0c1728db4a9e8a7d6796e56e9, type: 3}
+  m_Name: SequineFlowClip
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 3404060db6cb8d241858de30d4992912, type: 2}
+    - {fileID: 11400000, guid: 25e959f400b83b741ae049398189d4e1, type: 2}
+    - {fileID: -2294191209671461711}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_commandData
+      Entry: 7
+      Data: 0|Calcatz.Sequine.SequineFlowCommandData, Calcatz.Sequine
+    - Name: pooledIds
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: currentId
+      Entry: 3
+      Data: 12
+    - Name: commands
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[Calcatz.CookieCutter.Command,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 4|Calcatz.Sequine.SequineFlowCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 1
+    - Name: nextIds
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 11
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 11
+    - Name: $v
+      Entry: 7
+      Data: 9|Calcatz.Sequine.TextAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 224.5258
+    - Name: 
+      Entry: 4
+      Data: 201.028015
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 11
+    - Name: nextIds
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 16|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: text
+      Entry: 1
+      Data: This text is animated from Timeline.
+    - Name: appendWithPreviousText
+      Entry: 5
+      Data: false
+    - Name: behaviourProfile
+      Entry: 10
+      Data: 1
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_targetObject
+      Entry: 10
+      Data: 2
+    - Name: m_variables
+      Entry: 7
+      Data: 18|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[Calcatz.CookieCutter.CommandData+Variable,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  commandExecutor:
+    firstFrameHappened: 0
+  m_commandData:
+    pooledIds: 0c000000
+    currentId: 12
+    m_targetObject: {fileID: -2294191209671461711}
+--- !u!114 &-2086089053369893292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e3904cf0d61814d9efdedb02831df9, type: 3}
+  m_Name: Timeline Command Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips:
+  - m_Version: 1
+    m_Start: 0.5833333333333334
+    m_ClipIn: 0
+    m_Asset: {fileID: -2294191209671461711}
+    m_Duration: 1.65
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -2086089053369893292}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Text Animation 1
+  - m_Version: 1
+    m_Start: 3.1666666666666665
+    m_ClipIn: 0
+    m_Asset: {fileID: -3158985169656100491}
+    m_Duration: 1.65
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -2086089053369893292}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: 0
+    m_BlendOutDuration: 0
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Text Animation 2
+  m_Markers:
+    m_Objects: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfda56da833e2384a9677cd3c976a436, type: 3}
+  m_Name: Timeline_SubtitlesExample
+  m_EditorClassIdentifier: 
+  m_Version: 0
+  m_Tracks:
+  - {fileID: -2086089053369893292}
+  m_FixedDuration: 0
+  m_EditorSettings:
+    m_Framerate: 60
+    m_ScenePreview: 1
+  m_DurationMode: 0
+  m_MarkerTrack: {fileID: 0}

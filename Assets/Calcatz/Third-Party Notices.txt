@@ -1,0 +1,13 @@
+This package contains third-party software components governed by the license(s) indicated below:
+
+Component Name: Unity-Chan! Model
+
+License Type: EULA "Unity-Chan License (UCL)"
+
+[Unity-Chan License](https://unity-chan.com/contents/license_en/)
+
+Component Name: Odin Serializer
+
+License Type: "Apache License"
+
+[Odin Serializer License](https://github.com/TeamSirenix/odin-serializer/blob/master/LICENSE)

@@ -1,0 +1,16 @@
+{
+    "name": "Calcatz.CookieCutter.Audio",
+    "rootNamespace": "",
+    "references": [
+        "GUID:80e827ebd338f733e9e1d73f5c62b2e2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

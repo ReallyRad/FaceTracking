@@ -1,0 +1,2051 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275b722fd52d7664db6316e536c2ee67, type: 3}
+  m_Name: SequineFlow_UnityChan
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 67cfa3dae1182404e8e82a6d24ff54a5, type: 2}
+    - {fileID: 8300000, guid: eed2451bbd4264da8b6c27c92df62faf, type: 3}
+    - {fileID: 7400000, guid: 1e79f5e733df84044a45d6ab05035627, type: 3}
+    - {fileID: 7400000, guid: 0147e212f97e3d449a4b9e4f5d057180, type: 3}
+    - {fileID: 8300000, guid: d7c4040670e28478fbd49fd9b6060ac8, type: 3}
+    - {fileID: 11400000, guid: 542bbb534b453914d8f678a35a549633, type: 2}
+    - {fileID: 11400000, guid: 37314361b2579a14eb09a4ff935b752b, type: 2}
+    - {fileID: 102900000, guid: b21b90e014b6c7848933367cf0672544, type: 3}
+    - {fileID: 11400000, guid: 25e959f400b83b741ae049398189d4e1, type: 2}
+    - {fileID: 7400000, guid: 26055e26f15260e4e8e0e51f50c41926, type: 3}
+    - {fileID: 11400000}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: m_commandData
+      Entry: 7
+      Data: 0|Calcatz.Sequine.SequineFlowCommandData, Calcatz.Sequine
+    - Name: pooledIds
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[System.Int32, mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: currentId
+      Entry: 3
+      Data: 24
+    - Name: commands
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[Calcatz.CookieCutter.Command,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 14
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 4|Calcatz.Sequine.SequineFlowCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 200
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 1
+    - Name: nextIds
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 7|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 21
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 11
+    - Name: $v
+      Entry: 7
+      Data: 9|Calcatz.Sequine.PlayActionAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2425.7627
+    - Name: 
+      Entry: 4
+      Data: 195.438232
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 11
+    - Name: nextIds
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 13
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 14|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 14
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 17|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: layer
+      Entry: 3
+      Data: 0
+    - Name: speed
+      Entry: 4
+      Data: 1
+    - Name: transitionDuration
+      Entry: 4
+      Data: 0.25
+    - Name: normalizedTransition
+      Entry: 5
+      Data: false
+    - Name: lengthToPlay
+      Entry: 4
+      Data: 1
+    - Name: restart
+      Entry: 5
+      Data: true
+    - Name: editor_showConfig
+      Entry: 5
+      Data: false
+    - Name: actionId
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 12
+    - Name: $v
+      Entry: 7
+      Data: 18|Calcatz.CookieCutter.WaitForSecondsCommand, Calcatz.CookieCutter
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 999.682251
+    - Name: 
+      Entry: 4
+      Data: 209.413635
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 12
+    - Name: nextIds
+      Entry: 7
+      Data: 19|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 20|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 21|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 22
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 22|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 23|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 24|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: duration
+      Entry: 4
+      Data: 1
+    - Name: timeScaleIndependent
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 13
+    - Name: $v
+      Entry: 7
+      Data: 25|Calcatz.Sequine.PlayAudioClipCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2812.69629
+    - Name: 
+      Entry: 4
+      Data: 35.1068878
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 13
+    - Name: nextIds
+      Entry: 7
+      Data: 26|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 27|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 28|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 29|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 30|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 31|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 32|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 33|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: volumeMultiplier
+      Entry: 4
+      Data: 1
+    - Name: playAtPosition
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: audioClip
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 14
+    - Name: $v
+      Entry: 7
+      Data: 34|Calcatz.Sequine.PlayAnimationClipCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3024.996
+    - Name: 
+      Entry: 4
+      Data: 298.041962
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 14
+    - Name: nextIds
+      Entry: 7
+      Data: 35|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 36|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 37|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 16
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 38|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 39|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 40|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 41|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: layer
+      Entry: 3
+      Data: 0
+    - Name: speed
+      Entry: 4
+      Data: 1
+    - Name: transitionDuration
+      Entry: 4
+      Data: 0.25
+    - Name: normalizedTransition
+      Entry: 5
+      Data: false
+    - Name: lengthToPlay
+      Entry: 4
+      Data: 1
+    - Name: restart
+      Entry: 5
+      Data: false
+    - Name: editor_showConfig
+      Entry: 5
+      Data: false
+    - Name: clip
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 15
+    - Name: $v
+      Entry: 7
+      Data: 42|Calcatz.Sequine.PlayAnimationClipCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1612.67249
+    - Name: 
+      Entry: 4
+      Data: 202.547592
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 15
+    - Name: nextIds
+      Entry: 7
+      Data: 43|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 44|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 45|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 46|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 23
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 47|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 48|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 49|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: layer
+      Entry: 3
+      Data: 0
+    - Name: speed
+      Entry: 4
+      Data: 1
+    - Name: transitionDuration
+      Entry: 4
+      Data: 0.25
+    - Name: normalizedTransition
+      Entry: 5
+      Data: false
+    - Name: lengthToPlay
+      Entry: 4
+      Data: 1
+    - Name: restart
+      Entry: 5
+      Data: false
+    - Name: editor_showConfig
+      Entry: 5
+      Data: true
+    - Name: clip
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 16
+    - Name: $v
+      Entry: 7
+      Data: 50|Calcatz.Sequine.PlayAudioClipCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3459.03223
+    - Name: 
+      Entry: 4
+      Data: 162.6943
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 16
+    - Name: nextIds
+      Entry: 7
+      Data: 51|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 52|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 53|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 17
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 54|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 55|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 56|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 57|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 58|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: volumeMultiplier
+      Entry: 4
+      Data: 1
+    - Name: playAtPosition
+      Entry: 5
+      Data: false
+    - Name: position
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: audioClip
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 17
+    - Name: $v
+      Entry: 7
+      Data: 59|Calcatz.Sequine.TextAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 3828.94287
+    - Name: 
+      Entry: 4
+      Data: 160.0737
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 17
+    - Name: nextIds
+      Entry: 7
+      Data: 60|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 61|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 62|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 63|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 64|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 18
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 65|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 66|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 67|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 68|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 5
+    - Name: text
+      Entry: 1
+      Data: Let's move to the next scene...
+    - Name: appendWithPreviousText
+      Entry: 5
+      Data: false
+    - Name: behaviourProfile
+      Entry: 10
+      Data: 6
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 18
+    - Name: $v
+      Entry: 7
+      Data: 69|Calcatz.CookieCutter.WaitForSecondsCommand, Calcatz.CookieCutter
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 4215.8667
+    - Name: 
+      Entry: 4
+      Data: 331.7363
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 18
+    - Name: nextIds
+      Entry: 7
+      Data: 70|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 71|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 72|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 19
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 73|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 74|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 75|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: duration
+      Entry: 4
+      Data: 2
+    - Name: timeScaleIndependent
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 19
+    - Name: $v
+      Entry: 7
+      Data: 76|Calcatz.Sequine.LoadSceneCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 4468.53271
+    - Name: 
+      Entry: 4
+      Data: 330.936249
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 19
+    - Name: nextIds
+      Entry: 7
+      Data: 77|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 78|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 79|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 80|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 81|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: sceneToLoad
+      Entry: 1
+      Data: DemoNextScene
+    - Name: loadSceneMode
+      Entry: 3
+      Data: 0
+    - Name: sceneAssetToLoad
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 20
+    - Name: $v
+      Entry: 7
+      Data: 82|Calcatz.Sequine.TextAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 654.8126
+    - Name: 
+      Entry: 4
+      Data: 200.340149
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 20
+    - Name: nextIds
+      Entry: 7
+      Data: 83|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 84|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 85|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 12
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 86|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 87|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 88|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 89|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 90|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 5
+    - Name: text
+      Entry: 1
+      Data: 'Hi, '
+    - Name: appendWithPreviousText
+      Entry: 5
+      Data: false
+    - Name: behaviourProfile
+      Entry: 10
+      Data: 8
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 21
+    - Name: $v
+      Entry: 7
+      Data: 91|Calcatz.Sequine.PlayAnimationClipCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 232.983643
+    - Name: 
+      Entry: 4
+      Data: 199.290527
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 21
+    - Name: nextIds
+      Entry: 7
+      Data: 92|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 93|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 94|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 20
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 95|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 96|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 97|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 98|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 99|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 0
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: layer
+      Entry: 3
+      Data: 0
+    - Name: speed
+      Entry: 4
+      Data: 1
+    - Name: transitionDuration
+      Entry: 4
+      Data: 0.25
+    - Name: normalizedTransition
+      Entry: 5
+      Data: false
+    - Name: lengthToPlay
+      Entry: 4
+      Data: 1
+    - Name: restart
+      Entry: 5
+      Data: false
+    - Name: editor_showConfig
+      Entry: 5
+      Data: false
+    - Name: clip
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 22
+    - Name: $v
+      Entry: 7
+      Data: 100|Calcatz.Sequine.TextAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1238.65808
+    - Name: 
+      Entry: 4
+      Data: 207.671509
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 22
+    - Name: nextIds
+      Entry: 7
+      Data: 101|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 102|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 103|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 104|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 105|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 15
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 106|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 107|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 108|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 109|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 5
+    - Name: text
+      Entry: 1
+      Data: this is how we play an animation clip.
+    - Name: appendWithPreviousText
+      Entry: 5
+      Data: true
+    - Name: behaviourProfile
+      Entry: 10
+      Data: 8
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 23
+    - Name: $v
+      Entry: 7
+      Data: 110|Calcatz.Sequine.TextAnimationCommand, Calcatz.Sequine
+    - Name: nodePosition
+      Entry: 7
+      Data: UnityEngine.Vector2, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 2015.87646
+    - Name: 
+      Entry: 4
+      Data: 203.0027
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: id
+      Entry: 3
+      Data: 23
+    - Name: nextIds
+      Entry: 7
+      Data: 111|System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 112|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 113|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 114|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 115|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 11
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 116|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: inputIds
+      Entry: 7
+      Data: 117|System.Collections.Generic.List`1[[Calcatz.CookieCutter.Command+ConnectionTarget,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 118|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 119|Calcatz.CookieCutter.Command+ConnectionTarget, Calcatz.CookieCutter
+    - Name: targetId
+      Entry: 3
+      Data: 0
+    - Name: pointIndex
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: target
+      Entry: 10
+      Data: 5
+    - Name: text
+      Entry: 1
+      Data: And this is how we play an action animation, and immediately play a sound.
+    - Name: appendWithPreviousText
+      Entry: 5
+      Data: false
+    - Name: behaviourProfile
+      Entry: 10
+      Data: 8
+    - Name: editor_targetCrossSceneObject
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: m_targetObject
+      Entry: 10
+      Data: 10
+    - Name: m_variables
+      Entry: 7
+      Data: 120|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[Calcatz.CookieCutter.CommandData+Variable,
+        Calcatz.CookieCutter]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  guid: 9de06749-8934-47ae-9c8a-5f58d133b972
