@@ -1,76 +1,27 @@
+using System;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    private void OnEnable()
-    {
-        if (ModeControl.Continuous)
-        {
-            if (ModeControl.auraApproachingRP == "Progressive")
-            {
-                if (ModeControl.ContinuousACT_Ex)
-                {
-                    BreathingControl.New_Ex_LongerThanMinimum += ContinuousProgressiveWhole;
-                }
-                if (ModeControl.ContinuousACT_In)
-                {
-                    BreathingControl.New_In_LongerThanMinimum += ContinuousProgressiveWhole;
-                }
-                if (ModeControl.ContinuousACT_PeInPi)
-                {
-                    BreathingControl.New_PeInPi_LongerThanMinimum = ContinuousProgressiveWhole;
-                }
-            }
-        }
-    }
-    private void OnDisable()
-    {
-        if (ModeControl.Continuous)
-        {
-            if (ModeControl.auraApproachingRP == "Progressive")
-            {
-                if (ModeControl.ContinuousACT_Ex)
-                {
-                    BreathingControl.New_Ex_LongerThanMinimum -= ContinuousProgressiveWhole;
-                }
-                if (ModeControl.ContinuousACT_In)
-                {
-                    BreathingControl.New_In_LongerThanMinimum -= ContinuousProgressiveWhole;
-                }
-                if (ModeControl.ContinuousACT_PeInPi)
-                {
-                    BreathingControl.New_PeInPi_LongerThanMinimum -= ContinuousProgressiveWhole;
-                }
-            }
-        }
-    }
-
     private float _maxVolume = 1f;
-    private float _currentVolumeOfCurrentSL;
-    private float _currentVolumeOfCurrentSLIncrease;
     
     [SerializeField] private SeamlessLoop[] _seamlessLoops;
     [SerializeField] private int _progress;
     [SerializeField] private int _currentLoopIndex;
 
-    private void ContinuousProgressiveWhole(float fraction)
+    private void OnEnable()
     {
-        if (_currentLoopIndex < _seamlessLoops.Length)
-        {
-            _currentVolumeOfCurrentSL = _seamlessLoops[_currentLoopIndex].GetVolume();
-            if (_currentVolumeOfCurrentSL < _maxVolume)
-            {
-                _currentVolumeOfCurrentSLIncrease = _maxVolume * fraction * Time.deltaTime;
-                _seamlessLoops[_currentLoopIndex].SetVolume(_currentVolumeOfCurrentSL + _currentVolumeOfCurrentSLIncrease);
-            }
-            else if (_currentLoopIndex < (_seamlessLoops.Length - 1))
-            {
-                _currentLoopIndex++;
-                _currentVolumeOfCurrentSL = _seamlessLoops[_currentLoopIndex].GetVolume();
-                _currentVolumeOfCurrentSLIncrease = _maxVolume * fraction * Time.deltaTime;
-                _seamlessLoops[_currentLoopIndex].SetVolume(_currentVolumeOfCurrentSL + _currentVolumeOfCurrentSLIncrease);
-            }
-        }
+        ProgressManger.Progress += Progress;
+    }
+
+    private void OnDisable()
+    {
+        ProgressManger.Progress -= Progress;
+    }
+
+    private void Progress(float progress)
+    {
+        
     }
 
     private void LevelUp()
