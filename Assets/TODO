@@ -1,0 +1,67 @@
+TODO :
+exponential with max
+duration at max performance.
+
+Do not give feedback on breathe in but track
+
+audio mappping continuous progressive 
+
+auditory vs visual
+continuous vs discrete
+progressive vs interactive
+
+10 times of a 3 to 7 seconds 
+
+8 tracks, 8 times of a 3 to 7 seconds
+
+find curve for :
+ - perception mapping
+ - accelerated response increase
+
+use timeline?
+use sequine? https://assetstore.unity.com/packages/tools/visual-scripting/sequine-sequencing-animation-and-visual-scripting-260083
+
+don't use any references to effects names in sequencing scripts. use general purpose scripts or interfaces/subclasses -> use inspector interface to reference and sequence different prefabs.
+
+
+
+use more fine grained control of animation -> modify already existing animations of assets 
+
+scripting conventions 
+    case and naming
+         - no undercores between words in names (no snake_case)
+         - underscore at start of private fields names.
+         - variable names camelCase
+         - method names PascalCase 
+         - no abbreviations in names        
+              
+    keeping it clean         
+         - don't leave commented or unused code in (use stashes or commit to a separate branch)
+         - keep scripts uneder 350 lines
+         - keep methods under 150 lines
+         - don't repeat yourself
+         - put bracket on next line for if or on same line if short enough
+          - private / public fields/methods
+          - use regions? or at least order
+
+
+ammbisonics
+reward with saturation and extra sparkly sounds once everything has been faded in
+
+phase 1 fog
+phase 2 music
+phase 3 color (music still on)
+
+volumetric lighting
+    
+play around with threshold to have it work without smile
+color saturation for 
+
+try shadergraph node algorithm for saturation and contrast
+
+DONE :
+saturation and contrast only on the skybox 
+use vibration to give feedback on breathing.
+make a discrete event for neutral expression
+remove time from smile and pucker event
+reward from 3 to 7 seconds
