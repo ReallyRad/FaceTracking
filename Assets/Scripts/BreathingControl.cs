@@ -394,6 +394,8 @@ public class BreathingControl : MonoBehaviour
     }
     private void Pucker()
     {
+        StartCoroutine(BreathVibration());
+
         puckering = true;
         slightPuckering = false;
         slightSmiling = false;
@@ -510,5 +512,12 @@ public class BreathingControl : MonoBehaviour
         puckeringTime.value = (float)pucker_Sw.ElapsedMilliseconds / 1000.0f;
         exhaleSoundingTime.value = (float)exhaleSound_Sw.ElapsedMilliseconds / 1000.0f;
         quietingTime.value = (float)quiet_Sw.ElapsedMilliseconds / 1000.0f;
+    }
+
+    private IEnumerator BreathVibration()
+    {
+        OVRInput.SetControllerVibration(1, 0.2f, OVRInput.Controller.RTouch);
+        yield return new WaitForSeconds(2f);
+        if (faceExpression.pucker) StartCoroutine(BreathVibration());
     }
 }

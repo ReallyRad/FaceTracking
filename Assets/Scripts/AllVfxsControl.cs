@@ -104,6 +104,10 @@ public class AllVfxsControl : MonoBehaviour
     private GameObject postProcessing;
     public static float postProcessingInitialSaturation;
     public static float postProcessingFinalSaturation;
+    public static float postProcessingInitialContrast;
+    public static float postProcessingFinalContrast;
+    public static float postProcessingInitialHueshift;
+    public static float postProcessingFinalHueshift;
     // Discrete
     public static int postProcessingStartBN;
     public static int postProcessingEndBN;
@@ -149,7 +153,12 @@ public class AllVfxsControl : MonoBehaviour
         fog = VolumetricFog.instance;
         fog.enabled = false;
         ColorGrading colorGrading;
-        if (postProcessProfile.TryGetSettings(out colorGrading)) colorGrading.saturation.value = 0f;
+        if (postProcessProfile.TryGetSettings(out colorGrading))
+        {
+            colorGrading.saturation.value = 0f;
+            colorGrading.contrast.value = 0f;
+            colorGrading.hueShift.value = 0f;
+        }
 
         // Sequence For Discrete Mode
         fogDisappearingStartBN = 0;
@@ -308,8 +317,14 @@ public class AllVfxsControl : MonoBehaviour
         }
         if (ModeControl.postProcessing)
         {
-            postProcessingInitialSaturation = -100f;
-            postProcessingFinalSaturation = 0f;
+            postProcessingInitialSaturation = 0f;
+            postProcessingFinalSaturation = 30f;
+
+            postProcessingInitialContrast = 0f;
+            postProcessingFinalContrast = 30f;
+
+            postProcessingInitialHueshift = 0f;
+            postProcessingFinalHueshift = 180;
 
             if (ModeControl.Continuous)
             {

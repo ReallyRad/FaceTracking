@@ -197,7 +197,7 @@ public class MusicManager : MonoBehaviour
             currentVolumeOfCurrentSL = _seamlessLoops[_currentLoopIndex].GetVolume();
             if (currentVolumeOfCurrentSL < maxVolume)
             {
-                currentVolumeOfCurrentSLIncrease = maxVolume * fraction * Time.deltaTime;
+                currentVolumeOfCurrentSLIncrease = (maxVolume * fraction * Time.deltaTime) / 2;
                 _seamlessLoops[_currentLoopIndex].SetVolume(currentVolumeOfCurrentSL + currentVolumeOfCurrentSLIncrease);
             }
             else if (_currentLoopIndex < (_seamlessLoops.Length - 1))

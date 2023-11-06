@@ -828,6 +828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vibration
       objectReference: {fileID: 0}
+    - target: {fileID: 7406729228740146104, guid: 59e2711df83f1b84890849e862f0b7f0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59e2711df83f1b84890849e862f0b7f0, type: 3}
 --- !u!1001 &6709955752492265577

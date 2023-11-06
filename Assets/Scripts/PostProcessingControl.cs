@@ -256,11 +256,19 @@ public class PostProcessingControl : MonoBehaviour
         float currentSaturation = Mathf.Lerp(AllVfxsControl.postProcessingInitialSaturation,
                                              AllVfxsControl.postProcessingFinalSaturation,
                                              fraction);
+        float currentContrast = Mathf.Lerp(AllVfxsControl.postProcessingInitialContrast,
+                                           AllVfxsControl.postProcessingFinalContrast,
+                                           fraction);
+        float currentHueshift = Mathf.Lerp(AllVfxsControl.postProcessingInitialHueshift,
+                                           AllVfxsControl.postProcessingFinalHueshift,
+                                           fraction);
 
         ColorGrading colorGrading;
         if (postProcessProfile.TryGetSettings(out colorGrading))
         {
             colorGrading.saturation.value = currentSaturation;
+            colorGrading.contrast.value = currentContrast;
+            colorGrading.hueShift.value = currentHueshift;
         }
 
     }
