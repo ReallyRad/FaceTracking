@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VolumetricFogAndMist;
+using UnityEngine.Rendering.PostProcessing;
 
 public class AllVfxsControl : MonoBehaviour
 {
@@ -98,6 +99,18 @@ public class AllVfxsControl : MonoBehaviour
     // Continuous
     private float musicStartTime;
 
+    public PostProcessProfile postProcessProfile;
+    public GameObject postProcessingPrefab;
+    private GameObject postProcessing;
+    public static float postProcessingInitialSaturation;
+    public static float postProcessingFinalSaturation;
+    // Discrete
+    public static int postProcessingStartBN;
+    public static int postProcessingEndBN;
+    // Continuous
+    public static float postProcessingNumberOfExhalesIfCompleteToFinish;
+    private float postProcessingStartTime;
+
     private void OnEnable()
     {
         if (ModeControl.Discrete)
@@ -132,27 +145,59 @@ public class AllVfxsControl : MonoBehaviour
         progressIncrementTimeForDiscrete = 1.5f;
         interactiveLoopTimeForDiscrete = 2f;
 
+        // Initializations
+        fog = VolumetricFog.instance;
+        fog.enabled = false;
+        ColorGrading colorGrading;
+        if (postProcessProfile.TryGetSettings(out colorGrading)) colorGrading.saturation.value = 0f;
+
+        // Sequence For Discrete Mode
+        fogDisappearingStartBN = 0;
+        fogDisappearingEndBN = 3;
+        auraApproachingStartBN = 8;
+        auraApproachingEndBN = 11;
+        waveChangingColorStartBN = 12;
+        waveChangingColorEndBN = 15;
+        waveEnlargingStartBN = 4;
+        waveEnlargingEndBN = 7;
+        backgroundChangingStartBN = 12;
+        backgroundChangingEndBN = 15;
+        northernLightsStartBN = 12;
+        northernLightsEndBN = 15;
+        musicStartBN = 4;
+        musicEndBN = 7;
+        postProcessingStartBN = 0;
+        postProcessingEndBN = 3;
+
+        // Sequence For Continuous Mode
+        fogDisappearingNumberOfExhalesIfCompleteToFinish = 4;
+        fogDisappearingStartTime = 4f;
+        auraApproachingNumberOfExhalesIfCompleteToFinish = 6;
+        auraApproachingStartTime = 1f;
+        waveChangingColorNumberOfExhalesIfCompleteToFinish = 3;
+        waveChangingColorStartTime = 24f;
+        waveEnlargingNumberOfExhalesIfCompleteToFinish = 3;
+        waveEnlargingStartTime = 13;
+        backgroundChangingNumberOfExhalesIfCompleteToFinish = 3;
+        backgroundChangingStartTime = 1f;
+        northernLightsNumberOfExhalesIfCompleteToFinish = 5;
+        northernLightsStartTime = 0.1f;
+        musicStartTime = 30;
+        postProcessingNumberOfExhalesIfCompleteToFinish = 5f;
+        postProcessingStartTime = 60f;
+
         if (ModeControl.fogDisappearing)
         {
             fogDisappearing = Instantiate(fogDisappearingPrefab);
 
             fogDisappearingInitialDensity = 0.7f;
             fogDisappearingFinalDensity = 0;
-            fog.density = fogDisappearingInitialDensity;
 
-            fog = VolumetricFog.instance;
-            fog.enabled = false;
+            fog.density = fogDisappearingInitialDensity;
             fogDisappearing.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                fogDisappearingStartBN = 0;
-                fogDisappearingEndBN = 3;
-            }
             if (ModeControl.Continuous)
             {
-                fogDisappearingNumberOfExhalesIfCompleteToFinish = 3;
-                fogDisappearingStartTime = 12f;
                 StartCoroutine(ActivateFog(fogDisappearing, fogDisappearingStartTime));
             }
         }
@@ -167,15 +212,8 @@ public class AllVfxsControl : MonoBehaviour
 
             auraApproaching.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                auraApproachingStartBN = 8;
-                auraApproachingEndBN = 11;
-            }
             if (ModeControl.Continuous)
             {
-                auraApproachingNumberOfExhalesIfCompleteToFinish = 6;
-                auraApproachingStartTime = 1f;
                 StartCoroutine(ActivateObject(auraApproaching.gameObject, auraApproachingStartTime));
             }
         }
@@ -192,15 +230,8 @@ public class AllVfxsControl : MonoBehaviour
 
             waveChangingColor.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                waveChangingColorStartBN = 12;
-                waveChangingColorEndBN = 15;
-            }
             if (ModeControl.Continuous)
             {
-                waveChangingColorNumberOfExhalesIfCompleteToFinish = 3;
-                waveChangingColorStartTime = 24f;
                 StartCoroutine(ActivateObject(waveChangingColor.gameObject, waveChangingColorStartTime));
             }
         }
@@ -217,15 +248,8 @@ public class AllVfxsControl : MonoBehaviour
 
             waveEnlarging.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                waveEnlargingStartBN = 4;
-                waveEnlargingEndBN = 7;
-            }
             if (ModeControl.Continuous)
             {
-                waveEnlargingNumberOfExhalesIfCompleteToFinish = 3;
-                waveEnlargingStartTime = 13;
                 StartCoroutine(ActivateObject(waveEnlarging.gameObject, waveEnlargingStartTime));
             }
         }
@@ -246,15 +270,8 @@ public class AllVfxsControl : MonoBehaviour
 
             backgroundChangingInstance.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                backgroundChangingStartBN = 12;
-                backgroundChangingEndBN = 15;
-            }
             if (ModeControl.Continuous)
             {
-                backgroundChangingNumberOfExhalesIfCompleteToFinish = 3;
-                backgroundChangingStartTime = 1f;
                 StartCoroutine(ActivateObject(backgroundChangingInstance.gameObject, backgroundChangingStartTime));
             }
         }
@@ -273,15 +290,9 @@ public class AllVfxsControl : MonoBehaviour
 
             northernLightsInstance.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                northernLightsStartBN = 12;
-                northernLightsEndBN = 15;
-            }
             if (ModeControl.Continuous)
             {
-                northernLightsNumberOfExhalesIfCompleteToFinish = 3;
-                northernLightsStartTime = 0.1f;
+
                 StartCoroutine(ActivateObject(northernLightsInstance.gameObject, northernLightsStartTime));
             }
         }
@@ -290,15 +301,19 @@ public class AllVfxsControl : MonoBehaviour
             musicInstance = Instantiate(musicPrefab);
             musicInstance.gameObject.SetActive(false);
 
-            if (ModeControl.Discrete)
-            {
-                musicStartBN = 4;
-                musicEndBN = 7;
-            }
             if (ModeControl.Continuous)
             {
-                musicStartTime = 5;
                 StartCoroutine(ActivateObject(musicInstance.gameObject, musicStartTime));
+            }
+        }
+        if (ModeControl.postProcessing)
+        {
+            postProcessingInitialSaturation = -100f;
+            postProcessingFinalSaturation = 0f;
+
+            if (ModeControl.Continuous)
+            {
+                StartCoroutine(ActivatePostProcessing(postProcessingStartTime));
             }
         }
     }
@@ -314,6 +329,11 @@ public class AllVfxsControl : MonoBehaviour
         yield return new WaitForSeconds(delay);
         fogDisappearing.gameObject.SetActive(true);
         fog.enabled = true;
+    }
+    IEnumerator ActivatePostProcessing(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        postProcessing = Instantiate(postProcessingPrefab);
     }
     private void CountingBreaths()
     {

@@ -40,6 +40,9 @@ public class ModeControl : MonoBehaviour
     public static bool music;
     public static string musicRP;
 
+    public static bool postProcessing;
+    public static string postProcessingRP;
+
     //public Canvas CanvasSetting;
     //public Canvas CanvasTracking;
     //public GameObject BreathingControl;
@@ -67,7 +70,7 @@ public class ModeControl : MonoBehaviour
         Auditory = false;
         
         // the visual effects
-        fogDisappearing = false;
+        fogDisappearing = true;
         fogDisappearingRP = "Progressive";
 
         auraApproaching = false;
@@ -79,7 +82,7 @@ public class ModeControl : MonoBehaviour
         waveChangingColor = false;
         waveChangingColorRP = "Interactive";
 
-        backgroundChanging = true;
+        backgroundChanging = false;
         backgroundChangingRP = "Interactive";
 
         northernLights = false;
@@ -88,6 +91,8 @@ public class ModeControl : MonoBehaviour
         music = true;
         musicRP = "Progressive";
 
+        postProcessing = true;
+        postProcessingRP = "Interactive";
 
         // the temporalization mode
         Discrete = false;

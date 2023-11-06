@@ -200,7 +200,7 @@ public class FogDisappearingControl : MonoBehaviour
 
         if (fog.density > AllVfxsControl.fogDisappearingFinalDensity)
         {
-            fog.density += currentIncrementalDensity;
+            fog.density += currentIncrementalDensity * Time.deltaTime;
         }
         else
         {

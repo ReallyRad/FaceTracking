@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
-public class BackgroundChanging : MonoBehaviour
+public class PostProcessingControl : MonoBehaviour
 {
-    public Material backgroundMat;
+    public PostProcessProfile postProcessProfile;
     private void OnEnable()
     {
         if (ModeControl.Discrete)
@@ -37,7 +37,7 @@ public class BackgroundChanging : MonoBehaviour
         {
             if (ModeControl.backgroundChangingRP == "Progressive")
             {
-                
+
                 if (ModeControl.ContinuousACT_Ex)
                 {
                     Debug.Log("WE ARE AT PROGRESSIVE");
@@ -156,11 +156,11 @@ public class BackgroundChanging : MonoBehaviour
 
         while (Time.time < endTime)
         {
-            float deltaTime = Time.deltaTime;
-            float currentExposure = backgroundMat.GetFloat("_Exposure");
-            backgroundMat.SetFloat("_Exposure", currentExposure + ((exposureSpeed / increment) * deltaTime));
-            Color color = backgroundMat.color;
-            color.a += (transparencySpeed / increment) * deltaTime;
+            //float deltaTime = Time.deltaTime;
+            //float currentExposure = backgroundMat.GetFloat("_Exposure");
+            //backgroundMat.SetFloat("_Exposure", currentExposure + ((exposureSpeed / increment) * deltaTime));
+            //Color color = backgroundMat.color;
+            //color.a += (transparencySpeed / increment) * deltaTime;
             yield return null;
         }
     }
@@ -176,8 +176,8 @@ public class BackgroundChanging : MonoBehaviour
         //                                                AllVfxsControl.backgroundChangingFinalTransparency));
         //}
     }
-    private IEnumerator DiscreteInteractiveIncrement(float increment, 
-                                                     float initialExposure, 
+    private IEnumerator DiscreteInteractiveIncrement(float increment,
+                                                     float initialExposure,
                                                      float finalExposure,
                                                      float initialTransparency,
                                                      float finalTransparency)
@@ -192,9 +192,9 @@ public class BackgroundChanging : MonoBehaviour
             float currentExposure = Mathf.Lerp(initialExposure, finalExposure, progress);
             float currentTransparency = Mathf.Lerp(initialTransparency, finalTransparency, progress);
 
-            backgroundMat.SetFloat("_Exposure", currentExposure);
-            Color color = backgroundMat.color;
-            color.a = currentTransparency;
+            //backgroundMat.SetFloat("_Exposure", currentExposure);
+            //Color color = backgroundMat.color;
+            //color.a = currentTransparency;
 
             yield return null;
         }
@@ -204,66 +204,64 @@ public class BackgroundChanging : MonoBehaviour
             float currentExposure = Mathf.Lerp(finalExposure, initialExposure, progress);
             float currentTransparency = Mathf.Lerp(finalTransparency, initialTransparency, progress);
 
-            backgroundMat.SetFloat("_Exposure", currentExposure);
-            Color color = backgroundMat.color;
-            color.a = currentTransparency;
+            //backgroundMat.SetFloat("_Exposure", currentExposure);
+            //Color color = backgroundMat.color;
+            //color.a = currentTransparency;
 
             yield return null;
         }
     }
-    private float currentSaturation;
-    private float currentExposure;
-    private float currentContrast;
-    private float previousSaturation = AllVfxsControl.backgroundChangingInitialSaturation;
-    private float previousExposure = AllVfxsControl.backgroundChangingInitialExposure;
-    private float previousContrast = AllVfxsControl.backgroundChangingInitialContrast;
+    //private float currentSaturation;
+    //private float currentExposure;
+    //private float currentContrast;
+    //private float previousSaturation = AllVfxsControl.backgroundChangingInitialSaturation;
+    //private float previousExposure = AllVfxsControl.backgroundChangingInitialExposure;
+    //private float previousContrast = AllVfxsControl.backgroundChangingInitialContrast;
     private void ContinuousProgressiveWhole(float fraction)
     {
-        float exposureChange = AllVfxsControl.backgroundChangingFinalExposure - AllVfxsControl.backgroundChangingInitialExposure;
-        float saturationChange = AllVfxsControl.backgroundChangingFinalSaturation - AllVfxsControl.backgroundChangingInitialSaturation;
-        float contrastChange = AllVfxsControl.backgroundChangingFinalContrast - AllVfxsControl.backgroundChangingInitialContrast;
+        //float exposureChange = AllVfxsControl.backgroundChangingFinalExposure - AllVfxsControl.backgroundChangingInitialExposure;
+        //float saturationChange = AllVfxsControl.backgroundChangingFinalSaturation - AllVfxsControl.backgroundChangingInitialSaturation;
+        //float contrastChange = AllVfxsControl.backgroundChangingFinalContrast - AllVfxsControl.backgroundChangingInitialContrast;
 
-        float maxIncrementalExposureChange = exposureChange / AllVfxsControl.backgroundChangingNumberOfExhalesIfCompleteToFinish;
-        float maxIncrementalSaturationChange = saturationChange / AllVfxsControl.backgroundChangingNumberOfExhalesIfCompleteToFinish;
-        float maxIncrementalContrastChange = contrastChange / AllVfxsControl.backgroundChangingNumberOfExhalesIfCompleteToFinish;
+        //float maxIncrementalExposureChange = exposureChange / AllVfxsControl.backgroundChangingNumberOfExhalesIfCompleteToFinish;
+        //float maxIncrementalSaturationChange = saturationChange / AllVfxsControl.backgroundChangingNumberOfExhalesIfCompleteToFinish;
+        //float maxIncrementalContrastChange = contrastChange / AllVfxsControl.backgroundChangingNumberOfExhalesIfCompleteToFinish;
 
-        float currentExposureIncrement = fraction * maxIncrementalExposureChange * Time.deltaTime;
-        float currentSaturationIncrement = fraction * maxIncrementalSaturationChange * Time.deltaTime;
-        float currentContrastIncrement = fraction * maxIncrementalContrastChange * Time.deltaTime;
+        //float currentExposureIncrement = fraction * maxIncrementalExposureChange * Time.deltaTime;
+        //float currentSaturationIncrement = fraction * maxIncrementalSaturationChange * Time.deltaTime;
+        //float currentContrastIncrement = fraction * maxIncrementalContrastChange * Time.deltaTime;
 
-        currentExposure = previousExposure + currentExposureIncrement;
-        currentSaturation = previousSaturation + currentSaturationIncrement;
-        currentContrast = previousContrast + currentContrastIncrement;
+        //currentExposure = previousExposure + currentExposureIncrement;
+        //currentSaturation = previousSaturation + currentSaturationIncrement;
+        //currentContrast = previousContrast + currentContrastIncrement;
 
-        if (Mathf.Abs(currentSaturation - AllVfxsControl.backgroundChangingFinalSaturation) > 0.05)
-        {
-            backgroundMat.SetFloat("_Exposure", currentExposure);
-            backgroundMat.SetFloat("_Saturation", currentSaturation);
-            backgroundMat.SetFloat("_Contrast", currentContrast);
+        //if (Mathf.Abs(currentSaturation - AllVfxsControl.backgroundChangingFinalSaturation) > 0.05)
+        //{
+        //    backgroundMat.SetFloat("_Exposure", currentExposure);
+        //    backgroundMat.SetFloat("_Saturation", currentSaturation);
+        //    backgroundMat.SetFloat("_Contrast", currentContrast);
 
-            previousExposure = currentExposure;
-            previousSaturation = currentSaturation;
-            previousContrast = currentContrast;
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        //    previousExposure = currentExposure;
+        //    previousSaturation = currentSaturation;
+        //    previousContrast = currentContrast;
+        //}
+        //else
+        //{
+        //    gameObject.SetActive(false);
+        //}
     }
 
     private void ContinuousInteractiveWhole(float fraction)
     {
-        float currentExposure = Mathf.Lerp(AllVfxsControl.backgroundChangingInitialExposure,
-                                           AllVfxsControl.backgroundChangingFinalExposure,
-                                           fraction);
-        float currentSaturation = Mathf.Lerp(AllVfxsControl.backgroundChangingInitialSaturation,
-                                             AllVfxsControl.backgroundChangingFinalSaturation,
+        float currentSaturation = Mathf.Lerp(AllVfxsControl.postProcessingInitialSaturation,
+                                             AllVfxsControl.postProcessingFinalSaturation,
                                              fraction);
-        float currentContrast = Mathf.Lerp(AllVfxsControl.backgroundChangingInitialContrast,
-                                           AllVfxsControl.backgroundChangingFinalContrast,
-                                           fraction);
-        //backgroundMat.SetFloat("_Exposure", currentExposure);
-        backgroundMat.SetFloat("_Saturation", currentSaturation);
-        backgroundMat.SetFloat("_Contrast", currentContrast);
+
+        ColorGrading colorGrading;
+        if (postProcessProfile.TryGetSettings(out colorGrading))
+        {
+            colorGrading.saturation.value = currentSaturation;
+        }
+
     }
 }

@@ -58,8 +58,8 @@ public class BreathingControl : MonoBehaviour
     public delegate void On_PeInPi_LongerThanMinimum(float howLongMore);
     public static On_PeInPi_LongerThanMinimum New_PeInPi_LongerThanMinimum;
 
-    private float minExDuration = 0.5f;
-    private float maxExDuration = 3.5f;
+    private float minExDuration = 1.5f;
+    private float maxExDuration = 4.5f;
     private float finishedExDuration;
     private float currentExDuration;
 
@@ -279,7 +279,10 @@ public class BreathingControl : MonoBehaviour
                     currentExDuration = (float)pucker_Sw.ElapsedMilliseconds / 1000.0f;
                     //currentExDuration = currentExDuration / maxExDuration;
                     ExFluidScale = currentExDuration / maxExDuration;
+                    
                     SetYScale(ExFluid, ExFluidScale);
+
+
                     if (currentExDuration < minExDuration)
                     {
                         ExFluidMaterial.color = lowerThanMinColor;
