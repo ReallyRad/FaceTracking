@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VolumetricFogAndMist;
+using VolumetricFogAndMist2;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 public class AllVfxsControl : MonoBehaviour
 {
@@ -99,7 +101,7 @@ public class AllVfxsControl : MonoBehaviour
     // Continuous
     private float musicStartTime;
 
-    public PostProcessProfile postProcessProfile;
+    public VolumeProfile volumeProfile;
     public GameObject postProcessingPrefab;
     private GameObject postProcessing;
     public static float postProcessingInitialSaturation;
@@ -150,14 +152,15 @@ public class AllVfxsControl : MonoBehaviour
         interactiveLoopTimeForDiscrete = 2f;
 
         // Initializations
-        fog = VolumetricFog.instance;
-        fog.enabled = false;
-        ColorGrading colorGrading;
-        if (postProcessProfile.TryGetSettings(out colorGrading))
+        //fog = VolumetricFog.instance;
+        //fog.enabled = false;
+
+        ColorAdjustments colorAdjustments;
+        if (volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments))
         {
-            colorGrading.saturation.value = 0f;
-            colorGrading.contrast.value = 0f;
-            colorGrading.hueShift.value = 0f;
+            colorAdjustments.saturation.value = 0;
+            colorAdjustments.contrast.value = 0;
+            colorAdjustments.hueShift.value = 0;
         }
 
         // Sequence For Discrete Mode
@@ -180,7 +183,7 @@ public class AllVfxsControl : MonoBehaviour
 
         // Sequence For Continuous Mode
         fogDisappearingNumberOfExhalesIfCompleteToFinish = 4;
-        fogDisappearingStartTime = 4f;
+        fogDisappearingStartTime = 0.05f;
         auraApproachingNumberOfExhalesIfCompleteToFinish = 6;
         auraApproachingStartTime = 1f;
         waveChangingColorNumberOfExhalesIfCompleteToFinish = 3;
@@ -191,9 +194,9 @@ public class AllVfxsControl : MonoBehaviour
         backgroundChangingStartTime = 1f;
         northernLightsNumberOfExhalesIfCompleteToFinish = 5;
         northernLightsStartTime = 0.1f;
-        musicStartTime = 30f;
+        musicStartTime = 29f;
         postProcessingNumberOfExhalesIfCompleteToFinish = 5f;
-        postProcessingStartTime = 60f;
+        postProcessingStartTime = 1f;
 
         if (ModeControl.fogDisappearing)
         {
@@ -202,7 +205,7 @@ public class AllVfxsControl : MonoBehaviour
             fogDisappearingInitialDensity = 0.7f;
             fogDisappearingFinalDensity = 0;
 
-            fog.density = fogDisappearingInitialDensity;
+            //fog.density = fogDisappearingInitialDensity;
             fogDisappearing.gameObject.SetActive(false);
 
             if (ModeControl.Continuous)

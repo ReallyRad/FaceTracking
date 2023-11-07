@@ -52,5 +52,5 @@ MonoBehaviour:
   backgroundMaterial: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
   northernLightsPrefab: {fileID: 3761722581236630085, guid: 24c503fe398b4c4478494700b353fd71, type: 3}
   musicPrefab: {fileID: 2451920120223082122, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
-  postProcessProfile: {fileID: 11400000, guid: 36146112dc4101245ac7a0165137357c, type: 2}
+  volumeProfile: {fileID: 11400000, guid: e10cacc3198ea43f08f0ecfaa0435918, type: 2}
   postProcessingPrefab: {fileID: 6067051983829378042, guid: b180adc742191c441a865728d0bec1b7, type: 3}

@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+//using UnityEngine.Rendering.PostProcessing;
+using Unity.VisualScripting;
 
 public class PostProcessingControl : MonoBehaviour
 {
-    public PostProcessProfile postProcessProfile;
+    //public PostProcessProfile postProcessProfile;
+    //public PostProcessVolume postProcessVolume;
+    public VolumeProfile volumeProfile;
     private void OnEnable()
     {
         if (ModeControl.Discrete)
@@ -262,14 +267,14 @@ public class PostProcessingControl : MonoBehaviour
         float currentHueshift = Mathf.Lerp(AllVfxsControl.postProcessingInitialHueshift,
                                            AllVfxsControl.postProcessingFinalHueshift,
                                            fraction);
-
-        ColorGrading colorGrading;
-        if (postProcessProfile.TryGetSettings(out colorGrading))
+        ColorAdjustments colorAdjustments;
+        if (volumeProfile.TryGet<ColorAdjustments>(out colorAdjustments))
         {
-            colorGrading.saturation.value = currentSaturation;
-            colorGrading.contrast.value = currentContrast;
-            colorGrading.hueShift.value = currentHueshift;
+            colorAdjustments.saturation.value = currentSaturation;
+            colorAdjustments.contrast.value = currentContrast;
+            colorAdjustments.hueShift.value = currentHueshift;
         }
 
+        
     }
 }

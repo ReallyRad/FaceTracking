@@ -70,7 +70,7 @@ public class ModeControl : MonoBehaviour
         Auditory = false;
         
         // the visual effects
-        fogDisappearing = true;
+        fogDisappearing = false;
         fogDisappearingRP = "Progressive";
 
         auraApproaching = false;
@@ -88,10 +88,10 @@ public class ModeControl : MonoBehaviour
         northernLights = false;
         northernLightsRP = "Interactive";
 
-        music = true;
+        music = false;
         musicRP = "Progressive";
 
-        postProcessing = false;
+        postProcessing = true;
         postProcessingRP = "Interactive";
 
         // the temporalization mode
