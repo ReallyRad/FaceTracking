@@ -410,6 +410,7 @@ public class BreathingControl : MonoBehaviour
     }
     private void Smile()
     {
+        OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
         StopCoroutine("BreathVibration");
 
         smiling = true;
@@ -425,6 +426,7 @@ public class BreathingControl : MonoBehaviour
     }
     private void SlightPucker()
     {
+        OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
         StopCoroutine("BreathVibration");
 
         slightPuckering = true;
@@ -437,6 +439,7 @@ public class BreathingControl : MonoBehaviour
     }
     private void SlightSmile()
     {
+        OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
         StopCoroutine("BreathVibration");
 
         smiling = false;
