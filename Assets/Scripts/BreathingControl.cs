@@ -410,6 +410,8 @@ public class BreathingControl : MonoBehaviour
     }
     private void Smile()
     {
+        StopCoroutine("BreathVibration");
+
         smiling = true;
         slightSmiling = false;
         slightPuckering = false;
@@ -423,6 +425,8 @@ public class BreathingControl : MonoBehaviour
     }
     private void SlightPucker()
     {
+        StopCoroutine("BreathVibration");
+
         slightPuckering = true;
         puckering = false;
         smiling = false;
@@ -433,6 +437,8 @@ public class BreathingControl : MonoBehaviour
     }
     private void SlightSmile()
     {
+        StopCoroutine("BreathVibration");
+
         smiling = false;
         slightSmiling = true;
         puckering = false;

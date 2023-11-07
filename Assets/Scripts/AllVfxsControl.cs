@@ -191,7 +191,7 @@ public class AllVfxsControl : MonoBehaviour
         backgroundChangingStartTime = 1f;
         northernLightsNumberOfExhalesIfCompleteToFinish = 5;
         northernLightsStartTime = 0.1f;
-        musicStartTime = 30;
+        musicStartTime = 30f;
         postProcessingNumberOfExhalesIfCompleteToFinish = 5f;
         postProcessingStartTime = 60f;
 
@@ -318,13 +318,13 @@ public class AllVfxsControl : MonoBehaviour
         if (ModeControl.postProcessing)
         {
             postProcessingInitialSaturation = 0f;
-            postProcessingFinalSaturation = 30f;
+            postProcessingFinalSaturation = 45f;
 
             postProcessingInitialContrast = 0f;
-            postProcessingFinalContrast = 30f;
+            postProcessingFinalContrast = 45f;
 
             postProcessingInitialHueshift = 0f;
-            postProcessingFinalHueshift = 180;
+            postProcessingFinalHueshift = 45f;
 
             if (ModeControl.Continuous)
             {

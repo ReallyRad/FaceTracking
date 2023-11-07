@@ -91,7 +91,7 @@ public class ModeControl : MonoBehaviour
         music = true;
         musicRP = "Progressive";
 
-        postProcessing = true;
+        postProcessing = false;
         postProcessingRP = "Interactive";
 
         // the temporalization mode
