@@ -1,41 +1,39 @@
 using System;
+using UnityEditor.Search;
 using UnityEngine;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : Sequenceable
 {
     private float _maxVolume = 1f;
     
     [SerializeField] private SeamlessLoop[] _seamlessLoops;
-    [SerializeField] private int _progress;
     [SerializeField] private int _currentLoopIndex;
 
-    private void OnEnable()
+    private float _previousProgress;
+    
+    protected override void Progress(float progress) //should fade in a new clip every two full breath outs (8 seconds) 
     {
-        ProgressManager.Progress += Progress;
-    }
-
-    private void OnDisable()
-    {
-        ProgressManager.Progress -= Progress;
-    }
-
-    private void Progress(float progress)
-    {
-        
-    }
-
-    private void LevelUp()
-    {
-        //Debug.Log("level up");
-        _progress++;
-        //Debug.Log("progress = " + _progress);
-        if (_progress % 10 == 0)
+        if (active)
         {
-            _currentLoopIndex++;
-            //Debug.Log("currentLoopIndex " + _currentLoopIndex);
-        }
+            //map one breath to half the volume increase of a track
+            _currentLoopIndex = (int) Math.Truncate(progress) / 2; //switch loopindex every multiple of 2
+            
+            _seamlessLoops[_currentLoopIndex].SetVolume(Utils.Map(
+                progress,
+                _currentLoopIndex,
+                _currentLoopIndex + 2,
+                0,
+                1 ));
 
-        _seamlessLoops[_currentLoopIndex].SetVolume(_progress % 10f / 10f);
-        //Debug.Log("set volume " + _progress % 10f/ 10f);
+            if (progress >= _maxProgress) Completed(this);
+        }
     }
+
+    public override void Initialize()
+    {
+        active = true;
+        _currentLoopIndex = 0;
+        foreach (SeamlessLoop seamlessLoop in _seamlessLoops) seamlessLoop.SetVolume(0);
+    }
+
 }
