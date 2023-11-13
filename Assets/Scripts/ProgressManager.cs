@@ -40,11 +40,9 @@ using Debug = UnityEngine.Debug;
         if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _startProgressAt && 
             _previousElapsed / 1000f < _startProgressAt) //we just passed the min duration threshold, continue progress
         {
-            Debug.Log("Breathed out for more than " + _startProgressAt + " seconds");
             _progressTween = LeanTween.value(gameObject, _currentProgress, _currentProgress + 1, 4)
                 .setOnUpdate(val =>
                 {
-                    //Debug.Log("progress : " + val);
                     _currentProgress = val;
                     Progress(_currentProgress);
                 })
@@ -54,7 +52,6 @@ using Debug = UnityEngine.Debug;
         else if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _endProgressAt &&
                  _previousElapsed / 1000f < _endProgressAt) //we just passed the max duration threshold, stop progress
         {
-            Debug.Log(" breathed out for more than " + _endProgressAt + "seconds");
             LeanTween.pause(_progressTween);
         }  
         
@@ -73,19 +70,15 @@ using Debug = UnityEngine.Debug;
         if (Progressing()) //if we resumed pucker while we were already doing progress
         {
             LeanTween.resume(_progressTween);
-            Debug.Log("resume the tween");
         }
-        Debug.Log("start the stopwatch");
         _puckerStopwatch.Start();
     }
         
     private void SlightPucker() 
     {
         _puckerStopwatch.Stop();
-        Debug.Log("stop pucker stopwatch");
         if (Progressing()) 
         {
-            Debug.Log("pause the tween");
             LeanTween.pause(_progressTween); //pause the tween. We might resume it if we detect pucker again
         }
     }
@@ -93,7 +86,6 @@ using Debug = UnityEngine.Debug;
     private void SlightSmile()
     {
         if (_faceExpression.previouslySlightPucker){
-            Debug.Log("reset pucker stopwatch");
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
     }

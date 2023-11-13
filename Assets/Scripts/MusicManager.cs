@@ -9,8 +9,6 @@ public class MusicManager : Sequenceable
     [SerializeField] private SeamlessLoop[] _seamlessLoops;
     [SerializeField] private int _currentLoopIndex;
 
-    private float _previousProgress;
-    
     protected override void Progress(float progress) //should fade in a new clip every two full breath outs (8 seconds) 
     {
         if (active)
@@ -29,8 +27,9 @@ public class MusicManager : Sequenceable
         }
     }
 
-    public override void Initialize()
+    public override void Initialize() 
     {
+        //TODO should we initialize a startProgress value here?
         active = true;
         _currentLoopIndex = 0;
         foreach (SeamlessLoop seamlessLoop in _seamlessLoops) seamlessLoop.SetVolume(0);
