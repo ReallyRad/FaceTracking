@@ -105,7 +105,7 @@ namespace Metaface.Debug
         private void SlightPucker()
         {
             OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
-            UnityEngine.Debug.Log("stop breath vibration");
+            //UnityEngine.Debug.Log("stop breath vibration");
             StopCoroutine("BreathVibration");
             _puckerStopwatch.Stop();
             _progressStopwatch.Stop();
@@ -121,7 +121,6 @@ namespace Metaface.Debug
 
         private IEnumerator BreathVibration()
         {
-            UnityEngine.Debug.Log("breath vibes");
             OVRInput.SetControllerVibration(1, 0.2f, OVRInput.Controller.RTouch);
             yield return new WaitForSeconds(2f);
             if (_faceExpression.pucker) StartCoroutine(BreathVibration());

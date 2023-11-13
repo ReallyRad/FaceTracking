@@ -1,11 +1,11 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-public class ProgressManager : MonoBehaviour //handles face expression events to detect whether they should be interpreted as progress
+ public class ProgressManager : MonoBehaviour //handles face expression events to detect whether they should be interpreted as progress
 {
     public delegate void OnProgress(float progress);
     public static OnProgress Progress;
@@ -17,11 +17,9 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
 
     private Stopwatch _puckerStopwatch;
     
-    private bool _progressing;
-    private bool _wasProgressing;
-
     private int _progressTween;
-    
+    private float _previousElapsed;
+
     private void OnEnable()
     {
         FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
@@ -39,30 +37,28 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
 
     private void Update()
     {
-        _wasProgressing = _progressing;
-
-        _progressing = _puckerStopwatch.IsRunning && //stopwatch is running
-                       _puckerStopwatch.ElapsedMilliseconds / 1000f > _startProgressAt && //for more than 3 sec
-                       _puckerStopwatch.ElapsedMilliseconds / 1000f < _endProgressAt; // and less than 7
-                      
-        if (!_wasProgressing && _progressing) //if we just started progressing
+        if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _startProgressAt && 
+            _previousElapsed / 1000f < _startProgressAt) //we just passed the min duration threshold, continue progress
         {
-            //start progress tween
+            Debug.Log("Breathed out for more than " + _startProgressAt + " seconds");
             _progressTween = LeanTween.value(gameObject, _currentProgress, _currentProgress + 1, 4)
                 .setOnUpdate(val =>
                 {
-                    Debug.Log("progress : " + val);
+                    //Debug.Log("progress : " + val);
                     _currentProgress = val;
                     Progress(_currentProgress);
                 })
                 .setEaseInCirc()
                 .id;
         }
-        else if (_wasProgressing && !_progressing) //if we just stopped progressing
+        else if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _endProgressAt &&
+                 _previousElapsed / 1000f < _endProgressAt) //we just passed the max duration threshold, stop progress
         {
-            Debug.Log("progress stopped : ");
+            Debug.Log(" breathed out for more than " + _endProgressAt + "seconds");
             LeanTween.pause(_progressTween);
-        }
+        }  
+        
+        _previousElapsed = _puckerStopwatch.ElapsedMilliseconds;
     }
 
     private void NewFaceExpressionAvailable()
@@ -74,16 +70,37 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
 
     private void Pucker()
     {
+        if (Progressing()) //if we resumed pucker while we were already doing progress
+        {
+            LeanTween.resume(_progressTween);
+            Debug.Log("resume the tween");
+        }
+        Debug.Log("start the stopwatch");
         _puckerStopwatch.Start();
     }
         
-    private void SlightPucker()
+    private void SlightPucker() 
     {
         _puckerStopwatch.Stop();
+        Debug.Log("stop pucker stopwatch");
+        if (Progressing()) 
+        {
+            Debug.Log("pause the tween");
+            LeanTween.pause(_progressTween); //pause the tween. We might resume it if we detect pucker again
+        }
     }
         
     private void SlightSmile()
     {
-        if (_faceExpression.previouslySlightPucker) _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+        if (_faceExpression.previouslySlightPucker){
+            Debug.Log("reset pucker stopwatch");
+            _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+        }
+    }
+
+    private bool Progressing()
+    {
+        return _puckerStopwatch.ElapsedMilliseconds / 1000 > _startProgressAt &&
+               _puckerStopwatch.ElapsedMilliseconds / 1000 < _endProgressAt;
     }
 }

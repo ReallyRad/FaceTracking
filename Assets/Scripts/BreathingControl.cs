@@ -386,7 +386,6 @@ public class BreathingControl : MonoBehaviour
 
     private void WhichFaceExpression()
     {
-        UnityEngine.Debug.Log("Byeeeeeeeeeeeeeeeeeeeeee");
         if (faceExpression.smiling) Smile();
         if (faceExpression.pucker) Pucker();
         if (faceExpression.slightPucker) SlightPucker();
