@@ -18,12 +18,10 @@ find curve for :
  - perception mapping
  - accelerated response increase
 
-use timeline?
-use sequine? https://assetstore.unity.com/packages/tools/visual-scripting/sequine-sequencing-animation-and-visual-scripting-260083
+
+move haptics to their own script
 
 don't use any references to effects names in sequencing scripts. use general purpose scripts or interfaces/subclasses -> use inspector interface to reference and sequence different prefabs.
-
-
 
 use more fine grained control of animation -> modify already existing animations of assets 
 
@@ -41,8 +39,8 @@ scripting conventions
          - keep methods under 150 lines
          - don't repeat yourself
          - put bracket on next line for if or on same line if short enough
-          - private / public fields/methods
-          - use regions? or at least order
+         - private / public fields/methods
+         - use regions? or at least order
 
 
 ammbisonics
@@ -52,14 +50,15 @@ phase 1 fog
 phase 2 music
 phase 3 color (music still on)
 
+
 volumetric lighting
     
 play around with threshold to have it work without smile
 color saturation for 
 
-try shadergraph node algorithm for saturation and contrast
 
 DONE :
+try shadergraph node algorithm for saturation and contrast
 saturation and contrast only on the skybox 
 use vibration to give feedback on breathing.
 make a discrete event for neutral expression
