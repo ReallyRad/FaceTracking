@@ -24,14 +24,6 @@ public class MusicManager : Sequenceable
                 2 * _currentLoopIndex + 2,
                 0,
                 1 ));
-
-                Debug.Log("mapping " + progress + " from [" +
-                          2 * _currentLoopIndex +   
-                          ", " +
-                          2 * _currentLoopIndex +
-                          2 +
-                          "] " + 
-                          "to [0, 1]");    
             
             if (progress >= _maxProgress) Completed(this);
         }
