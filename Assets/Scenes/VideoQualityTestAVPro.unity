@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mediaSource: 0
-  _mediaReference: {fileID: 11400000, guid: 743b8c72ae199b14e84d5af46cfbc245, type: 2}
+  _mediaReference: {fileID: 11400000, guid: 9af50de09bc4690438bb8942cdfccf5e, type: 2}
   _mediaPath:
     _pathType: 2
     _path: 
@@ -1725,9 +1725,9 @@ MonoBehaviour:
   _resampleMode: 0
   _resampleBufferSize: 5
   _videoMapping: 0
-  _textureFilterMode: 1
+  _textureFilterMode: 2
   _textureWrapMode: 1
-  _textureAnisoLevel: 0
+  _textureAnisoLevel: 8
   _sideloadSubtitles: 0
   _subtitlePath:
     _pathType: 2
