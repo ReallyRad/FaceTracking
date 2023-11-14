@@ -54,13 +54,13 @@ public class FaceTrackingManager : MonoBehaviour
         {
             _mouthValue = Mathf.Sin(Time.time * _debugBreathRate) * 0.075f;
             //pucker value is the negative half of mouthvalue
-            if (_mouthValue < 0)
+            if (_mouthValue < _neutralThreshold)
             {
                 puckerValue = -_mouthValue;
                 smileValue = 0f;
             }
             //smile value is the positive half of mouthvalue
-            else if (_mouthValue > 0)
+            else if (_mouthValue > _neutralThreshold)
             {
                 puckerValue = 0f;
                 smileValue = _mouthValue;
@@ -86,7 +86,7 @@ public class FaceTrackingManager : MonoBehaviour
             }
         }
 
-        //MouthValue(_mouthValue);
+        MouthValue(_mouthValue);
 
         _smiling = smileValue >= _smileThreshold;
         _slightSmile = smileValue < _smileThreshold && _mouthValue > _neutralThreshold;
