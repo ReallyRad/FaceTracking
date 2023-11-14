@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Sequenceable : MonoBehaviour //this abstract class defines the methods that must be implemented by the vfx so they can be sequenced
 {
-    public bool active; //whether the item is currently receiving progress updates
-    [SerializeField] protected float _maxProgress;
-
     public delegate void OnCompleted(Sequenceable item); //triggered to notify the current element is done
-    public OnCompleted Completed;
+    public static OnCompleted Completed;
 
-    public void OnEnable()
+    [SerializeField] protected bool _active; //whether the item is currently receiving progress updates
+    [SerializeField] protected float _finalValue;
+    
+    private void OnEnable()
     {
         ProgressManager.Progress += Progress;
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         ProgressManager.Progress -= Progress;
     }

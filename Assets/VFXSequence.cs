@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -7,18 +8,25 @@ public class VFXSequence : MonoBehaviour //takes care of enabling and disabling 
     
     private int sequenceIndex;
 
+    private void OnEnable()
+    {
+        Sequenceable.Completed += SequenceItemCompleted; //disable handler for current element
+    }
+
+    private void OnDisable()
+    {
+        Sequenceable.Completed -= SequenceItemCompleted; //disable handler for current element
+    }
+
     private void Start()
     {
         _sequenceableItems = transform.GetComponentsInChildren<Sequenceable>(); //get sequenceable items
         _sequenceableItems.First().Initialize(); //initialize it. the first one will now start receiving progress values
-        _sequenceableItems.First().Completed += SequenceItemCompleted; //it will report back once it's completed 
     }
 
     private void SequenceItemCompleted(Sequenceable item) //called when current sequence item completed
     {
-        item.Completed -= SequenceItemCompleted; //disable handler for current element
         sequenceIndex++;
         _sequenceableItems[sequenceIndex].Initialize();
-        _sequenceableItems[sequenceIndex].Completed += SequenceItemCompleted; //assign handler to new sequence item
     }
 }

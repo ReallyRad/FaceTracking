@@ -23,11 +23,13 @@ using Debug = UnityEngine.Debug;
     private void OnEnable()
     {
         FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
+        Sequenceable.Completed += ResetProgress;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.FaceExpression -= NewFaceExpressionAvailable;
+        Sequenceable.Completed -= ResetProgress;
     }
 
     private void Start()
@@ -94,5 +96,11 @@ using Debug = UnityEngine.Debug;
     {
         return _puckerStopwatch.ElapsedMilliseconds / 1000 > _startProgressAt &&
                _puckerStopwatch.ElapsedMilliseconds / 1000 < _endProgressAt;
+    }
+
+    private void ResetProgress(Sequenceable item)
+    {
+        LeanTween.pause(_progressTween); //TODO is it necessary to pause?
+        _currentProgress = 0;
     }
 }

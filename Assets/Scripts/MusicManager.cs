@@ -11,26 +11,31 @@ public class MusicManager : Sequenceable
 
     protected override void Progress(float progress) //should fade in a new clip every two full breath outs (8 seconds) 
     {
-        if (active)
+        if (_active)
         {
-            //map one breath to half the volume increase of a track
-            _currentLoopIndex = (int) Math.Truncate(progress) / 2; //switch loopindex every multiple of 2
+            if (progress >= _finalValue)
+            {
+                Completed(this);
+                _active = false;
+            }
+            else 
+            {
+                //map one breath to half the volume increase of a track
+                _currentLoopIndex = (int) Math.Truncate(progress) / 2; //switch loopindex every multiple of 2
             
-            _seamlessLoops[_currentLoopIndex].SetVolume(Utils.Map(
-                progress,
-                2 * _currentLoopIndex,
-                2 * _currentLoopIndex + 2,
-                0,
-                1 ));
-            
-            if (progress >= _maxProgress) Completed(this);
+                _seamlessLoops[_currentLoopIndex].SetVolume(Utils.Map(
+                    progress,
+                    2 * _currentLoopIndex,
+                    2 * _currentLoopIndex + 2,
+                    0,
+                    1 ));
+            }
         }
     }
 
     public override void Initialize() 
     {
-        //TODO should we initialize a startProgress value here?
-        active = true;
+        _active = true;
         _currentLoopIndex = 0;
         foreach (SeamlessLoop seamlessLoop in _seamlessLoops) seamlessLoop.SetVolume(0);
     }
