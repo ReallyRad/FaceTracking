@@ -93,32 +93,13 @@ public class FaceTrackingManager : MonoBehaviour
         _pucker = puckerValue >= _puckerThreshold;
         _slightPucker = puckerValue < _puckerThreshold && _mouthValue < _neutralThreshold;
 
-        if (!_faceData.previouslyPucker && _pucker)
+        if (!_faceData.previouslyPucker && _pucker || 
+            !_faceData.previouslySmiling && _smiling ||
+            !_faceData.previouslySlightPucker && _slightPucker || 
+            !_faceData.previouslySlightSmile && _slightSmile)
         {
-            _faceData.SetData(false, false, false, true);
+            _faceData.SetData(_smiling, _slightSmile, _slightPucker, _pucker);
             FaceExpression();
-            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
-        }
-
-        else if (!_faceData.previouslySmiling && _smiling)
-        {
-            _faceData.SetData(true, false, false, false);
-            FaceExpression();
-            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
-        }
-
-        else if (!_faceData.previouslySlightPucker && _slightPucker)
-        {
-            _faceData.SetData(false, false, true, false);
-            FaceExpression();
-            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
-        }
-
-        else if (!_faceData.previouslySlightSmile && _slightSmile)
-        {
-            _faceData.SetData(false, true, false, false);
-            FaceExpression();
-            UnityEngine.Debug.Log("DETECTEDDDDDDDDDDDDDDDD");
         }
     }
 
