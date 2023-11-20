@@ -9,8 +9,10 @@ public abstract class Sequenceable : MonoBehaviour //this abstract class defines
     public static OnCompleted Completed;
 
     [SerializeField] protected bool _active; //whether the item is currently receiving progress updates
-    [SerializeField] protected float _finalValue;
-    
+    [SerializeField] protected float _initialValue;
+    [SerializeField] protected float _finalValue; 
+    [SerializeField] protected float _completedProgressAt;
+
     private void OnEnable()
     {
         ProgressManager.Progress += Progress;

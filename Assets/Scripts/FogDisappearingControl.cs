@@ -8,10 +8,6 @@ public class FogDisappearingControl : Sequenceable
 {
     [SerializeField] private VolumetricFog fog;
 
-    [SerializeField] private float _initialValue; //TODO put it in the abstract class?
-    [SerializeField] private float _finalValue; //TODO put it in the abstract class?
-    [SerializeField] private float _completedProgressAt; //TODO put it in the abstract class?
-    
     protected override void Progress(float progress) 
     {
         if (_active)
