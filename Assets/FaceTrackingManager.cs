@@ -6,12 +6,13 @@ using Metaface.Debug;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Debug = UnityEngine.Debug;
 
 public class FaceTrackingManager : MonoBehaviour
 {
     [SerializeField] private OVRFaceExpressions faceExpressions;
 
-    [Range(-0.05f, 0.05f)]
+    [Range(-0.35f, 0.05f)]
     [SerializeField] private float _mouthValue; //from -1 to +1
 
     [SerializeField] private float _puckerThreshold;
@@ -66,32 +67,34 @@ public class FaceTrackingManager : MonoBehaviour
                 smileValue = _mouthValue;
             }
         }
-        else if (!_manualSmileControl)
+        else if (!_manualSmileControl) //using face tracking
         {
             smileValue = (lipCornerPuller.x + lipCornerPuller.y) / 2;
             puckerValue = (lipPucker.x + lipPucker.y) / 2;
-            _mouthValue = smileValue - puckerValue;
+            _mouthValue = smileValue - puckerValue; //pucker is the negative half, smile is the positive half 
         }
-        else
+        else //use the inspector slider
         {
-            if (_mouthValue < 0)
+            if (_mouthValue < _neutralThreshold)
             {
                 puckerValue = -_mouthValue;
                 smileValue = 0;
             }
-            else if (_mouthValue > 0)
+            else if (_mouthValue > _neutralThreshold)
             {
                 smileValue = _mouthValue;
                 puckerValue = 0;
             }
         }
 
+        Debug.Log("mouthValue " + _mouthValue);
+        
         MouthValue(_mouthValue);
 
-        _smiling = smileValue >= _smileThreshold;
-        _slightSmile = smileValue < _smileThreshold && _mouthValue > _neutralThreshold;
-        _pucker = puckerValue >= _puckerThreshold;
-        _slightPucker = puckerValue < _puckerThreshold && _mouthValue < _neutralThreshold;
+        _smiling = _mouthValue >= _smileThreshold; //smile is a value bigger than smile threshold
+        _slightSmile = _mouthValue < _smileThreshold && _mouthValue > _neutralThreshold;
+        _pucker = _mouthValue <= _puckerThreshold;
+        _slightPucker = _mouthValue > _puckerThreshold && _mouthValue < _neutralThreshold;
 
         if (!_faceData.previouslyPucker && _pucker || 
             !_faceData.previouslySmiling && _smiling ||
@@ -114,5 +117,11 @@ public class FaceTrackingManager : MonoBehaviour
         expressionVector.y = w;
 
         return expressionVector;
+    }
+    
+    // c#
+    float map(float s, float a1, float a2, float b1, float b2)
+    {
+        return b1 + (s-a1)*(b2-b1)/(a2-a1);
     }
 }

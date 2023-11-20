@@ -723,12 +723,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
     - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
+      propertyPath: _smileThreshold
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
       propertyPath: faceExpressions
       value: 
       objectReference: {fileID: 8532926148001288498}
     - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
+      propertyPath: _puckerThreshold
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
+      propertyPath: _neutralThreshold
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490325897906741634, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
       propertyPath: _manualSmileControl
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3490325897906741644, guid: 7d02431d2355f466bb4578ecdc8aab34, type: 3}
       propertyPath: m_Name
