@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VolumetricFogAndMist;
+using VolumetricFogAndMist2;
 
 public class FogDisappearingControl : Sequenceable
 {
-    private VolumetricFog fog;
+    [SerializeField] private VolumetricFog fog;
 
     [SerializeField] private float _initialValue; //TODO put it in the abstract class?
     
@@ -21,7 +21,7 @@ public class FogDisappearingControl : Sequenceable
             }
             else
             {
-                fog.density = Utils.Map(progress, 0, 6, _initialValue, 0);
+                fog.settings.density = Utils.Map(progress, 0, 6, _initialValue, 0);
             }
         }
     }
@@ -29,11 +29,14 @@ public class FogDisappearingControl : Sequenceable
     public override void Initialize()
     {
         _active = true;
-        fog = VolumetricFog.instance;
-        fog.fogAreaPosition = Vector3.zero;
-        fog.fogAreaTopology = FOG_AREA_TOPOLOGY.Box;
-        fog.fogAreaDepth = 2f;
-        fog.fogAreaHeight = 2.0f;
+
+        /* 
+         fog = VolumetricFog.instance;
+         fog.fogAreaPosition = Vector3.zero;
+         fog.fogAreaTopology = FOG_AREA_TOPOLOGY.Box;
+         fog.fogAreaDepth = 2f;
+         fog.fogAreaHeight = 2.0f;
+         */
     }
 
 }
