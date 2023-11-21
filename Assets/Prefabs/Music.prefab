@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ab6bac6b0ad4cd6b9cd709ee140ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _active: 0
+  _finalValue: 16
   _seamlessLoops:
   - {fileID: 2782665024516543189}
   - {fileID: 2782665024358920589}
@@ -61,7 +63,6 @@ MonoBehaviour:
   - {fileID: 2782665024587221937}
   - {fileID: 2782665025627391334}
   - {fileID: 2782665024770360349}
-  _progress: 0
   _currentLoopIndex: 0
 --- !u!1 &2782665023584816053
 GameObject:
