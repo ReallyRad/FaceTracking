@@ -48,50 +48,25 @@ public class FaceTrackingManager : MonoBehaviour
         Vector2 lipPucker = new Vector2();
         Vector2 lipCornerPuller = new Vector2();
 
-        lipPucker = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipPuckerL, OVRFaceExpressions.FaceExpression.LipPuckerR);
-        lipCornerPuller = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipCornerPullerL, OVRFaceExpressions.FaceExpression.LipCornerPullerR);
-
         if (_autoDebugBreathing)
         {
             _mouthValue = Mathf.Sin(Time.time * _debugBreathRate) * 0.075f;
-            //pucker value is the negative half of mouthvalue
-            if (_mouthValue < _neutralThreshold)
-            {
-                puckerValue = -_mouthValue;
-                smileValue = 0f;
-            }
-            //smile value is the positive half of mouthvalue
-            else if (_mouthValue > _neutralThreshold)
-            {
-                puckerValue = 0f;
-                smileValue = _mouthValue;
-            }
         }
         else if (!_manualSmileControl) //using face tracking
         {
+            lipPucker = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipPuckerL, OVRFaceExpressions.FaceExpression.LipPuckerR);
+            lipCornerPuller = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipCornerPullerL, OVRFaceExpressions.FaceExpression.LipCornerPullerR);
+
             smileValue = (lipCornerPuller.x + lipCornerPuller.y) / 2;
             puckerValue = (lipPucker.x + lipPucker.y) / 2;
             _mouthValue = smileValue - puckerValue; //pucker is the negative half, smile is the positive half 
-        }
-        else //use the inspector slider
-        {
-            if (_mouthValue < _neutralThreshold)
-            {
-                puckerValue = -_mouthValue;
-                smileValue = 0;
-            }
-            else if (_mouthValue > _neutralThreshold)
-            {
-                smileValue = _mouthValue;
-                puckerValue = 0;
-            }
         }
 
         Debug.Log("mouthValue " + _mouthValue);
         
         MouthValue(_mouthValue);
 
-        _smiling = _mouthValue >= _smileThreshold; //smile is a value bigger than smile threshold
+        _smiling = _mouthValue >= _smileThreshold; 
         _slightSmile = _mouthValue < _smileThreshold && _mouthValue > _neutralThreshold;
         _pucker = _mouthValue <= _puckerThreshold;
         _slightPucker = _mouthValue > _puckerThreshold && _mouthValue < _neutralThreshold;
