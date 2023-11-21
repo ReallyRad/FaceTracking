@@ -23,13 +23,13 @@ using Debug = UnityEngine.Debug;
     private void OnEnable()
     {
         FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
-        Sequenceable.Completed += ResetProgress;
+        ProgressiveSequenceable.Completed += ResetProgress;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.FaceExpression -= NewFaceExpressionAvailable;
-        Sequenceable.Completed -= ResetProgress;
+        ProgressiveSequenceable.Completed -= ResetProgress;
     }
 
     private void Start()
@@ -62,33 +62,19 @@ using Debug = UnityEngine.Debug;
 
     private void NewFaceExpressionAvailable()
     {
-        if (_faceExpression.slightSmile) SlightSmile();
-        else if (_faceExpression.slightPucker) SlightPucker();
-        else if (_faceExpression.pucker) Pucker();
-    }
-
-    private void Pucker()
-    {
-        if (Progressing()) //if we resumed pucker while we were already doing progress
+        if (_faceExpression.slightSmile) //only reset stopwatch once we passed 0
         {
-            LeanTween.resume(_progressTween);
+            if (_faceExpression.previouslySlightPucker) _puckerStopwatch.Reset(); 
         }
-        _puckerStopwatch.Start();
-    }
-        
-    private void SlightPucker() 
-    {
-        _puckerStopwatch.Stop();
-        if (Progressing()) 
+        else if (_faceExpression.slightPucker) //pause the tween. We might resume it if we detect pucker again
         {
-            LeanTween.pause(_progressTween); //pause the tween. We might resume it if we detect pucker again
+            if (Progressing()) LeanTween.pause(_progressTween); 
+            _puckerStopwatch.Stop();
         }
-    }
-        
-    private void SlightSmile()
-    {
-        if (_faceExpression.previouslySlightPucker){
-            _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+        else if (_faceExpression.pucker) //if we resumed pucker while we were already doing progress
+        {
+            if (Progressing()) LeanTween.resume(_progressTween);
+            _puckerStopwatch.Start();
         }
     }
 
@@ -98,7 +84,7 @@ using Debug = UnityEngine.Debug;
                _puckerStopwatch.ElapsedMilliseconds / 1000 < _endProgressAt;
     }
 
-    private void ResetProgress(Sequenceable item)
+    private void ResetProgress(ProgressiveSequenceable item)
     {
         LeanTween.pause(_progressTween); //TODO is it necessary to pause?
         _currentProgress = 0;
