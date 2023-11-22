@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VolumetricFogAndMist2;
 
-public class FogDisappearingControl : Sequenceable
+public class FogDisappearingControl : ProgressiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
 

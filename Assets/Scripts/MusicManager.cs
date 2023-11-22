@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class MusicManager : Sequenceable
+public class MusicManager : ProgressiveSequenceable
 {
     private float _maxVolume = 1f;
     
