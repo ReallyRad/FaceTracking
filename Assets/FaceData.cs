@@ -14,16 +14,16 @@ public class FaceData : ScriptableObject
     [HideInInspector] public bool previouslySlightPucker;
     [HideInInspector] public bool previouslyPucker;
 
-    public void SetData(bool smiling, bool slightSmile, bool slightPucker, bool pucker)
+    public void SetData(bool newSmiling, bool newSlightSmile, bool newSlightPucker, bool newPucker)
     {
-        previouslySmiling = this.smiling;
-        previouslySlightSmile = this.slightSmile;
-        previouslySlightPucker = this.slightPucker;
-        previouslyPucker = this.pucker;     
+        previouslySmiling = smiling;
+        previouslySlightSmile = slightSmile;
+        previouslySlightPucker = slightPucker;
+        previouslyPucker = pucker;     
         
-        this.smiling = smiling;
-        this.slightSmile = slightSmile;
-        this.slightPucker = slightPucker;
-        this.pucker = pucker;
+        smiling = newSmiling;
+        slightSmile = newSlightSmile;
+        slightPucker = newSlightPucker;
+        pucker = newPucker;
     }
 }
