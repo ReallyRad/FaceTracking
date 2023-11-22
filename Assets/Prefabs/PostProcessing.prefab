@@ -45,7 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177034c6f9e11f04b9f3fed7a781ce64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeProfile: {fileID: 11400000, guid: e10cacc3198ea43f08f0ecfaa0435918, type: 2}
+  _active: 0
+  _completedProgressAt: 0
+  _faceData: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
+  _riseTime: 8
+  _decayTime: 2
+  _volume: {fileID: 314335764744874806}
 --- !u!114 &314335764744874806
 MonoBehaviour:
   m_ObjectHideFlags: 0

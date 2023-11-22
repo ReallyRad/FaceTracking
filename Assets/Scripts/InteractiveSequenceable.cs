@@ -5,7 +5,9 @@ using UnityEngine.Serialization;
 
 public abstract class InteractiveSequenceable : Sequenceable //this abstract class defines the methods that must be implemented by the vfx so they can be sequenced
 {
-   
+    [SerializeField] protected float _riseTime;
+    [SerializeField] protected float _decayTime;
+
     [SerializeField] private FaceData _faceData;
     
     private void OnEnable()
@@ -21,18 +23,19 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     
     private void NewFaceExpressionAvailable()
     {
-        if (_faceData.slightSmile)
+        if (_faceData.slightPucker)
         {
-            //reset
-        }
-        else if (_faceData.slightPucker)
-        {
-            //stop
+            Decay();
+            Debug.Log("decay");
         }
         else if (_faceData.pucker)
         {
-            //start
+            Interact();
+            Debug.Log("interact");
         }
     }
+
+    public abstract void Interact();
     
+    public abstract void Decay();
 }
