@@ -19,11 +19,6 @@ public class FaceTrackingManager : MonoBehaviour
     [SerializeField] private float _neutralThreshold;
     [SerializeField] private float _smileThreshold;
 
-    private bool _smiling;
-    private bool _slightSmile;
-    private bool _pucker;
-    private bool _slightPucker;
-
     [SerializeField] private FaceData _faceData;
 
     [SerializeField] private bool _manualSmileControl;
@@ -62,21 +57,19 @@ public class FaceTrackingManager : MonoBehaviour
             _mouthValue = smileValue - puckerValue; //pucker is the negative half, smile is the positive half 
         }
 
-        Debug.Log("mouthValue " + _mouthValue);
-        
         MouthValue(_mouthValue);
 
-        _smiling = _mouthValue >= _smileThreshold; 
-        _slightSmile = _mouthValue < _smileThreshold && _mouthValue > _neutralThreshold;
-        _pucker = _mouthValue <= _puckerThreshold;
-        _slightPucker = _mouthValue > _puckerThreshold && _mouthValue < _neutralThreshold;
+        var smiling = _mouthValue >= _smileThreshold; 
+        var slightSmile = _mouthValue < _smileThreshold && _mouthValue > _neutralThreshold;
+        var pucker = _mouthValue <= _puckerThreshold;
+        var slightPucker = _mouthValue > _puckerThreshold && _mouthValue < _neutralThreshold;
 
-        if (!_faceData.previouslyPucker && _pucker || 
-            !_faceData.previouslySmiling && _smiling ||
-            !_faceData.previouslySlightPucker && _slightPucker || 
-            !_faceData.previouslySlightSmile && _slightSmile)
+        if (!_faceData.previouslyPucker && pucker || 
+            !_faceData.previouslySmiling && smiling ||
+            !_faceData.previouslySlightPucker && slightPucker || 
+            !_faceData.previouslySlightSmile && slightSmile)
         {
-            _faceData.SetData(_smiling, _slightSmile, _slightPucker, _pucker);
+            _faceData.SetData(smiling, slightSmile, slightPucker, pucker);
             FaceExpression();
         }
     }
