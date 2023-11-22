@@ -10,6 +10,7 @@ Material:
   m_Name: beach
   m_Shader: {fileID: 4800000, guid: d7bb9d4ea887e4041877356986247bba, type: 3}
   m_ValidKeywords:
+  - APPLY_GAMMA
   - MONOSCOPIC
   m_InvalidKeywords:
   - STEREO_NONE
@@ -52,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 032fdbd5ae6302640923c35401bc5f0f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
