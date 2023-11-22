@@ -9,6 +9,10 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     [SerializeField] protected float _decayTime;
 
     [SerializeField] private FaceData _faceData;
+
+    //TODO HACK to handle double triggers coming from FaceTracking events. Find way to have single triggers
+    private bool _skipDecayTrigger;
+    private bool _skipInteractTrigger;
     
     private void OnEnable()
     {
@@ -25,13 +29,24 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     {
         if (_faceData.slightPucker)
         {
-            Decay();
-            Debug.Log("decay");
+            if (!_skipDecayTrigger) //skip first trigger
+            {
+                Decay();
+                _skipDecayTrigger = true;
+                _skipInteractTrigger = false;
+                Debug.Log("decay");    
+            }
+            
         }
         else if (_faceData.pucker)
         {
-            Interact();
-            Debug.Log("interact");
+            if (!_skipInteractTrigger) //skip first trigger
+            {
+                Interact();
+                _skipInteractTrigger = true;
+                _skipDecayTrigger = false;
+                Debug.Log("interact");    
+            }
         }
     }
 
