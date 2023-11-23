@@ -12,19 +12,10 @@ public class FaceTrackingManager : MonoBehaviour
 {
     [SerializeField] private OVRFaceExpressions faceExpressions;
 
-    [Range(-0.35f, 0.05f)]
-    [SerializeField] private float _mouthValue; //from -1 to +1
-
+    [Range(-0.065f, 0.0f)]
+    [SerializeField] private float _mouthValue;
+    
     [SerializeField] private float _puckerThreshold;
-    [SerializeField] private float _neutralThreshold;
-    [SerializeField] private float _smileThreshold;
-
-    private bool _smiling;
-    private bool _slightSmile;
-    private bool _pucker;
-    private bool _slightPucker;
-
-    [SerializeField] private FaceData _faceData;
 
     [SerializeField] private bool _manualSmileControl;
 
@@ -34,51 +25,41 @@ public class FaceTrackingManager : MonoBehaviour
     public delegate void OnMouthValue(float mouthValue);
     public static OnMouthValue MouthValue;
 
-    public delegate void OnFaceExpression();
-    public static OnFaceExpression FaceExpression;
+    public delegate void OnPuckerTrigger(bool pucker);
+    public static OnPuckerTrigger PuckerTrigger;
 
-    private int _previousProgressValue;
-    private int _progressValue;
-
+    private bool _sendMouthValue;
+    private float _previousMouthValue;
     private void Update()
     {
-        float smileValue = 0f;
-        float puckerValue = 0f;
-
         Vector2 lipPucker = new Vector2();
-        Vector2 lipCornerPuller = new Vector2();
-
+        _previousMouthValue = _mouthValue;
+       
         if (_autoDebugBreathing)
         {
-            _mouthValue = Mathf.Sin(Time.time * _debugBreathRate) * 0.075f;
+            _mouthValue = Mathf.Sin(Time.time * _debugBreathRate) * 0.03f - 0.03f;
         }
         else if (!_manualSmileControl) //using face tracking
         {
-            lipPucker = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipPuckerL, OVRFaceExpressions.FaceExpression.LipPuckerR);
-            lipCornerPuller = GetExpressionValue(OVRFaceExpressions.FaceExpression.LipCornerPullerL, OVRFaceExpressions.FaceExpression.LipCornerPullerR);
-
-            smileValue = (lipCornerPuller.x + lipCornerPuller.y) / 2;
-            puckerValue = (lipPucker.x + lipPucker.y) / 2;
-            _mouthValue = smileValue - puckerValue; //pucker is the negative half, smile is the positive half 
+            lipPucker = GetExpressionValue(
+                OVRFaceExpressions.FaceExpression.LipPuckerL,
+                OVRFaceExpressions.FaceExpression.LipPuckerR);
+            
+            _mouthValue = - (lipPucker.x + lipPucker.y) / 2;
         }
 
-        Debug.Log("mouthValue " + _mouthValue);
+        if (_sendMouthValue) MouthValue(_mouthValue);
+
+        bool wasPucker = _previousMouthValue < _puckerThreshold;
+        bool pucker = _mouthValue < _puckerThreshold;
         
-        MouthValue(_mouthValue);
-
-        _smiling = _mouthValue >= _smileThreshold; 
-        _slightSmile = _mouthValue < _smileThreshold && _mouthValue > _neutralThreshold;
-        _pucker = _mouthValue <= _puckerThreshold;
-        _slightPucker = _mouthValue > _puckerThreshold && _mouthValue < _neutralThreshold;
-
-        if (!_faceData.previouslyPucker && _pucker || 
-            !_faceData.previouslySmiling && _smiling ||
-            !_faceData.previouslySlightPucker && _slightPucker || 
-            !_faceData.previouslySlightSmile && _slightSmile)
-        {
-            _faceData.SetData(_smiling, _slightSmile, _slightPucker, _pucker);
-            FaceExpression();
-        }
+        //if we just started pucker
+        if (pucker && !wasPucker)
+            PuckerTrigger(true);
+        
+        //if we just stopped pucker
+        else if (wasPucker && !pucker) 
+            PuckerTrigger(false); 
     }
 
     private Vector2 GetExpressionValue(OVRFaceExpressions.FaceExpression key1,
@@ -94,9 +75,4 @@ public class FaceTrackingManager : MonoBehaviour
         return expressionVector;
     }
     
-    // c#
-    float map(float s, float a1, float a2, float b1, float b2)
-    {
-        return b1 + (s-a1)*(b2-b1)/(a2-a1);
-    }
 }

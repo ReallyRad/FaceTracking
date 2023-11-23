@@ -1,6 +1,3 @@
- using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
@@ -12,7 +9,6 @@ using Debug = UnityEngine.Debug;
     
     [SerializeField] private float _startProgressAt;
     [SerializeField] private float _endProgressAt;
-    [SerializeField] private FaceData _faceExpression;
     [SerializeField] private float _currentProgress;
 
     private Stopwatch _puckerStopwatch;
@@ -22,13 +18,13 @@ using Debug = UnityEngine.Debug;
 
     private void OnEnable()
     {
-        FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
+        FaceTrackingManager.PuckerTrigger += PuckerTrigger;
         Sequenceable.Completed += ResetProgress;
     }
 
     private void OnDisable()
     {
-        FaceTrackingManager.FaceExpression -= NewFaceExpressionAvailable;
+        FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
         Sequenceable.Completed -= ResetProgress;
     }
 
@@ -54,40 +50,22 @@ using Debug = UnityEngine.Debug;
         else if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _endProgressAt &&
                  _previousElapsed / 1000f < _endProgressAt) //we just passed the max duration threshold, stop progress
         {
-            LeanTween.pause(_progressTween);
+            if (_progressTween != 0) LeanTween.pause(_progressTween);
         }  
         
         _previousElapsed = _puckerStopwatch.ElapsedMilliseconds;
     }
 
-    private void NewFaceExpressionAvailable()
+    private void PuckerTrigger(bool pucker)
     {
-        if (_faceExpression.slightSmile) SlightSmile();
-        else if (_faceExpression.slightPucker) SlightPucker();
-        else if (_faceExpression.pucker) Pucker();
-    }
-
-    private void Pucker()
-    {
-        if (Progressing()) //if we resumed pucker while we were already doing progress
+        if (pucker)
         {
-            LeanTween.resume(_progressTween);
+            _puckerStopwatch.Start();
         }
-        _puckerStopwatch.Start();
-    }
-        
-    private void SlightPucker() 
-    {
-        _puckerStopwatch.Stop();
-        if (Progressing()) 
+        else
         {
-            LeanTween.pause(_progressTween); //pause the tween. We might resume it if we detect pucker again
-        }
-    }
-        
-    private void SlightSmile()
-    {
-        if (_faceExpression.previouslySlightPucker){
+            _puckerStopwatch.Stop();
+            if (_progressTween != 0) LeanTween.pause(_progressTween);
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
     }

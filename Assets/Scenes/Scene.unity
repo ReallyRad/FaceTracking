@@ -431,7 +431,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4398088968603346786, guid: 27a97cf15a2386c46852dd0405c549a5, type: 3}
   m_PrefabInstance: {fileID: 1324927646}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &1732165655
+--- !u!84 &1622817658
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,7 +578,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 1732165655}
+        m_Texture: {fileID: 1622817658}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -601,7 +601,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: -0.24470897, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -1.2036526, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -612,7 +612,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.24470897, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -1.2036526, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:
@@ -728,7 +728,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startProgressAt: 3
   _endProgressAt: 7
-  _faceExpression: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
   _currentProgress: 0
 --- !u!1 &2096423369
 GameObject:
@@ -1199,15 +1198,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3490325897647520971}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29c183b72756d924aaab5823ad45f7d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 74bee8fffe36c294aa13bc3dc220bfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceExpressions: {fileID: 0}
-  _mouthValue: 0
-  _puckerThreshold: -0.05
-  _neutralThreshold: 0
-  _smileThreshold: 0.05
-  _faceData: {fileID: 0}
-  _manualSmileControl: 0
+  faceExpressions: {fileID: 1043111860}
+  _mouthValue: -0.048
+  _puckerThreshold: -0.03
+  _manualSmileControl: 1
   _autoDebugBreathing: 0
   _debugBreathRate: 0
