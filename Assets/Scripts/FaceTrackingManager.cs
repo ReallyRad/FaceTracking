@@ -57,7 +57,7 @@ public class FaceTrackingManager : MonoBehaviour
             _mouthValue = smileValue - puckerValue; //pucker is the negative half, smile is the positive half 
         }
 
-        MouthValue(_mouthValue);
+        //MouthValue(_mouthValue);
 
         var smiling = _mouthValue >= _smileThreshold; 
         var slightSmile = _mouthValue < _smileThreshold && _mouthValue > _neutralThreshold;
