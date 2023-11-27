@@ -1,0 +1,22 @@
+Sopme coding guidelines
+
+
+don't use any references to effects names in sequencing scripts. use general purpose scripts or interfaces/subclasses -> use inspector interface to reference and sequence different prefabs.
+
+scripting conventions 
+    case and naming
+         - no undercores between words in names (no snake_case)
+         - _underscore at start of private fields names.
+         - variable names camelCase
+         - method names PascalCase 
+         - no abbreviations in names        
+              
+    keeping it clean         
+         - don't leave commented or unused code in (use stashes or commit to a separate branch)
+         - keep scripts uneder 350 lines
+         - keep methods under 150 lines
+         - don't repeat yourself
+         - put bracket on next line for if or on same line if short enough
+         - private / public fields/methods
+         - use regions? or at least order
+
