@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-//using UnityEngine.Rendering.PostProcessing;
-using Unity.VisualScripting;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
     [SerializeField] private Volume _volume;
     private int _interactTween;
     private int _decayTween;
+    
+    //TODO add OnComplete()
     
     public override void Initialize()
     {

@@ -8,11 +8,10 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     [SerializeField] protected float _riseTime;
     [SerializeField] protected float _decayTime;
 
-    [SerializeField] private FaceData _faceData;
-
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
+        //TODO add Progress handler to trigger OnCOmplete()
     }
 
     private void OnDisable()
@@ -22,12 +21,12 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     
     private void NewFaceExpressionAvailable(bool pucker)
     {
-        if (!pucker)
+        if (!pucker && _active)
         {
             Decay();
             Debug.Log("decay");    
         }
-        else if (pucker)
+        else if (pucker && _active)
         {
             Interact();
             Debug.Log("interact");    

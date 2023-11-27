@@ -33,7 +33,6 @@ public class FaceTrackingManager : MonoBehaviour
     private void Update()
     {
         Vector2 lipPucker = new Vector2();
-        _previousMouthValue = _mouthValue;
        
         if (_autoDebugBreathing)
         {
@@ -60,6 +59,8 @@ public class FaceTrackingManager : MonoBehaviour
         //if we just stopped pucker
         else if (wasPucker && !pucker) 
             PuckerTrigger(false); 
+        
+        _previousMouthValue = _mouthValue;
     }
 
     private Vector2 GetExpressionValue(OVRFaceExpressions.FaceExpression key1,
