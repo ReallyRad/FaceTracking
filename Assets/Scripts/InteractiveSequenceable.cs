@@ -16,16 +16,15 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     
     private void OnEnable()
     {
-        FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
+        FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
     }
 
     private void OnDisable()
     {
-        FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
+        FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
     }
-
     
-    private void NewFaceExpressionAvailable()
+    private void NewFaceExpressionAvailable(bool pucker)
     {
         if (_faceData.slightPucker)
         {

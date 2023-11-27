@@ -38,13 +38,13 @@ namespace Metaface.Debug
         private void OnEnable()
         {
             FaceTrackingManager.MouthValue += SetMouthValue;
-            FaceTrackingManager.FaceExpression += NewFaceExpressionAvailable;
+            //FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
         }
 
         private void OnDisable()
         {
             FaceTrackingManager.MouthValue -= SetMouthValue;
-            FaceTrackingManager.FaceExpression -= NewFaceExpressionAvailable;
+            //FaceTrackingManager.PuckerTrigger -= NewFaceExpressionAvailable;
         }
         
         private void Start()
