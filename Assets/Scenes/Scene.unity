@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895756, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895756, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
---- !u!84 &375678882
+--- !u!84 &594220894
 RenderTexture:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -247,9 +247,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1097200078}
-  - {fileID: 2104855883}
   - {fileID: 804272790}
+  - {fileID: 2104855883}
+  - {fileID: 1097200078}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -283,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 805744124275810802, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 805744124275810802, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -406,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7667272445184422950, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7667272445184422950, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -466,13 +466,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6024826150563787036, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7324404553380532021, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: m_Name
       value: OVRFaceTrackingCharacterController
       objectReference: {fileID: 0}
     - target: {fileID: 7324404553381024539, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7324404553381024539, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: m_LocalPosition.x
@@ -550,9 +554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 542ddef068f0986458274741a3fda280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startProgressAt: 0
-  _endProgressAt: 0
-  _currentProgress: 0
   Fluid: {fileID: 1240755152}
   FluidMaterial: {fileID: 2100000, guid: c141ed9b950ab3b448fddde32e254ade, type: 2}
   lowerThanMinColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -583,6 +584,10 @@ PrefabInstance:
     - target: {fileID: 2451920120223082122, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: m_Name
       value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 2573602179937816685, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
+      propertyPath: _finalValue
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2573602179937816685, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: maxProgress
@@ -682,7 +687,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 375678882}
+        m_Texture: {fileID: 594220894}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -705,7 +710,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: -0.50518084, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.23045665, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -716,7 +721,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.50518084, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.23045665, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:
@@ -784,7 +789,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044060109
 GameObject:
@@ -926,7 +931,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &2096423372
 MonoBehaviour:
@@ -1113,7 +1118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2272303278437845214, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2272303278437845214, guid: 072c67f54ef990d49b8687dfeb21802e, type: 3}
       propertyPath: m_AnchorMax.x

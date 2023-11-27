@@ -28,7 +28,6 @@ public class PostProcessingControl : InteractiveSequenceable
             {
                 _volume.weight = val;
             })
-            .setEaseInCirc()
             .id;
     }
 
@@ -45,7 +44,6 @@ public class PostProcessingControl : InteractiveSequenceable
             {
                 _volume.weight = val;
             })
-            .setEaseInCirc()
             .id;
     }
 }
