@@ -10,10 +10,6 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
 
     [SerializeField] private FaceData _faceData;
 
-    //TODO HACK to handle double triggers coming from FaceTracking events. Find way to have single triggers
-    private bool _skipDecayTrigger;
-    private bool _skipInteractTrigger;
-    
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
@@ -26,26 +22,15 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     
     private void NewFaceExpressionAvailable(bool pucker)
     {
-        if (_faceData.slightPucker)
+        if (!pucker)
         {
-            if (!_skipDecayTrigger) //skip first trigger
-            {
-                Decay();
-                _skipDecayTrigger = true;
-                _skipInteractTrigger = false;
-                Debug.Log("decay");    
-            }
-            
+            Decay();
+            Debug.Log("decay");    
         }
-        else if (_faceData.pucker)
+        else if (pucker)
         {
-            if (!_skipInteractTrigger) //skip first trigger
-            {
-                Interact();
-                _skipInteractTrigger = true;
-                _skipDecayTrigger = false;
-                Debug.Log("interact");    
-            }
+            Interact();
+            Debug.Log("interact");    
         }
     }
 

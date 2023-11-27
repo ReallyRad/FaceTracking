@@ -16,7 +16,6 @@ public class PostProcessingControl : InteractiveSequenceable
     {
         _active = true;
         _volume.weight = 0;
-        
     }
 
     public override void Interact()
