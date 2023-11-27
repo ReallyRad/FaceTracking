@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -15,6 +16,12 @@ using Debug = UnityEngine.Debug;
     
     private int _progressTween;
     private float _previousElapsed;
+
+    public GameObject Fluid;
+    public Material FluidMaterial;
+    public Color lowerThanMinColor = Color.yellow;
+    public Color betweenMinAndMaxColor = Color.green;
+    public Color higherThanMaxColor = Color.red;
 
     private void OnEnable()
     {
@@ -35,6 +42,14 @@ using Debug = UnityEngine.Debug;
 
     private void Update()
     {
+        float puckerProgress = _puckerStopwatch.ElapsedMilliseconds / 1000f;
+        float fraction = puckerProgress / _endProgressAt;
+        SetYScale(Fluid, fraction);
+        if (puckerProgress < _startProgressAt) FluidMaterial.color = lowerThanMinColor;
+        else if (puckerProgress > _startProgressAt && puckerProgress<_endProgressAt) FluidMaterial.color = betweenMinAndMaxColor;
+        else if (puckerProgress >_endProgressAt) FluidMaterial.color = higherThanMaxColor;
+
+
         if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _startProgressAt && 
             _previousElapsed / 1000f < _startProgressAt) //we just passed the min duration threshold, continue progress
         {
@@ -80,5 +95,12 @@ using Debug = UnityEngine.Debug;
     {
         LeanTween.pause(_progressTween); //TODO is it necessary to pause?
         _currentProgress = 0;
+    }
+
+    void SetYScale(GameObject fluid, float yScale)
+    {
+        Vector3 newScale = fluid.transform.localScale;
+        newScale.y = yScale;
+        fluid.transform.localScale = newScale;
     }
 }
