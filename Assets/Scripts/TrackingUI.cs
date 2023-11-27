@@ -10,7 +10,6 @@ public class TrackingUI : MonoBehaviour
 
     private Stopwatch _puckerStopwatch;
 
-    public GameObject Fluid;
     public Material FluidMaterial;
     public Color lowerThanMinColor = Color.yellow;
     public Color betweenMinAndMaxColor = Color.green;
@@ -37,7 +36,7 @@ public class TrackingUI : MonoBehaviour
     {
         float puckerProgress = _puckerStopwatch.ElapsedMilliseconds / 1000f;
         float fraction = puckerProgress / _endProgressAt;
-        SetYScale(Fluid, fraction);
+        SetYScale(gameObject, fraction);
         if (puckerProgress < _startProgressAt) FluidMaterial.color = lowerThanMinColor;
         else if (puckerProgress > _startProgressAt && puckerProgress < _endProgressAt) FluidMaterial.color = betweenMinAndMaxColor;
         else if (puckerProgress > _endProgressAt) FluidMaterial.color = higherThanMaxColor;

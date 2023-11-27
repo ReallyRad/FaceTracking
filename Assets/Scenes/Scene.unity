@@ -767,7 +767,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: -0.0070666666, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.21100825, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -778,7 +778,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.0070666666, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.21100825, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:
@@ -1383,7 +1383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   faceExpressions: {fileID: 2123673490}
-  _mouthValue: -0.048
+  _mouthValue: 0
   _puckerThreshold: -0.03
   _manualSmileControl: 0
   _autoDebugBreathing: 0
