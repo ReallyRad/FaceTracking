@@ -51,6 +51,12 @@ MonoBehaviour:
   _initialValue: 1
   _finalValue: 0
   fog: {fileID: 3773586030176973179}
+  _progressCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3773586029799875114
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b11fc35cfad4617908659408b2309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 1d5e734dffd774ece90048d54e0e25d7, type: 2}
+  profile: {fileID: 11400000, guid: dd4fd176ce9e8c44990e12d4a290bc24, type: 2}
   enableNativeLights: 0
   enablePointLights: 0
   enableSpotLights: 0

@@ -406,6 +406,74 @@ PrefabInstance:
       propertyPath: trackingCenter
       value: 
       objectReference: {fileID: 1240755152}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[1].time
+      value: 0.3235941
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[2].time
+      value: 0.7568062
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[1].value
+      value: 0.44887567
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[2].value
+      value: 0.6583831
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[3].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[1].inSlope
+      value: 0.32564753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[2].inSlope
+      value: 4.323517
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[1].outSlope
+      value: 0.32564753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[2].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[2].outSlope
+      value: 4.323517
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[1].outWeight
+      value: 0.0705095
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[2].outWeight
+      value: 0.13813385
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
 --- !u!4 &804272790 stripped
@@ -576,6 +644,10 @@ PrefabInstance:
       propertyPath: _maxProgress
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 2782665023584816054, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
+      propertyPath: m_Volume
+      value: 0.461
+      objectReference: {fileID: 0}
     - target: {fileID: 9068146263842655302, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -689,7 +761,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: -1.0043285, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -2.8980043, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -700,7 +772,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -1.0043285, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -2.8980043, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:
