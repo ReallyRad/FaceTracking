@@ -7,6 +7,7 @@ using VolumetricFogAndMist2;
 public class FogDisappearingControl : ProgressiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
+    [SerializeField] private AnimationCurve _progressCurve;
 
     protected override void Progress(float progress) 
     {
@@ -21,6 +22,9 @@ public class FogDisappearingControl : ProgressiveSequenceable
             else
             {
                 fog.settings.density = Utils.Map(progress, 0, _completedProgressAt, _initialValue, _finalValue);
+                //float val = _progressCurve.Evaluate(progress);
+                //val = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
+                //fog.settings.density = val;
             }
         }
     }
