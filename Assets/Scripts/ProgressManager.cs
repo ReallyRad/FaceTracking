@@ -1,7 +1,5 @@
 using System.Diagnostics;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
  public class ProgressManager : MonoBehaviour //handles face expression events to detect whether they should be interpreted as progress
 {

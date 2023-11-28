@@ -1203,6 +1203,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40996884bcfe01c42b99be4551c88613, type: 3}
+--- !u!1 &4931481191448320829 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6322680311044679468, guid: 40996884bcfe01c42b99be4551c88613, type: 3}
+  m_PrefabInstance: {fileID: 1427227929793838097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3724025053576229366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4931481191448320829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542ddef068f0986458274741a3fda280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FluidMaterial: {fileID: 2100000, guid: c141ed9b950ab3b448fddde32e254ade, type: 2}
+  lowerThanMinColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  betweenMinAndMaxColor: {r: 0, g: 1, b: 0, a: 1}
+  higherThanMaxColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!4 &6024826150563787036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4635034469986077965, guid: 40996884bcfe01c42b99be4551c88613, type: 3}
