@@ -8,7 +8,7 @@
 //#define ORTHO_SUPPORT
 //#define USE_ALTERNATE_RECONSTRUCT_API
 
-#define MAX_ITERATIONS 500
+#define MAX_ITERATIONS 5
 
 //#define FOG_BLUE_NOISE
 
