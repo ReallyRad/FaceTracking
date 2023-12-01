@@ -180,44 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
---- !u!84 &456093239
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 5
-  m_Width: 256
-  m_Height: 256
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthStencilFormat: 0
-  m_ColorFormat: 8
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_EnableRandomWrite: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 0
-    m_WrapV: 0
-    m_WrapW: 0
-  m_Dimension: 2
-  m_VolumeDepth: 1
-  m_ShadowSamplingMode: 2
 --- !u!1001 &522723140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +237,44 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f0cc2b55c6228f4984a781914c6690e, type: 3}
+--- !u!84 &600154669
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 5
+  m_Width: 256
+  m_Height: 256
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthStencilFormat: 0
+  m_ColorFormat: 8
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_EnableRandomWrite: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_Dimension: 2
+  m_VolumeDepth: 1
+  m_ShadowSamplingMode: 2
 --- !u!1 &803863598
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,8 +304,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 804272790}
   - {fileID: 2104855883}
+  - {fileID: 804272790}
   - {fileID: 1097200078}
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -340,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 805744124275810802, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 805744124275810802, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,16 +407,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1240755152}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _completedProgressAt
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[1].time
-      value: 0.3235941
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[2].time
-      value: 0.7568062
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[3].time
@@ -424,11 +428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[1].value
-      value: 0.44887567
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[2].value
-      value: 0.6583831
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[3].value
@@ -436,43 +440,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[0].inSlope
-      value: 2
+      value: 2.5208318
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[1].inSlope
-      value: 0.32564753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[2].inSlope
-      value: 4.323517
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[0].outSlope
-      value: 2
+      value: 2.5208318
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[1].outSlope
-      value: 0.32564753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[2].inWeight
-      value: 0.33333334
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[2].outSlope
-      value: 4.323517
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
+      propertyPath: _progressCurve.m_Curve.Array.data[0].outWeight
+      value: 0.030951286
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[1].outWeight
-      value: 0.0705095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4908878922176959112, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.data[2].outWeight
-      value: 0.13813385
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
@@ -558,6 +566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4247818246739165631, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
+      propertyPath: _manualSmileControl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4931481191448320829, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -614,13 +626,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3724025053576229366, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
 --- !u!4 &1240755152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7324404553381024529, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
   m_PrefabInstance: {fileID: 1240755151}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1240755153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1200615626140365287, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
+  m_PrefabInstance: {fileID: 1240755151}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1240755154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240755153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542ddef068f0986458274741a3fda280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FluidMaterial: {fileID: 2100000, guid: c141ed9b950ab3b448fddde32e254ade, type: 2}
+  lowerThanMinColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  betweenMinAndMaxColor: {r: 0, g: 1, b: 0, a: 1}
+  higherThanMaxColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &1829053649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -634,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2573602179937816685, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: _finalValue
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2573602179937816685, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: maxProgress
@@ -644,13 +678,17 @@ PrefabInstance:
       propertyPath: _maxProgress
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 2573602179937816685, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
+      propertyPath: _completedProgressAt
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2782665023584816054, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: m_Volume
       value: 0.461
       objectReference: {fileID: 0}
     - target: {fileID: 9068146263842655302, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9068146263842655302, guid: c486d7467d7584bf7be719c8c24b889c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -738,7 +776,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 456093239}
+        m_Texture: {fileID: 600154669}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -761,7 +799,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.5, g: 4, b: -0.5, a: 0}
-    - _DetailWindDirection: {r: -2.8980043, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.08932576, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -772,7 +810,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -2.8980043, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.08932576, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:

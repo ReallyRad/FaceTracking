@@ -21,10 +21,9 @@ public class FogDisappearingControl : ProgressiveSequenceable
             }
             else
             {
-                fog.settings.density = Utils.Map(progress, 0, _completedProgressAt, _initialValue, _finalValue);
-                //float val = _progressCurve.Evaluate(progress);
-                //val = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
-                //fog.settings.density = val;
+                float val = _progressCurve.Evaluate(progress);
+                fog.settings.density = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
+
             }
         }
     }
