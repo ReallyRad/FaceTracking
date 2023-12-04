@@ -8,13 +8,25 @@ public class FogDisappearingControl : ProgressiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
+    private float intensityValue = 1;
+
+    private void Start()
+    {
+        _progressCurve = new AnimationCurve();
+        _progressCurve.AddKey(0f, 0f);
+        _progressCurve.AddKey(_completedProgressAt, _completedProgressAt);
+        Keyframe[] keys = _progressCurve.keys;
+        keys[0].outTangent = 2f;
+        keys[1].inTangent = 0.1f;
+        _progressCurve.keys = keys;
+    }
 
     protected override void Progress(float progress) 
     {
         if (_active)
         {
             Debug.Log("fog progress " + progress);
-            if (progress >= _completedProgressAt)
+            if (intensityValue <= _finalValue)
             {
                 Completed(this);
                 _active = false;
@@ -22,8 +34,10 @@ public class FogDisappearingControl : ProgressiveSequenceable
             else
             {
                 float val = _progressCurve.Evaluate(progress);
-                fog.settings.density = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
+                intensityValue = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
+                //intensityValue = Utils.Map(progress, 0, _completedProgressAt, _initialValue, _finalValue);
 
+                fog.settings.density = intensityValue;
             }
         }
     }
