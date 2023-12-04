@@ -83,9 +83,9 @@ void SetJitter(float4 scrPos) {
 
 
 inline float3 ProjectOnPlane(float3 v, float3 planeNormal) {
-    float sqrMag = dot(planeNormal, planeNormal);
+    // assume plane normal has a modulus of 1
     float dt = dot(v, planeNormal);
-	return v - planeNormal * dt / sqrMag;
+	return v - planeNormal * dt;
 }
 
 inline float3 GetRayStart(float3 wpos) {
@@ -148,7 +148,7 @@ half4 SampleDensity(float3 wpos) {
 
 #define dot2(x) dot(x,x)
 
-void AddFog(float3 rayStart, float3 wpos, float rs, half4 baseColor, inout half4 sum) {
+void AddFog(float3 rayStart, float3 wpos, half energyStep, half4 baseColor, inout half4 sum) {
 
    half4 density = SampleDensity(wpos);
 
@@ -175,6 +175,7 @@ void AddFog(float3 rayStart, float3 wpos, float rs, half4 baseColor, inout half4
         #endif
    #endif
 
+   UNITY_BRANCH
    if (density.a > 0) {
         half4 fgCol = baseColor * half4((1.0 - density.a * _DeepObscurance).xxx, density.a);
         #if VF2_RECEIVE_SHADOWS
@@ -243,7 +244,7 @@ void AddFog(float3 rayStart, float3 wpos, float rs, half4 baseColor, inout half4
 			fgCol *= ApplyFogDistance(rayStart, wpos);
 		#endif
 
-        fgCol *= min(1.0, _Density * rs);
+        fgCol *= energyStep;
         sum += fgCol * (1.0 - sum.a);
    }
 }
@@ -262,8 +263,7 @@ half4 GetFogColor(float3 rayStart, float3 viewDir, float t0, float t1) {
 
     t0 = min(t0 + jitter * JITTERING, t1);
     float len = t1 - t0;
-    float rs = MIN_STEPPING + max(log(len), 0) / FOG_STEPPING;     // stepping ratio with atten detail with distance
-    half4 sum = half4(0,0,0,0);
+    float rs = MIN_STEPPING + max(log(len), 0) * FOG_STEPPING;     // stepping ratio with atten detail with distance
     half3 diffusionColor = GetDiffusionColor(viewDir);
     half4 lightColor = half4(diffusionColor, 1.0);
 
@@ -275,9 +275,11 @@ half4 GetFogColor(float3 rayStart, float3 viewDir, float t0, float t1) {
 
     viewDir *= rs;
 
-    float energyStep = rs;
+    half energyStep = min(1.0, _Density * rs);
+    half4 sum = half4(0,0,0,0);
+
+    // normalize raystep
     rs /= len + 0.001;
-    
     float t = 0;
 
     // Use this Unroll macro to support WebGL. Increase 50 value if needed.
@@ -290,13 +292,18 @@ half4 GetFogColor(float3 rayStart, float3 viewDir, float t0, float t1) {
         loop_t = t;
         AddFog(rayStart, wpos, energyStep, lightColor, sum);
         if (sum.a > 0.99) {
-            sum.a = 1.0;
-            return sum;
+            break;
         }
         t += rs;
         wpos += viewDir;
     }
-    AddFog(rayStart, endPos, len * (rs - (t-1.0)), lightColor, sum);
+    if (sum.a > 0.99) {
+        sum.a = 1;
+    } else {
+        energyStep = _Density * len * (rs - (t-1.0));
+        energyStep = min(1.0, energyStep);
+        AddFog(rayStart, endPos, energyStep, lightColor, sum);
+    }
 
     return sum;
 }

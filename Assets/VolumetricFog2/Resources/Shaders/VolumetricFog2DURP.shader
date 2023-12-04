@@ -63,17 +63,17 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
 					#pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE
 				#endif
 
-                #pragma multi_compile _ _ADDITIONAL_LIGHTS
-				#pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
-                #pragma multi_compile _ VF2_DEPTH_PREPASS
-				#pragma multi_compile_local_fragment _ VF2_POINT_LIGHTS VF2_NATIVE_LIGHTS
+//                #pragma multi_compile _ _ADDITIONAL_LIGHTS
+//				#pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
+//                #pragma multi_compile _ VF2_DEPTH_PREPASS
+//				#pragma multi_compile_local_fragment _ VF2_POINT_LIGHTS VF2_NATIVE_LIGHTS
 				#pragma multi_compile_local_fragment _ VF2_RECEIVE_SHADOWS
-				#pragma multi_compile_local_fragment VF2_SHAPE_BOX VF2_SHAPE_SPHERE
+//				#pragma multi_compile_local_fragment VF2_SHAPE_BOX VF2_SHAPE_SPHERE
 				#pragma multi_compile_local_fragment _ VF2_DETAIL_NOISE VF2_CONSTANT_DENSITY
 				#pragma shader_feature_local_fragment VF2_DISTANCE
-				#pragma shader_feature_local_fragment VF2_VOIDS
-				#pragma shader_feature_local_fragment VF2_FOW
-				#pragma shader_feature_local_fragment VF2_SURFACE
+//				#pragma shader_feature_local_fragment VF2_VOIDS
+//				#pragma shader_feature_local_fragment VF2_FOW
+//				#pragma shader_feature_local_fragment VF2_SURFACE
 				#pragma shader_feature_local_fragment VF2_DEPTH_GRADIENT
 				#pragma shader_feature_local_fragment VF2_HEIGHT_GRADIENT
 				#pragma shader_feature_local_fragment VF2_LIGHT_COOKIE
@@ -139,7 +139,7 @@ Shader "VolumetricFog2/VolumetricFog2DURP"
 				{
 					UNITY_SETUP_INSTANCE_ID(i);
 					UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(i);
-
+					
 					float3 rayStart = GetRayStart(i.wpos);
 					float3 ray = i.wpos - rayStart;
 

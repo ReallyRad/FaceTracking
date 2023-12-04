@@ -27,6 +27,8 @@ namespace VolumetricFogAndMist2 {
         [Tooltip("Do not use any noise at all")]
         public bool constantDensity;
         public Texture2D noiseTexture;
+        [Tooltip("Size of the final noise used by the shader. Reduce to improve performance on old devices.")]
+        public VolumetricFogNoiseSize noiseTextureOptimizedSize = VolumetricFogNoiseSize._256;
         [Range(0, 3)] public float noiseStrength = 1f;
         public float noiseScale = 15f;
         public float noiseFinalMultiplier = 1f;
@@ -312,6 +314,8 @@ namespace VolumetricFogAndMist2 {
         readonly static List<float> alphaKeysTimes = new List<float>();
 
         void LerpGradient(Gradient g, Gradient a, Gradient b, float t) {
+
+            if (g == null || a == null || b == null) return;
 
             if (a.colorKeys.Length + b.colorKeys.Length > 8 || a.alphaKeys.Length + b.alphaKeys.Length > 8) {
                 Debug.LogError("Gradients total key count exceeding 8, can not lerp");

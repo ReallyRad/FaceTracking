@@ -23,7 +23,7 @@ SubShader {
 	    float2 uv4: TEXCOORD4;
 	};
 	
-	sampler _MainTex;
+	sampler2D _MainTex;
 	float4 _MainTex_ST;
 	float4 _MainTex_TexelSize;
 	
