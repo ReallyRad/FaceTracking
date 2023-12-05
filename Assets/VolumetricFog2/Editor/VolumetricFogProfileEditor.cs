@@ -11,7 +11,7 @@ namespace VolumetricFogAndMist2 {
 
         SerializedProperty raymarchQuality, raymarchMinStep, jittering, dithering;
         SerializedProperty renderQueue, sortingLayerID, sortingOrder;
-        SerializedProperty constantDensity, noiseTexture, noiseStrength, noiseScale, noiseFinalMultiplier;
+        SerializedProperty constantDensity, noiseTexture, noiseStrength, noiseScale, noiseFinalMultiplier, noiseTextureOptimizedSize;
         SerializedProperty useDetailNoise, detailTexture, detailScale, detailStrength, detailOffset;
         SerializedProperty density;
         SerializedProperty shape, border, customHeight, height, verticalOffset, distance, distanceFallOff, maxDistance, maxDistanceFallOff;
@@ -44,6 +44,7 @@ namespace VolumetricFogAndMist2 {
             noiseStrength = serializedObject.FindProperty("noiseStrength");
             noiseScale = serializedObject.FindProperty("noiseScale");
             noiseFinalMultiplier = serializedObject.FindProperty("noiseFinalMultiplier");
+            noiseTextureOptimizedSize = serializedObject.FindProperty("noiseTextureOptimizedSize");
 
             useDetailNoise = serializedObject.FindProperty("useDetailNoise");
             detailTexture = serializedObject.FindProperty("detailTexture");
@@ -136,6 +137,7 @@ namespace VolumetricFogAndMist2 {
                 EditorGUILayout.PropertyField(noiseStrength, new GUIContent("Strength"));
                 EditorGUILayout.PropertyField(noiseScale, new GUIContent("Scale"));
                 EditorGUILayout.PropertyField(noiseFinalMultiplier, new GUIContent("Multiplier"));
+                EditorGUILayout.PropertyField(noiseTextureOptimizedSize, new GUIContent("Final Texture Size"));
                 EditorGUI.indentLevel--;
                 EditorGUILayout.PropertyField(useDetailNoise, new GUIContent("Detail Noise"));
                 if (useDetailNoise.boolValue) {

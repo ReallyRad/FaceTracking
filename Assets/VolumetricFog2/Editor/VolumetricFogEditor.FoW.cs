@@ -28,8 +28,7 @@ namespace VolumetricFogAndMist2 {
 
             Ray ray = HandleUtility.GUIPointToWorldRay(mousePos);
             Bounds bounds = new Bounds(fog.transform.position, new Vector3(fog.transform.lossyScale.x, 0.01f, fog.transform.lossyScale.z));
-            float distance;
-            if (bounds.IntersectRay(ray, out distance)) {
+            if (bounds.IntersectRay(ray, out float distance)) {
                 Vector3 hitPoint = ray.origin + ray.direction * distance;
                 float handleSize = HandleUtility.GetHandleSize(hitPoint) * 0.5f;
                 Handles.color = new Color(0, 0, 1, 0.5f);
@@ -48,16 +47,14 @@ namespace VolumetricFogAndMist2 {
                     if (eventType == EventType.MouseDown) {
                         GUIUtility.hotControl = controlID;
                         mouseIsDown = true;
-                        PaintOnMaskPosition(hitPoint);
                     } else if (eventType == EventType.MouseUp) {
                         GUIUtility.hotControl = controlID;
                         mouseIsDown = false;
                     }
+                }
 
-                    if (mouseIsDown && eventType == EventType.MouseDrag) {
-                        GUIUtility.hotControl = controlID;
-                        PaintOnMaskPosition(hitPoint);
-                    }
+                if (mouseIsDown && e.type == EventType.Repaint) {
+                    PaintOnMaskPosition(hitPoint);
                 }
             }
         }
@@ -167,16 +164,25 @@ namespace VolumetricFogAndMist2 {
             byte bt = (byte)(maskBrushColor.colorValue.b * (1f - brushOpacity) * 255f);
             Color32 colort = new Color32(rt, gt, bt, 255);
             float radiusSqr = brushSize * brushSize;
+
+            int j0 = ty - brushSize;
+            if (j0 < 0) j0 = 0;
+            int j1 = ty + brushSize;
+            if (j1 >= textureSize) j1 = textureSize - 1;
+
+            int k0 = tx - brushSize;
+            if (k0 < 0) k0 = 0;
+            int k1 = tx + brushSize;
+            if (k1 >= textureSize) k1 = textureSize - 1;
+
             // Paint!
-            for (int j = ty - brushSize; j < ty + brushSize; j++) {
-                if (j < 0) continue; else if (j >= textureSize) break;
+            for (int j = j0; j <= j1; j++) {
                 int jj = j * textureSize;
                 int dj = (j - ty) * (j - ty);
-                for (int k = tx - brushSize; k < tx + brushSize; k++) {
-                    if (k < 0) continue; else if (k >= textureSize) break;
+                for (int k = k0; k <= k1; k++) {
                     int distSqr = dj + (k - tx) * (k - tx);
                     float op = distSqr / radiusSqr;
-                    float threshold = UnityEngine.Random.value;
+                    float threshold = Random.value;
                     if (op <= 1f && threshold * op < fuzziness) {
                         maskColors[jj + k].r = (byte)(colort.r + maskColors[jj + k].r * brushOpacity);
                         maskColors[jj + k].g = (byte)(colort.g + maskColors[jj + k].g * brushOpacity);

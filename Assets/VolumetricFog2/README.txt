@@ -43,7 +43,14 @@ Of course, all updates of Volumetric Fog & Mist will be eventually available on 
 Version history
 ---------------
 
-Current version
+Current
+- [Fix] Fixes for orthographic projection
+
+V12.7
+- Added "Enable Update Mode Options" to inspector. Useful to improve performance by avoiding updates on fog volumes that're not visible.
+- Fog of war editor improvements
+
+V12.6
 - Added option to use optimized depth only shader for depth prepass
 - [Fix] Fixed Volumetric Fog Manager null reference issue in certain cases
 

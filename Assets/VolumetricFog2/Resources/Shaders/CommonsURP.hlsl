@@ -65,10 +65,20 @@ void ClampRayDepth(float3 rayStart, float4 scrPos, inout float t1) {
 
     // World position reconstruction
     float depth  = GetRawDepth(uv);
+
     float4 raw   = mul(UNITY_MATRIX_I_VP, float4(uv * 2.0 - 1.0, depth, 1.0));
     float3 worldPos  = raw.xyz / raw.w;
-
     float z = distance(rayStart, worldPos.xyz);
+
+    #if defined(ORTHO_SUPPORT)
+        #if defined(UNITY_REVERSED_Z)
+            depth = 1.0 - depth;
+        #endif
+        z = lerp(z, lerp(_ProjectionParams.y, _ProjectionParams.z, depth), unity_OrthoParams.w);
+    #else
+
+    #endif
+
     t1 = min(t1, z);
 }
 

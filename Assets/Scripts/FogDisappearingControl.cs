@@ -30,6 +30,7 @@ public class FogDisappearingControl : ProgressiveSequenceable
             {
                 Completed(this);
                 _active = false;
+                fog.gameObject.SetActive(false);
             }
             else
             {
@@ -46,6 +47,7 @@ public class FogDisappearingControl : ProgressiveSequenceable
     {
         _active = true;
         fog.settings.density = _initialValue;
+        fog.gameObject.SetActive(true);
         /* 
          fog = VolumetricFog.instance;
          fog.fogAreaPosition = Vector3.zero;

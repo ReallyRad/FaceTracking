@@ -53,7 +53,43 @@ MonoBehaviour:
   fog: {fileID: 3773586030176973179}
   _progressCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3235941
+      value: 0.44887567
+      inSlope: 0.32564753
+      outSlope: 0.32564753
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.0705095
+    - serializedVersion: 3
+      time: 0.7568062
+      value: 0.6583831
+      inSlope: 4.323517
+      outSlope: 4.323517
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13813385
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -115,13 +151,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   alphaCutOff: 0
-  scattering: 0
-  scatteringThreshold: 0
-  scatteringIntensity: 0
-  scatteringAbsorption: 0.35
-  scatteringTint: {r: 1, g: 1, b: 1, a: 1}
+  scattering: 0.419
+  scatteringThreshold: 0.29
+  scatteringIntensity: 0.99
+  scatteringAbsorption: 0.221
+  scatteringTint: {r: 0.9056604, g: 0.7219638, b: 0.45710218, a: 1}
   scatteringHighQuality: 0
-  downscaling: 1
+  downscaling: 6.61
   downscalingEdgeDepthThreshold: 0.05
   blurPasses: 0
   blurDownscaling: 1
@@ -203,7 +239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3773586030176973178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -64.8627, y: 2.3907866, z: 21.454144}
+  m_LocalPosition: {x: -64.8627, y: 1.6, z: 21.454144}
   m_LocalScale: {x: 1000, y: 15, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,11 +323,18 @@ MonoBehaviour:
   fadeController: {fileID: 0}
   enableSubVolumes: 0
   subVolumes: []
+  enableUpdateModeOptions: 0
+  updateMode: 1
+  updateModeCamera: {fileID: 0}
+  updateModeBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 50, y: 50, z: 50}
   showBoundary: 0
   enableFogOfWar: 0
   fogOfWarCenter: {x: 0, y: 0, z: 0}
   fogOfWarIsLocal: 0
   fogOfWarSize: {x: 1024, y: 0, z: 1024}
+  fogOfWarShowCoverage: 0
   fogOfWarTextureSize: 256
   fogOfWarRestoreDelay: 0
   fogOfWarRestoreDuration: 2

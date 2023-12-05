@@ -14,9 +14,10 @@ namespace VolumetricFogAndMist2 {
         SerializedProperty maskEditorEnabled, maskBrushMode, maskBrushColor, maskBrushWidth, maskBrushFuzziness, maskBrushOpacity;
         SerializedProperty enablePointLights, enableNativeLights;
         SerializedProperty enableVoids;
-        SerializedProperty enableFogOfWar, fogOfWarCenter, fogOfWarIsLocal, fogOfWarSize, fogOfWarTextureSize, fogOfWarRestoreDelay, fogOfWarRestoreDuration, fogOfWarSmoothness, fogOfWarBlur;
+        SerializedProperty enableFogOfWar, fogOfWarCenter, fogOfWarIsLocal, fogOfWarSize, fogOfWarShowCoverage, fogOfWarTextureSize, fogOfWarRestoreDelay, fogOfWarRestoreDuration, fogOfWarSmoothness, fogOfWarBlur;
         SerializedProperty enableFollow, followTarget, followMode, followOffset;
         SerializedProperty enableFade, fadeDistance, fadeOut, fadeController, enableSubVolumes, subVolumes;
+        SerializedProperty enableUpdateModeOptions, updateMode, updateModeCamera, updateModeBounds;
         SerializedProperty showBoundary;
 
         static GUIStyle boxStyle;
@@ -33,6 +34,7 @@ namespace VolumetricFogAndMist2 {
             fogOfWarCenter = serializedObject.FindProperty("fogOfWarCenter");
             fogOfWarIsLocal = serializedObject.FindProperty("fogOfWarIsLocal");
             fogOfWarSize = serializedObject.FindProperty("fogOfWarSize");
+            fogOfWarShowCoverage = serializedObject.FindProperty("fogOfWarShowCoverage");
             fogOfWarTextureSize = serializedObject.FindProperty("fogOfWarTextureSize");
             fogOfWarRestoreDelay = serializedObject.FindProperty("fogOfWarRestoreDelay");
             fogOfWarRestoreDuration = serializedObject.FindProperty("fogOfWarRestoreDuration");
@@ -57,6 +59,10 @@ namespace VolumetricFogAndMist2 {
             fadeController = serializedObject.FindProperty("fadeController");
             enableSubVolumes = serializedObject.FindProperty("enableSubVolumes");
             subVolumes = serializedObject.FindProperty("subVolumes");
+            enableUpdateModeOptions = serializedObject.FindProperty("enableUpdateModeOptions");
+            updateMode = serializedObject.FindProperty("updateMode");
+            updateModeCamera = serializedObject.FindProperty("updateModeCamera");
+            updateModeBounds = serializedObject.FindProperty("updateModeBounds");
             showBoundary = serializedObject.FindProperty("showBoundary");
 
             fog = (VolumetricFog)target;
@@ -162,6 +168,7 @@ namespace VolumetricFogAndMist2 {
                 EditorGUILayout.PropertyField(fogOfWarCenter, new GUIContent("World Center"));
                 EditorGUILayout.PropertyField(fogOfWarIsLocal, new GUIContent("Is Local", "Enable if fog of war center is local to the fog volume"));
                 EditorGUILayout.PropertyField(fogOfWarSize, new GUIContent("World Coverage"));
+                EditorGUILayout.PropertyField(fogOfWarShowCoverage, new GUIContent("Show Coverage Bounds"));
                 EditorGUILayout.PropertyField(fogOfWarTextureSize, new GUIContent("Texture Size"));
                 EditorGUILayout.PropertyField(fogOfWarRestoreDelay, new GUIContent("Restore Delay"));
                 EditorGUILayout.PropertyField(fogOfWarRestoreDuration, new GUIContent("Restore Duration"));
@@ -223,6 +230,17 @@ namespace VolumetricFogAndMist2 {
                         EditorGUILayout.EndHorizontal();
                         EditorGUILayout.EndVertical();
                     }
+                }
+                EditorGUI.indentLevel--;
+            }
+
+            EditorGUILayout.PropertyField(enableUpdateModeOptions);
+            if (enableUpdateModeOptions.boolValue) {
+                EditorGUI.indentLevel++;
+                EditorGUILayout.PropertyField(updateMode);
+                EditorGUILayout.PropertyField(updateModeCamera, new GUIContent("Camera"));
+                if (updateMode.intValue == (int)VolumetricFogUpdateMode.WhenCameraIsInsideArea) {
+                    EditorGUILayout.PropertyField(updateModeBounds, new GUIContent("Bounds"));
                 }
                 EditorGUI.indentLevel--;
             }

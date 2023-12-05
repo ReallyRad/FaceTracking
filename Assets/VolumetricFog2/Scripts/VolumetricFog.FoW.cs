@@ -22,6 +22,7 @@ namespace VolumetricFogAndMist2 {
         public Vector3 fogOfWarCenter;
         public bool fogOfWarIsLocal;
         public Vector3 fogOfWarSize = new Vector3(1024, 0, 1024);
+        public bool fogOfWarShowCoverage;
         [Range(32, 2048)] public int fogOfWarTextureSize = 256;
         [Tooltip("Delay before the fog alpha is restored. A value of 0 keeps the fog cleared forever.")]
         [Range(0, 100)] public float fogOfWarRestoreDelay;
@@ -60,10 +61,16 @@ namespace VolumetricFogAndMist2 {
                             _fogOfWarTexture = value;
                             canDestroyFOWTexture = false;
                             ReloadFogOfWarTexture();
-                            if (fogMat != null) {
-                                fogMat.SetTexture(ShaderParams.FogOfWarTexture, _fogOfWarTexture);
-                            }
                         }
+                    } else {
+                        if (canDestroyFOWTexture && _fogOfWarTexture != null) {
+                            DestroyImmediate(_fogOfWarTexture);
+                        }
+                        _fogOfWarTexture = null;
+                        canDestroyFOWTexture = false;
+                    }
+                    if (fogMat != null) {
+                        fogMat.SetTexture(ShaderParams.FogOfWarTexture, _fogOfWarTexture);
                     }
                 }
             }
@@ -129,6 +136,7 @@ namespace VolumetricFogAndMist2 {
         public void ReloadFogOfWarTexture() {
             if (_fogOfWarTexture == null || profile == null) return;
             fogOfWarTextureSize = _fogOfWarTexture.width;
+            EnsureTextureIsReadable(_fogOfWarTexture);
             fogOfWarColorBuffer = _fogOfWarTexture.GetPixels32();
             lastTransitionPos = -1;
             fowTransitionIndices.Clear();
@@ -138,6 +146,19 @@ namespace VolumetricFogAndMist2 {
             }
         }
 
+
+        void EnsureTextureIsReadable(Texture2D tex) {
+#if UNITY_EDITOR
+            string path = UnityEditor.AssetDatabase.GetAssetPath(tex);
+            if (string.IsNullOrEmpty(path))
+                return;
+            UnityEditor.TextureImporter imp = UnityEditor.AssetImporter.GetAtPath(path) as UnityEditor.TextureImporter;
+            if (imp != null && !imp.isReadable) {
+                imp.isReadable = true;
+                imp.SaveAndReimport();
+            }
+#endif
+        }
 
         void FogOfWarUpdateTexture() {
             if (!enableFogOfWar || !Application.isPlaying)
@@ -272,7 +293,7 @@ namespace VolumetricFogAndMist2 {
         /// <param name="radius">radius of application in world units.</param>
         /// <param name="fogNewAlpha">target alpha value.</param>
         /// <param name="duration">duration of transition in seconds (0 = apply fogNewAlpha instantly).</param>
-        public void SetFogOfWarAlpha(Vector3 worldPosition, float radius, float fogNewAlpha, float duration) {
+        public void SetFogOfWarAlpha(Vector3 worldPosition, float radius, float fogNewAlpha, float duration = 0) {
             SetFogOfWarAlpha(worldPosition, radius, fogNewAlpha, true, duration, fogOfWarSmoothness, fogOfWarRestoreDelay, fogOfWarRestoreDuration);
         }
 
@@ -286,7 +307,7 @@ namespace VolumetricFogAndMist2 {
         /// <param name="fogNewAlpha">target alpha value.</param>
         /// <param name="duration">duration of transition in seconds (0 = apply fogNewAlpha instantly).</param>
         /// <param name="smoothness">border smoothness (0 = sharp borders, 1 = smooth transition)</param>
-        public void SetFogOfWarAlpha(Vector3 worldPosition, float radius, float fogNewAlpha, float duration, float smoothness) {
+        public void SetFogOfWarAlpha(Vector3 worldPosition, float radius, float fogNewAlpha, float duration = 0, float smoothness = 0) {
             SetFogOfWarAlpha(worldPosition, radius, fogNewAlpha, true, duration, smoothness, fogOfWarRestoreDelay, fogOfWarRestoreDuration);
         }
 
@@ -303,7 +324,7 @@ namespace VolumetricFogAndMist2 {
         /// <param name="restoreDelay">delay before the fog alpha is restored. Pass 0 to keep change forever.</param>
         /// <param name="restoreDuration">restore duration in seconds.</param>
         /// <param name="restoreToAlphaValue">final alpha value when fog restores.</param>
-        public void SetFogOfWarAlpha(Vector3 worldPosition, float radius, float fogNewAlpha, bool blendAlpha, float duration, float smoothness, float restoreDelay, float restoreDuration, float restoreToAlphaValue = 1f) {
+        public void SetFogOfWarAlpha(Vector3 worldPosition, float radius, float fogNewAlpha, bool blendAlpha = false, float duration = 0, float smoothness = 0, float restoreDelay = 0, float restoreDuration = 2, float restoreToAlphaValue = 1f) {
             if (_fogOfWarTexture == null || fogOfWarColorBuffer == null || fogOfWarColorBuffer.Length == 0)
                 return;
 
@@ -372,8 +393,8 @@ namespace VolumetricFogAndMist2 {
         /// <param name="bounds">in world space coordinates.</param>
         /// <param name="fogNewAlpha">target alpha value.</param>
         /// <param name="duration">duration of transition in seconds (0 = apply fogNewAlpha instantly).</param>
-        public void SetFogOfWarAlpha(Bounds bounds, float fogNewAlpha, float duration) {
-            SetFogOfWarAlpha(bounds, fogNewAlpha, true, duration, fogOfWarSmoothness, fogOfWarRestoreDelay, fogOfWarRestoreDuration);
+        public void SetFogOfWarAlpha(Bounds bounds, float fogNewAlpha, float duration = 0) {
+            SetFogOfWarAlpha(bounds, fogNewAlpha, false, duration, fogOfWarSmoothness, fogOfWarRestoreDelay, fogOfWarRestoreDuration);
         }
 
         /// <summary>
@@ -385,7 +406,7 @@ namespace VolumetricFogAndMist2 {
         /// <param name="duration">duration of transition in seconds (0 = apply fogNewAlpha instantly).</param>
         /// <param name="smoothness">border smoothness.</param>
         public void SetFogOfWarAlpha(Bounds bounds, float fogNewAlpha, float duration, float smoothness) {
-            SetFogOfWarAlpha(bounds, fogNewAlpha, true, duration, smoothness, fogOfWarRestoreDelay, fogOfWarRestoreDuration);
+            SetFogOfWarAlpha(bounds, fogNewAlpha, false, duration, smoothness, fogOfWarRestoreDelay, fogOfWarRestoreDuration);
         }
 
 
@@ -402,7 +423,7 @@ namespace VolumetricFogAndMist2 {
         /// <param name="restoreDelay">delay before the fog alpha is restored. Pass 0 to keep change forever.</param>
         /// <param name="restoreDuration">restore duration in seconds.</param>
         /// <param name="restoreToAlpha">alpha value (0-1) for the fog when restore is completed.</param>
-        public void SetFogOfWarAlpha(Bounds bounds, float fogNewAlpha, bool blendAlpha, float duration, float smoothness, float restoreDelay, float restoreDuration, float restoreToAlpha = 1f) {
+        public void SetFogOfWarAlpha(Bounds bounds, float fogNewAlpha, bool blendAlpha, float duration = 0, float smoothness = 0, float restoreDelay = 0, float restoreDuration = 2, float restoreToAlpha = 1f) {
             if (_fogOfWarTexture == null || fogOfWarColorBuffer == null || fogOfWarColorBuffer.Length == 0)
                 return;
 
@@ -480,7 +501,7 @@ namespace VolumetricFogAndMist2 {
         /// <param name="restoreDelay">delay before the fog alpha is restored. Pass 0 to keep change forever.</param>
         /// <param name="restoreDuration">restore duration in seconds.</param>
         /// <param name="restoreToAlpha">alpha value (0-1) for the fog when restore is completed.</param>
-        public void SetFogOfWarAlpha(Collider collider, float fogNewAlpha, bool blendAlpha, float duration, float smoothness, float restoreDelay, float restoreDuration, float restoreToAlpha = 1f) {
+        public void SetFogOfWarAlpha(Collider collider, float fogNewAlpha, bool blendAlpha = false, float duration = 0, float smoothness = 0, float restoreDelay = 0, float restoreDuration = 2, float restoreToAlpha = 1f) {
             if (_fogOfWarTexture == null || fogOfWarColorBuffer == null || fogOfWarColorBuffer.Length == 0)
                 return;
 
@@ -511,6 +532,7 @@ namespace VolumetricFogAndMist2 {
             float sm = 0.0001f + smoothness;
             byte restoreAlpha = (byte)(restoreToAlpha * 255);
             Vector3 wpos = bounds.min;
+            wpos.y = bounds.center.y;
             for (int rr = 0; rr <= deltaz * 2; rr++) {
                 int r = pz - deltaz + rr;
                 if (r > 0 && r < th - 1) {
@@ -522,7 +544,8 @@ namespace VolumetricFogAndMist2 {
                         int c = px - deltax + cc;
                         if (c > 0 && c < tw - 1) {
                             wpos.x = bounds.min.x + bounds.size.x * cc / (deltax * 2f);
-                            if (collider.ClosestPoint(wpos) != wpos) continue; // point is outside collider
+                            Vector3 colliderPos = collider.ClosestPoint(wpos);
+                            if (colliderPos != wpos) continue; // point is outside collider
 
                             int distancexSqr = (px - c) * (px - c);
                             int colorBufferPos = r * tw + c;
@@ -533,7 +556,7 @@ namespace VolumetricFogAndMist2 {
                             float t = t1 < t2 ? t1 : t2;
                             t = 1f - t;
                             if (t < 0) t = 0; else if (t > 1f) t = 1f;
-                            byte targetAlpha = (byte)(newAlpha8 + (colorBuffer.a - newAlpha8) * t); // Mathf.Lerp(newAlpha8, colorBuffer.a, t);
+                            byte targetAlpha = (byte)(newAlpha8 + (colorBuffer.a - newAlpha8) * t);
                             if (targetAlpha < 255 && (colorBuffer.a != targetAlpha || restoreDelay > 0)) {
                                 if (duration > 0) {
                                     AddFogOfWarTransitionSlot(c, r, colorBuffer.a, targetAlpha, 0, duration, restoreAlpha, restoreDelay, restoreDuration);
@@ -551,6 +574,155 @@ namespace VolumetricFogAndMist2 {
                 }
             }
         }
+
+
+        /// <summary>
+        /// Changes the alpha value of the fog of war within bounds creating a transition from current alpha value to specified target alpha. It takes into account FogOfWarCenter and FogOfWarSize.
+        /// Note that only x and z coordinates are used. Y (vertical) coordinate is ignored.
+        /// </summary>
+        /// <param name="go">gameobject used to define the shape of the area where fog of war alpha will be set. The gameobject must have a mesh associated.</param>
+        /// <param name="fogNewAlpha">target alpha value (0-1).</param>
+        /// <param name="duration">duration of transition in seconds (0 = apply fogNewAlpha instantly).</param>
+        /// <param name="fuzzyness">randomization of border noise.</param>
+        /// <param name="restoreDelay">delay before the fog alpha is restored. Pass 0 to keep change forever.</param>
+        /// <param name="restoreDuration">restore duration in seconds.</param>
+        /// <param name="restoreToAlpha">alpha value (0-1) for the fog when restore is completed.</param>
+        public void SetFogOfWarAlpha(GameObject go, float fogNewAlpha, float duration = 0, float restoreDelay = 0, float restoreDuration = 2, float restoreToAlpha = 1f) {
+            if (_fogOfWarTexture == null || fogOfWarColorBuffer == null || fogOfWarColorBuffer.Length == 0)
+                return;
+
+            if (go == null) return;
+
+            MeshRenderer meshRenderer = go.GetComponentInChildren<MeshRenderer>();
+            if (meshRenderer == null) {
+                Debug.LogError("No MeshRenderer found on this object.");
+                return;
+            }
+
+            Vector3 fogOfWarCenter = anchoredFogOfWarCenter;
+
+            Bounds bounds = meshRenderer.bounds;
+
+            MeshFilter mf = meshRenderer.GetComponent<MeshFilter>();
+            if (mf == null) {
+                Debug.LogError("No MeshFilter found on this object.");
+                return;
+            }
+            Mesh mesh = mf.sharedMesh;
+            if (mesh == null) {
+                Debug.LogError("No Mesh found on this object.");
+                return;
+            }
+            if (mesh.GetTopology(0) != MeshTopology.Triangles) {
+                Debug.LogError("Only triangle topology is supported by this tool.");
+                return;
+            }
+
+            Vector3 worldPosition = bounds.center;
+            float tx = (worldPosition.x - fogOfWarCenter.x) / fogOfWarSize.x + 0.5f;
+            if (tx < 0 || tx > 1f)
+                return;
+            float tz = (worldPosition.z - fogOfWarCenter.z) / fogOfWarSize.z + 0.5f;
+            if (tz < 0 || tz > 1f)
+                return;
+
+            int tw = _fogOfWarTexture.width;
+            int th = _fogOfWarTexture.height;
+            byte newAlpha8 = (byte)(fogNewAlpha * 255);
+            byte restoreAlpha = (byte)(restoreToAlpha * 255);
+
+            // Get triangle info
+            int[] indices = mesh.triangles;
+            Vector3[] vertices = mesh.vertices;
+            int indicesLength = indices.Length;
+
+            int verticesLength = vertices.Length;
+            Transform t = meshRenderer.transform;
+            for (int k = 0; k < verticesLength; k++) {
+                vertices[k] = t.TransformPoint(vertices[k]);
+            }
+
+            Vector2[] triangles = new Vector2[indicesLength];
+            for (int k = 0; k < indicesLength; k += 3) {
+                triangles[k].x = vertices[indices[k]].x;
+                triangles[k].y = vertices[indices[k]].z;
+                triangles[k + 1].x = vertices[indices[k + 1]].x;
+                triangles[k + 1].y = vertices[indices[k + 1]].z;
+                triangles[k + 2].x = vertices[indices[k + 2]].x;
+                triangles[k + 2].y = vertices[indices[k + 2]].z;
+            }
+            int index = 0;
+
+            int px = (int)(tx * tw);
+            int pz = (int)(tz * th);
+            float trz = bounds.extents.z / fogOfWarSize.z;
+            float trx = bounds.extents.x / fogOfWarSize.x;
+            int deltaz = (int)(th * trz);
+            int deltax = (int)(tw * trx);
+            int r0 = pz - deltaz;
+            if (r0 < 1) r0 = 1; else if (r0 >= th) r0 = th - 1;
+            int r1 = pz + deltaz;
+            if (r1 < 1) r1 = 1; else if (r1 >= th) r1 = th - 1;
+            int c0 = px - deltax;
+            if (c0 < 1) c0 = 1; else if (c0 >= tw) c0 = tw - 1;
+            int c1 = px + deltax;
+            if (c1 < 1) c1 = 1; else if (c1 >= tw) c1 = tw - 1;
+
+            Vector2 v0 = triangles[index];
+            Vector2 v1 = triangles[index + 1];
+            Vector2 v2 = triangles[index + 2];
+
+            for (int r = r0; r <= r1; r++) {
+                int rr = r * tw;
+                float wz = (((r + 0.5f) / th) - 0.5f) * fogOfWarSize.z + fogOfWarCenter.z;
+                for (int c = c0; c <= c1; c++) {
+                    float wx = (((c + 0.5f) / tw) - 0.5f) * fogOfWarSize.x + fogOfWarCenter.x;
+                    // Check if any triangle contains this position
+                    for (int i = 0; i < indicesLength; i += 3) {
+                        if (PointInTriangle(wx, wz, v0.x, v0.y, v1.x, v1.y, v2.x, v2.y)) {
+                            int colorBufferPos = rr + c;
+                            Color32 colorBuffer = fogOfWarColorBuffer[colorBufferPos];
+                            if (colorBuffer.a != newAlpha8 || restoreDelay > 0) {
+                                if (duration > 0) {
+                                    AddFogOfWarTransitionSlot(c, r, colorBuffer.a, newAlpha8, 0, duration, restoreAlpha, restoreDelay, restoreDuration);
+                                } else {
+                                    colorBuffer.a = newAlpha8;
+                                    fogOfWarColorBuffer[colorBufferPos] = colorBuffer;
+                                    requiresTextureUpload = true;
+                                    if (restoreDelay > 0) {
+                                        AddFogOfWarTransitionSlot(c, r, newAlpha8, restoreAlpha, restoreDelay, restoreDuration, restoreAlpha, 0, 0);
+                                    }
+                                }
+                            }
+                            break;
+                        } else {
+                            index += 3;
+                            index %= indicesLength;
+                            v0 = triangles[index];
+                            v1 = triangles[index + 1];
+                            v2 = triangles[index + 2];
+                        }
+                    }
+                }
+            }
+        }
+
+
+        float Sign(float p1x, float p1z, float p2x, float p2z, float p3x, float p3z) {
+            return (p1x - p3x) * (p2z - p3z) - (p2x - p3x) * (p1z - p3z);
+        }
+
+        bool PointInTriangle(float x, float z, float v1x, float v1z, float v2x, float v2z, float v3x, float v3z) {
+            float d1 = Sign(x, z, v1x, v1z, v2x, v2z);
+            float d2 = Sign(x, z, v2x, v2z, v3x, v3z);
+            float d3 = Sign(x, z, v3x, v3z, v1x, v1z);
+
+            bool has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+            bool has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+
+            return !(has_neg && has_pos);
+        }
+
 
         /// <summary>
         /// Restores fog of war to full opacity
@@ -717,7 +889,7 @@ namespace VolumetricFogAndMist2 {
                     if (fowTransitionList[index].x != x || fowTransitionList[index].y != y) {
                         index = -1;
                     } else {
-                        if (fowTransitionList[index].targetAlpha == targetAlpha && fowTransitionList[index].restoreToAlpha == restoreToAlpha && fowTransitionList[index].restoreDelay == restoreDelay && fowTransitionList[index].restoreDuration == restoreDuration) {
+                        if (fowTransitionList[index].targetAlpha <= targetAlpha && fowTransitionList[index].restoreToAlpha == restoreToAlpha && fowTransitionList[index].restoreDelay == restoreDelay && fowTransitionList[index].restoreDuration == restoreDuration) {
                             // transition running already to target alpha
                             return;
                         }

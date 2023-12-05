@@ -21,6 +21,26 @@ namespace VolumetricFogAndMist2 {
         RestrictToXZPlane = 1
     }
 
+    public enum VolumetricFogUpdateMode {
+        WhenFogVolumeIsVisible = 1,
+        WhenCameraIsInsideArea = 2
+    }
+
+    public enum VolumetricFogNoiseSize {
+        [InspectorName("8")]
+        _8 = 8,
+        [InspectorName("16")]
+        _16 = 16,
+        [InspectorName("32")]
+        _32 = 32,
+        [InspectorName("64")]
+        _64 = 64,
+        [InspectorName("128")]
+        _128 = 128,
+        [InspectorName("256")]
+        _256 = 256
+    }
+
     [ExecuteInEditMode]
     [DefaultExecutionOrder(100)]
     [HelpURL("https://kronnect.com/guides/volumetric-fog-urp-introduction/")]
@@ -51,6 +71,12 @@ namespace VolumetricFogAndMist2 {
         public bool enableSubVolumes;
         [Tooltip("Allowed subVolumes. If no subvolumes are specified, any subvolume entered by this controller will affect this fog volume.")]
         public List<VolumetricFogSubVolume> subVolumes;
+        [Tooltip("Customize how this fog volume data is updated and animated")]
+        public bool enableUpdateModeOptions;
+        public VolumetricFogUpdateMode updateMode = VolumetricFogUpdateMode.WhenFogVolumeIsVisible;
+        [Tooltip("Camera used to compute visibility of this fog volume. If not set, the system will use the main camera.")]
+        public Camera updateModeCamera;
+        public Bounds updateModeBounds = new Bounds(Vector3.zero, Vector3.one * 100);
         [Tooltip("Shows the fog volume boundary in Game View")]
         public bool showBoundary;
 
@@ -157,6 +183,20 @@ namespace VolumetricFogAndMist2 {
         }
 
         void OnDrawGizmosSelected() {
+            if (enableFogOfWar && fogOfWarShowCoverage) {
+                Gizmos.color = new Color(1, 0, 0, 0.75F);
+                Vector3 position = anchoredFogOfWarCenter;
+                position.y = transform.position.y;
+                Vector3 size = fogOfWarSize;
+                size.y = transform.localScale.y;
+                Gizmos.DrawWireCube(position, size);
+            }
+
+            if (enableUpdateModeOptions && updateMode == VolumetricFogUpdateMode.WhenCameraIsInsideArea) {
+                Gizmos.color = new Color(0, 1, 0, 0.75F);
+                Gizmos.DrawWireCube(updateModeBounds.center, updateModeBounds.size);
+            }
+
             Gizmos.color = new Color(1, 1, 0, 0.75F);
             Gizmos.matrix = transform.localToWorldMatrix;
             Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
@@ -164,6 +204,8 @@ namespace VolumetricFogAndMist2 {
 
         void LateUpdate() {
             if (fogMat == null || meshRenderer == null || profile == null) return;
+
+            if (enableUpdateModeOptions && !CanUpdate()) return;
 
             if (requireUpdateMaterial) {
                 requireUpdateMaterial = false;
@@ -350,6 +392,60 @@ namespace VolumetricFogAndMist2 {
             }
         }
 
+        Bounds cameraFrustumBounds;
+        static readonly Vector3[] frustumVertices = new Vector3[8];
+        Vector3 cameraFrustumLastPosition;
+        Quaternion cameraFrustumLastRotation;
+
+
+        bool CanUpdate() {
+
+#if UNITY_EDITOR
+            if (!Application.isPlaying) return true;
+#endif
+
+            Camera cam = updateModeCamera;
+            if (cam == null) {
+                cam = Camera.main;
+                if (cam == null) return true;
+            }
+
+            bool isVisible;
+            Vector3 camPos = cam.transform.position;
+            if (updateMode == VolumetricFogUpdateMode.WhenFogVolumeIsVisible) {
+                Quaternion camRot = cam.transform.rotation;
+                if (camPos != cameraFrustumLastPosition || camRot != cameraFrustumLastRotation) {
+                    cameraFrustumLastPosition = camPos;
+                    cameraFrustumLastRotation = camRot;
+                    CalculateFrustumBounds(cam);
+                }
+                isVisible = cameraFrustumBounds.Intersects(meshRenderer.bounds);
+            } else {
+                isVisible = updateModeBounds.Contains(camPos);
+            }
+            return isVisible;
+        }
+
+        void CalculateFrustumBounds(Camera camera) {
+            CalculateFrustumVertices(camera);
+            cameraFrustumBounds = new Bounds(frustumVertices[0], Vector3.zero);
+            for (int k = 1; k < 8; k++) {
+                cameraFrustumBounds.Encapsulate(frustumVertices[k]);
+            }
+        }
+
+        void CalculateFrustumVertices(Camera cam) {
+            float nearClipPlane = cam.nearClipPlane;
+            frustumVertices[0] = cam.ViewportToWorldPoint(new Vector3(0, 0, nearClipPlane));
+            frustumVertices[1] = cam.ViewportToWorldPoint(new Vector3(0, 1, nearClipPlane));
+            frustumVertices[2] = cam.ViewportToWorldPoint(new Vector3(1, 0, nearClipPlane));
+            frustumVertices[3] = cam.ViewportToWorldPoint(new Vector3(1, 1, nearClipPlane));
+            float farClipPlane = cam.farClipPlane;
+            frustumVertices[4] = cam.ViewportToWorldPoint(new Vector3(0, 0, farClipPlane));
+            frustumVertices[5] = cam.ViewportToWorldPoint(new Vector3(0, 1, farClipPlane));
+            frustumVertices[6] = cam.ViewportToWorldPoint(new Vector3(1, 0, farClipPlane));
+            frustumVertices[7] = cam.ViewportToWorldPoint(new Vector3(1, 1, farClipPlane));
+        }
 
         void UpdateNoise() {
 
@@ -374,8 +470,9 @@ namespace VolumetricFogAndMist2 {
                 turbulenceMat.SetFloat(ShaderParams.NoiseFinalMultiplier, activeProfile.noiseFinalMultiplier);
                 Graphics.Blit(noiseTex, rtTurbulence, turbulenceMat);
 
-                if (rtNoise == null || rtNoise.width != noiseTex.width) {
-                    RenderTextureDescriptor desc = new RenderTextureDescriptor(noiseTex.width, noiseTex.height, RenderTextureFormat.ARGB32, 0);
+                int noiseSize = Mathf.Min(noiseTex.width, (int)activeProfile.noiseTextureOptimizedSize);
+                if (rtNoise == null || rtNoise.width != noiseSize) {
+                    RenderTextureDescriptor desc = new RenderTextureDescriptor(noiseSize, noiseSize, RenderTextureFormat.ARGB32, 0);
                     rtNoise = new RenderTexture(desc);
                     rtNoise.wrapMode = TextureWrapMode.Repeat;
                 }
@@ -594,7 +691,7 @@ namespace VolumetricFogAndMist2 {
             fogMat.SetFloat(ShaderParams.LightDiffusionPower, activeProfile.lightDiffusionPower);
             fogMat.SetVector(ShaderParams.ShadowData, new Vector4(activeProfile.shadowIntensity, activeProfile.shadowCancellation, activeProfile.shadowMaxDistance * activeProfile.shadowMaxDistance, 0));
             fogMat.SetFloat(ShaderParams.Density, activeProfile.density);
-            fogMat.SetVector(ShaderParams.RaymarchSettings, new Vector4(activeProfile.raymarchQuality, activeProfile.dithering * 0.01f, activeProfile.jittering, activeProfile.raymarchMinStep));
+            fogMat.SetVector(ShaderParams.RaymarchSettings, new Vector4(1f / activeProfile.raymarchQuality, activeProfile.dithering * 0.01f, activeProfile.jittering, activeProfile.raymarchMinStep));
 
             if (activeProfile.useDetailNoise) {
                 float detailScale = (1f / activeProfile.detailScale) * noiseScale;
