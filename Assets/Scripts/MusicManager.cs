@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MusicManager : ProgressiveSequenceable
 {
-    private float _maxVolume = 1f;
+    private float _maxVolume = 0.9f;
     private float _currentLoopVolume = 0f;
     
     [SerializeField] private SeamlessLoop[] _seamlessLoops;
