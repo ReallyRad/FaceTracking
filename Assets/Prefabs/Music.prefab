@@ -53,7 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _active: 0
-  _finalValue: 16
+  _completedProgressAt: 8
+  _initialValue: 0
+  _finalValue: 1
   _seamlessLoops:
   - {fileID: 2782665024516543189}
   - {fileID: 2782665024358920589}
