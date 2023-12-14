@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7667272445184422950}
   - component: {fileID: 4382877101357435539}
   - component: {fileID: 314335764744874806}
+  - component: {fileID: 3320340729177879983}
   m_Layer: 0
   m_Name: PostProcessing
   m_TagString: Untagged
@@ -47,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _completedProgressAt: 0
-  _faceData: {fileID: 11400000, guid: 6e80037013bd2b9499c0db3a030237ad, type: 2}
   _riseTime: 8
   _decayTime: 2
   _volume: {fileID: 314335764744874806}
@@ -68,3 +68,23 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: e10cacc3198ea43f08f0ecfaa0435918, type: 2}
+--- !u!114 &3320340729177879983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067051983829378042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f63c31bc90a40d0a854a4fd32d1961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: {fileID: 314335764744874806}
+  _colorCurvesProgress: 0
+  _initialCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
