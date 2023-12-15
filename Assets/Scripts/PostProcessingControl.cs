@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -7,6 +8,9 @@ public class PostProcessingControl : InteractiveSequenceable
     private int _interactTween;
     private int _decayTween;
     
+    [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
+    [SerializeField] private AnimationCurve _lowPassFilterMapping;
+
     //TODO add OnComplete()
     
     public override void Initialize()
@@ -26,7 +30,7 @@ public class PostProcessingControl : InteractiveSequenceable
         _interactTween = LeanTween.value(gameObject, _volume.weight, 1, _riseTime)
             .setOnUpdate(val =>
             {
-                _volume.weight = val;
+                TweenHandling(val);                
             })
             .id;
     }
@@ -42,8 +46,16 @@ public class PostProcessingControl : InteractiveSequenceable
         _decayTween = LeanTween.value(gameObject, _volume.weight, 0, _decayTime)
             .setOnUpdate(val =>
             {
-                _volume.weight = val;
+                TweenHandling(val);                
             })
             .id;
     }
+
+    private void TweenHandling(float val)
+    {
+        _volume.weight = val;
+        foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
+            lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
+    }
+    
 }
