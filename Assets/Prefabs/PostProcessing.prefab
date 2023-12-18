@@ -485,7 +485,6 @@ GameObject:
   - component: {fileID: 6826453809695291856}
   - component: {fileID: 9165765487097953600}
   - component: {fileID: 8156669465509885890}
-  - component: {fileID: 1639383751}
   - component: {fileID: 1639383754}
   m_Layer: 0
   m_Name: Volume
@@ -525,7 +524,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: aba4b2e289f0d4a1ea85e87d985c284b, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 29fb91867f6e75e4d836aa2b702b460e, type: 2}
 --- !u!114 &8156669465509885890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,27 +544,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1639383751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6766910903196567766}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 690c382f35a644f848b86cb1a335fcd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _volume: {fileID: 9165765487097953600}
-  _shadowsMidtonesHighlights: {fileID: 0}
-  _amplitude: 0
-  frequency: 0
-  _phase: 0
-  x: 0
-  y: 0
-  z: 0
-  w: 0
 --- !u!114 &1639383754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,10 +556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075b30805b08748da9b3ebe2744a691f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentValue: 0
+  currentValue: 0.117
   volum: {fileID: 9165765487097953600}
-  _hue: 0
-  _saturation: 0.482
-  _brightness: 0.507
+  _hue: 0.8991263
+  _saturation: 0.187
+  _brightness: 0.871
   _frequency: 0.095
   _phase: 0

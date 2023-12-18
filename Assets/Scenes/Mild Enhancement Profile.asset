@@ -153,7 +153,7 @@ MonoBehaviour:
   hueVsSat:
     m_OverrideState: 1
     m_Value:
-      <length>k__BackingField: 7
+      <length>k__BackingField: 8
       m_Loop: 1
       m_ZeroValue: 0.5
       m_Range: 1
@@ -161,8 +161,8 @@ MonoBehaviour:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.123847164
-          value: 0.8224932
+          time: 0.10869565
+          value: 0.91886795
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -170,8 +170,17 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.20685112
-          value: 0.020325184
+          time: 0.17572464
+          value: 0.032075465
+          inSlope: -10.019312
+          outSlope: -10.019312
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.20652173
+          value: 0.035849035
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -179,8 +188,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.28985506
-          value: 0.91734415
+          time: 0.2789855
+          value: 0.92075473
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -197,8 +206,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.7140975
-          value: 0.07452577
+          time: 0.7246377
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -206,8 +215,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.9130435
-          value: 0.07452577
+          time: 0.9166667
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -215,8 +224,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.9314888
-          value: 0.81707317
+          time: 0.94746375
+          value: 0.93018866
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -377,7 +386,7 @@ MonoBehaviour:
     m_Value: 1.588
   contrast:
     m_OverrideState: 1
-    m_Value: 0.297
+    m_Value: 0.9
   shader: {fileID: 4800000, guid: 4ac6ceefc63ebf54184a982924ba5f8b, type: 3}
 --- !u!114 &2841419490436321166
 MonoBehaviour:
@@ -450,13 +459,13 @@ MonoBehaviour:
     m_Value: 0.51
   contrast:
     m_OverrideState: 1
-    m_Value: 23
+    m_Value: 52
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
     m_OverrideState: 1
-    m_Value: -11.8
+    m_Value: -25
   saturation:
     m_OverrideState: 1
     m_Value: 81.7
