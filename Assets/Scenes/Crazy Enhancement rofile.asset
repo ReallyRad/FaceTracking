@@ -179,8 +179,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.28985506
-          value: 0.91734415
+          time: 0.31647635
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -188,8 +188,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.685112
-          value: 0.87398374
+          time: 0.64600325
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: PostProcessingVolume Profile
+  m_Name: Crazy Enhancement rofile
   m_EditorClassIdentifier: 
   components:
   - {fileID: -4707979863718659512}
@@ -371,13 +371,13 @@ MonoBehaviour:
     m_Value: 1
   amount:
     m_OverrideState: 1
-    m_Value: 0.71
+    m_Value: 1
   radius:
     m_OverrideState: 1
     m_Value: 1.588
   contrast:
     m_OverrideState: 1
-    m_Value: 0.297
+    m_Value: 0.881
   shader: {fileID: 4800000, guid: 4ac6ceefc63ebf54184a982924ba5f8b, type: 3}
 --- !u!114 &2841419490436321166
 MonoBehaviour:
@@ -394,19 +394,19 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.9987363, y: 1, z: 0.70280457, w: -0.18526882}
+    m_Value: {x: 1, y: 1, z: 1, w: 0}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8521805, z: 0.96857774, w: 0.094893664}
+    m_Value: {x: 1, y: 0.9741898, z: 0.9381384, w: -0.20955603}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.11709601}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
   shadowsEnd:
     m_OverrideState: 1
-    m_Value: 0.24
+    m_Value: 0.5
   highlightsStart:
     m_OverrideState: 1
     m_Value: 0.55
@@ -450,7 +450,7 @@ MonoBehaviour:
     m_Value: 0.51
   contrast:
     m_OverrideState: 1
-    m_Value: -1.4
+    m_Value: 23
   colorFilter:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
