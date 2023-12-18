@@ -9,11 +9,14 @@ using UnityEngine;
     [SerializeField] private float _startProgressAt;
     [SerializeField] private float _endProgressAt;
     [SerializeField] private float _currentProgress;
+    [SerializeField] private AnimationCurve _progressCurve;
 
     private Stopwatch _puckerStopwatch;
     
     private int _progressTween;
     private float _previousElapsed;
+    private float _progressDuration;
+
 
     private void OnEnable()
     {
@@ -30,6 +33,7 @@ using UnityEngine;
     private void Start()
     {
         _puckerStopwatch = new Stopwatch();
+        _progressDuration = _endProgressAt - _startProgressAt;
     }
 
     private void Update()
@@ -37,13 +41,17 @@ using UnityEngine;
         if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _startProgressAt && 
             _previousElapsed / 1000f < _startProgressAt) //we just passed the min duration threshold, continue progress
         {
-            _progressTween = LeanTween.value(gameObject, _currentProgress, _currentProgress + 1, 4)
+
+            _progressTween = LeanTween.value(gameObject,
+                                            _currentProgress,
+                                            _currentProgress + 1,
+                                            _progressDuration)
                 .setOnUpdate(val =>
                 {
                     _currentProgress = val;
                     Progress(_currentProgress);
                 })
-                .setEaseInCirc()
+                .setEase(_progressCurve)
                 .id;
         }
         else if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _endProgressAt &&
