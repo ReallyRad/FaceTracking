@@ -9,6 +9,7 @@ public class PostProcessingControl : InteractiveSequenceable
     private int _decayTween;
     
     [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
+    [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
     [SerializeField] private AnimationCurve _lowPassFilterMapping;
 
     //TODO add OnComplete()
@@ -17,6 +18,7 @@ public class PostProcessingControl : InteractiveSequenceable
     {
         _active = true;
         _volume.weight = 0;
+        _shimmerSeamlessLoop.SetVolume(1);
     }
 
     public override void Interact()
