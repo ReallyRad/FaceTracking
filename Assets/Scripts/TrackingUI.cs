@@ -27,7 +27,7 @@ public class TrackingUI : MonoBehaviour
 
     private void Start()
     {
-        _startProgressAt = 3f;
+        _startProgressAt = 2f;
         _endProgressAt = 7f;
         _puckerStopwatch = new Stopwatch();
     }
