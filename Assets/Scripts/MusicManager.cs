@@ -14,21 +14,7 @@ public class MusicManager : ProgressiveSequenceable
     private AudioMixerGroup ttt;
 
     private string[] groupNames = new string[8];
-
-    private void Start()
-    {
-        groupNames[0] = "Piano";
-        groupNames[1] = "Drone";
-        groupNames[2] = "ThreeBells";
-        groupNames[3] = "Beat";
-        groupNames[4] = "Choir";
-        groupNames[5] = "Tonic";
-        groupNames[6] = "WarblySynth";
-        groupNames[7] = "Bass";
-
-        _audioMixer.SetFloat("Piano", 0.7f);
-    }
-
+    
     protected override void Progress(float progress) 
     {
         if (_active)
@@ -55,15 +41,8 @@ public class MusicManager : ProgressiveSequenceable
                                                    loopMaxProgress,
                                                    0.0001f,
                                                    1f);
-                    
-                    //_seamlessLoops[_currentLoopIndex].SetVolume(_currentLoopVolume);
-
-
-
-                    _audioMixer.SetFloat(groupNames[_currentLoopIndex], Mathf.Log10(_currentLoopVolume));
-                    float currentVolume;
-                    _audioMixer.GetFloat(groupNames[_currentLoopIndex], out currentVolume);
-                    Debug.Log(groupNames[_currentLoopIndex] + ":  " + currentVolume);
+                
+                    _seamlessLoops[_currentLoopIndex].SetVolume(_currentLoopVolume);
                 }
             }
         }
