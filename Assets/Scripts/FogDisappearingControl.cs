@@ -9,12 +9,13 @@ public class FogDisappearingControl : ProgressiveSequenceable
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
     private float intensityValue = 1;
-
+    
     private void Start()
     {
+        //TODO save settings in editor instead of code
         _progressCurve = new AnimationCurve();
         _progressCurve.AddKey(0f, 0f);
-        _progressCurve.AddKey(_completedProgressAt, _completedProgressAt);
+        _progressCurve.AddKey(_startNextPhaseAt, _startNextPhaseAt);
         Keyframe[] keys = _progressCurve.keys;
         keys[0].outTangent = 2f;
         keys[1].inTangent = 0.1f;
@@ -31,17 +32,23 @@ public class FogDisappearingControl : ProgressiveSequenceable
         if (_active)
         {
             Debug.Log("fog progress " + progress);
-            if (intensityValue <= _finalValue)
+            
+            bool wasTransitioning = _transitioning;
+            _transitioning = intensityValue <= _finalValue - _startNextPhaseAt;
+            
+            if (_transitioning && !wasTransitioning) //when starting next phase
             {
-                Completed(this);
+                StartNextPhase(this);
+            }
+            else if (intensityValue <= _finalValue) //when finishing
+            {
                 _active = false;
                 fog.gameObject.SetActive(false);
             }
             else
             {
                 float val = _progressCurve.Evaluate(progress);
-                intensityValue = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
-                //intensityValue = Utils.Map(progress, 0, _completedProgressAt, _initialValue, _finalValue);
+                intensityValue = Utils.Map(val, 0, _startNextPhaseAt + _overlapTime, _initialValue, _finalValue);
 
                 fog.settings.density = intensityValue;
             }
@@ -53,13 +60,6 @@ public class FogDisappearingControl : ProgressiveSequenceable
         _active = true;
         fog.settings.density = _initialValue;
         fog.gameObject.SetActive(true);
-        /* 
-         fog = VolumetricFog.instance;
-         fog.fogAreaPosition = Vector3.zero;
-         fog.fogAreaTopology = FOG_AREA_TOPOLOGY.Box;
-         fog.fogAreaDepth = 2f;
-         fog.fogAreaHeight = 2.0f;
-         */
     }
 
 }

@@ -10,12 +10,12 @@ public class VFXSequence : MonoBehaviour //takes care of enabling and disabling 
 
     private void OnEnable()
     {
-        Sequenceable.Completed += SequenceItemCompleted; //disable handler for current element
+        Sequenceable.StartNextPhase += SequenceItemCompleted; //disable handler for current element
     }
 
     private void OnDisable()
     {
-        Sequenceable.Completed -= SequenceItemCompleted; //disable handler for current element
+        Sequenceable.StartNextPhase -= SequenceItemCompleted; //disable handler for current element
     }
 
     private void Start()

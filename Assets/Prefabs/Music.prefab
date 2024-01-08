@@ -53,9 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _active: 0
-  _completedProgressAt: 8
+  _transitioning: 0
+  _startNextPhaseAt: 8
+  _overlapTime: 1
   _initialValue: 0
-  _finalValue: 1
+  _finalValue: 8
   _seamlessLoops:
   - {fileID: 2782665024516543189}
   - {fileID: 2782665024358920589}
@@ -110,7 +112,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -3331678214861135095, guid: 2d3c8680583ef41299e5b5a1f89ebc99, type: 2}
   m_audioClip: {fileID: 8300000, guid: a8bcffed2a9bb48d38103937b8d0c5f5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.461
   m_Pitch: 1
   Loop: 0
   Mute: 0

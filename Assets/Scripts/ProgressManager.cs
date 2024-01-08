@@ -21,13 +21,13 @@ using UnityEngine;
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
-        Sequenceable.Completed += ResetProgress;
+        Sequenceable.StartNextPhase += ResetProgress;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
-        Sequenceable.Completed -= ResetProgress;
+        Sequenceable.StartNextPhase -= ResetProgress;
     }
 
     private void Start()

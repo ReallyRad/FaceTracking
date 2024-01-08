@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _active: 0
-  _completedProgressAt: 6
+  _transitioning: 0
+  _startNextPhaseAt: 6
+  _overlapTime: 1
   _initialValue: 1
   _finalValue: 0
   fog: {fileID: 3773586030176973179}

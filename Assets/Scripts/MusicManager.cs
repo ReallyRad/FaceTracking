@@ -21,7 +21,7 @@ public class MusicManager : ProgressiveSequenceable
         {
             if (_currentLoopIndex >= _seamlessLoops.Length)
             {
-                Completed(this);
+                StartNextPhase(this);
                 _active = false;
             }
             else 
@@ -33,8 +33,8 @@ public class MusicManager : ProgressiveSequenceable
                 }
                 else
                 {
-                    float loopMinProgress = _currentLoopIndex * _completedProgressAt / _seamlessLoops.Length;
-                    float loopMaxProgress = (_currentLoopIndex + 1) * _completedProgressAt / _seamlessLoops.Length;
+                    float loopMinProgress = _currentLoopIndex * _startNextPhaseAt / _seamlessLoops.Length;
+                    float loopMaxProgress = (_currentLoopIndex + 1) * _startNextPhaseAt / _seamlessLoops.Length;
 
                     _currentLoopVolume = Utils.Map(progress,
                                                    loopMinProgress,
