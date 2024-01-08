@@ -11,8 +11,9 @@ public abstract class Sequenceable : MonoBehaviour
     [SerializeField] protected bool _transitioning;
 
     [SerializeField] protected float _startNextPhaseAt; //number of full breaths necessary to complete a sequence phase
+    [SerializeField] protected float _completedAt; //the number of full breaths at which we start transitioning to the next sequence phase
+
     public abstract void Initialize(); //Initialize the values before starting to interpolate.
-    [SerializeField] protected float _overlapTime; //the number of full breaths at which we start transitioning to the next sequence phase
     
 }
     

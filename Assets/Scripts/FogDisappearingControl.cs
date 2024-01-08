@@ -33,23 +33,20 @@ public class FogDisappearingControl : ProgressiveSequenceable
         {
             Debug.Log("fog progress " + progress);
             
-            bool wasTransitioning = _transitioning;
-            _transitioning = intensityValue <= _finalValue - _startNextPhaseAt;
+            var wasTransitioning = _transitioning;
+            _transitioning = progress > _startNextPhaseAt;
             
-            if (_transitioning && !wasTransitioning) //when starting next phase
-            {
-                StartNextPhase(this);
-            }
-            else if (intensityValue <= _finalValue) //when finishing
+            if (intensityValue <= _finalValue) //TODO should use progress value instead? for consistency with transition 
             {
                 _active = false;
                 fog.gameObject.SetActive(false);
             }
             else
             {
-                float val = _progressCurve.Evaluate(progress);
-                intensityValue = Utils.Map(val, 0, _startNextPhaseAt + _overlapTime, _initialValue, _finalValue);
-
+                if (_transitioning && !wasTransitioning) StartNextPhase(this); //when starting next phase 
+                    
+                var val = _progressCurve.Evaluate(progress);
+                intensityValue = Utils.Map(val, 0, _completedAt, _initialValue, _finalValue);
                 fog.settings.density = intensityValue;
             }
         }
@@ -61,5 +58,4 @@ public class FogDisappearingControl : ProgressiveSequenceable
         fog.settings.density = _initialValue;
         fog.gameObject.SetActive(true);
     }
-
 }

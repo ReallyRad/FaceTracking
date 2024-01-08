@@ -48,8 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _startNextPhaseAt: 6
-  _overlapTime: 1
+  _startNextPhaseAt: 5
+  _completedAt: 6
   _initialValue: 1
   _finalValue: 0
   fog: {fileID: 3773586030176973179}
@@ -95,6 +95,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  intensityValue: 1
 --- !u!1 &3773586029799875114
 GameObject:
   m_ObjectHideFlags: 0
