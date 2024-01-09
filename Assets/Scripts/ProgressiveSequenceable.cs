@@ -5,8 +5,6 @@ using UnityEngine.Serialization;
 
 public abstract class ProgressiveSequenceable : Sequenceable //this abstract class defines the methods that must be implemented by the vfx so they can be sequenced
 {
-    [SerializeField] protected float _initialValue;
-    [SerializeField] protected float _finalValue; 
 
     private void OnEnable()
     {

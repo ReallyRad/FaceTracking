@@ -355,7 +355,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _active: 0
-  _completedProgressAt: 0
+  _transitioning: 0
+  _initialValue: 0
+  _finalValue: 0.12
+  _startNextPhaseAt: 10
+  _completedAt: 11
+  _localProgress: 0
   _riseTime: 8
   _decayTime: 2
   _volume: {fileID: 9165765487097953600}
@@ -497,7 +502,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 0
+  weight: 1
   sharedProfile: {fileID: 11400000, guid: 29fb91867f6e75e4d836aa2b702b460e, type: 2}
 --- !u!114 &8156669465509885890
 MonoBehaviour:
@@ -530,10 +535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075b30805b08748da9b3ebe2744a691f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentValue: 0.117
-  volum: {fileID: 9165765487097953600}
+  currentValue: -0.2
+  volume: {fileID: 9165765487097953600}
   _hue: 0.8991263
-  _saturation: 0.187
+  _saturation: 0.398
   _brightness: 0.871
-  _frequency: 0.095
-  _phase: 0
+  _frequency: 0.172

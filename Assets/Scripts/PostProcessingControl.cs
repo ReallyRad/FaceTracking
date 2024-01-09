@@ -12,8 +12,6 @@ public class PostProcessingControl : InteractiveSequenceable
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
     [SerializeField] private AnimationCurve _lowPassFilterMapping;
 
-    //TODO add OnComplete()
-    
     public override void Initialize()
     {
         _active = true;
@@ -21,7 +19,7 @@ public class PostProcessingControl : InteractiveSequenceable
         _shimmerSeamlessLoop.SetVolume(1);
     }
 
-    public override void Interact()
+    protected override void Interact()
     {
         if (_decayTween != 0)
         {
@@ -37,7 +35,7 @@ public class PostProcessingControl : InteractiveSequenceable
             .id;
     }
 
-    public override void Decay()
+    protected override void Decay()
     {
         if (_interactTween != 0)
         {
@@ -51,6 +49,25 @@ public class PostProcessingControl : InteractiveSequenceable
                 TweenHandling(val);                
             })
             .id;
+    }
+
+    protected override void Progress(float progress)
+    {
+        if (_active)
+        {
+            _localProgress += progress;
+            Debug.Log("Post processng progress " + _localProgress);
+
+            if (_localProgress >= _completedAt) //end of this sequence step
+            {
+                _active = false;
+            }
+            else
+            {
+                //use mappng curve?
+                _volume.GetComponent<SliderBrightness>().SetSaturation(Utils.Map(_localProgress, 0, _completedAt, _initialValue, _finalValue));
+            }
+        } 
     }
 
     private void TweenHandling(float val)

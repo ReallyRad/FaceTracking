@@ -12,27 +12,23 @@ public class SliderBrightness : MonoBehaviour
     public float currentValue;
     
     private ShadowsMidtonesHighlights shadowMidHigh;
-    public Volume volum;
+    [SerializeField] private Volume volume;
 
-    [Range (0,1)]
-    public float _hue;
+    [SerializeField] [Range (0,1)]
+    private float _hue;
     
-    [Range (0,1)]
-    public float _saturation;
+    [SerializeField] [Range (0,1)]
+    private float _saturation;
     
-    [Range (0,1)]
-    public float _brightness;
+    [SerializeField] [Range (0,1)]
+    private float _brightness;
 
-    [Range (0,1)]
-    public float _frequency;
-    
-    [Range (0,1)]
-    public float _phase;
-
+    [SerializeField] [Range (0,1)]
+    private float _frequency;
     
     // Update is called once per frame
     private void Update() {
-        if (volum.profile.TryGet<ShadowsMidtonesHighlights>(out shadowMidHigh))
+        if (volume.profile.TryGet(out shadowMidHigh))
         {
             _hue =  Time.realtimeSinceStartup * _frequency % 1;
             
@@ -45,5 +41,10 @@ public class SliderBrightness : MonoBehaviour
                 currentValue
                 )));
         }
+    }
+
+    public void SetSaturation(float sat)
+    {
+        _saturation = sat;
     }
 }
