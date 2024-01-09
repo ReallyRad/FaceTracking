@@ -54,8 +54,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _startNextPhaseAt: 8
-  _overlapTime: 1
+  _startNextPhaseAt: 7
+  _completedAt: 8
+  _localProgress: 0
   _initialValue: 0
   _finalValue: 8
   _seamlessLoops:

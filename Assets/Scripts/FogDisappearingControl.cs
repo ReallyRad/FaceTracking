@@ -8,19 +8,10 @@ public class FogDisappearingControl : ProgressiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
-    private float intensityValue = 1;
+    private float intensityValue;
     
     private void Start()
     {
-        //TODO save settings in editor instead of code
-        _progressCurve = new AnimationCurve();
-        _progressCurve.AddKey(0f, 0f);
-        _progressCurve.AddKey(_startNextPhaseAt, _startNextPhaseAt);
-        Keyframe[] keys = _progressCurve.keys;
-        keys[0].outTangent = 2f;
-        keys[1].inTangent = 0.1f;
-        _progressCurve.keys = keys;
-
         fog.settings.distance = 1000f;
         fog.settings.distantFogColor.a = 0.8f;
         fog.settings.turbulence = 0.9f;
@@ -31,22 +22,25 @@ public class FogDisappearingControl : ProgressiveSequenceable
     {
         if (_active)
         {
-            Debug.Log("fog progress " + progress);
+            _localProgress += progress;
+            
+            Debug.Log("fog progress " + _localProgress);
             
             var wasTransitioning = _transitioning;
-            _transitioning = progress > _startNextPhaseAt;
+            _transitioning = _localProgress > _startNextPhaseAt;
             
-            if (intensityValue <= _finalValue) //TODO should use progress value instead? for consistency with transition 
+            if (_localProgress >= _completedAt)
             {
                 _active = false;
+                _transitioning = false;
                 fog.gameObject.SetActive(false);
             }
             else
             {
                 if (_transitioning && !wasTransitioning) StartNextPhase(this); //when starting next phase 
                     
-                var val = _progressCurve.Evaluate(progress);
-                intensityValue = Utils.Map(val, 0, _completedAt, _initialValue, _finalValue);
+                var val = _progressCurve.Evaluate(_localProgress/_completedAt);
+                intensityValue = Utils.Map(val, 0, 1, _initialValue, _finalValue);
                 fog.settings.density = intensityValue;
             }
         }
@@ -57,5 +51,6 @@ public class FogDisappearingControl : ProgressiveSequenceable
         _active = true;
         fog.settings.density = _initialValue;
         fog.gameObject.SetActive(true);
+        _localProgress = 0;
     }
 }

@@ -21,13 +21,11 @@ using UnityEngine;
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
-        Sequenceable.StartNextPhase += ResetProgress;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
-        Sequenceable.StartNextPhase -= ResetProgress;
     }
 
     private void Start()
@@ -48,8 +46,9 @@ using UnityEngine;
                                             _progressDuration)
                 .setOnUpdate(val =>
                 {
+                    var increment = val - _currentProgress;
                     _currentProgress = val;
-                    Progress(_currentProgress);
+                    Progress(increment); //send the difference with previous value so it can be used to increment e
                 })
                 .setEase(_progressCurve)
                 .id;
@@ -75,17 +74,5 @@ using UnityEngine;
             if (_progressTween != 0) LeanTween.pause(_progressTween);
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
-    }
-
-    private bool Progressing()
-    {
-        return _puckerStopwatch.ElapsedMilliseconds / 1000 > _startProgressAt &&
-               _puckerStopwatch.ElapsedMilliseconds / 1000 < _endProgressAt;
-    }
-
-    private void ResetProgress(Sequenceable item)
-    {
-        LeanTween.pause(_progressTween); //TODO is it necessary to pause?
-        _currentProgress = 0;
     }
 }
