@@ -12,6 +12,7 @@ public class FogDisappearingControl : ProgressiveSequenceable
     
     private void Start()
     {
+        //TODO set in inspector
         fog.settings.distance = 1000f;
         fog.settings.distantFogColor.a = 0.8f;
         fog.settings.turbulence = 0.9f;
@@ -29,7 +30,7 @@ public class FogDisappearingControl : ProgressiveSequenceable
             var wasTransitioning = _transitioning;
             _transitioning = _localProgress > _startNextPhaseAt;
             
-            if (_localProgress >= _completedAt)
+            if (_localProgress >= _completedAt) //end of this sequence step
             {
                 _active = false;
                 _transitioning = false;
@@ -37,7 +38,7 @@ public class FogDisappearingControl : ProgressiveSequenceable
             }
             else
             {
-                if (_transitioning && !wasTransitioning) StartNextPhase(this); //when starting next phase 
+                if (_transitioning && !wasTransitioning) StartNextPhase(this); //notify progressmanager to starting next phase 
                     
                 var val = _progressCurve.Evaluate(_localProgress/_completedAt);
                 intensityValue = Utils.Map(val, 0, 1, _initialValue, _finalValue);
