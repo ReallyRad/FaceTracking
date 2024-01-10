@@ -1,6 +1,7 @@
 using Oculus.Interaction;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
@@ -11,6 +12,8 @@ public class PostProcessingControl : InteractiveSequenceable
     [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
     [SerializeField] private AnimationCurve _lowPassFilterMapping;
+
+    private Bloom _bloom;
 
     public override void Initialize()
     {
@@ -56,11 +59,23 @@ public class PostProcessingControl : InteractiveSequenceable
         if (_active)
         {
             _localProgress += progress;
-            Debug.Log("Post processng progress " + _localProgress);
 
             if (_localProgress >= _completedAt) //end of this sequence step
             {
-                _active = false;
+                if (_volume.profile.TryGet(out _bloom))  {
+                    LeanTween.value(gameObject, 0.61f, 0, 5f)
+                        .setOnUpdate(val=> 
+                        {
+                            _bloom.threshold.value = val;
+                            //TODO interpolate intensity as well
+                            //TODO make sure weight is at 1 so that effect is applied 
+                        })
+                        .setOnComplete(() => 
+                        { 
+                            _active = false;
+                        });
+                }
+
             }
             else
             {
