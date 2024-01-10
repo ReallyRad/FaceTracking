@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class SliderBrightness : MonoBehaviour //TODO rename class
+public class HueShiftRotator : MonoBehaviour //TODO rename class
 {
     [Range (-1,1)]
     public float currentValue;

@@ -80,7 +80,7 @@ public class PostProcessingControl : InteractiveSequenceable
             else
             {
                 //use mappng curve?
-                _volume.GetComponent<SliderBrightness>().SetSaturation(Utils.Map(_localProgress, 0, _completedAt, _initialValue, _finalValue));
+                _volume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(_localProgress, 0, _completedAt, _initialValue, _finalValue));
             }
         } 
     }

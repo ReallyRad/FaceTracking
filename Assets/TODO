@@ -11,6 +11,5 @@ Mehdi
 add a crossfade on audio and video loop points to make the cut less obvious
 adjust the mapping of the fog at begin and end phases
 switch fade out from 2 to 3s
-make climactic finish for the postprocessing phase by making everything white with bloom.
 make fog even denser (not seeing anything)
 
