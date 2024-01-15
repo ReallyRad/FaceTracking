@@ -8,13 +8,20 @@ public class FogDisappearingControl : ProgressiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
-    private float intensityValue;
-    
+    private float intensityValue = 1;
+
     private void Start()
     {
-        //TODO set in inspector
+        _progressCurve = new AnimationCurve();
+        _progressCurve.AddKey(0f, 0f);
+        _progressCurve.AddKey(_completedProgressAt, _completedProgressAt);
+        Keyframe[] keys = _progressCurve.keys;
+        keys[0].outTangent = 0.1f;
+        keys[1].inTangent = 0.05f;
+        _progressCurve.keys = keys;
+
         fog.settings.distance = 1000f;
-        fog.settings.distantFogColor.a = 0.8f;
+        fog.settings.distantFogColor.a = 0.95f; // was 0.8: could see distance a bit
         fog.settings.turbulence = 0.9f;
         fog.settings.windDirection = new Vector3(-0.005f, 0f, 0f);
     }
@@ -23,25 +30,19 @@ public class FogDisappearingControl : ProgressiveSequenceable
     {
         if (_active)
         {
-            _localProgress += progress;
-            
-            Debug.Log("fog progress " + _localProgress);
-            
-            var wasTransitioning = _transitioning;
-            _transitioning = _localProgress > _startNextPhaseAt;
-            
-            if (_localProgress >= _completedAt) //end of this sequence step
+            Debug.Log("fog progress " + progress);
+            if (intensityValue <= _finalValue)
             {
+                Completed(this);
                 _active = false;
-                _transitioning = false;
                 fog.gameObject.SetActive(false);
             }
             else
             {
-                if (_transitioning && !wasTransitioning) StartNextPhase(this); //notify progressmanager to starting next phase 
-                    
-                var val = _progressCurve.Evaluate(_localProgress/_completedAt);
-                intensityValue = Utils.Map(val, 0, 1, _initialValue, _finalValue);
+                float val = _progressCurve.Evaluate(progress);
+                intensityValue = Utils.Map(val, 0, _completedProgressAt, _initialValue, _finalValue);
+                //intensityValue = Utils.Map(progress, 0, _completedProgressAt, _initialValue, _finalValue);
+
                 fog.settings.density = intensityValue;
             }
         }
@@ -52,6 +53,13 @@ public class FogDisappearingControl : ProgressiveSequenceable
         _active = true;
         fog.settings.density = _initialValue;
         fog.gameObject.SetActive(true);
-        _localProgress = 0;
+        /* 
+         fog = VolumetricFog.instance;
+         fog.fogAreaPosition = Vector3.zero;
+         fog.fogAreaTopology = FOG_AREA_TOPOLOGY.Box;
+         fog.fogAreaDepth = 2f;
+         fog.fogAreaHeight = 2.0f;
+         */
     }
+
 }
