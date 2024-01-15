@@ -363,7 +363,7 @@ MonoBehaviour:
   _localProgress: 0
   _riseTime: 8
   _decayTime: 2
-  _volume: {fileID: 9165765487097953600}
+  _effectVolume: {fileID: 9165765487097953600}
   _lowPassFilters:
   - {fileID: 1707845809}
   - {fileID: 817006550}
@@ -463,10 +463,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6826453809695291856}
   - component: {fileID: 9165765487097953600}
-  - component: {fileID: 8156669465509885890}
-  - component: {fileID: 1639383754}
+  - component: {fileID: 3917383437169006949}
+  - component: {fileID: 137846780712901823}
+  - component: {fileID: 3646044180767130748}
   m_Layer: 0
-  m_Name: Volume
+  m_Name: EffectVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,7 +480,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6766910903196567766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -503,8 +504,8 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 29fb91867f6e75e4d836aa2b702b460e, type: 2}
---- !u!114 &8156669465509885890
+  sharedProfile: {fileID: 11400000, guid: a03081ce7c91740bbae24f0f9397c360, type: 2}
+--- !u!114 &3917383437169006949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -523,7 +524,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1639383754
+--- !u!114 &137846780712901823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,3 +542,18 @@ MonoBehaviour:
   _saturation: 0.398
   _brightness: 0.871
   _frequency: 0.172
+--- !u!114 &3646044180767130748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6766910903196567766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d52f0deba6f043e092e16616a7369ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volume: {fileID: 9165765487097953600}
+  _zeroVolumeProfile: {fileID: 11400000, guid: 25cd39db4e0b5b548b0e7495eb744a22, type: 2}
+  _maxVolumeProfile: {fileID: 11400000, guid: de06a9c7dbedb49dab78fcc67d84c1b3, type: 2}

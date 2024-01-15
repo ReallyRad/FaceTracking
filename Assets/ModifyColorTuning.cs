@@ -17,8 +17,6 @@ public class ModifyColorTuning : MonoBehaviour //tracks the volume weight so tha
         
         for (int i = 0; i <= _colorCurvesEffect.hueVsSat.value.length; i++)
         {
-            Debug.Log("key " + i + " time " +  _colorCurvesEffect.hueVsSat.value[i].time + " value " + _colorCurvesEffect.hueVsSat.value[i].value);
-            Debug.Log("key " + i + " time " +  _colorCurvesEffect.hueVsSat.value[i].time + " value " + _colorCurvesEffect.hueVsSat.value[i].value);
             _initialCurve.AddKey(_colorCurvesEffect.hueVsSat.value[i].time, _colorCurvesEffect.hueVsSat.value[i].value);
         }
     }

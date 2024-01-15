@@ -1,3 +1,4 @@
+using System;
 using Oculus.Interaction;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -5,7 +6,8 @@ using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
-    [SerializeField] private Volume _volume;
+    [SerializeField] private Volume _effectVolume;
+
     private int _interactTween;
     private int _decayTween;
     
@@ -18,7 +20,6 @@ public class PostProcessingControl : InteractiveSequenceable
     public override void Initialize()
     {
         _active = true;
-        _volume.weight = 0;
         _shimmerSeamlessLoop.SetVolume(1);
     }
 
@@ -30,7 +31,7 @@ public class PostProcessingControl : InteractiveSequenceable
             Debug.Log("paused decay tween  " + _decayTween);
         }
         
-        _interactTween = LeanTween.value(gameObject, _volume.weight, 1, _riseTime)
+        _interactTween = LeanTween.value(gameObject, 0, 1, _riseTime)
             .setOnUpdate(val =>
             {
                 TweenHandling(val);                
@@ -46,7 +47,7 @@ public class PostProcessingControl : InteractiveSequenceable
             Debug.Log("paused interact tween  " + _interactTween);
         }
         
-        _decayTween = LeanTween.value(gameObject, _volume.weight, 0, _decayTime)
+        _decayTween = LeanTween.value(gameObject, 1, 0, _decayTime)
             .setOnUpdate(val =>
             {
                 TweenHandling(val);                
@@ -62,7 +63,7 @@ public class PostProcessingControl : InteractiveSequenceable
 
             if (_localProgress >= _completedAt) //end of this sequence step
             {
-                if (_volume.profile.TryGet(out _bloom))  {
+                if (_effectVolume.profile.TryGet(out _bloom))  {
                     LeanTween.value(gameObject, 0.61f, 0, 5f)
                         .setOnUpdate(val=> 
                         {
@@ -75,21 +76,20 @@ public class PostProcessingControl : InteractiveSequenceable
                             _active = false;
                         });
                 }
-
             }
             else
             {
-                //use mappng curve?
-                _volume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(_localProgress, 0, _completedAt, _initialValue, _finalValue));
+                _effectVolume.gameObject.GetComponent<VolumeProfileProgressiveInterpolator>().Progress(Utils.Map(_localProgress,0,_completedAt,0,1));
             }
         } 
     }
 
-    private void TweenHandling(float val)
+    private void TweenHandling(float val) //interactive tween handler
     {
-        _volume.weight = val;
+        _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(_localProgress, 0, _completedAt, _initialValue, _finalValue));
+
         foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
             lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
     }
-    
+
 }

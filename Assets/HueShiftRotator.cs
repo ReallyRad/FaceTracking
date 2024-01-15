@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class HueShiftRotator : MonoBehaviour //TODO rename class
+public class HueShiftRotator : MonoBehaviour
 {
     [Range (-1,1)]
     public float currentValue;
