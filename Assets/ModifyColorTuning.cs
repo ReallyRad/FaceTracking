@@ -11,6 +11,9 @@ public class ModifyColorTuning : MonoBehaviour //tracks the volume weight so tha
     [SerializeField]
     private AnimationCurve _initialCurve;
         
+    [SerializeField] [Range (0,1)]
+    private float _effectStrength;
+    
     private void Start()
     {
         _volume.profile.TryGet(typeof(ColorCurves), out _colorCurvesEffect);
@@ -26,8 +29,12 @@ public class ModifyColorTuning : MonoBehaviour //tracks the volume weight so tha
         _colorCurvesEffect.SetDirty();
         for (int i = 0; i < _initialCurve.length; i++)
         {
-            _colorCurvesEffect.hueVsSat.value.MoveKey(i,  new Keyframe(_initialCurve[i].time, (_initialCurve[i].value  - 0.5f ) * _volume.weight + 0.5f ));
+            _colorCurvesEffect.hueVsSat.value.MoveKey(i,  new Keyframe(_initialCurve[i].time, (_initialCurve[i].value  - 0.5f ) * _effectStrength + 0.5f ));
         }
     }
- 
+
+    public void setEffectStrength(float val)
+    {
+        _effectStrength = val;
+    }
 }
