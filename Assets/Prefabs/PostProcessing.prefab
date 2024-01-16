@@ -524,6 +524,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _effectStrength: 0
 --- !u!114 &137846780712901823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,11 +537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075b30805b08748da9b3ebe2744a691f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentValue: -0.2
   volume: {fileID: 9165765487097953600}
   _hue: 0.8991263
-  _saturation: 0.398
-  _brightness: 0.871
+  _saturation: 0
   _frequency: 0.172
 --- !u!114 &3646044180767130748
 MonoBehaviour:
@@ -555,5 +554,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _volume: {fileID: 9165765487097953600}
-  _zeroVolumeProfile: {fileID: 11400000, guid: 25cd39db4e0b5b548b0e7495eb744a22, type: 2}
   _maxVolumeProfile: {fileID: 11400000, guid: de06a9c7dbedb49dab78fcc67d84c1b3, type: 2}
