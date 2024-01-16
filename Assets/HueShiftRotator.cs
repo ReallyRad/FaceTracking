@@ -4,9 +4,6 @@ using UnityEngine.Rendering.Universal;
 
 public class HueShiftRotator : MonoBehaviour
 {
-    [Range (-1,1)]
-    public float currentValue;
-    
     private ShadowsMidtonesHighlights shadowMidHigh;
     [SerializeField] private Volume volume;
 
@@ -17,9 +14,6 @@ public class HueShiftRotator : MonoBehaviour
     private float _saturation;
     
     [SerializeField] [Range (0,1)]
-    private float _brightness;
-
-    [SerializeField] [Range (0,1)]
     private float _frequency;
     
     // Update is called once per frame
@@ -28,14 +22,15 @@ public class HueShiftRotator : MonoBehaviour
         {
             _hue =  Time.realtimeSinceStartup * _frequency % 1;
             
-            Color color = Color.HSVToRGB(_hue, _saturation,_brightness);
+            Color color = Color.HSVToRGB(_hue, _saturation,1);
             
             shadowMidHigh.midtones.SetValue(new Vector4Parameter(new Vector4(
                 color.r,
                 color.g,
                 color.b,
-                currentValue
+                0
                 )));
+
         }
     }
 
