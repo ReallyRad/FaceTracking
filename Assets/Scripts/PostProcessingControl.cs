@@ -15,12 +15,17 @@ public class PostProcessingControl : InteractiveSequenceable
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
     [SerializeField] private AnimationCurve _lowPassFilterMapping;
 
+    [SerializeField] private AudioReverbZone reverbZone;
+    [SerializeField] private int reverbZoneRoomInitialValue;
+    [SerializeField] private int reverbZoneRoomFinalValue;
+
     private Bloom _bloom;
 
     public override void Initialize()
     {
         _active = true;
         _shimmerSeamlessLoop.SetVolume(1);
+        reverbZone.room = reverbZoneRoomInitialValue;
     }
 
     protected override void Interact()
@@ -90,6 +95,10 @@ public class PostProcessingControl : InteractiveSequenceable
 
         foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
             lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
+
+        float reverbValue = (reverbZoneRoomFinalValue - reverbZoneRoomInitialValue) * val + reverbZoneRoomInitialValue;
+        int intReverbValue = Mathf.RoundToInt(reverbValue);
+        reverbZone.room = intReverbValue;
     }
 
 }
