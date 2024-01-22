@@ -1,10 +1,13 @@
+using System;
 using Oculus.Interaction;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
-    [SerializeField] private Volume _volume;
+    [SerializeField] private Volume _effectVolume;
+
     private int _interactTween;
     private int _decayTween;
     
@@ -12,21 +15,15 @@ public class PostProcessingControl : InteractiveSequenceable
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
     [SerializeField] private AnimationCurve _lowPassFilterMapping;
 
-    [SerializeField] private AudioReverbZone reverbZone;
-    [SerializeField] private int reverbZoneRoomInitialValue;
-    [SerializeField] private int reverbZoneRoomFinalValue;
-
-    //TODO add OnComplete()
+    private Bloom _bloom;
 
     public override void Initialize()
     {
         _active = true;
-        _volume.weight = 0;
         _shimmerSeamlessLoop.SetVolume(1);
-        reverbZone.room = reverbZoneRoomInitialValue;
     }
 
-    public override void Interact()
+    protected override void Interact()
     {
         if (_decayTween != 0)
         {
@@ -34,7 +31,7 @@ public class PostProcessingControl : InteractiveSequenceable
             Debug.Log("paused decay tween  " + _decayTween);
         }
         
-        _interactTween = LeanTween.value(gameObject, _volume.weight, 1, _riseTime)
+        _interactTween = LeanTween.value(gameObject, 0, 1, _riseTime)
             .setOnUpdate(val =>
             {
                 TweenHandling(val);                
@@ -42,7 +39,7 @@ public class PostProcessingControl : InteractiveSequenceable
             .id;
     }
 
-    public override void Decay()
+    protected override void Decay()
     {
         if (_interactTween != 0)
         {
@@ -50,7 +47,7 @@ public class PostProcessingControl : InteractiveSequenceable
             Debug.Log("paused interact tween  " + _interactTween);
         }
         
-        _decayTween = LeanTween.value(gameObject, _volume.weight, 0, _decayTime)
+        _decayTween = LeanTween.value(gameObject, 1, 0, _decayTime)
             .setOnUpdate(val =>
             {
                 TweenHandling(val);                
@@ -58,17 +55,41 @@ public class PostProcessingControl : InteractiveSequenceable
             .id;
     }
 
-    private void TweenHandling(float val)
+    protected override void Progress(float progress)
     {
-        _volume.weight = val;
-        
+        if (_active)
+        {
+            _localProgress += progress;
+
+            if (_localProgress >= _completedAt) //end of this sequence step
+            {
+                if (_effectVolume.profile.TryGet(out _bloom))  {
+                    LeanTween.value(gameObject, 0.61f, 0, 5f)
+                        .setOnUpdate(val=> 
+                        {
+                            _bloom.threshold.value = val;
+                            //TODO interpolate intensity as well
+                            //TODO make sure weight is at 1 so that effect is applied 
+                        })
+                        .setOnComplete(() => 
+                        { 
+                            _active = false;
+                        });
+                }
+            }
+            else
+            {
+                _effectVolume.gameObject.GetComponent<VolumeProfileProgressiveInterpolator>().Progress(Utils.Map(_localProgress,0,_completedAt,0,1));
+            }
+        } 
+    }
+
+    private void TweenHandling(float val) //interactive tween handler
+    {
+        _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.1f));
+
         foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
             lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
-
-        float reverbValue = (reverbZoneRoomFinalValue - reverbZoneRoomInitialValue) * val + reverbZoneRoomInitialValue;
-        int intReverbValue = Mathf.RoundToInt(reverbValue);
-        reverbZone.room = intReverbValue;
-
     }
-    
+
 }

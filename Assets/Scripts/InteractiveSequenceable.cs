@@ -11,12 +11,13 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
-        //TODO add Progress handler to trigger OnCOmplete()
+        ProgressManager.Progress += Progress;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
+        ProgressManager.Progress -= Progress;
     }
     
     private void NewFaceExpressionAvailable(bool pucker)
@@ -33,7 +34,10 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
         }
     }
 
-    public abstract void Interact();
+    protected abstract void Interact();
     
-    public abstract void Decay();
-}
+    protected abstract void Decay();
+    
+    protected abstract void Progress(float progress); //The handler for when progress is ongoing
+}    
+

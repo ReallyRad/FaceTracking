@@ -25,8 +25,6 @@ public class FogDisappearingControl : ProgressiveSequenceable
         {
             _localProgress += progress;
             
-            Debug.Log("fog progress " + _localProgress);
-            
             var wasTransitioning = _transitioning;
             _transitioning = _localProgress > _startNextPhaseAt;
             

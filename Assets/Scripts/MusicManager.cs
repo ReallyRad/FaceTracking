@@ -21,8 +21,6 @@ public class MusicManager : ProgressiveSequenceable
         {
             _localProgress += progress;
             
-            Debug.Log("music progress " + _localProgress);
-
             var wasTransitioning = _transitioning;
             _transitioning = _localProgress > _startNextPhaseAt;
 

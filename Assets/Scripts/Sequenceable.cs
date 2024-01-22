@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+ 
+interface IColor
+{
+   
+}
+
 public abstract class Sequenceable : MonoBehaviour
 {
     public delegate void OnStartNextPhase(Sequenceable item); //triggered to notify the next sequence phase should start fading inx
@@ -10,6 +16,9 @@ public abstract class Sequenceable : MonoBehaviour
     [SerializeField] protected bool _active; //whether the item is currently receiving progress updates
     [SerializeField] protected bool _transitioning;
 
+    [SerializeField] protected float _initialValue;
+    [SerializeField] protected float _finalValue; 
+    
     [SerializeField] protected float _startNextPhaseAt; //number of full breaths necessary to complete a sequence phase
     [SerializeField] protected float _completedAt; //the number of full breaths at which we start transitioning to the next sequence phase
 
