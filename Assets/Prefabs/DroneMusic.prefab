@@ -60,14 +60,14 @@ MonoBehaviour:
   _initialValue: 0
   _finalValue: 8
   _seamlessLoops:
+  - {fileID: 2782665024206967897}
   - {fileID: 2782665024516543189}
   - {fileID: 2782665024358920589}
+  - {fileID: 2782665024770360349}
   - {fileID: 2782665024674318966}
-  - {fileID: 2782665024206967897}
   - {fileID: 2782665025459062375}
   - {fileID: 2782665024587221937}
   - {fileID: 2782665025627391334}
-  - {fileID: 2782665024770360349}
   _currentLoopIndex: 0
 --- !u!1 &2782665023584816053
 GameObject:
@@ -1808,7 +1808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 121
-  numBeatsPerSegment: 8
+  numBeatsPerSegment: 16
   _volume: 0
   audioSources:
   - {fileID: 2782665024549964281}
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 121
-  numBeatsPerSegment: 8
+  numBeatsPerSegment: 32
   _volume: 0
   audioSources:
   - {fileID: 2782665025665901374}
@@ -2040,7 +2040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 121
-  numBeatsPerSegment: 28
+  numBeatsPerSegment: 112
   _volume: 0
   audioSources:
   - {fileID: 2782665024509709274}
@@ -2348,7 +2348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 121
-  numBeatsPerSegment: 32
+  numBeatsPerSegment: 128
   _volume: 0
   audioSources:
   - {fileID: 2782665023646818859}
@@ -2400,7 +2400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 121
-  numBeatsPerSegment: 8
+  numBeatsPerSegment: 32
   _volume: 0
   audioSources:
   - {fileID: 2782665023799756305}
