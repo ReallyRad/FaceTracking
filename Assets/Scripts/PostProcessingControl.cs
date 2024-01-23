@@ -24,7 +24,7 @@ public class PostProcessingControl : InteractiveSequenceable
     public override void Initialize()
     {
         _active = true;
-        _shimmerSeamlessLoop.SetVolume(1);
+        //_shimmerSeamlessLoop.SetVolume(1); //TODO use mixer?
         reverbZone.room = reverbZoneRoomInitialValue;
     }
 

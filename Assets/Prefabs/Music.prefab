@@ -54,11 +54,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
+  _initialValue: 0
+  _finalValue: 8
   _startNextPhaseAt: 7
   _completedAt: 8
   _localProgress: 0
-  _initialValue: 0
-  _finalValue: 8
+  _mixer: {fileID: 24100000, guid: 2d3c8680583ef41299e5b5a1f89ebc99, type: 2}
   _seamlessLoops:
   - {fileID: 2782665024516543189}
   - {fileID: 2782665024358920589}
@@ -1013,7 +1014,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 48
-  _volume: 0
   audioSources:
   - {fileID: 2782665024237402643}
   - {fileID: 2782665024084620723}
@@ -1321,7 +1321,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 32
-  _volume: 0
   audioSources:
   - {fileID: 2782665024701080527}
   - {fileID: 2782665024317278644}
@@ -1501,7 +1500,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 8
-  _volume: 0
   audioSources:
   - {fileID: 2782665023584816054}
   - {fileID: 2782665025142802333}
@@ -1809,7 +1807,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 4
-  _volume: 0
   audioSources:
   - {fileID: 2782665024549964281}
   - {fileID: 2782665023805699524}
@@ -1861,7 +1858,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 12
-  _volume: 0
   audioSources:
   - {fileID: 2782665025665901374}
   - {fileID: 2782665024521446009}
@@ -2041,7 +2037,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 16
-  _volume: 0
   audioSources:
   - {fileID: 2782665024509709274}
   - {fileID: 2782665023767895638}
@@ -2349,7 +2344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 16
-  _volume: 0
   audioSources:
   - {fileID: 2782665023646818859}
   - {fileID: 2782665023999832408}
@@ -2401,7 +2395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 110
   numBeatsPerSegment: 16
-  _volume: 0
   audioSources:
   - {fileID: 2782665023799756305}
   - {fileID: 2782665024887937168}

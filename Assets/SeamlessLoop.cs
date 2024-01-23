@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Metaface.Debug;
+using OVR;
 using UnityEngine.Audio;
 
 public class SeamlessLoop : MonoBehaviour
@@ -38,13 +39,11 @@ public class SeamlessLoop : MonoBehaviour
             // Flip between two audio sources so that the loading process of one does not interfere with the one that's playing out
             currentClipIndex = (currentClipIndex + 1) % audioSources.Length;
         }
-
     }
 
-    public void SetVolume(float volume) //TODO use this method to set the volume through the mixer track
+    public void SetVolume(float volume, AudioMixer mixer) //TODO use this method to set the volume through the mixer track
     {
-        foreach (AudioSource audioSource in audioSources)
-            audioSource.outputAudioMixerGroup.audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        mixer.SetFloat(gameObject.name, Mathf.Log10(volume) * 20);
     }
     
 }

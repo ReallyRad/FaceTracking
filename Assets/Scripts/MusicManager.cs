@@ -6,15 +6,11 @@ public class MusicManager : ProgressiveSequenceable
 {
     private float _maxVolume = 1f;
     private float _currentLoopVolume = 0f;
-    
+
+    [SerializeField] private AudioMixer _mixer;
     [SerializeField] private SeamlessLoop[] _seamlessLoops;
     [SerializeField] private int _currentLoopIndex;
-    [SerializeField] private AudioMixer _audioMixer;
 
-    private AudioMixerGroup ttt;
-
-    private string[] groupNames = new string[8];
-    
     protected override void Progress(float progress) 
     {
         if (_active)
@@ -49,7 +45,7 @@ public class MusicManager : ProgressiveSequenceable
                                                    0.0001f,
                                                    1f);
                 
-                    _seamlessLoops[_currentLoopIndex].SetVolume(_currentLoopVolume);
+                    _seamlessLoops[_currentLoopIndex].SetVolume(_currentLoopVolume, _mixer);
                 }
             }
         }
@@ -59,7 +55,7 @@ public class MusicManager : ProgressiveSequenceable
     {
         _active = true;
         _currentLoopIndex = 0;
-        foreach (SeamlessLoop seamlessLoop in _seamlessLoops) seamlessLoop.SetVolume(0);
+        foreach (SeamlessLoop seamlessLoop in _seamlessLoops) seamlessLoop.SetVolume(0.0001f, _mixer);
     }
 
 }
