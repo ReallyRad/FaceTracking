@@ -47,8 +47,4 @@ public class SeamlessLoop : MonoBehaviour
             audioSource.outputAudioMixerGroup.audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
     }
     
-    public float GetVolume()
-    {
-        return _volume;
-    }
 }
