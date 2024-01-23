@@ -2,24 +2,21 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Metaface.Debug;
+using UnityEngine.Audio;
 
 public class SeamlessLoop : MonoBehaviour
 {
     public float bpm;
     public int numBeatsPerSegment = 16;
-    [SerializeField] [Range(0,1)]
-    private float _volume; 
     
     private double nextEventTime;
     [SerializeField] private AudioSource[] audioSources;
     
     private int currentClipIndex = 0; //basically a flip index variable
 
-
     void Start()
     {
         nextEventTime = AudioSettings.dspTime + 4.0f;
-        _volume = 0f;
     }
 
     void Update()
@@ -42,13 +39,12 @@ public class SeamlessLoop : MonoBehaviour
             currentClipIndex = (currentClipIndex + 1) % audioSources.Length;
         }
 
-        foreach (AudioSource audioSource in audioSources)
-            audioSource.volume = _volume;
     }
 
-    public void SetVolume(float volume)
+    public void SetVolume(float volume) //TODO use this method to set the volume through the mixer track
     {
-        _volume = volume;
+        foreach (AudioSource audioSource in audioSources)
+            audioSource.outputAudioMixerGroup.audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
     }
     
     public float GetVolume()

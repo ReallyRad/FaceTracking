@@ -166,7 +166,23 @@ AudioMixerController:
   m_SuspendThreshold: -78.5
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 1205ac5ce373a423fadca85da9ab7ee9
+    name: Bass
+  - guid: 5e23e3405da7a4c00963bd3434703048
+    name: Beat
+  - guid: 2af48f84e070545579a646896754537e
+    name: Choir
+  - guid: 771a87b39b09b4907bef133b9090ad08
+    name: Drone
+  - guid: 842670a811379418b9b4755e28838f38
+    name: Piano
+  - guid: 87566590b7662451d9c822d3fc1d954f
+    name: ThreeBells
+  - guid: 0b7c246bf75ad41d2ac9a8351eda037b
+    name: Tonic
+  - guid: 2e785361959cc47c5849eb4d0b868161
+    name: WarblySynth
   m_AudioMixerGroupViews:
   - guids:
     - 927c4de4241bc4464b65479f4b0b2024
@@ -233,7 +249,9 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 00ca6d566803048988dca108b5db91a9
-  m_FloatValues: {}
+  m_FloatValues:
+    7fbcd6e4d1222491486dcb172bdc9a23: 0
+    842670a811379418b9b4755e28838f38: 0
   m_TransitionOverrides: {}
 --- !u!244 &292831936091249949
 AudioMixerEffectController:
