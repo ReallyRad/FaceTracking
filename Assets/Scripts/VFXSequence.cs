@@ -29,9 +29,9 @@ public class VFXSequence : MonoBehaviour //takes care of enabling and disabling 
 
         foreach (AudioMixerGroup group in _mixer.FindMatchingGroups(""))
         {
-            _mixer.SetFloat(group.name, -14f);
+            _mixer.SetFloat(group.name, -80f);
         }
-        _mixer.SetFloat("Shimmer", 1f);
+        //_mixer.SetFloat("Shimmer", 1f);
     }
 
     private void SequenceItemCompleted(Sequenceable item) //called when current sequence item completed
