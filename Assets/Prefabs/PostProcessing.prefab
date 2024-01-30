@@ -403,8 +403,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   reverbZone: {fileID: 834295564323593979}
-  reverbZoneRoomInitialValue: -2000
-  reverbZoneRoomFinalValue: 0
+  reverbZoneRoomInitialValue: -3200
+  reverbZoneRoomFinalValue: -800
 --- !u!167 &834295564323593979
 AudioReverbZone:
   m_ObjectHideFlags: 0
@@ -416,7 +416,7 @@ AudioReverbZone:
   m_MinDistance: 10
   m_MaxDistance: 15
   m_ReverbPreset: 27
-  m_Room: -1000
+  m_Room: -3200
   m_RoomHF: -151
   m_DecayTime: 7.56
   m_DecayHFRatio: 0.91
