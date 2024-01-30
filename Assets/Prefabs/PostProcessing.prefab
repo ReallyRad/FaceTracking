@@ -119,7 +119,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -136,7 +136,7 @@ AudioLowPassFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886482208357026505}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_LowpassResonanceQ: 1
   lowpassLevelCustomCurve:
@@ -273,7 +273,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -290,7 +290,7 @@ AudioLowPassFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123949787595984752}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_LowpassResonanceQ: 1
   lowpassLevelCustomCurve:
@@ -364,6 +364,7 @@ MonoBehaviour:
   _localProgress: 0
   _riseTime: 8
   _decayTime: 3
+  _mixer: {fileID: 24100000, guid: 2d3c8680583ef41299e5b5a1f89ebc99, type: 2}
   _effectVolume: {fileID: 9165765487097953600}
   _lowPassFilters:
   - {fileID: 1707845809}
