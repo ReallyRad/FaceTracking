@@ -40,12 +40,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886482208357026505}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4193503018951550547, guid: 2d3c8680583ef41299e5b5a1f89ebc99, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d1d297c96e4d54146b8239d09a145656, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e7fd9bc6e50a56846a21847e3bf8169c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.461
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -194,10 +194,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1123949787595984752}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4193503018951550547, guid: 2d3c8680583ef41299e5b5a1f89ebc99, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d1d297c96e4d54146b8239d09a145656, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e7fd9bc6e50a56846a21847e3bf8169c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -475,9 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00a29a1ea2342e8a4883a9464da3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 110
-  numBeatsPerSegment: 15
-  _volume: 1
+  bpm: 220
+  numBeatsPerSegment: 30
   audioSources:
   - {fileID: 7841718519994956643}
   - {fileID: 2503546238489614946}
