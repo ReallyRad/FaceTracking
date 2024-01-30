@@ -1,11 +1,14 @@
 using System;
 using Oculus.Interaction;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
+    [SerializeField] private AudioMixer _mixer;
+
     [SerializeField] private Volume _effectVolume;
 
     private int _interactTween;
@@ -93,12 +96,15 @@ public class PostProcessingControl : InteractiveSequenceable
     {
         _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.1f));
 
-        foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
-            lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
+        //foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
+        //    lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
 
         float reverbValue = (reverbZoneRoomFinalValue - reverbZoneRoomInitialValue) * val + reverbZoneRoomInitialValue;
         int intReverbValue = Mathf.RoundToInt(reverbValue);
         reverbZone.room = intReverbValue;
+
+        _mixer.SetFloat("Shimmer", Mathf.Pow(10, val * 2));
+        //_mixer.SetFloat("Shimmer", val*20+1);
     }
 
 }
