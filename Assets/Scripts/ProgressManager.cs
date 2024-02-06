@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using UnityEngine;
 
- public class ProgressManager : MonoBehaviour //handles face expression events to detect whether they should be interpreted as progress
+public class ProgressManager : MonoBehaviour //handles face expression events to detect whether they should be interpreted as progress
 {
     public delegate void OnProgress(float progress);
     public static OnProgress Progress;

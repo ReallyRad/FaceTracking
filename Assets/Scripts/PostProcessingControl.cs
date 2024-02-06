@@ -7,13 +7,10 @@ using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
-
     [SerializeField] private Volume _effectVolume;
     [SerializeField] private Material _skyboxMaterial;
+    [SerializeField] private Texture _spaceTexture;
 
-    private int _interactTween;
-    private int _decayTween;
-    
     [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
     [SerializeField] private AnimationCurve _lowPassFilterMapping;
@@ -22,6 +19,8 @@ public class PostProcessingControl : InteractiveSequenceable
     [SerializeField] private int reverbZoneRoomInitialValue;
     [SerializeField] private int reverbZoneRoomFinalValue;
 
+    private int _interactTween;
+    private int _decayTween;
     private Bloom _bloom;
 
     public override void Initialize()
@@ -39,7 +38,8 @@ public class PostProcessingControl : InteractiveSequenceable
             Debug.Log("paused decay tween  " + _decayTween);
         }
         
-        _interactTween = LeanTween.value(gameObject, 0, 1, _riseTime)
+        _interactTween = LeanTween
+            .value(gameObject, 0, 1, _riseTime)
             .setOnUpdate(val =>
             {
                 TweenHandling(val);                
@@ -71,17 +71,24 @@ public class PostProcessingControl : InteractiveSequenceable
 
             if (_localProgress >= _completedAt) //end of this sequence step
             {
-                if (_effectVolume.profile.TryGet(out _bloom))  {
+                if (_effectVolume.profile.TryGet(out _bloom))
+                {
                     LeanTween.value(gameObject, 0.61f, 0, 5f)
-                        .setOnUpdate(val=> 
+                        .setOnUpdate(val =>
                         {
                             _bloom.threshold.value = val;
-                            _skyboxMaterial.SetFloat("Exposure", Utils.Map(val, 0.61f, 0, 0.6f, 8));
+                            _skyboxMaterial.SetFloat("_Exposure", Utils.Map(val, 0.61f, 0, 0.6f, 2));
                             //TODO interpolate intensity as well
                             //TODO make sure weight is at 1 so that effect is applied 
                         })
-                        .setOnComplete(() => 
-                        { 
+                        .setRepeat(2)
+                        .setLoopPingPong()
+                        .setOnCompleteOnRepeat(true)
+                        .setEaseInOutSine()
+                        .setOnComplete(() =>
+                        {
+                            Debug.Log("Complete");
+                            _skyboxMaterial.SetTexture("_MainTex", _spaceTexture);
                             _active = false;
                         });
                 }

@@ -25,12 +25,10 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
         if (!pucker && _active)
         {
             Decay();
-            Debug.Log("decay");    
         }
         else if (pucker && _active)
         {
             Interact();
-            Debug.Log("interact");    
         }
     }
 
