@@ -75,6 +75,7 @@ public class PostProcessingControl : InteractiveSequenceable
                         .setOnUpdate(val=> 
                         {
                             _bloom.threshold.value = val;
+                            _skyboxMaterial.SetFloat("Exposure", Utils.Map(val, 0.61f, 0, 0.6f, 8));
                             //TODO interpolate intensity as well
                             //TODO make sure weight is at 1 so that effect is applied 
                         })
