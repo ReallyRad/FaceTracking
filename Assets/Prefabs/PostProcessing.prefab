@@ -365,6 +365,7 @@ MonoBehaviour:
   _riseTime: 8
   _decayTime: 3
   _effectVolume: {fileID: 9165765487097953600}
+  _skyboxMaterial: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
   _lowPassFilters:
   - {fileID: 1707845809}
   - {fileID: 817006550}

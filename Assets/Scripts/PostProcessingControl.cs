@@ -9,6 +9,7 @@ public class PostProcessingControl : InteractiveSequenceable
 {
 
     [SerializeField] private Volume _effectVolume;
+    [SerializeField] private Material _skyboxMaterial;
 
     private int _interactTween;
     private int _decayTween;
