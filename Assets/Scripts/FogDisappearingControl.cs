@@ -9,15 +9,6 @@ public class FogDisappearingControl : ProgressiveSequenceable
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
     private float intensityValue;
-    
-    private void Start()
-    {
-        //TODO set in inspector
-        fog.settings.distance = 1000f;
-        fog.settings.distantFogColor.a = 0.95f;
-        fog.settings.turbulence = 0.9f;
-        fog.settings.windDirection = new Vector3(-0.005f, 0f, 0f);
-    }
 
     protected override void Progress(float progress) 
     {

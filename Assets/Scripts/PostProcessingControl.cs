@@ -77,11 +77,11 @@ public class PostProcessingControl : InteractiveSequenceable
         if (_active)
         {
             _localProgress += progress;
-
+            
             if (_localProgress >= _completedAt) //end of this sequence step
             {
                 _active = false;
-
+                
                 if (_interactTween != 0) LeanTween.pause(_interactTween);
                 if (_decayTween != 0) LeanTween.pause(_decayTween);
                 
@@ -91,7 +91,7 @@ public class PostProcessingControl : InteractiveSequenceable
 
                     LeanTween.value(gameObject, _interactiveVal, 0, 5).setOnUpdate(val =>
                     {
-                        TweenHandling(val); //simulate decay. 
+                        TweenHandling(val); //simulate interactivedecay. 
                     });
                     
                     LeanTween.value(gameObject, 0.61f, 0, 5f)
@@ -121,8 +121,11 @@ public class PostProcessingControl : InteractiveSequenceable
     private IEnumerator WaitAndSwitchSkybox()
     {
         yield return new WaitForSeconds(5f);
+        
+        StartNextPhase(this); //notify progressmanager to starting next phase 
 
-        LeanTween.value(1, 0, 5)
+        LeanTween
+            .value(1, 0, 5)
             .setOnUpdate(val =>
             {
                 _effectVolume.gameObject.GetComponent<Volume>().weight = val; 
