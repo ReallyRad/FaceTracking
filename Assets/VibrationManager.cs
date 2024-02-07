@@ -20,14 +20,9 @@ public class VibrationManager : MonoBehaviour
     {
         _pucker = pucker;
         
-        if (pucker)
-        {
-            Debug.Log("start vibrate");
-            StartCoroutine(BreathVibration());
-        }
+        if (pucker) StartCoroutine(BreathVibration());
         else
         {
-            Debug.Log("stop vibrate");
             OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
             StopCoroutine("BreathVibration");
         }

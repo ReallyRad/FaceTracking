@@ -8,6 +8,9 @@ using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
+    public delegate void OnPostProcessingCompleted(); //triggered to notify the next sequence phase should start fading inx
+    public static OnPostProcessingCompleted PostProcessingCompleted;
+    
     [SerializeField] private Volume _effectVolume;
     [SerializeField] private Material _skyboxMaterial;
     [SerializeField] private Texture _spaceTexture;
@@ -92,6 +95,7 @@ public class PostProcessingControl : InteractiveSequenceable
                     LeanTween.value(gameObject, _interactiveVal, 0, 5).setOnUpdate(val =>
                     {
                         TweenHandling(val); //simulate interactivedecay. 
+                        //TODO use reverb to fade out the music  more elegantly  instead of reusing the tweenhandling method
                     });
                     
                     LeanTween.value(gameObject, 0.61f, 0, 5f)
@@ -123,7 +127,8 @@ public class PostProcessingControl : InteractiveSequenceable
         yield return new WaitForSeconds(5f);
         
         StartNextPhase(this); //notify progressmanager to starting next phase 
-
+        PostProcessingCompleted();
+        
         LeanTween
             .value(1, 0, 5)
             .setOnUpdate(val =>

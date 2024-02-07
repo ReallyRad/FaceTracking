@@ -15,13 +15,13 @@ public class
     private void OnEnable()
     {
         Sequenceable.StartNextPhase += SequenceItemCompleted;
-        PostProcessingControl.StartNextPhase += FirstPhaseCompleted;
+        PostProcessingControl.PostProcessingCompleted += FirstPhaseCompleted;
     }
 
     private void OnDisable()
     {
         Sequenceable.StartNextPhase -= SequenceItemCompleted; 
-        PostProcessingControl.StartNextPhase -= FirstPhaseCompleted;
+        PostProcessingControl.PostProcessingCompleted -= FirstPhaseCompleted;
 
     }
 
@@ -34,7 +34,13 @@ public class
 
     private void MuteMixer(AudioMixer mixer)
     {
-        foreach (AudioMixerGroup group in mixer.FindMatchingGroups("")) mixer.SetFloat(group.name, -80f);
+        foreach (AudioMixerGroup group in mixer.FindMatchingGroups(""))
+        {
+            LeanTween.value(0, -80f, 5).setOnUpdate(val =>
+            {
+                mixer.SetFloat(group.name, val);
+            });
+        }
     }
 
     private void SequenceItemCompleted(Sequenceable item) //called when current sequence item completed
@@ -43,7 +49,7 @@ public class
         _sequenceableItems[sequenceIndex].Initialize();
     }
 
-    private void FirstPhaseCompleted(Sequenceable item)
+    private void FirstPhaseCompleted()
     {
         MuteMixer(_mixer);
     }
