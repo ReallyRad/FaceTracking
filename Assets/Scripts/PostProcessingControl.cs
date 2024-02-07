@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Oculus.Interaction;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -71,8 +72,13 @@ public class PostProcessingControl : InteractiveSequenceable
 
             if (_localProgress >= _completedAt) //end of this sequence step
             {
+                _active = false;
+
                 if (_effectVolume.profile.TryGet(out _bloom))
                 {
+                    
+                    StartCoroutine(WaitAndSwitchSkybox());  //switch texture halfway through
+
                     LeanTween.value(gameObject, 0.61f, 0, 5f)
                         .setOnUpdate(val =>
                         {
@@ -82,24 +88,32 @@ public class PostProcessingControl : InteractiveSequenceable
                             //TODO make sure weight is at 1 so that effect is applied 
                         })
                         .setRepeat(2)
-                        .setLoopPingPong()
-                        .setOnCompleteOnRepeat(true)
-                        .setEaseInOutSine()
-                        .setOnComplete(() =>
-                        {
-                            Debug.Log("Complete");
-                            _skyboxMaterial.SetTexture("_MainTex", _spaceTexture);
-                            _active = false;
-                        });
+                        .setEaseInOutCubic()
+                        .setLoopPingPong();
                 }
+
             }
             else
             {
-                _effectVolume.gameObject.GetComponent<VolumeProfileProgressiveInterpolator>().Progress(Utils.Map(_localProgress,0,_completedAt,0,1));
+                _effectVolume
+                    .gameObject
+                    .GetComponent<VolumeProfileProgressiveInterpolator>()
+                    .Progress(Utils.Map(_localProgress, 0, _completedAt, 0, 1));
             }
         } 
     }
 
+    private IEnumerator WaitAndSwitchSkybox()
+    {
+        yield return new WaitForSeconds(5f);
+
+        LeanTween.value(1, 0, 5)
+            .setOnUpdate(val => { _effectVolume.gameObject.GetComponent<Volume>().weight = val; })
+            .setOnComplete(() => { _effectVolume.gameObject.GetComponent<VolumeProfileProgressiveInterpolator>().Progress(0); });
+        
+        _skyboxMaterial.SetTexture("_MainTex", _spaceTexture);
+    }
+    
     private void TweenHandling(float val) //interactive tween handler
     {
         _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.1f));
