@@ -63,6 +63,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6709955752022895756}
   - component: {fileID: 2625246242624431740}
+  - component: {fileID: 8829892563227679829}
   m_Layer: 0
   m_Name: Video Player
   m_TagString: Untagged
@@ -277,3 +278,16 @@ MonoBehaviour:
     useTextureMips: 0
   m_VideoPath: 
   m_VideoLocation: 2
+--- !u!114 &8829892563227679829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6709955752022895754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e1088a82783f24d89f0e996536fdde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mediaPlayer: {fileID: 2625246242624431740}
