@@ -366,7 +366,7 @@ MonoBehaviour:
   _decayTime: 3
   _effectVolume: {fileID: 9165765487097953600}
   _skyboxMaterial: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
-  _spaceTexture: {fileID: 2800000, guid: 477d5a56848734254b15415fb9b1688e, type: 3}
+  _nightSkyMaterial: {fileID: 2100000, guid: 5890310ef2ab73740a22aa53c900c2a7, type: 2}
   _lowPassFilters:
   - {fileID: 1707845809}
   - {fileID: 817006550}

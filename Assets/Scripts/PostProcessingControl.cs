@@ -13,7 +13,7 @@ public class PostProcessingControl : InteractiveSequenceable
     
     [SerializeField] private Volume _effectVolume;
     [SerializeField] private Material _skyboxMaterial;
-    [SerializeField] private Texture _spaceTexture;
+    [SerializeField] private Material _nightSkyMaterial;
 
     [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
@@ -136,8 +136,8 @@ public class PostProcessingControl : InteractiveSequenceable
                 _effectVolume.gameObject.GetComponent<Volume>().weight = val; 
             })
             .setOnComplete(() => { _effectVolume.gameObject.GetComponent<VolumeProfileProgressiveInterpolator>().Progress(0); });
-        
-        _skyboxMaterial.SetTexture("_MainTex", _spaceTexture);
+
+        RenderSettings.skybox = _nightSkyMaterial;
     }
     
     private void TweenHandling(float val) //interactive tween handler
