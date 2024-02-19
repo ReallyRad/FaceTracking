@@ -41,7 +41,7 @@ public class SeamlessLoop : MonoBehaviour
         }
     }
 
-    public void SetVolume(float volume, AudioMixer mixer) //TODO use this method to set the volume through the mixer track
+    public void SetVolume(float volume, AudioMixer mixer)
     {
         mixer.SetFloat(gameObject.name, Mathf.Log10(volume) * 20);
     }
