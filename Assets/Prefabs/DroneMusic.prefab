@@ -236,8 +236,8 @@ MonoBehaviour:
   _transitioning: 0
   _initialValue: 0
   _finalValue: 8
-  _startNextPhaseAt: 7
-  _completedAt: 8
+  _startNextPhaseAt: 8
+  _completedAt: 9
   _localProgress: 0
   _mixer: {fileID: 24100000, guid: d8270a811ce3ca24a9689aff65b96570, type: 2}
   _seamlessLoops:
