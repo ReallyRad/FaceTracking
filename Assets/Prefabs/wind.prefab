@@ -43,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4661513627703902710}
   serializedVersion: 8
-  lengthInSec: 0.87
+  lengthInSec: 3.39
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -2682,7 +2682,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -3929,7 +3929,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 1
     ratio: 1
     lifetime:
@@ -4071,12 +4071,12 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: -2
-          outSlope: -2
+          inSlope: -4.29686
+          outSlope: -4.29686
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0
+          outWeight: 0.04137393
         - serializedVersion: 3
           time: 1
           value: 0
@@ -4764,7 +4764,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 916791ba4738f414bb147153f7bf67d8, type: 2}
-  - {fileID: 2100000, guid: 4226cad8f8141f74dab0f272cb90328a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4827,7 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69c836cf3af18e4f9491a044de90ff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hSliderValue: 15
+  hSliderValue: 0
 --- !u!1 &4661513627717986087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,7 +4844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4661513627717986104
 Transform:
   m_ObjectHideFlags: 0
@@ -4854,7 +4853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4661513627717986087}
   m_LocalRotation: {x: 0.6357662, y: -0, z: 0, w: 0.77188176}
-  m_LocalPosition: {x: 887, y: 3715, z: 1028}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5436,7 +5435,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5488,7 +5487,7 @@ ParticleSystem:
         m_RotationOrder: 4
   ShapeModule:
     serializedVersion: 6
-    enabled: 1
+    enabled: 0
     type: 0
     angle: 25
     length: 5
@@ -5748,7 +5747,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.88
+      scalar: 500
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -7508,7 +7507,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -8755,7 +8754,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 1
+    enabled: 0
     mode: 0
     ratio: 1
     lifetime:
@@ -9589,7 +9588,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 916791ba4738f414bb147153f7bf67d8, type: 2}
   - {fileID: 2100000, guid: 4226cad8f8141f74dab0f272cb90328a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
