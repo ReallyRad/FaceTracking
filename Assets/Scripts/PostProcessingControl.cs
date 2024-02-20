@@ -124,7 +124,11 @@ public class PostProcessingControl : InteractiveSequenceable
 
     private IEnumerator WaitAndSwitchSkybox()
     {
+        Debug.Log("waiting, will switching skybox now");
+        
         yield return new WaitForSeconds(5f);
+        
+        Debug.Log("waited, switching skybox now");
         
         StartNextPhase(this); //notify progressmanager to starting next phase 
         PostProcessingCompleted();
