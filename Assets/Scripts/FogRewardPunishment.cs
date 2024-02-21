@@ -10,10 +10,15 @@ public class FogRewardPunishment : InteractiveSequenceable
     private int _interactTween;
     private int _decayTween;
     private float intensityValue;
+    private float interactFinalValue;
+    private float decayFinalValue;
 
     //stores the current interactive progress value;
     [SerializeField] private float _interactiveVal;
     [SerializeField] private VolumetricFog fog;
+
+    [SerializeField] private float _rewardAmount;
+    [SerializeField] private float _punishmentAmount;
 
     public override void Initialize()
     {
@@ -27,14 +32,13 @@ public class FogRewardPunishment : InteractiveSequenceable
             Debug.Log("paused decay tween  " + _decayTween);
         }
 
-        //time must be proportional to current progress to keep speed constant
-        float riseTime = (1 - _interactiveVal) * _riseTime;
+        float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1); //calculate the ratio of the current progress
+        float riseTime = (1 - cycleRatio) * _riseTime; //time must be proportional to current progress to keep speed constant
 
-        //float targetVal = 1.4f * fog.settings.density;
-        //if(targetVal >= _fogIntensityFinalValue) targetVal = _fogIntensityFinalValue;
+        interactFinalValue = fog.settings.density - _rewardAmount;
 
         _interactTween = LeanTween
-            .value(gameObject, _interactiveVal, _finalValue, riseTime)
+            .value(gameObject, _interactiveVal, interactFinalValue, riseTime)
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
@@ -51,13 +55,13 @@ public class FogRewardPunishment : InteractiveSequenceable
             Debug.Log("paused interact tween  " + _interactTween);
         }
 
-        //time must be proportional to current progress to keep speed constant
-        float decayTime = _interactiveVal * _decayTime;
+        float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1);//calculate the ratio of the current progress
+        float decayTime = cycleRatio * _decayTime; //time must be proportional to current progress to keep speed constant
 
-        //float targetVal = 0.8f * fog.settings.density;
-        //if (targetVal <= _fogIntensityInitialValue) targetVal = _fogIntensityInitialValue;
+        decayFinalValue = fog.settings.density + _punishmentAmount;
 
-        _decayTween = LeanTween.value(gameObject, _interactiveVal, _initialValue, decayTime)
+        _decayTween = LeanTween
+            .value(gameObject, _interactiveVal, decayFinalValue, decayTime)
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;

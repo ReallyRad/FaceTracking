@@ -13,7 +13,7 @@ public class FogInteractivityControl : InteractiveSequenceable
     //stores the current interactive progress value;
     [SerializeField] private float _interactiveVal;
     [SerializeField] private VolumetricFog fog;
-
+    [SerializeField] private Transform head;
     public override void Initialize()
     {
         _active = true;
@@ -26,8 +26,8 @@ public class FogInteractivityControl : InteractiveSequenceable
             Debug.Log("paused decay tween  " + _decayTween);
         }
 
-        //time must be proportional to current progress to keep speed constant
-        float riseTime = (1 - _interactiveVal) * _riseTime; 
+        float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1); //calculate the ratio of the current progress
+        float riseTime = (1 - cycleRatio) * _riseTime; //time must be proportional to current progress to keep speed constant
 
         _interactTween = LeanTween
             .value(gameObject, _interactiveVal, _finalValue, riseTime)
@@ -47,8 +47,9 @@ public class FogInteractivityControl : InteractiveSequenceable
             Debug.Log("paused interact tween  " + _interactTween);
         }
 
-        //time must be proportional to current progress to keep speed constant
-        float decayTime = _interactiveVal * _decayTime; 
+        
+        float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1);//calculate the ratio of the current progress
+        float decayTime = cycleRatio * _decayTime; //time must be proportional to current progress to keep speed constant
 
         _decayTween = LeanTween.value(gameObject, _interactiveVal, _initialValue, decayTime)
             .setOnUpdate(val =>
@@ -83,6 +84,6 @@ public class FogInteractivityControl : InteractiveSequenceable
 
     private void TweenHandling(float val)
     {
-        fog.settings.windDirection = new Vector3(0f, 0f, val);
+        fog.settings.windDirection = val * head.forward;
     }
 }
