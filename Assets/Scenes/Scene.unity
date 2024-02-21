@@ -412,17 +412,6 @@ Texture3D:
     offset: 0
     size: 0
     path: 
---- !u!114 &770843376 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3773586030176973179, guid: 06718bb297ddda34dba44eeb4a0ccd33, type: 3}
-  m_PrefabInstance: {fileID: 804272789}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b11fc35cfad4617908659408b2309d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &803863598
 GameObject:
   m_ObjectHideFlags: 0
@@ -729,7 +718,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.741, g: -0.25, b: 0.010416667, a: 1}
-    - _DetailWindDirection: {r: -0.028223982, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.0582754, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -740,7 +729,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.028223982, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.0582754, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!84 &957039760
 RenderTexture:
@@ -1337,7 +1326,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.741, g: -0.25, b: 0.010416667, a: 1}
-    - _DetailWindDirection: {r: -0.028223982, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.0582754, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -1348,7 +1337,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.028223982, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.0582754, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:
@@ -1798,25 +1787,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 803863599}
     m_Modifications:
     - target: {fileID: 3178184558974997730, guid: 6e43a5bba8e7f4519bf2fd583a009677, type: 3}
-      propertyPath: fog
-      value: 
-      objectReference: {fileID: 770843376}
-    - target: {fileID: 3178184558974997730, guid: 6e43a5bba8e7f4519bf2fd583a009677, type: 3}
       propertyPath: _head
       value: 
       objectReference: {fileID: 1240755152}
-    - target: {fileID: 3178184558974997730, guid: 6e43a5bba8e7f4519bf2fd583a009677, type: 3}
-      propertyPath: _riseTime
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178184558974997730, guid: 6e43a5bba8e7f4519bf2fd583a009677, type: 3}
-      propertyPath: _decayTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3178184558974997730, guid: 6e43a5bba8e7f4519bf2fd583a009677, type: 3}
-      propertyPath: _windFinalSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3178184558974997730, guid: 6e43a5bba8e7f4519bf2fd583a009677, type: 3}
       propertyPath: _progressCurve.m_Curve.Array.size
       value: 4

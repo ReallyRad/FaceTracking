@@ -357,6 +357,8 @@ MonoBehaviour:
   _startNextPhaseAt: 5
   _completedAt: 6
   _localProgress: 0
+  _riseTime: 8
+  _decayTime: 3
   fog: {fileID: 6396206457449499508}
   _progressCurve:
     serializedVersion: 2
@@ -382,3 +384,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _interactiveVal: 0
+  _head: {fileID: 0}
+  _windFinalSpeed: 0.1
+  _windInitialSpeed: 0
