@@ -146,7 +146,7 @@ public class PostProcessingControl : InteractiveSequenceable
     
     private void TweenHandling(float val) //interactive tween handler
     {
-        _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.1f));
+        _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.25f));
 
         foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
             lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
