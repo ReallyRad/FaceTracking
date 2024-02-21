@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895754, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895756, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_RootOrder
@@ -756,7 +756,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.741, g: -0.25, b: 0.010416667, a: 1}
-    - _DetailWindDirection: {r: -0.046938356, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.08212856, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -767,7 +767,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.046938356, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.08212856, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &1057420340
 PrefabInstance:
@@ -1326,7 +1326,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.741, g: -0.25, b: 0.010416667, a: 1}
-    - _DetailWindDirection: {r: -0.046938356, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.08212856, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -1337,7 +1337,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: -0, g: 1.0000001, b: 0.00000011920929, a: 0}
-    - _WindDirection: {r: -0.046938356, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.08212856, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2030961250
 GameObject:
