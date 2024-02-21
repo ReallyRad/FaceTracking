@@ -53,8 +53,8 @@ MonoBehaviour:
   _startNextPhaseAt: 5
   _completedAt: 6
   _localProgress: 0
-  _riseTime: 8
-  _decayTime: 3
+  _riseTime: 4
+  _decayTime: 1.5
   fog: {fileID: 3773586030176973179}
   _progressCurve:
     serializedVersion: 2
@@ -100,7 +100,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   _interactiveVal: 0
   _head: {fileID: 0}
-  _windFinalSpeed: 0.1
+  _windFinalSpeed: 0.05
   _windInitialSpeed: 0
 --- !u!1 &3773586029799875114
 GameObject:

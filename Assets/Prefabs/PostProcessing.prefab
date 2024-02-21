@@ -405,8 +405,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   reverbZone: {fileID: 834295564323593979}
-  reverbZoneRoomInitialValue: -3200
-  reverbZoneRoomFinalValue: -800
+  reverbZoneRoomInitialValue: -2400
+  reverbZoneRoomFinalValue: -400
   _interactiveVal: 0
 --- !u!167 &834295564323593979
 AudioReverbZone:

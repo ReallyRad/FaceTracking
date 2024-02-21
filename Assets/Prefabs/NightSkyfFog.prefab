@@ -218,7 +218,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6396206457449499509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -357,8 +357,8 @@ MonoBehaviour:
   _startNextPhaseAt: 5
   _completedAt: 6
   _localProgress: 0
-  _riseTime: 8
-  _decayTime: 3
+  _riseTime: 4
+  _decayTime: 1.5
   fog: {fileID: 6396206457449499508}
   _progressCurve:
     serializedVersion: 2
@@ -367,24 +367,42 @@ MonoBehaviour:
       time: 0
       value: 0
       inSlope: 2
-      outSlope: 0.18570256
-      tangentMode: 1
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.040216368
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.3235941
+      value: 0.44887567
+      inSlope: 0.32564753
+      outSlope: 0.32564753
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.0705095
+    - serializedVersion: 3
+      time: 0.7568062
+      value: 0.6583831
+      inSlope: 4.323517
+      outSlope: 4.323517
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.13813385
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.098549284
+      inSlope: 0
       outSlope: 0
-      tangentMode: 1
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.034101605
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   _interactiveVal: 0
   _head: {fileID: 0}
-  _windFinalSpeed: 0.1
+  _windFinalSpeed: 0.05
   _windInitialSpeed: 0
