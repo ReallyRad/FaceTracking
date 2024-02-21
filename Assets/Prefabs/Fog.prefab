@@ -48,10 +48,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _startNextPhaseAt: 5
-  _completedAt: 6
   _initialValue: 1
   _finalValue: 0
+  _startNextPhaseAt: 5
+  _completedAt: 6
+  _localProgress: 0
+  _riseTime: 8
+  _decayTime: 3
   fog: {fileID: 3773586030176973179}
   _progressCurve:
     serializedVersion: 2
@@ -95,7 +98,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  intensityValue: 1
+  _interactiveVal: 0
+  _head: {fileID: 0}
+  _windFinalSpeed: 0.1
+  _windInitialSpeed: 0
 --- !u!1 &3773586029799875114
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +270,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3773586030176973178}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
