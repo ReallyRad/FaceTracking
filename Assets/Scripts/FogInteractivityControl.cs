@@ -14,6 +14,8 @@ public class FogInteractivityControl : InteractiveSequenceable
     [SerializeField] private float _interactiveVal;
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private Transform head;
+    [SerializeField] private float _windFinalSpeed;
+    [SerializeField] private float _windInitialSpeed;
     public override void Initialize()
     {
         _active = true;
@@ -51,7 +53,8 @@ public class FogInteractivityControl : InteractiveSequenceable
         float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1);//calculate the ratio of the current progress
         float decayTime = cycleRatio * _decayTime; //time must be proportional to current progress to keep speed constant
 
-        _decayTween = LeanTween.value(gameObject, _interactiveVal, _initialValue, decayTime)
+        _decayTween = LeanTween
+            .value(gameObject, _interactiveVal, _initialValue, decayTime)
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;

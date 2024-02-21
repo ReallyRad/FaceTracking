@@ -4,12 +4,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using VolumetricFogAndMist2;
 
-public class FogDisappearingControl : ProgressiveSequenceable
+public class FogDisappearingControl : InteractiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
-    private float intensityValue;
+    [SerializeField] private float _interactiveVal;
+    [SerializeField] private Transform _head;
+    [SerializeField] private float _windFinalSpeed;
+    [SerializeField] private float _windInitialSpeed;
 
+    private float intensityValue;
+    private int _interactTween;
+    private int _decayTween;
+
+    protected override void Interact()
+    {
+        if (_decayTween != 0)
+        {
+            LeanTween.pause(_decayTween);
+            Debug.Log("paused decay tween  " + _decayTween);
+        }
+
+        float cycleRatio = Utils.Map(_interactiveVal, _windInitialSpeed, _windFinalSpeed, 0, 1); //calculate the ratio of the current progress
+        float riseTime = (1 - cycleRatio) * _riseTime; //time must be proportional to current progress to keep speed constant
+
+        _interactTween = LeanTween
+            .value(gameObject, _interactiveVal, _windFinalSpeed, riseTime)
+            .setOnUpdate(val =>
+            {
+                _interactiveVal = val;
+                TweenHandling(val);
+            })
+            .id;
+    }
+
+    protected override void Decay()
+    {
+        if (_interactTween != 0)
+        {
+            LeanTween.pause(_interactTween);
+            Debug.Log("paused interact tween  " + _interactTween);
+        }
+
+        float cycleRatio = Utils.Map(_interactiveVal, _windInitialSpeed, _windFinalSpeed, 0, 1);//calculate the ratio of the current progress
+        float decayTime = cycleRatio * _decayTime; //time must be proportional to current progress to keep speed constant
+
+        _decayTween = LeanTween
+            .value(gameObject, _interactiveVal, _windInitialSpeed, decayTime)
+            .setOnUpdate(val =>
+            {
+                _interactiveVal = val;
+                TweenHandling(val);
+            })
+            .id;
+    }
     protected override void Progress(float progress) 
     {
         if (_active)
@@ -42,5 +90,10 @@ public class FogDisappearingControl : ProgressiveSequenceable
         fog.settings.density = _initialValue;
         fog.gameObject.SetActive(true);
         _localProgress = 0;
+    }
+
+    private void TweenHandling(float val)
+    {
+        fog.settings.windDirection = val * _head.forward;
     }
 }
