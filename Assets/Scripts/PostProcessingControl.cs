@@ -125,7 +125,7 @@ public class PostProcessingControl : InteractiveSequenceable
                     .GetComponent<VolumeProfileProgressiveInterpolator>()
                     .Progress(mappedProgress);
                 
-                PostProcessingProgress(mappedProgress);
+                //PostProcessingProgress(mappedProgress);
             }
         } 
     }
@@ -156,6 +156,8 @@ public class PostProcessingControl : InteractiveSequenceable
     {
         _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.25f));
 
+        PostProcessingProgress(val);
+        
         foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
             lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
 
