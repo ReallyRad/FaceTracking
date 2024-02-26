@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1347660184, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895754, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Name
       value: Video Player
@@ -871,10 +875,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803863599}
     m_Modifications:
-    - target: {fileID: 137846780712901823, guid: b180adc742191c441a865728d0bec1b7, type: 3}
-      propertyPath: _saturation
-      value: 0.179
-      objectReference: {fileID: 0}
     - target: {fileID: 4382877101357435539, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: _completedAt
       value: 11
@@ -889,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067051983829378042, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7667272445184422950, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_RootOrder
