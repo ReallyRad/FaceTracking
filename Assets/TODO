@@ -1,12 +1,18 @@
-Arthur :
-- spacey sound : EPIC. more upbeat music. Use harps? Cellos? orchestral sounds (2001)
+Arthur
+- post processing more explicit and bright
+- more psychedelic breathing textures. 
+- line at the stitches on the 360
+- wind sounds, birds chirping as base background sound, no more water sound
+- less strong northern lights 20%
+- transition too fast. fading to white happens too fast.
+- beach too dark
+- Pp: more explicit, bright
 
-Mehdi :
-Fog > more happening in the beginning : 
-- we need the user to immediatlely perceive the reward of their actions
-"reward / punish" bring more fog when inhaling : do a bounce back of the fog effect with leantween with fixed duration and quadratic ease out as soon as .
+Mehdi
+- image quality of the new 360 scene. Improve it with topaz or other software
+- fog ends up blocking up too much of the field of view and interferes with reward
+- Don't apply wind to fog anymore
+- try applying elasticity to another fog parameter rather than density 	
+- no more particles
 
-interactivity : blowing away sth
-- try to change wind direction and / or speed of the fog (follow the direction of the head)
 
-- make the reverb more present
