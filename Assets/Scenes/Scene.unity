@@ -871,21 +871,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 803863599}
     m_Modifications:
-    - target: {fileID: 4382877101357435539, guid: b180adc742191c441a865728d0bec1b7, type: 3}
-      propertyPath: _completedAt
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4382877101357435539, guid: b180adc742191c441a865728d0bec1b7, type: 3}
-      propertyPath: _startNextPhaseAt
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6067051983829378042, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_Name
       value: PostProcessing
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067051983829378042, guid: b180adc742191c441a865728d0bec1b7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7667272445184422950, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_RootOrder
@@ -930,10 +918,6 @@ PrefabInstance:
     - target: {fileID: 7667272445184422950, guid: b180adc742191c441a865728d0bec1b7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165765487097953600, guid: b180adc742191c441a865728d0bec1b7, type: 3}
-      propertyPath: weight
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b180adc742191c441a865728d0bec1b7, type: 3}

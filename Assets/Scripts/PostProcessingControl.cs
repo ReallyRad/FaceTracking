@@ -11,9 +11,13 @@ public class PostProcessingControl : InteractiveSequenceable
     public delegate void OnPostProcessingCompleted(); //triggered to notify the next sequence phase should start fading inx
     public static OnPostProcessingCompleted PostProcessingCompleted;
     
+    public delegate void OnPostProcessingProgress(float progress); //triggered to notify the next sequence phase should start fading inx
+    public static OnPostProcessingProgress PostProcessingProgress;
+
     [SerializeField] private Volume _effectVolume;
     [SerializeField] private Material _skyboxMaterial;
     [SerializeField] private Material _nightSkyMaterial;
+    [SerializeField] private Material _pseudoMovementMaterial;
 
     [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
@@ -114,10 +118,14 @@ public class PostProcessingControl : InteractiveSequenceable
             }
             else
             {
+                var mappedProgress = Utils.Map(_localProgress, 0, _completedAt, 0, 1);
+
                 _effectVolume
                     .gameObject
                     .GetComponent<VolumeProfileProgressiveInterpolator>()
-                    .Progress(Utils.Map(_localProgress, 0, _completedAt, 0, 1));
+                    .Progress(mappedProgress);
+                
+                PostProcessingProgress(mappedProgress);
             }
         } 
     }

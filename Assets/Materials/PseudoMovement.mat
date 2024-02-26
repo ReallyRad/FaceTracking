@@ -66,12 +66,14 @@ Material:
     m_Ints: []
     m_Floats:
     - GradientNoiseScale: 13
-    - Vector1_55a4afaa53474e61a6acf3a6c9183825: 10.96
+    - Muly: 0
+    - Vector1_55a4afaa53474e61a6acf3a6c9183825: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _CastShadows: 0
     - _Cull: 0
     - _DstBlend: 0
+    - _Multiply: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shininess: 0.078125
@@ -81,6 +83,6 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - DistortionPower: {r: 0.0002, g: 0.002, b: 0, a: 0}
-    - DistortionSpeed: {r: 0.01, g: 0.01, b: 0, a: 0}
+    - DistortionPower: {r: 0.0001, g: 0.001, b: 0, a: 0}
+    - DistortionSpeed: {r: 0.015, g: 0.015, b: 0, a: 0}
   m_BuildTextureStacks: []
