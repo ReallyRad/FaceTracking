@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &767524748
 Transform:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5e730d4e99a0347128571d607a5352a2, type: 2}
+  - {fileID: 2100000, guid: 942e23827a33e7b429de020f68b229fa, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd0c851043ffced41abd0e0cebc80dfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectRange: 17
+  _effectRange: 1
 --- !u!1 &2625246240921760285
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,8 +217,8 @@ MonoBehaviour:
   _overrideStereoPacking: 0
   _stereoRedGreenTint: 0
   _defaultTexture: {fileID: 2800000, guid: 032fdbd5ae6302640923c35401bc5f0f, type: 3}
-  _material: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
-  _texturePropertyName: _MainTex
+  _material: {fileID: 2100000, guid: 942e23827a33e7b429de020f68b229fa, type: 2}
+  _texturePropertyName: _VideoTex
   _offset: {x: 0, y: 0}
   _scale: {x: 1, y: 1}
 --- !u!1 &6709955752022895754
