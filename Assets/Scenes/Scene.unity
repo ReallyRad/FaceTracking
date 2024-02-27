@@ -130,6 +130,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1347660184, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347660185, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 942e23827a33e7b429de020f68b229fa, type: 2}
+    - target: {fileID: 3288918006124559688, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: _effectRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895754, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Name
       value: Video Player
