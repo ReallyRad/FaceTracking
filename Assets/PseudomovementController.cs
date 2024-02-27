@@ -17,9 +17,19 @@ public class PseudomovementController : MonoBehaviour
       PostProcessingControl.PostProcessingProgress -= SetMultiplierValue;
    }
 
+   private void Start()
+   {
+      LeanTween.value(-1, 1, 15)
+         .setOnUpdate( val =>
+      {
+         GetComponent<MeshRenderer>().material.SetFloat("_Shift", val);
+      }).setLoopClamp();
+   }
+
    private void SetMultiplierValue(float progress)
    {
       Debug.Log("set multiplier value " + progress);
       GetComponent<MeshRenderer>().material.SetFloat("_Multiply", progress * _effectRange);
+      GetComponent<MeshRenderer>().material.SetFloat("_Blend", progress * _effectRange);
    }
 }
