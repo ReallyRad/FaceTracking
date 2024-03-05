@@ -94,6 +94,6 @@ public class FogDisappearingControl : InteractiveSequenceable
 
     private void TweenHandling(float val)
     {
-        fog.settings.windDirection = val * _head.forward;
+        //fog.settings.windDirection = val * _head.forward;
     }
 }
