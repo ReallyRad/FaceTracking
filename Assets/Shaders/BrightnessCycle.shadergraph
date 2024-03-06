@@ -398,6 +398,20 @@
         {
             "m_OutputSlot": {
                 "m_Node": {
+                    "m_Id": "900aa89f9bc7458386cac04114501887"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "686a161c5dc947478b07a94d9656b1e7"
+                },
+                "m_SlotId": 1
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
                     "m_Id": "9a80b88a6b22463fb167a63c62e3cb10"
                 },
                 "m_SlotId": 0
@@ -573,20 +587,6 @@
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "9a80b88a6b22463fb167a63c62e3cb10"
-                },
-                "m_SlotId": 1
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "fce11bfc4eeb41b2b98c8a32c4559663"
-                },
-                "m_SlotId": 6
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "686a161c5dc947478b07a94d9656b1e7"
                 },
                 "m_SlotId": 1
             }
@@ -1995,7 +1995,7 @@
         "m_SerializableColors": []
     },
     "m_Value": {
-        "x": 73.0,
+        "x": 87.0,
         "y": 0.0,
         "z": 500.0
     }
@@ -2098,7 +2098,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_BlendMode": 21
+    "m_BlendMode": 15
 }
 
 {
@@ -3135,7 +3135,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 1.0,
+        "x": 0.5,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
@@ -3730,7 +3730,7 @@
     "m_ShaderOutputName": "B",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 1.0,
+        "x": 0.5,
         "y": 2.0,
         "z": 2.0,
         "w": 2.0
