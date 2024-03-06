@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 767524747, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1347660185, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -172,11 +176,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2625246240921760286, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _texturePropertyName
-      value: Texture2D_fb12842ac180481fa0c5f5dc2dadf7eb
+      value: _noiseMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: _mediaSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: _mediaPath._path
+      value: Recordings/movie_006.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: _mediaPath._pathType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895754, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Name
       value: Video Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6709955752022895754, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895756, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_RootOrder
@@ -1315,7 +1339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1607058638
 Transform:
   m_ObjectHideFlags: 0
@@ -1350,7 +1374,7 @@ MonoBehaviour:
   _defaultTexture: {fileID: 0}
   _renderer: {fileID: 1499375375}
   _materialIndex: -1
-  _texturePropertyName: _VideoTex
+  _texturePropertyName: _noiseMap
   _offset: {x: 0, y: 0}
   _scale: {x: 1, y: 1}
 --- !u!84 &1764588614
@@ -1397,7 +1421,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 47297859}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 638c870cac4da414fba921606d504407, type: 3}
   m_Name: 
