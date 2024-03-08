@@ -22,7 +22,7 @@ public class PseudomovementController : MonoBehaviour
       LeanTween.value(-1, 1, 15)
          .setOnUpdate( val =>
       {
-         GetComponent<MeshRenderer>().material.SetFloat("_Shift", val);
+         GetComponent<MeshRenderer>().material.SetFloat("_Shift", val); //Make shift value rotate constantly
       }).setLoopClamp();
    }
 

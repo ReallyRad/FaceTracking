@@ -359,15 +359,14 @@ MonoBehaviour:
   _transitioning: 0
   _initialValue: 0
   _finalValue: 0.12
-  _startNextPhaseAt: 11
-  _completedAt: 12
+  _startNextPhaseAt: 1
+  _completedAt: 2
   _localProgress: 0
   _riseTime: 8
   _decayTime: 3
   _effectVolume: {fileID: 9165765487097953600}
   _skyboxMaterial: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
   _nightSkyMaterial: {fileID: 2100000, guid: 5890310ef2ab73740a22aa53c900c2a7, type: 2}
-  _pseudoMovementMaterial: {fileID: 0}
   _lowPassFilters:
   - {fileID: 1707845809}
   - {fileID: 817006550}
@@ -585,4 +584,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _volume: {fileID: 9165765487097953600}
-  _maxVolumeProfile: {fileID: 11400000, guid: de06a9c7dbedb49dab78fcc67d84c1b3, type: 2}
+  _maxVolumeProfile: {fileID: 11400000, guid: a116f8809045356469fa2e528c96c133, type: 2}

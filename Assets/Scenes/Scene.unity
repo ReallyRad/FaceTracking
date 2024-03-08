@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _mediaSource
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _mediaPath._path
@@ -987,10 +987,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9165765487097953600, guid: b180adc742191c441a865728d0bec1b7, type: 3}
-      propertyPath: sharedProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: de06a9c7dbedb49dab78fcc67d84c1b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b180adc742191c441a865728d0bec1b7, type: 3}
 --- !u!4 &1097200078 stripped
@@ -1067,12 +1063,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4247818246739165631, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4247818246739165631, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: _mouthValue
-      value: -0.0061
+      value: -0.0104
       objectReference: {fileID: 0}
     - target: {fileID: 4247818246739165631, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: _manualSmileControl
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4931481191448320829, guid: bdb9e742964f5fa4d960d3fc47bcc6af, type: 3}
       propertyPath: m_IsActive
@@ -1343,7 +1343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1607058638
 Transform:
   m_ObjectHideFlags: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   _defaultTexture: {fileID: 0}
   _renderer: {fileID: 1499375375}
   _materialIndex: -1
-  _texturePropertyName: _noiseMap
+  _texturePropertyName: _VideoTex
   _offset: {x: 0, y: 0}
   _scale: {x: 1, y: 1}
 --- !u!84 &1764588614

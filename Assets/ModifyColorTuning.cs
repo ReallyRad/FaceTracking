@@ -33,7 +33,7 @@ public class ModifyColorTuning : MonoBehaviour //tracks the volume weight so tha
         }
     }
 
-    public void setEffectStrength(float val)
+    public void SetEffectStrength(float val)
     {
         _effectStrength = val;
     }

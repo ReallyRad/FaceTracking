@@ -17,7 +17,6 @@ public class PostProcessingControl : InteractiveSequenceable
     [SerializeField] private Volume _effectVolume;
     [SerializeField] private Material _skyboxMaterial;
     [SerializeField] private Material _nightSkyMaterial;
-    [SerializeField] private Material _pseudoMovementMaterial;
 
     [SerializeField] private AudioLowPassFilter[] _lowPassFilters;
     [SerializeField] private SeamlessLoop _shimmerSeamlessLoop;
@@ -125,7 +124,7 @@ public class PostProcessingControl : InteractiveSequenceable
                     .GetComponent<VolumeProfileProgressiveInterpolator>()
                     .Progress(mappedProgress);
                 
-                //PostProcessingProgress(mappedProgress);
+                _effectVolume.GetComponent<ModifyColorTuning>().SetEffectStrength(Utils.Map(mappedProgress, 0, 1, 0, 0.29f));
             }
         } 
     }
@@ -154,7 +153,7 @@ public class PostProcessingControl : InteractiveSequenceable
     
     private void TweenHandling(float val) //interactive tween handler
     {
-        _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.25f));
+        _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.117f));
 
         PostProcessingProgress(val);
         
