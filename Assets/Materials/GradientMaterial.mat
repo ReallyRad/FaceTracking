@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BlurredTex:
-        m_Texture: {fileID: 2800000, guid: 2e05fabb22b8d5148a5ccd0358c45fca, type: 3}
+        m_Texture: {fileID: 2800000, guid: bcae9d892cd3ef64d94dead8126f69dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -83,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _VideoTex:
-        m_Texture: {fileID: 8400000, guid: cca792c7a7cfd5945a95118ef593b494, type: 2}
+        m_Texture: {fileID: 2800000, guid: b2c2cae11425ae44eb4e6539d0ce4b95, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -101,7 +101,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Blend: 1
+    - _Blend: 0.91
     - _BumpScale: 1
     - _CastShadows: 0
     - _ClearCoatMask: 0
@@ -122,7 +122,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Shift: 0
+    - _Shift: -0.19
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -136,7 +136,7 @@ Material:
     - _shift: -0.62
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BlurredMapOffset: {r: 0.5, g: 0, b: 0, a: 0}
+    - _BlurredMapOffset: {r: 0, g: 0, b: 0, a: 0}
     - _BlurredMapTiling: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
