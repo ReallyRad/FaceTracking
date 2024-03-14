@@ -35,7 +35,6 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
         _volume.profile.TryGet(typeof(Sharpen), out sharpen);
         _volume.profile.TryGet(typeof(ChannelMixer), out channelMixer);
         _volume.profile.TryGet(typeof(WhiteBalance), out whiteBalance);
-        _volume.profile.TryGet(typeof(Bloom), out bloom);
 
         colorAdjustments.postExposure.SetValue(new FloatParameter(val * _maxColorAdjustments.postExposure.value)); 
         colorAdjustments.contrast.SetValue(new FloatParameter(val * _maxColorAdjustments.contrast.value)); 
@@ -64,8 +63,5 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
         whiteBalance.temperature.SetValue(new FloatParameter(Utils.Map(val,0,1,0,_maxWhiteBalance.temperature.value)));
         whiteBalance.tint.SetValue(new FloatParameter(Utils.Map(val,0,1,0,_maxWhiteBalance.tint.value)));
         whiteBalance.SetDirty();
-        
-        bloom.threshold.SetValue(new FloatParameter(Utils.Map(val,0,1,1,_maxBloom.threshold.value)));
-        bloom.SetDirty();
     }
 }
