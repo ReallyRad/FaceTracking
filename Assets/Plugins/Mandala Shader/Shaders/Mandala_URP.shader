@@ -37,7 +37,7 @@ Shader "MandalaShaders/Mandala_URP"
         Pass 
         {
             Tags { "LightMode" = "UniversalForward" }
-
+            Cull Front
             Blend [_SrcBlend] [_DstBlend]
             ZWrite [_Zwrite]
 
@@ -172,11 +172,6 @@ Shader "MandalaShaders/Mandala_URP"
 			return float3 (AdjustLevelForChannel(col.r), AdjustLevelForChannel(col.g), AdjustLevelForChannel(col.b));
 		}
 
-
-
-
-
-
             VertexOutput Vert(VertexInput input)
             {
                 VertexOutput output;
@@ -213,9 +208,6 @@ Shader "MandalaShaders/Mandala_URP"
                 //float4 col = float4(SAMPLE_TEXTURE2D(_BaseTexture, sampler_BaseTexture, input.uv).xyz * _BaseColor.rgb, _Alpha);
                 float4 _ScaleTranslate = float4(_BaseTexture_ST.x + (_MandalaScaleShift / 100), _BaseTexture_ST.y + (_MandalaScaleShift / 100), _BaseTexture_ST.z, _BaseTexture_ST.w);
                 
-
-
-
                 float4 col = float4(SAMPLE_TEXTURE2D(_BaseTexture, sampler_BaseTexture, ModifyUV(input.uv, 0, _ScaleTranslate)).xyz, 1);
 
                 half4 Output;
