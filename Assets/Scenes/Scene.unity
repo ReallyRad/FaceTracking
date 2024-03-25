@@ -132,16 +132,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 767524747, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1347660184, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1347660185, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b9fdd51be1de0c1439e80060bf329536, type: 2}
+      objectReference: {fileID: 2100000, guid: 942e23827a33e7b429de020f68b229fa, type: 2}
     - target: {fileID: 1347660186, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2625246240921760285, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2625246240921760286, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _material
@@ -188,19 +188,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _mediaSource
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _mediaPath._path
-      value: C:/Users/Arthur/AppData/LocalLow/unibas/biofeedback/8KBeach.mp4
+      value: Garden.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 2625246242624431740, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: _mediaPath._pathType
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6709955752022895754, guid: f3aa0913eb50ea640a4856b069dcce93, type: 3}
       propertyPath: m_Name
@@ -1366,7 +1366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1689926164
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1487,7 +1487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1813811967
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1570,7 +1570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1871967474
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 47297859}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 638c870cac4da414fba921606d504407, type: 3}
   m_Name: 
