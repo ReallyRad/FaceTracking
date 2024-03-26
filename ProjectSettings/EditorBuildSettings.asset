@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneBeach.unity
     guid: bc36a181bd57f364d99a692ca22fa928
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SceneSnow.unity
     guid: 0497af8735d4e3a4cbc6e6b1743abc37
   m_configObjects:
