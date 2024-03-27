@@ -1,9 +1,9 @@
  using System.Collections.Generic;
  using UnityEngine;
- #if false
+ 
  using UnityEngine.XR.ARFoundation;
  using UnityEngine.XR.ARSubsystems;
-#endif
+
 
  /// <summary>
  /// Listens for touch events and performs an AR raycast from the screen touch point.
@@ -13,10 +13,10 @@
  /// and moved to the hit position.
  /// </summary>
 
-#if false
+
  [RequireComponent(typeof(ARRaycastManager))]
 
-#endif
+
  public class PlaceOnPlane : MonoBehaviour
  {
      [SerializeField]
@@ -40,7 +40,7 @@
      public GameObject spawnedObject { get; private set; }
 
      
-#if false
+
 
      void Awake()
      {
@@ -86,5 +86,5 @@
 
      ARRaycastManager m_RaycastManager;
 
-#endif
+
  }
