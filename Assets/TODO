@@ -1,18 +1,33 @@
 Arthur
-- post processing more explicit and bright
 - more psychedelic breathing textures. 
 - line at the stitches on the 360
 - wind sounds, birds chirping as base background sound, no more water sound
-- less strong northern lights 20%
 - transition too fast. fading to white happens too fast.
-- beach too dark
-- Pp: more explicit, bright
+
+- make a psychedelic garden
+- adobe stock find 8k 360 material for psychedelic scene 	
+- reduce motion sickness in beach
+- trippy overlay texture on garden not on floor to avoid motion sickness 
+
+- csv logging questionnaires ask mehdi
+- ID input panel 
+- remove mipmap on static images 
+- look for ambient music stems for the snow scenario
+- add audio effects over time? move to different sections? 
 
 Mehdi
-- image quality of the new 360 scene. Improve it with topaz or other software
+- find ambien sounds for the snow scenario
 - fog ends up blocking up too much of the field of view and interferes with reward
 - Don't apply wind to fog anymore
 - try applying elasticity to another fog parameter rather than density 	
 - no more particles
 
 
+3 blocks - 3 builds - one for each scenario
+
+3rd phase video slowing down
+
+one phase with just saturation
+
+
+kaleidoscope
