@@ -125,7 +125,7 @@ Material:
     - _GlossyReflections: 0
     - _Height: 4096
     - _Metallic: 0
-    - _Multiply: 0
+    - _Multiply: 0.35
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -149,7 +149,10 @@ Material:
     - _BlurredMapTiling: {r: 1, g: 1, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _InRange: {r: 0, g: 1, b: 0, a: 0}
+    - _OutRange: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _edges: {r: 0, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4886171432658958267
 MonoBehaviour:
