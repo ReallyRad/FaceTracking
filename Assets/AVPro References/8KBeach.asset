@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _alias: 
   _mediaPath:
-    _pathType: 4
-    _path: 8KBeach.mp4
+    _pathType: 0
+    _path: C:/Users/Mehdi  Daemi/AppData/LocalLow/unibas/biofeedback/8KBeach.mp4
   _hints:
     transparency: 0
     alphaPacking: 1

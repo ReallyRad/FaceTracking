@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SceneBeach.unity
     guid: bc36a181bd57f364d99a692ca22fa928
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/SceneWaiting.unity
+    guid: b8c54465b49e66c48a4f68c387cb1233
+  - enabled: 0
     path: Assets/Scenes/SceneSnow.unity
     guid: 0497af8735d4e3a4cbc6e6b1743abc37
+  - enabled: 0
+    path: Assets/Scenes/SceneGarden.unity
+    guid: c049c65658b876945b9bec44be12582b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2f06d0d5929f48944ab4a04a530da67f, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 133cf27353918a74796feecce7fcc688, type: 2}

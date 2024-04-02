@@ -23,7 +23,6 @@ Material:
   m_Name: garden
   m_Shader: {fileID: 4800000, guid: d7bb9d4ea887e4041877356986247bba, type: 3}
   m_ValidKeywords:
-  - APPLY_GAMMA
   - MONOSCOPIC
   m_InvalidKeywords:
   - STEREO_NONE
