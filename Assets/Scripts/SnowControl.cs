@@ -5,16 +5,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Video;
 
 public class SnowControl : InteractiveSequenceable
 {
     public ParticleSystem snowPS;
+    public AudioSource ProgressiveMusic;
 
     private int _interactTween;
     private int _decayTween;
 
     [SerializeField] private float _interactiveVal;
+    [SerializeField] private float musicVolumeInitialValue;
+    [SerializeField] private float musicVolumeFinalValue;
 
     protected override void Interact()
     {
@@ -60,7 +64,19 @@ public class SnowControl : InteractiveSequenceable
 
     protected override void Progress(float progress)
     {
+        if (_active)
+        {
+            _localProgress += progress;
 
+            if (_localProgress >= _completedAt) //end of this sequence step
+            {
+                _active = false;
+            }
+            else
+            {
+                ProgressiveMusic.volume = Utils.Map(_localProgress, 0, _completedAt, musicVolumeInitialValue, musicVolumeFinalValue);
+            }
+        }
     }
     public override void Initialize()
     {
