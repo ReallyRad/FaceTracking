@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using Oculus.Interaction;
 using VolumetricFogAndMist2;
 using UnityEngine.SceneManagement;
+using Mono.Data.Sqlite;
+using System.Data;
 
 public class WaitingRoomTransition : MonoBehaviour
 {
@@ -16,6 +18,32 @@ public class WaitingRoomTransition : MonoBehaviour
     private bool timerRunning = false;
     private float waitingDuration = 10;
 
+    private IDbConnection dbConnection;
+    private IDbCommand dbCommand;
+    private string sqlQuery;
+
+    void Start()
+    {
+        string connectionString = "URI=file:" + Application.dataPath + "/database.s3db";
+        dbConnection = new SqliteConnection(connectionString);
+        dbConnection.Open();
+        dbCommand = dbConnection.CreateCommand();
+        sqlQuery = "CREATE TABLE IF NOT EXISTS PerformanceData (SubjectId INTEGER, " +
+                                                               "PreMood REAL, " +
+                                                               "PreAnxiety REAL, " +
+                                                               "PreStress REAL, " +
+                                                               "PreFirstTimePoint DATETIME, " +
+                                                               "PreSecondTimePoint DATETIME, " +
+                                                               "PostMood REAL, " +
+                                                               "PostAnxiety REAL, " +
+                                                               "PostStress REAL, " +
+                                                               "PostFirstTimePoint DATETIME, " +
+                                                               "PostSecondTimePoint DATETIME)";
+
+        dbCommand.CommandText = sqlQuery;
+        dbCommand.ExecuteNonQuery();
+        dbConnection.Close();
+    }
     public void StartTimer(float duration)
     {
         timeLeft = duration;
