@@ -24,12 +24,27 @@ public class PseudomovementController : MonoBehaviour
       {
          GetComponent<MeshRenderer>().material.SetFloat("_Shift", val); //Make shift value rotate constantly
       }).setLoopClamp();
+      
+      LeanTween.value(0, 1, 13)
+         .setOnUpdate( val =>
+         {
+            GetComponent<MeshRenderer>().material.SetFloat("_PsychoBlend", val); //Make shift value rotate constantly
+         }).setLoopPingPong();
+      
    }
 
+   public float RotateSpeed;
+   
+   void Update()
+   {
+      transform.Rotate(Vector3.up, Time.deltaTime * RotateSpeed);
+   }
+   
    private void SetMultiplierValue(float progress)
    {
       Debug.Log("set multiplier value " + progress);
       GetComponent<MeshRenderer>().material.SetFloat("_Multiply", progress * _effectRange);
       GetComponent<MeshRenderer>().material.SetFloat("_Blend", progress * _effectRange);
    }
+
 }
