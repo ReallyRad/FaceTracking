@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effectRange: 0.78
   _pseudoMovementRange: 0.15
-  _psychoBlendAmount: 0.3
+  _psychoBlendAmount: 0
 --- !u!1 &2625246240921760285
 GameObject:
   m_ObjectHideFlags: 0

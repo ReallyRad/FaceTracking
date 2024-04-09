@@ -11,12 +11,14 @@ public class GardenPsychedeliaController : MonoBehaviour
    
    private void OnEnable()
    {
-      PostProcessingControl.PostProcessingProgress += SetInteractivePsychedelism;
+      PostProcessingControl.PostProcessingInteractiveProgress += SetInteractivePsychedelism;
+      PostProcessingControl.PostProcessingProgressiveProgress += SetPsychoBlendAmount;
    }
 
    private void OnDisable()
    {
-      PostProcessingControl.PostProcessingProgress -= SetInteractivePsychedelism;
+      PostProcessingControl.PostProcessingInteractiveProgress -= SetInteractivePsychedelism;
+      PostProcessingControl.PostProcessingProgressiveProgress -= SetPsychoBlendAmount;
    }
 
    private void Start()
@@ -27,11 +29,11 @@ public class GardenPsychedeliaController : MonoBehaviour
             GetComponent<MeshRenderer>().material.SetFloat("_Shift", val); //Make shift value rotate constantly
          }).setLoopClamp();
       
-      LeanTween.value(0, _psychoBlendAmount, 13)
+      LeanTween.value(0, 1, 7)
          .setOnUpdate( val => 
          {
-            GetComponent<MeshRenderer>().material.SetFloat("_PsychoBlend", val); //Make shift value rotate constantly
-         }).setLoopPingPong();
+            GetComponent<MeshRenderer>().material.SetFloat("_PsychoBlend", val * _psychoBlendAmount); //Make shift value rotate constantly
+         }).setLoopPingPong();   
    }
    
    private void SetInteractivePsychedelism(float progress)
@@ -41,4 +43,9 @@ public class GardenPsychedeliaController : MonoBehaviour
       GetComponent<MeshRenderer>().material.SetFloat("_Blender", progress * _effectRange); //hue-based brightnes shifting
    }
 
+   private void SetPsychoBlendAmount(float val)
+   {
+      _psychoBlendAmount = val;
+   }
+    
 }

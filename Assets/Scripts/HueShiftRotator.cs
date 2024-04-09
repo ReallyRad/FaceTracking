@@ -30,7 +30,6 @@ public class HueShiftRotator : MonoBehaviour
                 color.b,
                 0
                 )));
-
         }
     }
 
