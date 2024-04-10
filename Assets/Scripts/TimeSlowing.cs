@@ -63,7 +63,23 @@ public class TimeSlowing : InteractiveSequenceable
 
     protected override void Progress(float progress)
     {
+        if (_active)
+        {
+            _localProgress += progress;
 
+            var wasTransitioning = _transitioning;
+            _transitioning = _localProgress > _startNextPhaseAt;
+
+            if (_localProgress >= _completedAt) //end of this sequence step
+            {
+                _active = false;
+                _transitioning = false;
+            }
+            else
+            {
+                if (_transitioning && !wasTransitioning) StartNextPhase(this);
+            }
+        }
     }
     public override void Initialize()
     {

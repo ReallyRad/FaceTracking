@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6395718516980988506}
   - component: {fileID: 5524579286366860351}
-  - component: {fileID: 4202707385427930384}
   m_Layer: 0
   m_Name: TimeSlowing
   m_TagString: Untagged
@@ -40,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4769266146686448769}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cecc6dec5046f04fae4d2b0955d365b, type: 3}
   m_Name: 
@@ -54,30 +53,7 @@ MonoBehaviour:
   _localProgress: 0
   _riseTime: 8
   _decayTime: 3
-  mediaPlayer: {fileID: 0}
-  playSpeed: 0
-  _interactiveVal: 0
---- !u!114 &4202707385427930384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4769266146686448769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd1eff60f6c117348a87cfd9b3738d18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _active: 0
-  _transitioning: 0
-  _initialValue: 2
-  _finalValue: 0.5
-  _startNextPhaseAt: 9
-  _completedAt: 10
-  _localProgress: 0
-  _riseTime: 8
-  _decayTime: 3
+  wavesSound: {fileID: 0}
   mediaPlayer: {fileID: 0}
   playSpeed: 0
   _interactiveVal: 0
