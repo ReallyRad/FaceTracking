@@ -64,8 +64,5 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
         whiteBalance.temperature.SetValue(new FloatParameter(Utils.Map(val,0,1,0,_maxWhiteBalance.temperature.value)));
         whiteBalance.tint.SetValue(new FloatParameter(Utils.Map(val,0,1,0,_maxWhiteBalance.tint.value)));
         whiteBalance.SetDirty();
-        
-        bloom.threshold.SetValue(new FloatParameter(Utils.Map(val,0,1,1,_maxBloom.threshold.value)));
-        bloom.SetDirty();
     }
 }

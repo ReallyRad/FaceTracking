@@ -359,18 +359,15 @@ MonoBehaviour:
   _transitioning: 0
   _initialValue: 0
   _finalValue: 0.12
-  _startNextPhaseAt: 1
-  _completedAt: 2
+  _startNextPhaseAt: 10
+  _completedAt: 11
   _localProgress: 0
   _riseTime: 8
   _decayTime: 3
   _effectVolume: {fileID: 9165765487097953600}
-  _skyboxMaterial: {fileID: 2100000, guid: bdb6047be89502f429fa2d27eebf73e4, type: 2}
-  _nightSkyMaterial: {fileID: 2100000, guid: 5890310ef2ab73740a22aa53c900c2a7, type: 2}
   _lowPassFilters:
   - {fileID: 1707845809}
   - {fileID: 817006550}
-  _shimmerSeamlessLoop: {fileID: 8599911283444950782}
   _lowPassFilterMapping:
     serializedVersion: 2
     m_Curve:
