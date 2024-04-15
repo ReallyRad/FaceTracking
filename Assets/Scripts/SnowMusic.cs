@@ -17,10 +17,6 @@ public class SnowMusic : ProgressiveSequenceable
     [SerializeField] private float _initialSnowHeaviness;
     [SerializeField] private float _finalSnowHeaviness;
 
-
-    private int _interactTween;
-    private int _decayTween;
-
     [SerializeField] private float _interactiveVal;
 
     public override void Initialize()
@@ -28,6 +24,7 @@ public class SnowMusic : ProgressiveSequenceable
         _active = true;
         _localProgress = 0;
     }
+
     protected override void Progress(float progress)
     {
         if (_active)
