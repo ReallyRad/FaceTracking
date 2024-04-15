@@ -2,21 +2,19 @@ Arthur
 	All Scenarios : 
 	- remove mipmap on static images 
 	- create a different music progression system? add audio effects over time? move to different sections? 
-
+	- make generic Post processing prefab without shimmer and reverb
 
 	NightSky :
-	- find a background sound.
+	- find a background sound. use the old snowy one
 	- line at the stitches on the 360
-	- wind sounds, birds chirping as base background sound, no more water sound
-	- transition too fast. fading to white happens too fast.
 
 	Garden :
 	- make 3 phases work in build (Music wasn't progressing properly)
 	- use background sound from video OR get video to work
 	- find/make new music
 
-	Data Collection :
-	- Recover CSV writing setup I made for another project
+	Beach : 
+	- make a scenario with 3 phases and just saturation
 
 Mehdi	
 	Snow scenario :
@@ -27,18 +25,14 @@ Mehdi
 	Garden : 
 	- improve garden image quality with topaz AI (called GardenFirstFrame in the project)
 
-Who ?
-	All Scenarios :
-	- fog ends up blocking up too much of the field of view and interferes with reward
-	- make an elastic "punishment" after long exhale "reward" to improve the perceptual relation between breathing and fog progress
-	- try applying elasticity to another fog parameter rather than density 	
+	All Scenarios : 
+	- make generic fog prefab
 	- Bigger fog, denser, so nothing is visible at the beginning
-	- No wind
 	
-	Beach : 
-	- make a scenario with 3 phases and just saturation
 
-
+Later : 
+Data Collection :
+	- Recover CSV writing setup I made for another project
 
 
 
