@@ -8,7 +8,6 @@ public class FogDisappearingControl : ProgressiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
-    [SerializeField] private float _interactiveVal;
     
     private float intensityValue;
 

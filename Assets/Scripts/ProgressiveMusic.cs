@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class SnowMusic : ProgressiveSequenceable
+public class ProgressiveMusic : ProgressiveSequenceable
 {
     [SerializeField] private AudioSource _progressiveMusic;
-    [SerializeField] private ParticleSystem _snowPS;
     [SerializeField] private AnimationCurve _musicProgressionCurve;
-
-    [SerializeField] private float _initialSnowHeaviness;
-    [SerializeField] private float _finalSnowHeaviness;
-
-    [SerializeField] private float _interactiveVal;
-
+    
     public override void Initialize()
     {
         _active = true;
@@ -37,8 +31,6 @@ public class SnowMusic : ProgressiveSequenceable
 
                 var val = _musicProgressionCurve.Evaluate(_localProgress / _completedAt);
                 _progressiveMusic.volume = Utils.Map(val, 0, 1, _initialValue, _finalValue);
-                var emission = _snowPS.emission;
-                emission.rateOverTime = Utils.Map(val, 0, 1, _initialSnowHeaviness, _finalSnowHeaviness);
             }
         }
     }
