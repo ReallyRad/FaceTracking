@@ -1,9 +1,4 @@
 Arthur	
-	All Scenarios : 
-	- remove mipmap on static images 
-	- create a different music progression system? add audio effects over time? move to different sections? 
-	- make generic Post processing prefab without shimmer and reverb
-
 	NightSky :
 	- find a background sound. use the old snowy one
 	- line at the stitches on the 360
@@ -13,22 +8,12 @@ Arthur
 	- use background sound from video OR get video to work
 	- find/make new music
 
-	Beach : 
-	- make a scenario with 3 phases and just saturation
-
 Mehdi	
 	Snow scenario :
 	- look for ambient music stems 	
 	- find ambien sounds for the snow scenario
 	- Find background sound?
 
-	Garden : 
-	- improve garden image quality with topaz AI (called GardenFirstFrame in the project)
-
-	All Scenarios : 
-	- make generic fog prefab
-	- Bigger fog, denser, so nothing is visible at the beginning
-	
 
 Later : 
 Data Collection :
