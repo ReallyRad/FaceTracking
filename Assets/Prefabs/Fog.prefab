@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _initialValue: 1
+  _initialValue: 0.2
   _finalValue: 0
   _startNextPhaseAt: 5
   _completedAt: 6
@@ -69,34 +69,33 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0.24745017
       value: 0.4066751
-      inSlope: -0.033915684
-      outSlope: -0.033915684
+      inSlope: 1.0364558
+      outSlope: 1.0364558
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.13891275
+      inWeight: 0.09329222
       outWeight: 0.08765512
     - serializedVersion: 3
-      time: 0.7568062
-      value: 0.6583831
-      inSlope: 1.1258328
-      outSlope: 1.1258328
+      time: 0.6996029
+      value: 0.9014682
+      inSlope: 0.2543077
+      outSlope: 0.2543077
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.07431038
-      outWeight: 0.13813385
+      outWeight: 0.102003895
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.32184127
+      outSlope: 0.32184127
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.11587065
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _interactiveVal: 0
 --- !u!1 &3773586029799875114
 GameObject:
   m_ObjectHideFlags: 0

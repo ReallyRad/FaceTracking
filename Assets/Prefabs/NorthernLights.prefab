@@ -63,11 +63,11 @@ MonoBehaviour:
   _transitioning: 0
   _initialValue: 0
   _finalValue: 0
-  _startNextPhaseAt: 0
-  _completedAt: 0
+  _startNextPhaseAt: 8
+  _completedAt: 9
   _localProgress: 0
-  _riseTime: 0
-  _decayTime: 0
+  _riseTime: 8
+  _decayTime: 3
   _northernLightParticleSystem: {fileID: 2664724475324158443}
   _interactiveVal: 0
 --- !u!1001 &2757513125762813413

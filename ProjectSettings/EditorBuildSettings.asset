@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneBeach.unity
     guid: bc36a181bd57f364d99a692ca22fa928
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SceneSnow.unity
     guid: ba27e6dc32d343848a1416debdd1c98c
+  - enabled: 0
+    path: Assets/Scenes/SceneNightSky.unity
+    guid: 86029b0399fe7b44899df5c130bdea7b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2f06d0d5929f48944ab4a04a530da67f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7fc7416be8dfeba4c9cf61bc86e8ffb1, type: 2}
