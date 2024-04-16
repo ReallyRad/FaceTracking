@@ -21,11 +21,13 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
+        SnowSlowing.SnowSlowingInitialized += SetStartProgressAtToZero;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
+        SnowSlowing.SnowSlowingInitialized -= SetStartProgressAtToZero;
     }
 
     private void Start()
@@ -74,5 +76,10 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
             if (_progressTween != 0) LeanTween.pause(_progressTween);
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
+    }
+
+    private void SetStartProgressAtToZero()
+    {
+        _startProgressAt = 0;
     }
 }

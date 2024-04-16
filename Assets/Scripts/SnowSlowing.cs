@@ -16,10 +16,14 @@ public class SnowSlowing : InteractiveSequenceable
     private int _interactTween;
     private int _decayTween;
 
+    public delegate void OnSnowSlowingInitialized();
+    public static OnSnowSlowingInitialized SnowSlowingInitialized;
+    
     public override void Initialize()
     {
         _active = true;
         _localProgress = 0;
+        SnowSlowingInitialized();
     }
 
     protected override void Interact()
