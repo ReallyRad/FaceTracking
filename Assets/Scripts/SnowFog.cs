@@ -13,34 +13,14 @@ public class SnowFog : InteractiveSequenceable
     [SerializeField] private float _windFinalSpeed;
     [SerializeField] private float _windInitialSpeed;
 
-    [SerializeField] private ParticleSystem _snowPS;
-    [SerializeField] private AudioSource _backgroundSound;
-    private float initialBackgroundSoundVolume = 0f;
-    private float finalBackgroundSoundVolume = 0.3f;
-    private float backgroundSoundRaisingDuration = 7f;
+
+
 
     private float intensityValue;
     private int _interactTween;
     private int _decayTween;
 
-    private void Start()
-    {
-        var emission = _snowPS.emission;
-        emission.rateOverTime = 0;
-        StartCoroutine(BackgroundSoundFadingIn());
-    }
-    IEnumerator BackgroundSoundFadingIn()
-    {
-        _backgroundSound.volume = initialBackgroundSoundVolume;
-        float startTime = Time.time;
-
-        while (Time.time < startTime + backgroundSoundRaisingDuration)
-        {
-            _backgroundSound.volume = Mathf.Lerp(initialBackgroundSoundVolume, finalBackgroundSoundVolume, (Time.time - startTime) / backgroundSoundRaisingDuration);
-            yield return null;
-        }
-        _backgroundSound.volume = finalBackgroundSoundVolume;
-    }
+    
 
     public override void Initialize()
     {
