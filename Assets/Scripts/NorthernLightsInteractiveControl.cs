@@ -28,7 +28,7 @@ public class NorthernLightsInteractiveControl : InteractiveSequenceable
         float riseTime = (1 - _interactiveVal) * _riseTime; //time must be proportional to current progress to keep speed constant
         
         _interactTween = LeanTween
-            .value(gameObject, _interactiveVal, 1, riseTime)
+            .value(gameObject, _interactiveVal, 0.8f, riseTime)
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
