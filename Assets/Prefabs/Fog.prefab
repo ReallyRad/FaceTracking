@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _initialValue: 0.2
+  _initialValue: 0.7
   _finalValue: 0
   _startNextPhaseAt: 5
   _completedAt: 6
