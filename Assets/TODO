@@ -1,26 +1,50 @@
-Arthur	
-	NightSky :
-	- find a background sound. use the old snowy one
-	- line at the stitches on the 360
-	- aurora 20% lower
-
-	Garden :
-	- make 3 phases work in build (Music wasn't progressing properly)
-	- use background sound from video OR get video to work
-	- find/make new music
-
-Mehdi	
-	Snow scenario :
-	- look for ambient music stems 	
-	- find ambien sounds for the snow scenario
-	- Find background sound?
 
 
-Later : 
-Data Collection :
+
+
+
+Arthur :
+	- Drones stopping abruplty
+	- northern light fades out too fast
 	- Recover CSV writing setup I made for another project
+	- staircase progress for garden and night sky
+	- play with auroras color
+	- progressive max of aurora. should only be visible after 2nd or 3rd breath of progress
+	- comprsesion on the garden music. make birds approximately 20% lower
+	- more saturation on the beach, a bit of hue shift
+
+Mehdi : 
+	- more wintery sound for snow sceneario. less birds
+	- denser fog in garden.
 
 
 
+Script for including practice into builds:
+
+Passthrough mode
+1. Panel (2 questions rate)
+2. Panel (2 questions rate)
+
+3. Panel: Info: 
+Now we will learn how to do the slow-paced breathing. 
+Watch this video. 
+
+Play video: 
+AI: voice over: 
+- "Now follow the person in the video breathing in and out. If you do this, you will feel the controller vibrating along as you breath out." 
+- After a few rounds: "when exhaling, form your mouth as you would blow out the candle."
+
+4. Panel: Info:
+Great, now you've learned how to slow paced breathing. Now we will beginn with the App. 
+
+Fillup Passthrough with Fog
+START SCENE 
+
+
+
+Control APP: 
+Ratings
+10 min video (boring doku) 
+Ratings
 
 
