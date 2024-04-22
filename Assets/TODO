@@ -12,39 +12,66 @@ Arthur :
 	- progressive max of aurora. should only be visible after 2nd or 3rd breath of progress
 	- comprsesion on the garden music. make birds approximately 20% lower
 	- more saturation on the beach, a bit of hue shift
+	- think about sequencing of elements (scenes, UI) in  
 
 Mehdi : 
 	- more wintery sound for snow sceneario. less birds
 	- denser fog in garden.
+	- play with the ray example to make the canvas waiting and the questions panel responsive
+
+
+
+- create some animations for skipping through UI elements
+- make a panel with a video player
+- make an audio player for the voice instructions
+- Add a panel to let the experimenter chose the scene that they will be shown?? So that only one build can be done
 
 
 
 Script for including practice into builds:
 
+Show panel where the user inputs the user ID
+
+THEN
+
 Passthrough mode
 1. Panel (2 questions rate)
 2. Panel (2 questions rate)
 
+THEN
+
+(IF BEFORE SCENE)
 3. Panel: Info: 
 Now we will learn how to do the slow-paced breathing. 
 Watch this video. 
+
+(If AFTER SCENE)
+Thank you. goodbye.
+
 
 Play video: 
 AI: voice over: 
 - "Now follow the person in the video breathing in and out. If you do this, you will feel the controller vibrating along as you breath out." 
 - After a few rounds: "when exhaling, form your mouth as you would blow out the candle."
 
+THEN
+
 4. Panel: Info:
 Great, now you've learned how to slow paced breathing. Now we will beginn with the App. 
+
+THEN
 
 Fillup Passthrough with Fog
 START SCENE 
 
 
 
+
 Control APP: 
 Ratings
+
 10 min video (boring doku) 
+
 Ratings
 
 
