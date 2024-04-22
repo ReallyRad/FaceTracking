@@ -12,7 +12,7 @@ public class VisualAnalogSlider : MonoBehaviour
 
     private void OnEnable()
     {
-        _slider.onValueChanged.AddListener(delegate { ValueChangeCheck();} );
+        _slider.onValueChanged.AddListener(delegate {ValueChangeCheck();} );
     }
 
     public void ValueChangeCheck()
