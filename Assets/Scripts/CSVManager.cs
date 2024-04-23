@@ -41,7 +41,9 @@ public class CSVManager : MonoBehaviour
         var fields = typeof(ExperimentData).GetFields();
         for (int i=0; i<fields.Length; i++) //write values from ExperimentData scriptable object to the csv file
         {
-            varValues[i] = fields[i].GetValue(experimentData).ToString();
+            var result = fields[i].GetValue(experimentData);
+            if (result == null) varValues[i] = "";
+            else varValues[i] = result.ToString();
         }
         WriteToFile(varValues, experimentData);
     }
