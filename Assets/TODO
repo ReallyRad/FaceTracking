@@ -1,8 +1,6 @@
 
 
 
-
-
 Arthur :
 	- Drones stopping abruplty
 	- northern light fades out too fast
@@ -13,6 +11,8 @@ Arthur :
 	- comprsesion on the garden music. make birds approximately 20% lower
 	- more saturation on the beach, a bit of hue shift
 	- think about sequencing of elements (scenes, UI) in  
+	- create some animations for skipping through UI elements
+
 
 Mehdi : 
 	- more wintery sound for snow sceneario. less birds
@@ -20,13 +20,10 @@ Mehdi :
 	- play with the ray example to make the canvas waiting and the questions panel responsive
 
 
-
-- create some animations for skipping through UI elements
 - make a panel with a video player
 - make an audio player for the voice instructions
 - Add a panel to let the experimenter chose the scene that they will be shown?? So that only one build can be done
-
-
+- disable vibration at beginning of scene
 
 Script for including practice into builds:
 
