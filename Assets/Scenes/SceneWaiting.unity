@@ -541,10 +541,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 595663356}
     m_Modifications:
-    - target: {fileID: 2870307954538559319, guid: 6266801bc1f834b9690d8009b3ff21cb, type: 3}
-      propertyPath: _previouslyRegisteredEvent
-      value: 
-      objectReference: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
     - target: {fileID: 3188575782511015373, guid: 6266801bc1f834b9690d8009b3ff21cb, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1151,7 +1147,7 @@ GameObject:
   - component: {fileID: 1371426229}
   - component: {fileID: 1371426228}
   m_Layer: 0
-  m_Name: Transition
+  m_Name: TransitionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,13 +1570,15 @@ GameObject:
   - component: {fileID: 2071894680}
   - component: {fileID: 2071894679}
   - component: {fileID: 2071894678}
+  - component: {fileID: 2071894682}
+  - component: {fileID: 2071894683}
   m_Layer: 5
   m_Name: CanvasWaiting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2071894678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1664,30 @@ RectTransform:
   m_AnchoredPosition: {x: 7.767022, y: -2.1655493}
   m_SizeDelta: {x: 1077, y: 972.0001}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2071894682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071894677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7a3ea505ea44db3a1e50eaeadf24e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &2071894683
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071894677}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2119367630
 GameObject:
   m_ObjectHideFlags: 0

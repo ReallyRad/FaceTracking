@@ -6,15 +6,33 @@ using UnityEngine;
 
 public class ResponseLogger : MonoBehaviour
 {
-    [SerializeField] private ExperimentData _experimentData;
+    [SerializeField] private ExperimentState _experimentState;
     [SerializeField] private QuestionnaireAnswerType _answerType;
-    [SerializeField] private GameEventBase _newDataAvailableEvent;
+    [SerializeField] private ExperimentDataGameEvent _newDataAvailableEvent;
+
+    private ExperimentData _experimentData;
+
+    private void OnEnable()
+    {
+        WaitingRoomTransition.NotifyPrePostState += SetExperimentState;
+    }
+
+    private void OnDisable()
+    {
+        WaitingRoomTransition.NotifyPrePostState -= SetExperimentState;
+    }
+
+    private void Start()
+    {
+        _experimentData = ScriptableObject.CreateInstance<ExperimentData>();
+    }
 
     public void NextButtonPressed()
     {
         _experimentData.answerType = _answerType;
+        _experimentData.experimentState = _experimentState;
         _experimentData.timestamp = DateTime.Now;
-        _newDataAvailableEvent.Raise();
+        _newDataAvailableEvent.Raise(_experimentData);
     }
     
     public void SetValue(bool value)
@@ -31,5 +49,10 @@ public class ResponseLogger : MonoBehaviour
     public void SetValue(string value)
     {
         _experimentData.answerValue = value;
-    } 
+    }
+
+    private void SetExperimentState(ExperimentState prePost)
+    {
+        _experimentState = prePost;
+    }
 }

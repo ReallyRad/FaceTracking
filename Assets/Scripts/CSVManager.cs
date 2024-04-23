@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CSVManager : MonoBehaviour
 {
-    [SerializeField] private ExperimentData _experimentData;
+    //[SerializeField] private ExperimentData _experimentData;
 
     [SerializeField] private List<string> varNames = new List<string>();
     private List<string> varValues = new List<string>();
@@ -22,27 +22,27 @@ public class CSVManager : MonoBehaviour
         _newFile = true;
     }
     
-    private void WriteToFile(List<string> stringList)
+    private void WriteToFile(List<string> stringList, ExperimentData experimentData)
     {
         string stringLine = string.Join(",", stringList.ToArray());
-        string path = "./Logs/" + _experimentData.subjectID + "_log.csv";
+        string path = "./Logs/" + experimentData.subjectID + "_log.csv";
         System.IO.StreamWriter file = new System.IO.StreamWriter(path, true);
         file.WriteLine(stringLine);
         file.Close();	
     }
 
-    public void NewDataAvailable()
+    public void NewDataAvailable(ExperimentData experimentData)
     {
         if (_newFile) //if this is the first time writing to this CSV, start with column names
         {
-            WriteToFile(varNames);
+            WriteToFile(varNames, experimentData);
             _newFile = false;
         }
         var fields = typeof(ExperimentData).GetFields();
         for (int i=0; i<fields.Length; i++) //write values from ExperimentData scriptable object to the csv file
         {
-            varValues[i] = fields[i].GetValue(_experimentData).ToString();
+            varValues[i] = fields[i].GetValue(experimentData).ToString();
         }
-        WriteToFile(varValues);
+        WriteToFile(varValues, experimentData);
     }
 }

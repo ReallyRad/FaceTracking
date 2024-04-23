@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153bd5d7b93494d239abb0ae87946d2e, type: 3}
   m_Name: ExperimentData
   m_EditorClassIdentifier: 
-  subjectID: 
-  answerValue: 
+  subjectID: testone
+  answerType: 0
+  experimentState: 0
+  answerValue: 0.372272

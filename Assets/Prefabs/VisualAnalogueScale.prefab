@@ -455,7 +455,6 @@ GameObject:
   - component: {fileID: 7406759161855325877}
   - component: {fileID: 7406759161855325878}
   - component: {fileID: 5710305485552986489}
-  - component: {fileID: 6930197938819339022}
   - component: {fileID: 7766316342037926241}
   - component: {fileID: 5837951080181634558}
   m_Layer: 5
@@ -478,10 +477,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7406759163662004145}
-  - {fileID: 7406759161869469598}
   - {fileID: 7406759162819743771}
   - {fileID: 7406759162847830456}
   - {fileID: 7406759162792472725}
+  - {fileID: 7406759161869469598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -563,18 +562,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6930197938819339022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7406759161855325879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ffa282525d314204aba18251f8e0e9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7766316342037926241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +621,7 @@ RectTransform:
   m_Children:
   - {fileID: 7406759163631935927}
   m_Father: {fileID: 7406759161855325875}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -723,6 +710,42 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 9006784678969873923}
+        m_TargetAssemblyTypeName: ResponseLogger, Assembly-CSharp
+        m_MethodName: NextButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6676641390470922169}
+        m_TargetAssemblyTypeName: ResponseLogger, Assembly-CSharp
+        m_MethodName: NextButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7778187334634266968}
+        m_TargetAssemblyTypeName: ResponseLogger, Assembly-CSharp
+        m_MethodName: NextButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: a6f5978f73cf94697a94ef1b93a9bdf5, type: 2}
         m_TargetAssemblyTypeName: ScriptableObjectArchitecture.GameEventBase, ScriptableObject-Architecture
         m_MethodName: Raise
@@ -1482,7 +1505,7 @@ RectTransform:
   - {fileID: 7406759161737168652}
   - {fileID: 7406759163643379768}
   m_Father: {fileID: 7406759161855325875}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1552,6 +1575,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7778187334634266968}
+        m_TargetAssemblyTypeName: ResponseLogger, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4892339998792345573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1580,7 +1615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _experimentData: {fileID: 11400000, guid: 7041fa3b2669f436e95f66de3308352a, type: 2}
   _answerType: 0
-  _newDataAvailableEvent: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
+  _newDataAvailableEvent: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
 --- !u!1 &7406759162819743772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1654,7 @@ RectTransform:
   - {fileID: 7406759162484739548}
   - {fileID: 7406759162405467848}
   m_Father: {fileID: 7406759161855325875}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1689,6 +1724,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9006784678969873923}
+        m_TargetAssemblyTypeName: ResponseLogger, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6197114185742209718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1717,7 +1764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _experimentData: {fileID: 11400000, guid: 7041fa3b2669f436e95f66de3308352a, type: 2}
   _answerType: 1
-  _newDataAvailableEvent: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
+  _newDataAvailableEvent: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
 --- !u!1 &7406759162827777364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1832,7 +1879,7 @@ RectTransform:
   - {fileID: 7406759163512415918}
   - {fileID: 7406759163796370330}
   m_Father: {fileID: 7406759161855325875}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1902,6 +1949,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6676641390470922169}
+        m_TargetAssemblyTypeName: ResponseLogger, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2907825594410455344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,7 +1989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _experimentData: {fileID: 11400000, guid: 7041fa3b2669f436e95f66de3308352a, type: 2}
   _answerType: 2
-  _newDataAvailableEvent: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
+  _newDataAvailableEvent: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
 --- !u!1 &7406759162915913597
 GameObject:
   m_ObjectHideFlags: 0

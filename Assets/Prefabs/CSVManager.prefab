@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3188575782511015373}
   - component: {fileID: 3188575782511015374}
-  - component: {fileID: 2870307954538559319}
+  - component: {fileID: 4201569691854503397}
   m_Layer: 0
   m_Name: CSVManager
   m_TagString: Untagged
@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fbf56f7fbe145ebaa852bbbfbd080e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _experimentData: {fileID: 11400000, guid: 7041fa3b2669f436e95f66de3308352a, type: 2}
   varNames: []
---- !u!114 &2870307954538559319
+--- !u!114 &4201569691854503397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,21 +55,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3188575782511015375}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Script: {fileID: 11500000, guid: 3554f4d1508324cfe868bd87d59688fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
   _previouslyRegisteredEvent: {fileID: 0}
-  _event: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
+  _event: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3188575782511015374}
         m_TargetAssemblyTypeName: CSVManager, Assembly-CSharp
         m_MethodName: NewDataAvailable
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -79,3 +78,4 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _debugValue: {fileID: 0}
