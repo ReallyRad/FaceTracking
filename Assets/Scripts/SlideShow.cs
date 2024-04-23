@@ -6,12 +6,10 @@ using UnityEngine;
 public class SlideShow : MonoBehaviour
 {
     [SerializeField] private GameEvent _slideShowFinished;
-    //[SerializeField] private ExperimentData _experimentData;
+    [SerializeField] private List<GameObject> _slides;
     
     private int _slideIndex;
     private bool _showing;
-    
-    private List<GameObject> _slides;
 
     private void Awake()
     {
@@ -23,11 +21,6 @@ public class SlideShow : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Hide();
-    }
-
     public void NextButton()
     {   
         if (_slideIndex == _slides.Count - 1) //we reached last slide 
@@ -37,25 +30,13 @@ public class SlideShow : MonoBehaviour
         }
         else //we go to next slide
         {
-            _slides[_slideIndex].GetComponent<PanelDimmer>().Show(false);
+            _slides[_slideIndex].GetComponent<PanelDimmer>().Hide();
             if (_slideIndex + 1 < _slides.Count)
-                _slides[_slideIndex + 1].GetComponent<PanelDimmer>().Show(true);
+                _slides[_slideIndex + 1].GetComponent<PanelDimmer>().Show();
             _slideIndex++;
         }
     }
 
-    public void ShowQuestionnaire(bool show)
-    {
-        if (show)
-        {
-            _slides[0].GetComponent<PanelDimmer>().Show();
-            _showing = true;
-        } else 
-        {
-            Hide();
-        }
-    }
-    
     private void Hide() 
     {
         _slides[_slideIndex].GetComponent<PanelDimmer>().Hide();

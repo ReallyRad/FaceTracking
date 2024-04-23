@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fbf56f7fbe145ebaa852bbbfbd080e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _subjectID: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
   varNames: []
 --- !u!114 &4201569691854503397
 MonoBehaviour:

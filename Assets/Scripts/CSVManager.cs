@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class CSVManager : MonoBehaviour
 {
-    //[SerializeField] private ExperimentData _experimentData;
+    [SerializeField] private StringVariable _subjectID;
 
     [SerializeField] private List<string> varNames = new List<string>();
     private List<string> varValues = new List<string>();
@@ -33,13 +34,14 @@ public class CSVManager : MonoBehaviour
 
     public void NewDataAvailable(ExperimentData experimentData)
     {
+        experimentData.subjectID = _subjectID;
         if (_newFile) //if this is the first time writing to this CSV, start with column names
         {
             WriteToFile(varNames, experimentData);
             _newFile = false;
         }
         var fields = typeof(ExperimentData).GetFields();
-        for (int i=0; i<fields.Length; i++) //write values from ExperimentData scriptable object to the csv file
+        for (int i=1; i<fields.Length; i++) //write values from ExperimentData scriptable object to the csv file
         {
             var result = fields[i].GetValue(experimentData);
             if (result == null) varValues[i] = "";
