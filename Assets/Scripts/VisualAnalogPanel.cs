@@ -14,6 +14,6 @@ public class VisualAnalogPanel : MonoBehaviour
     public void IncrementModifiedValues()
     {
         _modifiedValues++;
-        if (_modifiedValues >= 3) _nextButton.interactable = true;
+        if (_modifiedValues >= 2) _nextButton.interactable = true;
     }
 }
