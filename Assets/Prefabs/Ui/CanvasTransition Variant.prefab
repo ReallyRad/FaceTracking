@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4654307472673070092, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4654307472673070094, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -93,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4654307472673070129, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
       propertyPath: m_Name
-      value: CanvasTransition
+      value: CanvasTransition Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4654307472673070129, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
       propertyPath: m_IsActive

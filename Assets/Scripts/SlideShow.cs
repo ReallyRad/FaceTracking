@@ -21,6 +21,11 @@ public class SlideShow : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        
+    }
+
     public void NextButton()
     {   
         if (_slideIndex == _slides.Count - 1) //we reached last slide 
