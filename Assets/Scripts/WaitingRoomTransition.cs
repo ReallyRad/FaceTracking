@@ -17,10 +17,6 @@ public class WaitingRoomTransition : MonoBehaviour
     private bool timerRunning = false;
     private float waitingDuration = 10;
 
-    private IDbConnection dbConnection;
-    private IDbCommand dbCommand;
-    private string sqlQuery;
-
     public delegate void OnNotifyPrePostState(ExperimentState prePost);
     public static OnNotifyPrePostState NotifyPrePostState;
     
@@ -37,8 +33,6 @@ public class WaitingRoomTransition : MonoBehaviour
 
     void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.One)) OnReadyButtonClicked();
-
         if (timerRunning)
         {
             timeLeft -= Time.deltaTime;
@@ -53,8 +47,9 @@ public class WaitingRoomTransition : MonoBehaviour
         }
     }
 
-    public void OnReadyButtonClicked()
+    public void OnSlideshowFinished()
     {
         StartTimer(waitingDuration);
     }
+
 }
