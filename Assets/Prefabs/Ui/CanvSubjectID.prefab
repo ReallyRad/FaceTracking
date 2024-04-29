@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3640317288015203319}
   - component: {fileID: 7858219908059586980}
   - component: {fileID: 8523741103736742383}
+  - component: {fileID: 4124834168798286403}
   m_Layer: 5
   m_Name: CanvSubjectID
   m_TagString: Untagged
@@ -129,6 +130,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7a3ea505ea44db3a1e50eaeadf24e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4124834168798286403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640317288015203316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f6746182c04943d1b33ab3977162863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _modifiedValues: 0
+  _minLength: 8
+  _nextButton: {fileID: 5404528136595334714}
 --- !u!1001 &8219749598318906371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,6 +155,22 @@ PrefabInstance:
     - target: {fileID: 106562391226968250, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
       value: Enter ID
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080364563040900668, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080364563040900668, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1080364563040900668, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
+    - target: {fileID: 1080364563040900668, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2847122431082153411, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_IsActive
@@ -257,3 +289,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7058353021012302665, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
   m_PrefabInstance: {fileID: 8219749598318906371}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5404528136595334714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4112585809409550905, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+  m_PrefabInstance: {fileID: 8219749598318906371}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

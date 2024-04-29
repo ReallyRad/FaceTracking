@@ -17,13 +17,15 @@ public class SlideShow : MonoBehaviour
         foreach (Transform slide in transform) 
         {
             _slides.Add(slide.gameObject);
-            //slide.GetComponent<PanelDimmer>().Hide();
+            slide.GetComponent<PanelDimmer>().Hide();
         }
+
+        _slides[0].GetComponentInChildren<PanelDimmer>().Show();
     }
 
     private void Start()
     {
-        
+     
     }
 
     public void NextButton()

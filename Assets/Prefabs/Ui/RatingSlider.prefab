@@ -258,6 +258,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6981831006635179034}
   - component: {fileID: 6981831006635179035}
+  - component: {fileID: 8306262632964762026}
+  - component: {fileID: 1819352115815090108}
   m_Layer: 5
   m_Name: RatingSlider
   m_TagString: Untagged
@@ -342,6 +344,35 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8306262632964762026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981831006635179037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c166483869329467c9cb2a9bac6904b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 6981831006635179035}
+  _panel: {fileID: 0}
+--- !u!114 &1819352115815090108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6981831006635179037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c16fce5e6d284bc087a56ca210168b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _experimentState: 0
+  _answerType: 0
+  _newDataAvailableEvent: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
 --- !u!1 &6981831007049456328
 GameObject:
   m_ObjectHideFlags: 0

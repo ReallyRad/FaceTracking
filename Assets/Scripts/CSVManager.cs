@@ -5,7 +5,7 @@ using UnityEngine;
 public class CSVManager : MonoBehaviour
 {
     [SerializeField] private StringVariable _subjectID;
-
+    [SerializeField] private Experience _selectedExperience;
     [SerializeField] private List<string> varNames = new List<string>();
     private List<string> varValues = new List<string>();
 

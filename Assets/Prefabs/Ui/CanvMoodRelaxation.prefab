@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 9011325818536601034}
   - component: {fileID: 7370916041158468993}
   m_Layer: 5
-  m_Name: CanvMoodAnxiety
+  m_Name: CanvMoodRelaxation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2487580190653894565
 RectTransform:
   m_ObjectHideFlags: 0
@@ -140,15 +140,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179034, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_Pivot.x
@@ -236,8 +236,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179037, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_Name
-      value: RatingSlider
+      value: MoodSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 8306262632964762026, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 1623508465156837126}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
 --- !u!224 &213552316142585228 stripped
@@ -252,17 +256,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487580190653894565}
     m_Modifications:
-    - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
-      propertyPath: m_AnchorMax.y
+    - target: {fileID: 1819352115815090108, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: _answerType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179034, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_Pivot.x
@@ -350,8 +358,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179037, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_Name
-      value: RatingSlider (1)
+      value: RelaxationSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 8306262632964762026, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 1623508465156837126}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
 --- !u!224 &213552316081328990 stripped
@@ -467,3 +479,33 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7058353021012302665, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
   m_PrefabInstance: {fileID: 7066925153711715723}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6557265234483568562 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4112585809409550905, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+  m_PrefabInstance: {fileID: 7066925153711715723}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6761891689510615030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4595310263014539901, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+  m_PrefabInstance: {fileID: 7066925153711715723}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1623508465156837126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761891689510615030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f61c247f53adf44acb6b407abc1be25d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _modifiedValues: 0
+  _nextButton: {fileID: 6557265234483568562}

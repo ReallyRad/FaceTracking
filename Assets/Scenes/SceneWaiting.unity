@@ -1184,13 +1184,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1702401526}
   - {fileID: 4654307473819935046}
   - {fileID: 4654307472718338289}
   - {fileID: 4654307473095853817}
   - {fileID: 4654307474194191565}
   - {fileID: 4654307473698285042}
   - {fileID: 4654307472501883343}
-  - {fileID: 1702401526}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1442,6 +1442,10 @@ PrefabInstance:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
       value: 'Please Select the Preferred Scenario '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112585809409550905, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4595310263014539901, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Name
@@ -1920,7 +1924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4654307472673070094, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4654307472673070094, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1997,6 +2001,10 @@ PrefabInstance:
     - target: {fileID: 4654307472673070129, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
       propertyPath: m_Name
       value: CanvScenarioSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 4654307472673070129, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1759ffc7558364c9354758944ad7e7, type: 3}
@@ -2263,7 +2271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5787171842108572113, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5787171842108572113, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2340,6 +2348,10 @@ PrefabInstance:
     - target: {fileID: 5787171842108572142, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
       propertyPath: m_Name
       value: CanvInstruction
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787171842108572142, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
@@ -2455,9 +2467,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949585050}
     m_Modifications:
+    - target: {fileID: 1468046756722802976, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596050127302126759, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596050127302126759, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596050127302126759, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596050128510962583, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596050128510962583, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5596050128510962583, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7915692357372180894, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
       propertyPath: m_Name
       value: CanvStressAnxiety
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915692357372180894, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7915692357372180897, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
       propertyPath: m_Pivot.x
@@ -2469,7 +2513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7915692357372180897, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7915692357372180897, guid: 6dcfbfd5e7731f144be7165721fb47eb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2586,6 +2630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvWelcome
       objectReference: {fileID: 0}
+    - target: {fileID: 379486947210048713, guid: 06c40598bfd30c544a959cf598a3d78d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 379486947210048758, guid: 06c40598bfd30c544a959cf598a3d78d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2596,7 +2644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 379486947210048758, guid: 06c40598bfd30c544a959cf598a3d78d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 379486947210048758, guid: 06c40598bfd30c544a959cf598a3d78d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2679,9 +2727,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949585050}
     m_Modifications:
+    - target: {fileID: 213552315233829897, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213552315233829897, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213552315233829897, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213552315429343963, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213552315429343963, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 213552315429343963, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2487580190653894554, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
       propertyPath: m_Name
-      value: CanvMoodAnxiety
+      value: CanvMoodRelaxation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487580190653894554, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2487580190653894565, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
       propertyPath: m_Pivot.x
@@ -2693,7 +2769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2487580190653894565, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2487580190653894565, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2767,6 +2843,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6557265234483568562, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7490750045eb5ea4d9a7ef74c5c6ea88, type: 3}
 --- !u!1001 &7873499997491261091
@@ -2780,6 +2860,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 3302019736785301331, guid: 274a6ea7e40063645b04b29bb63aa1dd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3302019736785301356, guid: 274a6ea7e40063645b04b29bb63aa1dd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2790,7 +2874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302019736785301356, guid: 274a6ea7e40063645b04b29bb63aa1dd, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3302019736785301356, guid: 274a6ea7e40063645b04b29bb63aa1dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2883,7 +2967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3640317288015203275, guid: 06e79361a1a3fb84d8f71863d45ae4cd, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3640317288015203275, guid: 06e79361a1a3fb84d8f71863d45ae4cd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2963,7 +3047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3640317288015203316, guid: 06e79361a1a3fb84d8f71863d45ae4cd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e79361a1a3fb84d8f71863d45ae4cd, type: 3}

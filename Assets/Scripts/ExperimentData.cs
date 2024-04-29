@@ -2,15 +2,15 @@
 using UnityEngine;
 
 public enum QuestionnaireAnswerType {
-    stress,
     mood,
-    anxiety,
-    happiness
+    relaxation,
+    stress,
+    anxiety
 }
 
 public enum ExperimentState { pre, post }
 
-public enum Experience { control, beach, garden, nightSky, snow }
+public enum Experience { beach, garden, night, winter, control }
 
 [CreateAssetMenu]
 public class ExperimentData : ScriptableObject
