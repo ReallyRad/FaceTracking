@@ -17,7 +17,7 @@ public class SlideShow : MonoBehaviour
         foreach (Transform slide in transform) 
         {
             _slides.Add(slide.gameObject);
-            slide.GetComponent<PanelDimmer>().Hide();
+            //slide.GetComponent<PanelDimmer>().Hide();
         }
     }
 
