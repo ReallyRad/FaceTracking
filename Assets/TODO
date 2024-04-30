@@ -14,10 +14,10 @@ Arthur :
 
 make the control scene
 
-numeric id 3 characters
-
 csv should contain which experience was shown
 
+columns PID, stress, mood, relaxtion, anxiety, assessment, timeStamp
+-> overwrite csv every time, mood relaxation stress and anxiety are separate values 
 make the selection menu 1-5. 2 is the control
 
 Mehdi : 
