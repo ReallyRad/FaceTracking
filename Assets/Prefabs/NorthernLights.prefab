@@ -53,12 +53,12 @@ MonoBehaviour:
   _completedAt: 9
   _localProgress: 0
   _riseTime: 8
-  _decayTime: 3
+  _decayTime: 6
   _northernLightParticleSystem: {fileID: 2664724475324158443}
   _interactiveVal: 0
-  _auroraRenderer: {fileID: 0}
   _hue: 0
   _saturation: 0
+  _brightness: 0
   _frequency: 0
 --- !u!1001 &2757513125762813413
 PrefabInstance:
