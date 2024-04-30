@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2759295448666253178}
-  - component: {fileID: 2869491887814178006}
   - component: {fileID: 1255300626}
   m_Layer: 0
   m_Name: NorthernLights
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2869491887814178006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2757005257135367638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f8e62ba31cfe49dab37faea015dbe41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &1255300626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +56,10 @@ MonoBehaviour:
   _decayTime: 3
   _northernLightParticleSystem: {fileID: 2664724475324158443}
   _interactiveVal: 0
+  _auroraRenderer: {fileID: 0}
+  _hue: 0
+  _saturation: 0
+  _frequency: 0
 --- !u!1001 &2757513125762813413
 PrefabInstance:
   m_ObjectHideFlags: 0
