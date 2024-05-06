@@ -11,7 +11,6 @@ using System.Data;
 public class WaitingRoomTransition : MonoBehaviour
 {
     public VolumetricFog fog;
-    public TextMeshProUGUI timerText;
 
     private float timeLeft;
     private bool timerRunning = false;
@@ -42,7 +41,6 @@ public class WaitingRoomTransition : MonoBehaviour
                 timerRunning = false;
                 SceneManager.LoadScene("SceneSnow");
             }
-            timerText.text = Mathf.RoundToInt(timeLeft).ToString();
             fog.settings.density = (waitingDuration - timeLeft) / waitingDuration;
         }
     }
