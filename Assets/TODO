@@ -16,7 +16,15 @@ make the control scene
 
 numeric id 3 characters
 
-csv should contain which experience was shown
+csv should contain which experience was shown.
+
+format used to be : 
+subjectID,experimentState,answerType,answerValue,timestamp
+
+format should be :
+PID	sex 	age	stress	mood	relaxtion	anxiety	Assessment	TimeStamp
+or
+PID	sex 	age	stress_pre	mood_pre	relaxtion_pre	anxiety_pre	Assessment	TimeStamp	stress_post	mood_post
 
 make the selection menu 1-5. 2 is the control
 
