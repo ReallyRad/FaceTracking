@@ -2,7 +2,8 @@ Shader "Custom/HoleShader"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Surface Texture", 2D) = "white" {}
+        _SurfaceColor ("Surface Color", Color) = (1,1,1,1) // Default to white
         _HoleRadius ("Hole Radius", Range(0.0, 1.0)) = 0.0
     }
     SubShader
@@ -33,6 +34,7 @@ Shader "Custom/HoleShader"
             float4 _MainTex_ST;
 
             float _HoleRadius;
+            fixed4 _SurfaceColor;
 
             v2f vert(appdata v)
             {
@@ -46,10 +48,15 @@ Shader "Custom/HoleShader"
             fixed4 frag(v2f i) : SV_Target
             {
                 float dist = length(i.uv - 0.5); // Calculate distance from center
-                fixed4 col = tex2D(_MainTex, i.uv);
+                fixed4 col = _SurfaceColor; // Set default surface color
+
                 if (dist < _HoleRadius) // Check if inside hole radius
-                    discard;
-                return col;
+                    discard; // Discard fragments inside the hole
+
+                // Sample surface texture
+                col *= tex2D(_MainTex, i.uv);
+
+                return col; // Return surface color with texture
             }
             ENDCG
         }
