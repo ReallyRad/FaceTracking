@@ -697,10 +697,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3188575782511015374, guid: 6266801bc1f834b9690d8009b3ff21cb, type: 3}
-      propertyPath: _userID
-      value: 
-      objectReference: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
     - target: {fileID: 3188575782511015375, guid: 6266801bc1f834b9690d8009b3ff21cb, type: 3}
       propertyPath: m_Name
       value: CSVManager
@@ -2142,44 +2138,6 @@ Material:
     - _SunDir: {r: 0.3213938, g: 0.76604444, b: -0.5566704, a: 0}
     - _WindDirection: {r: -0.12025271, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!1 &2106193585 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3188575782511015375, guid: 6266801bc1f834b9690d8009b3ff21cb, type: 3}
-  m_PrefabInstance: {fileID: 490764365}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2106193586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106193585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 636b72f8fc644b4418a9e8ad0f4f804f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugFields: 0
-  _enableGizmoDebugging: 1
-  _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
-  _event: {fileID: 11400000, guid: 51d07a8bfbee54a218f3fc4fbe09f2ed, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _debugValue: 
 --- !u!1001 &1209007438963745827
 PrefabInstance:
   m_ObjectHideFlags: 0

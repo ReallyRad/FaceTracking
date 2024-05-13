@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3188575782511015373}
   - component: {fileID: 3188575782511015374}
   - component: {fileID: 4201569691854503397}
+  - component: {fileID: 2106193586}
   m_Layer: 0
   m_Name: CSVManager
   m_TagString: Untagged
@@ -46,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _subjectID: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
+  _selectedExperience: 0
   varNames: []
 --- !u!114 &4201569691854503397
 MonoBehaviour:
@@ -69,7 +71,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3188575782511015374}
         m_TargetAssemblyTypeName: CSVManager, Assembly-CSharp
-        m_MethodName: NewDataAvailable
+        m_MethodName: NewDataAvailableForDictionary
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -80,3 +82,36 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _debugValue: {fileID: 0}
+--- !u!114 &2106193586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188575782511015375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 636b72f8fc644b4418a9e8ad0f4f804f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: 51d07a8bfbee54a218f3fc4fbe09f2ed, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _debugValue: 
