@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class CSVManager : MonoBehaviour
 {
-    [SerializeField] private StringVariable _subjectID;
-    [SerializeField] private Experience _selectedExperience;
+    [SerializeField] private StringVariable _subjectIDVariable;
+    [SerializeField] private IntVariable _selectedExperience;
 
     private Dictionary<string, string> experimentDataDictionary = new Dictionary<string, string>(); 
     
@@ -18,6 +18,7 @@ public class CSVManager : MonoBehaviour
         var fields = typeof(ExperimentData).GetFields();
         
         experimentDataDictionary.Add("PID" , "");
+        experimentDataDictionary.Add("Experience" , "");
 
         //add pre and post answer types
         foreach (var answerType in Enum.GetValues(typeof(QuestionnaireAnswerType)))
@@ -29,7 +30,8 @@ public class CSVManager : MonoBehaviour
     
     public void NewDataAvailableForDictionary(ExperimentData experimentData)
     {
-        experimentDataDictionary["PID"] = experimentData.subjectID;
+        experimentDataDictionary["PID"] = _subjectIDVariable.Value;
+        experimentDataDictionary["Experience"] = ((Experience) _selectedExperience.Value).ToString();
 
         foreach (var answerType in Enum.GetValues(typeof(QuestionnaireAnswerType)))
         {

@@ -60,7 +60,6 @@ public class NorthernLightsInteractiveControl : InteractiveSequenceable
     {
         int x = 2;
     }
-    
         
     private void TweenHandling(float val) //interactive tween handler
     {

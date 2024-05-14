@@ -2,14 +2,11 @@
 Arthur :
 	- Drones stopping abruplty
 	- northern light fades out too fast
-	- Recover CSV writing setup I made for another project
 	- staircase progress for garden and night sky
 	- play with auroras color
 	- progressive max of aurora. should only be visible after 2nd or 3rd breath of progress
 	- comprsesion on the garden music. make birds approximately 20% lower
 	- more saturation on the beach, a bit of hue shift
-	- think about sequencing of elements (scenes, UI) in  
-	- create some animations for skipping through UI elements
 	- play with the ray example to make the canvas waiting and the questions panel responsive
 
 make the control scene
@@ -31,8 +28,6 @@ make the selection menu 1-5. 2 is the control
 Mehdi : 
 	- more wintery sound for snow sceneario. less birds
 	- denser fog in garden.
-
-- write pre post 
 
 - make a panel with a video player
 - make an audio player for the voice instructions

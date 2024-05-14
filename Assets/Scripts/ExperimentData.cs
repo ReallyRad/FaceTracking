@@ -10,7 +10,7 @@ public enum QuestionnaireAnswerType {
 
 public enum ExperimentState { pre, post }
 
-public enum Experience { beach, garden, night, winter, control }
+public enum Experience { beach, control, garden, night, winter }
 
 [CreateAssetMenu]
 public class ExperimentData : ScriptableObject
