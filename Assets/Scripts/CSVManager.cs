@@ -17,6 +17,7 @@ public class CSVManager : MonoBehaviour
     {
         var fields = typeof(ExperimentData).GetFields();
         
+        //initialize dictionary witth empty values.
         experimentDataDictionary.Add("PID" , "");
         experimentDataDictionary.Add("Experience" , "");
 
@@ -35,20 +36,20 @@ public class CSVManager : MonoBehaviour
 
         foreach (var answerType in Enum.GetValues(typeof(QuestionnaireAnswerType)))
         {
-            if (experimentData.answerType.ToString() == answerType.ToString())
+            if (experimentData.answerType.ToString() == answerType.ToString()) //write the experimentdata value to the correct spot
             {
                 var state = experimentData.experimentState.ToString();
                 experimentDataDictionary[answerType + "_" + state] = experimentData.answerValue;
             }
         }
-        
-        string path = "./Logs/" + experimentData.subjectID + "_log.csv";
-        
+
+        string path = "./Logs/" + _subjectIDVariable.Value + "_log.csv";
+    
         String csv = String.Join(
             Environment.NewLine,
             experimentDataDictionary.Select(d => $"{d.Key};{d.Value};")
         );
-        
+    
         File.WriteAllText(path, csv);
     }
     
