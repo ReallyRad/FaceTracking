@@ -42,8 +42,7 @@ public class CSVManager : MonoBehaviour
                 experimentDataDictionary[answerType + "_" + state] = experimentData.answerValue;
             }
         }
-
-        string path = "./Logs/" + _subjectIDVariable.Value + "_log.csv";
+        string path = Path.Combine(Application.persistentDataPath, _subjectIDVariable.Value + "_log.csv");
     
         String csv = String.Join(
             Environment.NewLine,
