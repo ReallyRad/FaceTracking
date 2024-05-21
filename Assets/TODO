@@ -11,19 +11,7 @@ Arthur :
 
 make the control scene
 
-numeric id 3 characters
-
-csv should contain which experience was shown.
-
-format used to be : 
-subjectID,experimentState,answerType,answerValue,timestamp
-
-format should be :
-PID	sex 	age	stress	mood	relaxtion	anxiety	Assessment	TimeStamp
-or
-PID	sex 	age	stress_pre	mood_pre	relaxtion_pre	anxiety_pre	Assessment	TimeStamp	stress_post	mood_post
-
-make the selection menu 1-5. 2 is the control
+Load Scene according to selection
 
 Mehdi : 
 	- more wintery sound for snow sceneario. less birds
@@ -32,6 +20,14 @@ Mehdi :
 - make a panel with a video player
 - make an audio player for the voice instructions
 - Add a panel to let the experimenter chose the scene that they will be shown?? So that only one build can be done
+- disable vibration at beginning of scene
+
+Play video: 
+AI: voice over: 
+- "Now follow the person in the video breathing in and out. If you do this, you will feel the controller vibrating along as you breath out." 
+- After a few rounds: "when exhaling, form your mouth as you would blow out the candle."
+
+ So that only one build can be done
 - disable vibration at beginning of scene
 
 
