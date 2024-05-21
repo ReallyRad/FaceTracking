@@ -11,6 +11,19 @@ public class NorthernLightsInteractiveControl : InteractiveSequenceable
     private int _interactTween;
     private int _decayTween;
     
+    [SerializeField] [Range (0,1)]
+    private float _hue;
+    
+    [SerializeField] [Range (0,1)]
+    private float _saturation;
+    
+    [SerializeField] [Range (0,1)]
+    private float _brightness;
+    
+    [SerializeField] [Range (0,1)]
+    private float _frequency;
+
+    
     public override void Initialize()
     {
         _active = true;
@@ -64,7 +77,14 @@ public class NorthernLightsInteractiveControl : InteractiveSequenceable
         
     private void TweenHandling(float val) //interactive tween handler
     {
-        _northernLightMaterial.SetColor("Color_A02DDA31", new Color(val,val,val));
+        _brightness = val;
     }
 
+    private void Update() 
+    {
+        _hue =  Time.realtimeSinceStartup * _frequency % 1;
+        Color color = Color.HSVToRGB(_hue, _saturation,_brightness);
+        _northernLightMaterial.SetColor("Color_A02DDA31", color);
+    }
+    
 }
