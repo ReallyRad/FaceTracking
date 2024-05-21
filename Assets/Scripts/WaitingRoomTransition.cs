@@ -7,19 +7,29 @@ using Oculus.Interaction;
 using VolumetricFogAndMist2;
 using UnityEngine.SceneManagement;
 using System.Data;
-using ScriptableObjectArchitecture;
+using UnityEngine.Video;
 
 public class WaitingRoomTransition : MonoBehaviour
 {
     public VolumetricFog fog;
+    public VideoPlayer videoPlayter;
+    public AnimationCurve curve;
+    public float minDensityVolume;
+    public float maxDensityVolume;
+    public AudioSource fogBackgroundNoise;
 
-    [SerializeField] private IntVariable _selectedExperience;
     private float timeLeft;
     private bool timerRunning = false;
     private float waitingDuration = 10;
 
     public delegate void OnNotifyPrePostState(ExperimentState prePost);
     public static OnNotifyPrePostState NotifyPrePostState;
+    
+    void Start()
+    {
+        fog.settings.density = minDensityVolume;
+        fogBackgroundNoise.volume = minDensityVolume;
+    }
     
     public void StartTimer(float duration)
     {
@@ -36,9 +46,14 @@ public class WaitingRoomTransition : MonoBehaviour
             {
                 timeLeft = 0;
                 timerRunning = false;
-                SceneManager.LoadScene(((Experience) _selectedExperience.Value).ToString());
+                SceneManager.LoadScene("SceneGardenGrowth");
             }
-            fog.settings.density = (waitingDuration - timeLeft) / waitingDuration;
+            
+            videoPlayter.Stop();
+            var normalVal = curve.Evaluate((waitingDuration - timeLeft) / waitingDuration);
+            var realVal = Utils.Map(normalVal, 0, 1, minDensityVolume, maxDensityVolume);
+            fog.settings.density = realVal;
+            fogBackgroundNoise.volume = realVal;
         }
     }
 
