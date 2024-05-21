@@ -2,33 +2,32 @@
 Arthur :
 	- Drones stopping abruplty
 	- northern light fades out too fast
-	- Recover CSV writing setup I made for another project
 	- staircase progress for garden and night sky
 	- play with auroras color
 	- progressive max of aurora. should only be visible after 2nd or 3rd breath of progress
 	- comprsesion on the garden music. make birds approximately 20% lower
 	- more saturation on the beach, a bit of hue shift
-	- think about sequencing of elements (scenes, UI) in  
-	- create some animations for skipping through UI elements
 	- play with the ray example to make the canvas waiting and the questions panel responsive
 
 make the control scene
 
-csv should contain which experience was shown
-
-columns PID, stress, mood, relaxtion, anxiety, assessment, timeStamp
--> overwrite csv every time, mood relaxation stress and anxiety are separate values 
-make the selection menu 1-5. 2 is the control
+Load Scene according to selection
 
 Mehdi : 
 	- more wintery sound for snow sceneario. less birds
 	- denser fog in garden.
 
-- write pre post 
-
 - make a panel with a video player
 - make an audio player for the voice instructions
 - Add a panel to let the experimenter chose the scene that they will be shown?? So that only one build can be done
+- disable vibration at beginning of scene
+
+Play video: 
+AI: voice over: 
+- "Now follow the person in the video breathing in and out. If you do this, you will feel the controller vibrating along as you breath out." 
+- After a few rounds: "when exhaling, form your mouth as you would blow out the candle."
+
+ So that only one build can be done
 - disable vibration at beginning of scene
 
 

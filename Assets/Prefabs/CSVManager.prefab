@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fbf56f7fbe145ebaa852bbbfbd080e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _subjectID: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
-  varNames: []
+  _subjectIDVariable: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
+  _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
 --- !u!114 &4201569691854503397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3188575782511015374}
         m_TargetAssemblyTypeName: CSVManager, Assembly-CSharp
-        m_MethodName: NewDataAvailable
+        m_MethodName: NewDataAvailableForDictionary
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

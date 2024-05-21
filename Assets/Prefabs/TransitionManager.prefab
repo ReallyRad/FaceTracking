@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fog: {fileID: 0}
   timerText: {fileID: 0}
+  _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
 --- !u!114 &1539192609228190068
 MonoBehaviour:
   m_ObjectHideFlags: 0
