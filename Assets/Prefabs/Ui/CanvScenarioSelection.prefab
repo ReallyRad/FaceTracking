@@ -5666,7 +5666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_text
-      value: Hole
+      value: Control
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5808,7 +5808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_text
-      value: Garden
+      value: Hole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
