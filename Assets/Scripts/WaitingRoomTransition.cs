@@ -13,7 +13,7 @@ using ScriptableObjectArchitecture;
 public class WaitingRoomTransition : MonoBehaviour
 {
     public VolumetricFog fog;
-    public VideoPlayer videoPlayter;
+    public VideoPlayer videoPlayer;
     public AnimationCurve curve;
     public float minDensityVolume;
     public float maxDensityVolume;
@@ -52,7 +52,7 @@ public class WaitingRoomTransition : MonoBehaviour
                 SceneManager.LoadScene(((Experience) _selectedExperience.Value).ToString());
             }
             
-            videoPlayter.Stop();
+            videoPlayer.Stop();
             var normalVal = curve.Evaluate((waitingDuration - timeLeft) / waitingDuration);
             var realVal = Utils.Map(normalVal, 0, 1, minDensityVolume, maxDensityVolume);
             fog.settings.density = realVal;
@@ -62,7 +62,8 @@ public class WaitingRoomTransition : MonoBehaviour
 
     public void OnSlideshowFinished()
     {
-        StartTimer(waitingDuration);
+        StartTimer(waitingDuration); //TODO use coroutine instead of Update method
+        NotifyPrePostState(ExperimentState.post);
     }
 
 }
