@@ -22,28 +22,12 @@ public class HoleAnimator : InteractiveSequenceable
         material.SetFloat("_HoleRadius", _initialValue);
     }
 
-    //void Update()
-    //{
-    //    timer += Time.deltaTime;
-    //    float t = Mathf.Clamp01(timer / duration);
-    //    float currentRadius = Mathf.Lerp(0, maxHoleRadius, t);
-    //    material.SetFloat("_HoleRadius", currentRadius);
-    //    holeRadius = material.GetFloat("_HoleRadius");
-
-    //    if (t >= 1.0f)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    
     public override void Initialize()
     {
         _active = true;
         _localProgress = 0;
         material.SetFloat("_HoleRadius", _initialValue);
-
-        //material = GetComponent<Renderer>().material;
-        //material.SetTexture("_MainTex", surfaceTexture);
-        //material.SetColor("_SurfaceColor", surfaceColor);
     }
 
     protected override void Interact()
@@ -51,6 +35,7 @@ public class HoleAnimator : InteractiveSequenceable
 
     protected override void Decay()
     {   }
+    
     protected override void Progress(float progress)
     {
         if (_active)

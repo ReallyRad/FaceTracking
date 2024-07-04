@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2226439, g: 0.21577719, b: 0.16265202, a: 1}
+  m_IndirectSpecularColor: {r: 0.22197658, g: 0.21546844, b: 0.16272867, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -511,42 +511,6 @@ PrefabInstance:
     - target: {fileID: 2487631776756656233, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: _active
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: _finalValue
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: _completedAt
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: _initialValue
-      value: 0.025
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: surfaceColor.b
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: surfaceColor.g
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: surfaceColor.r
-      value: 0.6509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: surfaceTexture
-      value: 
-      objectReference: {fileID: 2800000, guid: 8065743d59b11cd428a9257da619c9aa, type: 3}
-    - target: {fileID: 2670474697785773952, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
-      propertyPath: _startNextPhaseAt
-      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3012353203812283091, guid: 77424be9348fc8749b1ea343f3d7840e, type: 3}
       propertyPath: m_Name
