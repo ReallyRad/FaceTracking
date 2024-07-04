@@ -8,6 +8,7 @@ using VolumetricFogAndMist2;
 using UnityEngine.SceneManagement;
 using System.Data;
 using UnityEngine.Video;
+using ScriptableObjectArchitecture;
 
 public class WaitingRoomTransition : MonoBehaviour
 {
@@ -24,7 +25,9 @@ public class WaitingRoomTransition : MonoBehaviour
 
     public delegate void OnNotifyPrePostState(ExperimentState prePost);
     public static OnNotifyPrePostState NotifyPrePostState;
-    
+
+    [SerializeField] private IntVariable _selectedExperience;
+
     void Start()
     {
         fog.settings.density = minDensityVolume;
@@ -46,7 +49,7 @@ public class WaitingRoomTransition : MonoBehaviour
             {
                 timeLeft = 0;
                 timerRunning = false;
-                SceneManager.LoadScene("SceneGardenGrowth");
+                SceneManager.LoadScene(((Experience) _selectedExperience.Value).ToString());
             }
             
             videoPlayter.Stop();
