@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _alias: 
   _mediaPath:
-    _pathType: 0
-    _path: C:/Users/Mehdi  Daemi/AppData/LocalLow/unibas/biofeedback/Garden.mp4
+    _pathType: 4
+    _path: Garden.mp4
   _hints:
     transparency: 0
     alphaPacking: 0
