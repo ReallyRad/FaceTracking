@@ -10,6 +10,7 @@ public class CSVManager : MonoBehaviour
 {
     [SerializeField] private StringVariable _subjectIDVariable;
     [SerializeField] private IntVariable _selectedExperience;
+    [SerializeField] private ExperimentStateSO _experimentStateSO;
 
     private Dictionary<string, string> experimentDataDictionary = new Dictionary<string, string>(); 
     
@@ -38,7 +39,7 @@ public class CSVManager : MonoBehaviour
         {
             if (experimentData.answerType.ToString() == answerType.ToString()) //write the experimentdata value to the correct spot
             {
-                var state = experimentData.experimentState.ToString();
+                var state = _experimentStateSO.experimentState.ToString();
                 experimentDataDictionary[answerType + "_" + state] = experimentData.answerValue;
             }
         }

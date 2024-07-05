@@ -5,37 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b30676e3-d6b6-4c4a-b78d-5d6318f6320b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/GardenFirstFrame.mat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Materials/GardenFirstFrame.mat.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00114.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00114.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00117.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00117.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00119.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00119.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00121.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00121.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00122.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00122.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00125.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00125.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00128.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00129.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Textures/00129.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FaceTracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FaceTracking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/GradientMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/GradientMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PseudomovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PseudomovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/BlurredMapDrivenEffec.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/BlurredMapDrivenEffec.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/GardenFirstFrame.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/GardenFirstFrame.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/hole.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/hole.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Waiting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Waiting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSVManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CSVManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResponseLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResponseLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WaitingRoomTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaitingRoomTransition.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/apointeau/FaceTracking/Assets/Scripts/WaitingRoomTransition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/apointeau/FaceTracking/Assets/Scripts/WaitingRoomTransition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,6 +40,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "develop",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }

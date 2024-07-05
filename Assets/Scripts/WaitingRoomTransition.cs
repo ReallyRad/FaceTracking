@@ -23,11 +23,9 @@ public class WaitingRoomTransition : MonoBehaviour
     private bool timerRunning = false;
     private float waitingDuration = 10;
 
-    public delegate void OnNotifyPrePostState(ExperimentState prePost);
-    public static OnNotifyPrePostState NotifyPrePostState;
-
     [SerializeField] private IntVariable _selectedExperience;
-
+    [SerializeField] private ExperimentStateSO experimentStateSO;
+    
     void Start()
     {
         fog.settings.density = minDensityVolume;
@@ -63,7 +61,7 @@ public class WaitingRoomTransition : MonoBehaviour
     public void OnSlideshowFinished()
     {
         StartTimer(waitingDuration); //TODO use coroutine instead of Update method
-        NotifyPrePostState(ExperimentState.post);
+        experimentStateSO.experimentState = ExperimentState.post;
     }
 
 }

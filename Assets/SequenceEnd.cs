@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SequenceEnd : Sequenceable
 {
-    public delegate void OnNotifyPrePostState(ExperimentState prePost);
-    public static OnNotifyPrePostState NotifyPrePostState;
+    [SerializeField] private ExperimentStateSO experimentStateSO;
     
     public override void Initialize()
     {
@@ -17,8 +16,8 @@ public class SequenceEnd : Sequenceable
     private IEnumerator TransitionToWaitingScene()
     {
         //TODO add fog transition here if necessary 
+        experimentStateSO.experimentState = ExperimentState.pre;
         yield return new WaitForSeconds(5);
-        NotifyPrePostState(ExperimentState.pre);
         SceneManager.LoadScene("Waiting");
     }
 }
