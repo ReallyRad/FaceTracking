@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SequenceEnd : Sequenceable
 {
     [SerializeField] private ExperimentStateSO experimentStateSO;
+    [SerializeField] private StringVariable _subjectIDVariable;
     
     public override void Initialize()
     {
