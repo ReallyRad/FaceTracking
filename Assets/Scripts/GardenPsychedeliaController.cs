@@ -31,13 +31,13 @@ public class GardenPsychedeliaController : MonoBehaviour
 
    private void Start()
    {
-      LeanTween.value(-1, 1, 10)
+      LeanTween.value(gameObject,-1, 1, 10)
          .setOnUpdate( val =>
          {
             GetComponent<MeshRenderer>().material.SetFloat("_Shift", val); //Make shift value rotate constantly
          }).setLoopClamp();
       
-       LeanTween.value(0, 1, 7)
+       LeanTween.value(gameObject,0, 1, 7)
          .setOnUpdate( val => 
          {
             GetComponent<MeshRenderer>().material.SetFloat("_PsychoBlend", val * _psychoBlendAmount); //Make shift value rotate constantly

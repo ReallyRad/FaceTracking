@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3302019736785301356
 RectTransform:
   m_ObjectHideFlags: 0
@@ -138,8 +138,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: "Great, now you've learned how to perform slow-paced breathing.\n \r\nIf
-        everything is clear, Press the OK button to move on to the practice session.\r\n"
+      value: 'Thank you for taking part of this experiment. You can now remove the
+        headset.
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 4595310263014539901, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Name
@@ -148,6 +150,10 @@ PrefabInstance:
     - target: {fileID: 4844572145853885738, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618515490555447938, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7058353021012302665, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Pivot.x

@@ -8,11 +8,20 @@ public class SlideShow : MonoBehaviour
     [SerializeField] private GameEvent _slideShowFinished;
     [SerializeField] private List<GameObject> _slides;
     
+    [SerializeField] private List<GameObject> _preSlides;
+    [SerializeField] private List<GameObject> _postSlides;
+    [SerializeField] private ExperimentStateSO _experimentStateSO;
+    
     private int _slideIndex;
     private bool _showing;
 
     private void Awake()
     {
+        if (_experimentStateSO.experimentState == ExperimentState.post)
+             foreach (GameObject preSlide in _preSlides) Destroy(preSlide);
+        else if (_experimentStateSO.experimentState == ExperimentState.pre)
+            foreach (GameObject postSlide in _postSlides) Destroy(postSlide);
+        
         _slides = new List<GameObject>();
         foreach (Transform slide in transform) 
         {
