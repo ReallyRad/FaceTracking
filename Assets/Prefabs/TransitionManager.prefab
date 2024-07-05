@@ -46,8 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fog: {fileID: 0}
-  timerText: {fileID: 0}
+  videoPlayer: {fileID: 0}
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  minDensityVolume: 0
+  maxDensityVolume: 0
+  fogBackgroundNoise: {fileID: 0}
   _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
+  experimentStateSO: {fileID: 11400000, guid: 8acf5426713064c979a69d02f7710b52, type: 2}
 --- !u!114 &1539192609228190068
 MonoBehaviour:
   m_ObjectHideFlags: 0

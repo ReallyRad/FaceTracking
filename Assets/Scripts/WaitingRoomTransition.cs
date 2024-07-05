@@ -1,23 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using Oculus.Interaction;
 using VolumetricFogAndMist2;
 using UnityEngine.SceneManagement;
-using System.Data;
-using UnityEngine.Video;
 using ScriptableObjectArchitecture;
 
 public class WaitingRoomTransition : MonoBehaviour
 {
     public VolumetricFog fog;
-    public VideoPlayer videoPlayer;
     public AnimationCurve curve;
     public float minDensityVolume;
     public float maxDensityVolume;
-    public AudioSource fogBackgroundNoise;
 
     private float timeLeft;
     private bool timerRunning = false;
@@ -29,7 +22,6 @@ public class WaitingRoomTransition : MonoBehaviour
     void Start()
     {
         fog.settings.density = minDensityVolume;
-        fogBackgroundNoise.volume = minDensityVolume;
     }
     
     public void StartTimer(float duration)
@@ -50,11 +42,9 @@ public class WaitingRoomTransition : MonoBehaviour
                 SceneManager.LoadScene(((Experience) _selectedExperience.Value).ToString());
             }
             
-            videoPlayer.Stop();
             var normalVal = curve.Evaluate((waitingDuration - timeLeft) / waitingDuration);
             var realVal = Utils.Map(normalVal, 0, 1, minDensityVolume, maxDensityVolume);
             fog.settings.density = realVal;
-            fogBackgroundNoise.volume = realVal;
         }
     }
 

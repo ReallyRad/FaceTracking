@@ -11,6 +11,7 @@ public class SequenceEnd : Sequenceable
     public override void Initialize()
     {
         _active = true;
+        StartCoroutine(TransitionToWaitingScene());
     }
 
     private IEnumerator TransitionToWaitingScene()

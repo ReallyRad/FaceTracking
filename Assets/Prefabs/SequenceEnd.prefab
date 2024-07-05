@@ -51,3 +51,4 @@ MonoBehaviour:
   _startNextPhaseAt: 0
   _completedAt: 0
   _localProgress: 0
+  experimentStateSO: {fileID: 11400000, guid: 8acf5426713064c979a69d02f7710b52, type: 2}

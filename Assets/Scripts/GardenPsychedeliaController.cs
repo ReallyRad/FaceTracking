@@ -8,6 +8,9 @@ public class GardenPsychedeliaController : MonoBehaviour
    [SerializeField] private float _effectRange;
    [SerializeField] private float _pseudoMovementRange;
    [SerializeField] private float _psychoBlendAmount;
+
+   private LTDescr _shiftTween;
+   private LTDescr _psychoBlendTween;
    
    private void OnEnable()
    {
@@ -21,6 +24,11 @@ public class GardenPsychedeliaController : MonoBehaviour
       PostProcessingControl.PostProcessingProgressiveProgress -= SetPsychoBlendAmount;
    }
 
+   private void OnDestroy()
+   {
+      LeanTween.cancel(gameObject);
+   }
+
    private void Start()
    {
       LeanTween.value(-1, 1, 10)
@@ -29,7 +37,7 @@ public class GardenPsychedeliaController : MonoBehaviour
             GetComponent<MeshRenderer>().material.SetFloat("_Shift", val); //Make shift value rotate constantly
          }).setLoopClamp();
       
-      LeanTween.value(0, 1, 7)
+       LeanTween.value(0, 1, 7)
          .setOnUpdate( val => 
          {
             GetComponent<MeshRenderer>().material.SetFloat("_PsychoBlend", val * _psychoBlendAmount); //Make shift value rotate constantly
@@ -47,5 +55,5 @@ public class GardenPsychedeliaController : MonoBehaviour
    {
       _psychoBlendAmount = val;
    }
-    
+   
 }
