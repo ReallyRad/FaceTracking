@@ -394,9 +394,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c16fce5e6d284bc087a56ca210168b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _experimentState: 0
   _answerType: 0
-  _newDataAvailableEvent: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
+  _newDataAvailableEvent: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
+  _experimentData: {fileID: 11400000, guid: b342c5414cba72040ae8c3b5ddc78c56, type: 2}
 --- !u!1 &6981831007049456328
 GameObject:
   m_ObjectHideFlags: 0

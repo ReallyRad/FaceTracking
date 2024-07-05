@@ -5,7 +5,7 @@ using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VisualAnalogPanel : MonoBehaviour
+public class VisualAnalogPanel : MonoBehaviour //Used to enable Next button when 2 sliders are changed on a apnale
 {
     [SerializeField] private int _modifiedValues;
 
