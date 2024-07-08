@@ -2167,7 +2167,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3640317288015203319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4296,7 +4296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46.8, y: 235}
+  m_AnchoredPosition: {x: -42.1, y: 297.8}
   m_SizeDelta: {x: 534.1, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3653286232874597755
@@ -4327,7 +4327,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Please Enter the Subject''s ID
+  m_text: 'Geben Sie die Versuchspersonennummer ein, die Ihnen die Versuchsleitung
+    mitteilt.
 
 '
   m_isRightToLeft: 0
@@ -4392,7 +4393,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -89.56888, w: 0}
+  m_margin: {x: 0, y: 0, z: -73.483505, w: -29.115438}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

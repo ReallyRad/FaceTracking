@@ -45,10 +45,11 @@ Shader "Custom/HoleShader"
                 return o;
             }
 
-            fixed4 frag(v2f i) : SV_Target
+            half4 frag(v2f i) : SV_Target
             {
-                float dist = length(i.uv - 0.5); // Calculate distance from center
-                fixed4 col = _SurfaceColor; // Set default surface color
+                float2 uvCentered = i.uv - 0.5; // Center the UV coordinates
+                float dist = length(uvCentered); // Calculate distance from center
+                half4 col = _SurfaceColor; // Set default surface color
 
                 if (dist < _HoleRadius) // Check if inside hole radius
                     discard; // Discard fragments inside the hole
@@ -58,6 +59,20 @@ Shader "Custom/HoleShader"
 
                 return col; // Return surface color with texture
             }
+
+            // fixed4 frag(v2f i) : SV_Target
+            // {
+            //     float dist = length(i.uv - 0.5); // Calculate distance from center
+            //     fixed4 col = _SurfaceColor; // Set default surface color
+
+            //     if (dist < _HoleRadius) // Check if inside hole radius
+            //         discard; // Discard fragments inside the hole
+
+            //     // Sample surface texture
+            //     col *= tex2D(_MainTex, i.uv);
+
+            //     return col; // Return surface color with texture
+            // }
             ENDCG
         }
     }

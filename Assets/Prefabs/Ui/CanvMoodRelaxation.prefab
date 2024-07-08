@@ -87,7 +87,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2487580190653894553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +138,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487580190653894565}
     m_Modifications:
+    - target: {fileID: 6981831006230262615, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: 'Stimmungs-Level:
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -220,7 +226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179034, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 80
+      value: 97.5
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179034, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -237,6 +243,54 @@ PrefabInstance:
     - target: {fileID: 6981831006635179037, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_Name
       value: MoodSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456310, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: sehr gut
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456329, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 199.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456329, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651432, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -211.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651432, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -44.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: 'sehr schlecht '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_margin.z
+      value: -34.38264
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007506031066, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: neutral
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007506031066, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_fontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007506031066, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007506031068, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007506031069, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45.5
       objectReference: {fileID: 0}
     - target: {fileID: 8306262632964762026, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _panel
@@ -270,6 +324,12 @@ PrefabInstance:
     - target: {fileID: 1819352115815090108, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _answerType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831006230262615, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: 'Entspannungs-Level:
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMax.x
@@ -353,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179034, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -80
+      value: -93.9
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006635179034, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -370,6 +430,38 @@ PrefabInstance:
     - target: {fileID: 6981831006635179037, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_Name
       value: RelaxationSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456310, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: maximal enstpannt
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456310, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_margin.x
+      value: -91.90675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456329, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 236.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456329, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39.597313
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651432, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -117.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651432, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: "\xFCberhaupt nicht entspannt"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_margin.x
+      value: -140.79385
       objectReference: {fileID: 0}
     - target: {fileID: 8306262632964762026, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _panel
@@ -402,7 +494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: 'Mood and Relaxation Rating
+      value: 'Wie geht es Ihnen in diesem Moment?
 
 '
       objectReference: {fileID: 0}

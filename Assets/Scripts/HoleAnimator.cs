@@ -19,7 +19,7 @@ public class HoleAnimator : InteractiveSequenceable
         material = GetComponent<Renderer>().material;
         material.SetTexture("_MainTex", surfaceTexture);
         material.SetColor("_SurfaceColor", surfaceColor);
-        material.SetFloat("_HoleRadius", _initialValue);
+        //material.SetFloat("_HoleRadius", _initialValue);
     }
 
     

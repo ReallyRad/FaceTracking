@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &379486947210048758
 RectTransform:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &379486947210048714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,18 +138,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: "Welcome to the Breath Training Program .\n\nResearch shows that slow-paced
-        breathing reduces stress.\r\n\nWe will next instruct you how to conduct a
-        slow paced breathing. \n\nWhen you are ready to begin with the training,
-        press OK.\r\n"
+      value: "Super! Sie wissen nun, wie Sie langsames Atmen richtig praktizieren.\r\n\r\n
+        Wenn Sie bereit sind, dr\xFCcken Sie auf OK, um mit dem Slow-Paced Breathing
+        Trainingsprogramm zu beginnen.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_margin.x
+      value: 59.321594
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_margin.y
+      value: -209.90656
       objectReference: {fileID: 0}
     - target: {fileID: 4595310263014539901, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Name
       value: Panel
       objectReference: {fileID: 0}
     - target: {fileID: 4844572145853885738, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -80.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844572145853885738, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 88
+      value: -51
       objectReference: {fileID: 0}
     - target: {fileID: 7058353021012302665, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Pivot.x

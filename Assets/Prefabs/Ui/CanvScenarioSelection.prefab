@@ -1581,7 +1581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -46.8, y: 246.6}
+  m_AnchoredPosition: {x: -46.8, y: 225}
   m_SizeDelta: {x: 534.1, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5141807609813039211
@@ -1612,7 +1612,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Please Select the Preferred Scenario '
+  m_text: "Bitte w\xE4hlen Sie das Szenario aus, \r\ndas Ihnen Ihr Versuchsleiter
+    nennt.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1675,7 +1676,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -89.56888, w: 0}
+  m_margin: {x: 0, y: -37.979485, z: -89.56888, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3100,7 +3101,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5146853475268426726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5520,7 +5521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_text
-      value: Psychedelic
+      value: Szenario 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5666,7 +5667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_text
-      value: Control
+      value: Szenario 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5808,7 +5809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_text
-      value: Hole
+      value: Szenario 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}

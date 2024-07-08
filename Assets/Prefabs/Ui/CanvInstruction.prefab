@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5787171842108572113
 RectTransform:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &5787171842108572141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,13 +138,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: 'Watch this instruction video to practice doing slow paced breathing
-
-'
+      value: "Schauen Sie sich dieses Einf\xFChrungsvideo an.\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_margin.z
+      value: -132.98654
       objectReference: {fileID: 0}
     - target: {fileID: 4595310263014539901, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Name
       value: Panel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844572145853885738, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -61
       objectReference: {fileID: 0}
     - target: {fileID: 7058353021012302665, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Pivot.x

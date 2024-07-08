@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1331087359676850489
+--- !u!114 &-7003943380819143390
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hole
+  m_Name: holeMaterial
   m_Shader: {fileID: 4800000, guid: f7e1892d8f4773940b3008cc05d9f6fa, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -105,7 +105,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HoleRadius: 0.058
+    - _HoleRadius: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

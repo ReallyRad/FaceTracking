@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3302019736785301328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +138,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: 'Thank you for taking part of this experiment. You can now remove the
-        headset.
-
-'
+      value: "Danke f\xFCr Ihre Teilnahme am Experiment. Sie k\xF6nnen das Headset\_nun\_abnehmen."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_margin.w
+      value: -20.177505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
+      propertyPath: m_margin.y
+      value: -45.518078
       objectReference: {fileID: 0}
     - target: {fileID: 4595310263014539901, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_Name

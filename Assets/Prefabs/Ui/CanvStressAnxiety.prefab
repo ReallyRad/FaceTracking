@@ -87,7 +87,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7915692357372180893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +141,10 @@ PrefabInstance:
     - target: {fileID: 1819352115815090108, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _answerType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831006230262615, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: "Angst-Level:\r"
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMax.x
@@ -242,6 +246,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: AnxietySlider
       objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456310, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: maximale Angst
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456310, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_margin.x
+      value: -47.91892
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456329, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 214.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651432, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -145
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: "\xFCberhaupt keine Angst"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_margin.x
+      value: -108.411606
+      objectReference: {fileID: 0}
     - target: {fileID: 8306262632964762026, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _panel
       value: 
@@ -274,6 +302,10 @@ PrefabInstance:
     - target: {fileID: 1819352115815090108, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _answerType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831006230262615, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: "Stress-Level:\r"
       objectReference: {fileID: 0}
     - target: {fileID: 6981831006270635423, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: m_AnchorMax.x
@@ -375,6 +407,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: StressSlider
       objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456310, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: maximal
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007049456329, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 189.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651432, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -190.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981831007084651433, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
+      propertyPath: m_text
+      value: null
+      objectReference: {fileID: 0}
     - target: {fileID: 8306262632964762026, guid: 2c87c7c7a3004564d8055e9baafdf7af, type: 3}
       propertyPath: _panel
       value: 
@@ -406,9 +454,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: 'Stress and Anxiety Rating
-
-'
+      value: "Wie geht es Ihnen in diesem Moment?\r"
       objectReference: {fileID: 0}
     - target: {fileID: 4112585809409550905, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
