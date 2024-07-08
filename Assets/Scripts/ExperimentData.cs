@@ -14,7 +14,6 @@ public enum Experience {PsychedelicGarden, Control, HoleGrowthGarden}
 public class ExperimentData : ScriptableObject
 {
     [Header("Experiment Data")]
-    public string subjectID;
     public QuestionnaireAnswerType answerType;
     public string answerValue;
     public DateTime timestamp;

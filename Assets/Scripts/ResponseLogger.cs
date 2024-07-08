@@ -6,22 +6,15 @@ using UnityEngine;
 
 public class ResponseLogger : MonoBehaviour
 {
-    [SerializeField] private ExperimentStateSO _experimentStateSO;
     [SerializeField] private QuestionnaireAnswerType _answerType;
-    [SerializeField] private ExperimentDataGameEvent _newDataAvailableEvent;
-
-    private ExperimentData _experimentData;
-
-    private void Start()
-    {
-        _experimentData = ScriptableObject.CreateInstance<ExperimentData>();
-    }
+    [SerializeField] private GameEvent _newDataAvailableEvent;
+    [SerializeField] private ExperimentData _experimentData;
 
     public void NextButtonPressed()
     {
         _experimentData.answerType = _answerType;
         _experimentData.timestamp = DateTime.Now;
-        _newDataAvailableEvent.Raise(_experimentData);
+        _newDataAvailableEvent.Raise();
     }
     
     public void SetValue(bool value)

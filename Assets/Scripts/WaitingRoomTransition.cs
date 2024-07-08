@@ -50,8 +50,8 @@ public class WaitingRoomTransition : MonoBehaviour
 
     public void OnSlideshowFinished()
     {
-        StartTimer(waitingDuration); //TODO use coroutine instead of Update method
-        experimentStateSO.experimentState = ExperimentState.post;
+        if (experimentStateSO.experimentState == ExperimentState.pre)  StartTimer(waitingDuration); //TODO use coroutine instead of Update method
+        else experimentStateSO.experimentState = ExperimentState.post;
     }
 
 }

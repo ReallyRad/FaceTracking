@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SequenceEnd : Sequenceable
 {
     [SerializeField] private ExperimentStateSO experimentStateSO;
-    
+    [SerializeField] private StringVariable _subjectIDVariable;
+    [SerializeField] private ExperimentDataStorage _experimentDataStorage; //reference it here just to make sure it's not deleted when switching scenes
+ 
     public override void Initialize()
     {
         _active = true;
