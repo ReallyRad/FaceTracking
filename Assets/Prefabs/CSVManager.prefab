@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3188575782511015375
+--- !u!1 &6260629605516183485
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3188575782511015373}
-  - component: {fileID: 3188575782511015374}
-  - component: {fileID: 4201569691854503397}
+  - component: {fileID: 6260629605516183487}
+  - component: {fileID: 6260629605516183484}
+  - component: {fileID: 5123675385905791488}
   m_Layer: 0
   m_Name: CSVManager
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3188575782511015373
+--- !u!4 &6260629605516183487
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3188575782511015375}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_GameObject: {fileID: 6260629605516183485}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3188575782511015374
+--- !u!114 &6260629605516183484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3188575782511015375}
+  m_GameObject: {fileID: 6260629605516183485}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06fbf56f7fbe145ebaa852bbbfbd080e, type: 3}
@@ -48,30 +48,32 @@ MonoBehaviour:
   _subjectIDVariable: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
   _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
   _experimentStateSO: {fileID: 11400000, guid: 8acf5426713064c979a69d02f7710b52, type: 2}
---- !u!114 &4201569691854503397
+  _experimentData: {fileID: 11400000, guid: b342c5414cba72040ae8c3b5ddc78c56, type: 2}
+  _experimentDataStorage: {fileID: 11400000, guid: 9d441e3fc228e49a9ad4ae4cc398ec22, type: 2}
+--- !u!114 &5123675385905791488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3188575782511015375}
+  m_GameObject: {fileID: 6260629605516183485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3554f4d1508324cfe868bd87d59688fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
   _previouslyRegisteredEvent: {fileID: 0}
-  _event: {fileID: 11400000, guid: c9a82b6d3575a4b0bbd7fe8f61c6010b, type: 2}
+  _event: {fileID: 11400000, guid: db2fa6cc54bd949d8ab1d8215b334bab, type: 2}
   _response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3188575782511015374}
+      - m_Target: {fileID: 6260629605516183484}
         m_TargetAssemblyTypeName: CSVManager, Assembly-CSharp
         m_MethodName: NewDataAvailableForDictionary
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -80,4 +82,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _debugValue: {fileID: 0}

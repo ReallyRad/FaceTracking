@@ -15,26 +15,24 @@ public class SlideShow : MonoBehaviour
     private int _slideIndex;
     private bool _showing;
 
-    private void Awake()
+    private void Start()
     {
+        if (_experimentStateSO.experimentState == ExperimentState.pre)
+            foreach (GameObject postSlide in _postSlides)
+                postSlide.SetActive(false);
+            
         if (_experimentStateSO.experimentState == ExperimentState.post)
-             foreach (GameObject preSlide in _preSlides) Destroy(preSlide);
-        else if (_experimentStateSO.experimentState == ExperimentState.pre)
-            foreach (GameObject postSlide in _postSlides) Destroy(postSlide);
+            foreach (GameObject preSlide in _preSlides)
+                    preSlide.SetActive(false);
         
         _slides = new List<GameObject>();
         foreach (Transform slide in transform) 
         {
-            _slides.Add(slide.gameObject);
+            if (slide.gameObject.activeSelf) _slides.Add(slide.gameObject);
             slide.GetComponent<PanelDimmer>().Hide();
         }
 
         _slides[0].GetComponentInChildren<PanelDimmer>().Show();
-    }
-
-    private void Start()
-    {
-     
     }
 
     public void NextButton()
