@@ -49,12 +49,11 @@ public class HoleAnimator : InteractiveSequenceable
             {
                 _active = false;
                 _transitioning = false;
-                this.gameObject.SetActive(false);
+                gameObject.GetComponent<MeshRenderer>().enabled = false;
+                StartNextPhase(this); 
             }
             else
             {
-                if (_transitioning && !wasTransitioning) StartNextPhase(this); 
-
                 var val = _localProgress / _completedAt;
                 holeRadius = Utils.Map(val, 0, 1, _initialValue, _finalValue);
                 material.SetFloat("_HoleRadius", holeRadius);

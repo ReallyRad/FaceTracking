@@ -103,7 +103,7 @@ public class PostProcessingControl : InteractiveSequenceable
             else
             {
                 var mappedProgress = Utils.Map(_localProgress,0, _completedAt, 0,1);
-                
+
                 PostProcessingProgressiveProgress(mappedProgress);
                 
                 _effectVolume
