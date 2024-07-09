@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,10 +44,15 @@ public class WaitingRoomTransition : MonoBehaviour
                 timerRunning = false;
                 SceneManager.LoadScene(((Experience) _selectedExperience.Value).ToString());
             }
+
+            //int x = _selectedExperience.Value;
+
+            //int x = Array.IndexOf(Enum.GetValues( Experience.PsychedelicGarden));
             
             var normalVal = curve.Evaluate((waitingDuration - timeLeft) / waitingDuration);
             var realVal = Utils.Map(normalVal, 0, 1, minDensityVolume, maxDensityVolume);
-            fog.settings.density = realVal;
+            if (_selectedExperience == (int) Experience.PsychedelicGarden) 
+                fog.settings.density = realVal;
         }
     }
 
