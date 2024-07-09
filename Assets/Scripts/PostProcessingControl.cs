@@ -86,6 +86,7 @@ public class PostProcessingControl : InteractiveSequenceable
             if (_localProgress >= _completedAt) //end of this sequence step
             {
                 _active = false;
+                StartNextPhase(this);
                 
                 if (_interactTween != 0) LeanTween.pause(_interactTween);
                 if (_decayTween != 0) LeanTween.pause(_decayTween);
