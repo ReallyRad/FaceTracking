@@ -8,12 +8,6 @@ using UnityEngine.Rendering.Universal;
 
 public class PostProcessingControl : InteractiveSequenceable
 {
-    public delegate void OnPostProcessingCompleted(); //triggered to notify the next sequence phase should start fading inx
-    public static OnPostProcessingCompleted PostProcessingCompleted;
-    
-    public delegate void OnPostProcessingInteractiveProgress(float progress); //triggered to notify the next sequence phase should start fading inx
-    public static OnPostProcessingInteractiveProgress PostProcessingInteractiveProgress;
-
     public delegate void OnPostProcessingProgressiveProgress(float progress); //triggered to notify the next sequence phase should start fading inx
     public static OnPostProcessingProgressiveProgress PostProcessingProgressiveProgress;
     
@@ -91,7 +85,7 @@ public class PostProcessingControl : InteractiveSequenceable
                 if (_interactTween != 0) LeanTween.pause(_interactTween);
                 if (_decayTween != 0) LeanTween.pause(_decayTween);
                 
-                if (_effectVolume.profile.TryGet(out _bloom))
+                if (_effectVolume.profile.TryGet(out _bloom)) //TODO this was for transitioning out with bloom. do fog here too?
                 {
                     LeanTween.value(gameObject, _interactiveVal, 0, 5).setOnUpdate(val =>
                     {
@@ -120,8 +114,6 @@ public class PostProcessingControl : InteractiveSequenceable
     {
         _effectVolume.GetComponent<HueShiftRotator>().SetSaturation(Utils.Map(val, 0, 1, 0, 0.117f));
 
-        PostProcessingInteractiveProgress(val);
-        
         foreach (AudioLowPassFilter lowPassFilter in _lowPassFilters)
             lowPassFilter.cutoffFrequency = _lowPassFilterMapping.Evaluate(val) * 18000; //multiply to map to the audible frequency range        
 
