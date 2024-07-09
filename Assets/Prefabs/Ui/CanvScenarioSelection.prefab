@@ -3048,8 +3048,8 @@ RectTransform:
   m_Children:
   - {fileID: 7353936904977764954}
   - {fileID: 2640127274232800970}
-  - {fileID: 2640127275712388022}
   - {fileID: 4537033917278989796}
+  - {fileID: 2640127275712388022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3145,6 +3145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7a3ea505ea44db3a1e50eaeadf24e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelShown:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &574807137554016217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5539,7 +5542,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1729300052777795626, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_Name
-      value: ToggleControl
+      value: ToggleHole
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_Pivot.x
@@ -5551,7 +5554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5595,15 +5598,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5659,7 +5662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5685,7 +5688,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1729300052777795626, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_Name
-      value: ToggleHole
+      value: ToggleControl
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_Pivot.x
@@ -5697,7 +5700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2547275762043862894, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5801,7 +5804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
