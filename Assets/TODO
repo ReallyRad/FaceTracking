@@ -1,22 +1,9 @@
 
 Arthur :
-	- set experimentstate to post when loading the waiting scene.
+	- staircase (progressive) progression for the psychedelic garden
 	- comprsesion on the garden music. make birds approximately 20% lower
-	- play with the ray example to make the canvas waiting and the questions panel responsive
-	- when psychedelic scene is selected, transition with fog
-	- when garden hole growth scene is selected in waiting scene, there is no transition, just load the scene 
-	- "now you can start breathing" after background sound comes instructions
-	- make the control scene
-
-Mehdi : 
-	- No video is playing?
-	- make a panel with a video player
-	- no fog in waiting scene
-	- make an audio player for the voice instructions
-	- hole only visible in one eye?
-	- put proper names for rating sliders
-	- more wintery sound for snow sceneario. less birds
-	- find a texture for the hole
+	- add transition from full fog to max fog at the beginning of the psychedelic scene
+	- psychedelic garden flipped
 
 Backlog : 
 	- more saturation on the beach, a bit of hue shift
@@ -27,7 +14,8 @@ Backlog :
 	- progressive max of aurora. should only be visible after 2nd or 3rd breath of progress
 	- AI: voice over: - "Now follow the person in the video breathing in and out. If you do this, you will feel the controller vibrating along as you breath out." 
 	- After a few rounds: "when exhaling, form your mouth as you would blow out the candle."
+	- more wintery sound for snow sceneario. less birds
 
 
-
-
+Have controller vibrate in waiting scene?
+what about sound in hole scene
