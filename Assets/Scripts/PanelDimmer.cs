@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PanelDimmer : MonoBehaviour
 {
     private Vector3 _initialScale;
+
+    public UnityEvent panelShown ;
     
     private void Awake()
     {
@@ -15,6 +18,7 @@ public class PanelDimmer : MonoBehaviour
     public void Show()
     {
         Show(true, 1f);
+        panelShown.Invoke();
     }
 
     public void Hide() 
@@ -25,11 +29,6 @@ public class PanelDimmer : MonoBehaviour
     public void Show(bool show)
     {
         Show(show, 1f);
-    }
-
-    private void Start()
-    {
-        
     }
 
     public void Show(bool show, float opacity, float time = 0.7f, bool loop = false, float delay = 0f)

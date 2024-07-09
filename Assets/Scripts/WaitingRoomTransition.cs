@@ -4,6 +4,8 @@ using UnityEngine;
 using VolumetricFogAndMist2;
 using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class WaitingRoomTransition : MonoBehaviour
 {
@@ -18,7 +20,7 @@ public class WaitingRoomTransition : MonoBehaviour
 
     [SerializeField] private IntVariable _selectedExperience;
     [SerializeField] private ExperimentStateSO experimentStateSO;
-    
+
     void Start()
     {
         fog.settings.density = minDensityVolume;
@@ -53,5 +55,4 @@ public class WaitingRoomTransition : MonoBehaviour
         if (experimentStateSO.experimentState == ExperimentState.pre)  StartTimer(waitingDuration); //TODO use coroutine instead of Update method
         else experimentStateSO.experimentState = ExperimentState.post;
     }
-
 }

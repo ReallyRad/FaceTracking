@@ -1,46 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
-using System.Collections.Specialized;
 
 public class VideoController : MonoBehaviour
 {
-    public VideoPlayer videoPlayer;
-    public Button playButton;
-    public Button pauseButton;
-    private string videoPath;
-    public string videoFileName;
+    [SerializeField] private VideoPlayer _videoPlayer;
+    [SerializeField] private string _videoFileName;
+    [SerializeField] private Button _nextButton;
 
-
-
-    void Start()
+    private void OnEnable()
     {
-        //#if UNITY_STANDALONE || UNITY_EDITOR
-        //        videoPath = System.IO.Path.Combine(Application.dataPath, "StreamingAssets", "yourVideoFile.mp4");
-        //#elif UNITY_ANDROID
-        //        videoPath = System.IO.Path.Combine(Application.persistentDataPath, "yourVideoFile.mp4");
-        //#endif
-
-        videoPath = System.IO.Path.Combine(Application.persistentDataPath, videoFileName);
-        if (System.IO.File.Exists(videoPath))
-        {
-            videoPlayer.url = videoPath;
-        }
-
-        videoPlayer.Stop();
-        playButton.onClick.AddListener(PlayVideo);
-        pauseButton.onClick.AddListener(PauseVideo);
+        _videoPlayer.loopPointReached += EnableNextButton;
+    }
+    
+    private void Start()
+    {
+        string videoPath = System.IO.Path.Combine(Application.persistentDataPath, _videoFileName);
+  
+        if (System.IO.File.Exists(videoPath)) _videoPlayer.url = videoPath;
     }
 
     public void PlayVideo()
     {
-        videoPlayer.Play();
+        _videoPlayer.Play();
     }
 
-    public void PauseVideo()
+    private void EnableNextButton(VideoPlayer vp)
     {
-        videoPlayer.Pause();
+        _nextButton.interactable = true;
     }
 }
