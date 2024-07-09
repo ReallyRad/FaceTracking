@@ -12,7 +12,6 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
     private Sharpen _maxSharpen;
     private ChannelMixer _maxChannelMixer;
     private WhiteBalance _maxWhiteBalance;
-    private Bloom _maxBloom;
     
     void Start()
     {
@@ -20,7 +19,6 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
         _maxVolumeProfile.TryGet(typeof(Sharpen), out _maxSharpen);
         _maxVolumeProfile.TryGet(typeof(ChannelMixer), out _maxChannelMixer);
         _maxVolumeProfile.TryGet(typeof(WhiteBalance), out _maxWhiteBalance);
-        _maxVolumeProfile.TryGet(typeof(Bloom), out _maxBloom);
     }
 
     public void Progress(float val) 
@@ -29,14 +27,13 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
         Sharpen sharpen;
         ChannelMixer channelMixer;
         WhiteBalance whiteBalance;
-        Bloom bloom;
         
         _volume.profile.TryGet(typeof(ColorAdjustments), out colorAdjustments);
         _volume.profile.TryGet(typeof(Sharpen), out sharpen);
         _volume.profile.TryGet(typeof(ChannelMixer), out channelMixer);
         _volume.profile.TryGet(typeof(WhiteBalance), out whiteBalance);
-        _volume.profile.TryGet(typeof(Bloom), out bloom);
 
+        
         colorAdjustments.postExposure.SetValue(new FloatParameter(val * _maxColorAdjustments.postExposure.value)); 
         colorAdjustments.contrast.SetValue(new FloatParameter(val * _maxColorAdjustments.contrast.value)); 
         colorAdjustments.hueShift.SetValue(new FloatParameter(val * _maxColorAdjustments.hueShift.value)); 
@@ -64,5 +61,6 @@ public class VolumeProfileProgressiveInterpolator : MonoBehaviour
         whiteBalance.temperature.SetValue(new FloatParameter(Utils.Map(val,0,1,0,_maxWhiteBalance.temperature.value)));
         whiteBalance.tint.SetValue(new FloatParameter(Utils.Map(val,0,1,0,_maxWhiteBalance.tint.value)));
         whiteBalance.SetDirty();
+        
     }
 }
