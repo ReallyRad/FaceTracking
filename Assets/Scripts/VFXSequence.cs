@@ -15,14 +15,11 @@ public class
     private void OnEnable()
     {
         Sequenceable.StartNextPhase += SequenceItemCompleted;
-        PostProcessingControl.PostProcessingCompleted += FirstPhaseCompleted;
     }
 
     private void OnDisable()
     {
         Sequenceable.StartNextPhase -= SequenceItemCompleted; 
-        PostProcessingControl.PostProcessingCompleted -= FirstPhaseCompleted;
-
     }
 
     private void Start()
@@ -32,7 +29,7 @@ public class
         MuteMixer(_mixer);
     }
 
-    private void MuteMixer(AudioMixer mixer)
+    private void MuteMixer(AudioMixer mixer) //TODO why do we need to mute the mixer agai? remove'
     {
         foreach (AudioMixerGroup group in mixer.FindMatchingGroups(""))
         {
