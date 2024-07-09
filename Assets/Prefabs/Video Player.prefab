@@ -376,5 +376,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effectRange: 0.78
-  _pseudoMovementRange: 0.15
+  _pseudoMovementRange: 0.2
   _psychoBlendAmount: 0
