@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Waiting.unity
     guid: cc943b64e5e69564f9d7bbb02eab9565
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PsychedelicGarden.unity
     guid: 7cc10109cbe342846883637e2741fd49
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/HoleGrowthGarden.unity
     guid: 09838448a1a44f8499c2766d5451d541
   - enabled: 1
