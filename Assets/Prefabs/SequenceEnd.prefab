@@ -54,3 +54,4 @@ MonoBehaviour:
   experimentStateSO: {fileID: 11400000, guid: 8acf5426713064c979a69d02f7710b52, type: 2}
   _subjectIDVariable: {fileID: 11400000, guid: d21862ba60a5e4fe0922d4ebbf2ced9f, type: 2}
   _experimentDataStorage: {fileID: 11400000, guid: 9d441e3fc228e49a9ad4ae4cc398ec22, type: 2}
+  _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
