@@ -107,7 +107,7 @@ public class PostProcessingControl : InteractiveSequenceable
 
                 _effectVolume
                     .GetComponent<HueShiftRotator>()
-                    .SetSaturation(Utils.Map(mappedProgress, 0, 1, 0, 0.117f));
+                    .SetSaturation(Utils.Map(mappedProgress, 0, 1, 0, 0.117f)); //TODO put max as parameter of hueshift script
                 
                 _effectVolume
                     .GetComponent<ModifyColorTuning>()
