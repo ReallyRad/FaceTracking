@@ -1,10 +1,19 @@
 
+
 Arthur :
 	- comprsesion on the garden music. make birds approximately 20% lower
 	- add transition from full fog to max fog at the beginning of the psychedelic scene
 	- also do the transition when back from the psychedelic scene 
 
+
+
 Backlog : 
+	- make sure passthrough is included 
+	- for the first 5 minutes, progressively, synced with the hole sound, fade in the natural soundtrack of the environment. 
+	- add Snow scene music to the hole scene, coming in after 2 minutes (5 minutes?), progressing with breathing and staying until the end
+	- make controller vibrate during the instruction video
+	- from scenario to post-rating, do an audio and visual fade 
+	- jittery and unreadable text from panels too far away.
 	- more saturation on the beach, a bit of hue shift
 	- disable vibration at beginning of scene
 	- Drones stopping abruplty
