@@ -5,14 +5,16 @@ Arthur :
 	- add transition from full fog to max fog at the beginning of the psychedelic scene
 	- also do the transition when back from the psychedelic scene 
 
+ 	- build the entire control scene. Add video player. decide on the interaction
 
 
 Backlog : 
+	- when the control scene is selected, don't show the instructions video 
 	- make sure passthrough is included 
 	- for the first 5 minutes, progressively, synced with the hole sound, fade in the natural soundtrack of the environment. 
 	- add Snow scene music to the hole scene, coming in after 2 minutes (5 minutes?), progressing with breathing and staying until the end
 	- make controller vibrate during the instruction video
-	- from scenario to post-rating, do an audio and visual fade 
+	- from scenario to post-rating, do an audio and visual fade. what kind of transition?
 	- jittery and unreadable text from panels too far away.
 	- more saturation on the beach, a bit of hue shift
 	- disable vibration at beginning of scene
