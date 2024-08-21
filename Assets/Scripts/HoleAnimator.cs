@@ -14,6 +14,9 @@ public class HoleAnimator : InteractiveSequenceable
     private Material material;
     //private float timer = 0.0f;
 
+    [SerializeField] private AudioSource _progressiveMusic;
+
+
     void Start()
     {
         material = GetComponent<Renderer>().material;
@@ -58,6 +61,8 @@ public class HoleAnimator : InteractiveSequenceable
                 holeRadius = Utils.Map(val, 0, 1, _initialValue, _finalValue);
                 material.SetFloat("_HoleRadius", holeRadius);
 
+                _progressiveMusic.volume = Utils.Map(val, 0, 1, _initialValue, _finalValue);
+                
             }
         }
     }

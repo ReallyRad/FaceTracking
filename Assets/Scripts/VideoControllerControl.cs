@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class VideoController : MonoBehaviour
+public class VideoControllerControl : MonoBehaviour
 {
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private string _videoFileName;
@@ -18,6 +18,8 @@ public class VideoController : MonoBehaviour
         string videoPath = System.IO.Path.Combine(Application.persistentDataPath, _videoFileName);
   
         if (System.IO.File.Exists(videoPath)) _videoPlayer.url = videoPath;
+
+        PlayVideo();
     }
 
     public void PlayVideo()
