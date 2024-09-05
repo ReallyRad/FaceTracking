@@ -17,7 +17,7 @@ public class WaitingRoomTransition : MonoBehaviour
 
     private float timeLeft;
     private bool timerRunning = false;
-    private float waitingDuration = 10;
+    private float waitingDuration = 20;
 
     [SerializeField] private IntVariable _selectedExperience;
     [SerializeField] private ExperimentStateSO experimentStateSO;

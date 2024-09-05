@@ -10,16 +10,21 @@ public class VideoControllerControl : MonoBehaviour
 
     private void OnEnable()
     {
-        _videoPlayer.loopPointReached += EnableNextButton;
+        //_videoPlayer.loopPointReached += EnableNextButton;
+
+        //PlayVideo();
     }
-    
+
     private void Start()
     {
         string videoPath = System.IO.Path.Combine(Application.persistentDataPath, _videoFileName);
   
         if (System.IO.File.Exists(videoPath)) _videoPlayer.url = videoPath;
 
+        Debug.Log("videoPath: " + videoPath);
+
         PlayVideo();
+
     }
 
     public void PlayVideo()

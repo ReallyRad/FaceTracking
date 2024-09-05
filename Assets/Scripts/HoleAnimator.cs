@@ -8,19 +8,20 @@ public class HoleAnimator : InteractiveSequenceable
     //public float duration;
     public float holeRadius;
 
-    public Texture2D surfaceTexture; 
-    public Color surfaceColor = Color.grey; 
+    //public Texture2D surfaceTexture; 
+    public Color surfaceColor; 
 
     private Material material;
     //private float timer = 0.0f;
 
     [SerializeField] private AudioSource _progressiveMusic;
+    [SerializeField] private AnimationCurve _musicProgressCurve;
 
 
     void Start()
     {
         material = GetComponent<Renderer>().material;
-        material.SetTexture("_MainTex", surfaceTexture);
+        //material.SetTexture("_MainTex", surfaceTexture);
         material.SetColor("_SurfaceColor", surfaceColor);
         //material.SetFloat("_HoleRadius", _initialValue);
     }
@@ -61,7 +62,8 @@ public class HoleAnimator : InteractiveSequenceable
                 holeRadius = Utils.Map(val, 0, 1, _initialValue, _finalValue);
                 material.SetFloat("_HoleRadius", holeRadius);
 
-                _progressiveMusic.volume = Utils.Map(val, 0, 1, _initialValue, _finalValue);
+                var musicVal = _musicProgressCurve.Evaluate(val);
+                _progressiveMusic.volume = Utils.Map(musicVal, 0, 1, _initialValue, _finalValue);
                 
             }
         }
