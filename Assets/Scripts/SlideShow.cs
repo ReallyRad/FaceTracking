@@ -25,15 +25,21 @@ public class SlideShow : MonoBehaviour
             foreach (GameObject preSlide in _preSlides)
                     preSlide.SetActive(false);
         
+        UpdateActiveSlides();
+
+    }
+
+    public void UpdateActiveSlides()
+    {
         _slides = new List<GameObject>();
-        foreach (Transform slide in transform) 
+        foreach (Transform slide in transform)
         {
             if (slide.gameObject.activeSelf) _slides.Add(slide.gameObject);
             slide.GetComponent<PanelDimmer>().Hide();
         }
-
-        _slides[0].GetComponentInChildren<PanelDimmer>().Show();
+        _slides[_slideIndex].GetComponentInChildren<PanelDimmer>().Show();        
     }
+
 
     public void NextButton()
     {   

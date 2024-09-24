@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.71
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -341,6 +341,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: timeToEndScene
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: timeToFadeFogIn
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4545683542436568873, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: m_Name
       value: SceneTimer
@@ -412,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 379486947210048758, guid: 06c40598bfd30c544a959cf598a3d78d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.71
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 379486947210048758, guid: 06c40598bfd30c544a959cf598a3d78d, type: 3}
       propertyPath: m_LocalRotation.w

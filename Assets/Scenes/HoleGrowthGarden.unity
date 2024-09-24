@@ -246,8 +246,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 9020207832503414688, guid: 6dee5cbd3b0b03d41b09d6e48cbf67fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020207832503414688, guid: 6dee5cbd3b0b03d41b09d6e48cbf67fa, type: 3}
       propertyPath: risingStart
-      value: 6
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020207832503414688, guid: 6dee5cbd3b0b03d41b09d6e48cbf67fa, type: 3}
+      propertyPath: risingDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9020207832503414689, guid: 6dee5cbd3b0b03d41b09d6e48cbf67fa, type: 3}
       propertyPath: m_Name
@@ -297,6 +305,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9020207832503414703, guid: 6dee5cbd3b0b03d41b09d6e48cbf67fa, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b5d22718b2bcf0498d9631d3cba7581, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6dee5cbd3b0b03d41b09d6e48cbf67fa, type: 3}
 --- !u!1001 &1121412703
@@ -349,6 +361,14 @@ PrefabInstance:
     - target: {fileID: 2175103039412891963, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: timeToEndScene
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: timeToFadeFogIn
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4545683542436568873, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: m_Name
