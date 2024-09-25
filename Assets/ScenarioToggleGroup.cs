@@ -14,11 +14,13 @@ public class ScenarioToggleGroup : MonoBehaviour
     [SerializeField] private GameObject _canvInstruction;
     [SerializeField] private GameObject _canvWelcome;
 
-    public static int waitingDuration;
-
     [SerializeField] private TextMeshProUGUI transitionTitle;
+    [SerializeField] private SlideShow slideShow;
 
-    public SlideShow slideShow;
+    [SerializeField] private GameObject vibrationManager;
+
+
+    public static int waitingDuration;
 
     public void SetExperience(int experience)
     {
@@ -32,6 +34,7 @@ public class ScenarioToggleGroup : MonoBehaviour
         {
             waitingDuration = 10;
             transitionTitle.text = "Super! Jetzt weisst du, wie du langsames Atmen richtig anwendest.\r\n\r\n\r\nWenn du bereit bist, drücke auf OK, um mit dem 10-min. Slow-Paced Breathing Trainingsprogramm zu starten.\r\n\r\n";
+            DontDestroyOnLoad(vibrationManager);
         }
         else if (_experienceVariable.Value == 1)
         {
@@ -45,6 +48,7 @@ public class ScenarioToggleGroup : MonoBehaviour
         {
             waitingDuration = 2;
             transitionTitle.text = "Super! Jetzt weisst du, wie du langsames Atmen richtig anwendest.\r\n\r\n\r\nWenn du bereit bist, drücke auf OK, um mit dem 10-min. Slow-Paced Breathing Trainingsprogramm zu starten.\r\n\r\n";
+            DontDestroyOnLoad(vibrationManager);
         }
     }
 }

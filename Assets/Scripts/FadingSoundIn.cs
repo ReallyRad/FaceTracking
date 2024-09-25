@@ -23,6 +23,7 @@ public class FadingSoundIn : MonoBehaviour
     }
     IEnumerator SoundFadingIn()
     {
+        _sound.Play();
         _sound.volume = initialVolume;
         float startTime = Time.time;
 

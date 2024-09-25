@@ -11,7 +11,7 @@ public class SlideShow : MonoBehaviour
     [SerializeField] private List<GameObject> _preSlides;
     [SerializeField] private List<GameObject> _postSlides;
     [SerializeField] private ExperimentStateSO _experimentStateSO;
-    
+
     private int _slideIndex;
     private bool _showing;
 
@@ -26,7 +26,6 @@ public class SlideShow : MonoBehaviour
                     preSlide.SetActive(false);
         
         UpdateActiveSlides();
-
     }
 
     public void UpdateActiveSlides()

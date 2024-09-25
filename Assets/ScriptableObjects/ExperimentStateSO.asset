@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559c51018940149c9aea2c2caf20620f, type: 3}
   m_Name: ExperimentStateSO
   m_EditorClassIdentifier: 
-  experimentState: 1
+  experimentState: 0
