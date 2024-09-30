@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.418
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -343,11 +343,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: timeToEndScene
-      value: 50
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: timeToFadeFogIn
-      value: 30
+      value: 580
       objectReference: {fileID: 0}
     - target: {fileID: 4545683542436568873, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: m_Name

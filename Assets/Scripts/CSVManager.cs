@@ -28,7 +28,9 @@ public class CSVManager : MonoBehaviour
             foreach (var state in Enum.GetValues(typeof(ExperimentState)))
                 _experimentDataStorage.experimentDataDictionary.Add(answerType + "_" + state, "");
 
-        _experimentDataStorage.experimentDataDictionary.Add("Timestamp" , "");
+
+        string timeStamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm");
+        _experimentDataStorage.experimentDataDictionary.Add("Timestamp" , timeStamp);
     }
     
     public void NewDataAvailableForDictionary()

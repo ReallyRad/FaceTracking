@@ -24,6 +24,7 @@ public class HoleAnimator : InteractiveSequenceable
         //material.SetTexture("_MainTex", surfaceTexture);
         material.SetColor("_SurfaceColor", surfaceColor);
         //material.SetFloat("_HoleRadius", _initialValue);
+        _progressiveMusic.volume = 0f;
     }
 
     
@@ -62,8 +63,8 @@ public class HoleAnimator : InteractiveSequenceable
                 holeRadius = Utils.Map(val, 0, 1, _initialValue, _finalValue);
                 material.SetFloat("_HoleRadius", holeRadius);
 
-                var musicVal = _musicProgressCurve.Evaluate(val);
-                _progressiveMusic.volume = Utils.Map(musicVal, 0, 1, _initialValue, _finalValue);
+                //var musicVal = _musicProgressCurve.Evaluate(val);
+                //_progressiveMusic.volume = Utils.Map(musicVal, 0, 1, _initialValue, _finalValue);
                 
             }
         }

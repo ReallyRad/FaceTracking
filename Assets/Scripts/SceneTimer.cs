@@ -22,8 +22,11 @@ public class SceneTimer : MonoBehaviour
     {
         Scene currentScene = SceneManager.GetActiveScene();
         currentSceneName = currentScene.name;
+        
+
         StartCoroutine(StartEndSceneWithDelay());
         StartCoroutine(StartFogFadingInWithDelay());
+
     }
 
     IEnumerator StartEndSceneWithDelay()
