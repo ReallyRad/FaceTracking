@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: timeToEndScene
-      value: 600
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: timeToFadeFogIn
@@ -597,8 +597,8 @@ MonoBehaviour:
   _sound: {fileID: 1477084840}
   initialVolume: 0
   finalVolume: 1
-  risingDuration: 30
-  risingStart: 30
+  risingDuration: 450
+  risingStart: 150
 --- !u!1001 &1569188447
 PrefabInstance:
   m_ObjectHideFlags: 0
