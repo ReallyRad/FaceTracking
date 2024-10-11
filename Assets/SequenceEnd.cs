@@ -23,6 +23,6 @@ public class SequenceEnd : Sequenceable
         //TODO add fog transition here if necessary 
         yield return new WaitForSeconds(5);
         experimentStateSO.experimentState = ExperimentState.post; //load the new scene, this time as post questionnaire
-        SceneManager.LoadScene("Waiting");
+        //SceneManager.LoadScene("Waiting");
     }
 }
