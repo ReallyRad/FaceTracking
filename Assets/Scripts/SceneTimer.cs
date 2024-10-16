@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,20 +20,33 @@ public class SceneTimer : MonoBehaviour
     public float initialDensity = 0;
     public float finalDensity = 1;
 
+    private List<float> exhaleDurationsList = new List<float>();
+    public CSVManager csvManager;
+
     void Start()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        currentSceneName = currentScene.name;
-        
+        currentSceneName = currentScene.name;        
 
         StartCoroutine(StartEndSceneWithDelay());
         StartCoroutine(StartFogFadingInWithDelay());
-
     }
 
     IEnumerator StartEndSceneWithDelay()
     {
         yield return new WaitForSeconds(timeToEndScene);
+
+        if (csvManager != null) 
+        {
+            csvManager._experimentDataStorage.experimentDataDictionary["exhaleCount"] = exhaleDurationsList.Count.ToString();
+            csvManager._experimentDataStorage.experimentDataDictionary["exhaleSum"] = exhaleDurationsList.Sum().ToString();
+            csvManager._experimentDataStorage.experimentDataDictionary["exhaleEffective"] = exhaleDurationsList.Select(value => value - 2000)
+                                                                                                               .Where(result => result > 0)
+                                                                                                               .Sum()
+                                                                                                               .ToString();
+            csvManager.NewDataAvailableForDictionary();
+        }
+
         SceneManager.LoadScene(nextSceneName);
     }
 
@@ -55,5 +70,20 @@ public class SceneTimer : MonoBehaviour
         }
 
         fog.settings.density = finalDensity;
+    }
+
+    void OnEnable()
+    {
+        ProgressManager._OnPuckerStopwatchReset += HandleStopwatchReset;
+    }
+
+    void OnDisable()
+    {
+        ProgressManager._OnPuckerStopwatchReset -= HandleStopwatchReset;
+    }
+
+    private void HandleStopwatchReset(float progressInMilliseconds)
+    {
+        exhaleDurationsList.Add(progressInMilliseconds);
     }
 }

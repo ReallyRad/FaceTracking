@@ -13,7 +13,7 @@ public class CSVManager : MonoBehaviour
     [SerializeField] private IntVariable _selectedExperience;
     [SerializeField] private ExperimentStateSO _experimentStateSO; //stores pre/post state accross scenes
     [SerializeField] private ExperimentData _experimentData; //contains one VAS answers
-    [SerializeField] private ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
+    public ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
     
     private void Start ()
     {
@@ -31,8 +31,12 @@ public class CSVManager : MonoBehaviour
 
         string timeStamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm");
         _experimentDataStorage.experimentDataDictionary.Add("Timestamp" , timeStamp);
+
+        _experimentDataStorage.experimentDataDictionary.Add("exhaleCount", "");
+        _experimentDataStorage.experimentDataDictionary.Add("exhaleSum", "");
+        _experimentDataStorage.experimentDataDictionary.Add("exhaleEffective", "");
     }
-    
+
     public void NewDataAvailableForDictionary()
     {
         _experimentDataStorage.experimentDataDictionary["PID"] = _subjectIDVariable.Value;
@@ -46,6 +50,9 @@ public class CSVManager : MonoBehaviour
                 _experimentDataStorage.experimentDataDictionary[answerType + "_" + state] = _experimentData.answerValue;
             }
         }
+
+
+
         string path = Path.Combine(Application.persistentDataPath, _subjectIDVariable.Value + "_log.csv");
     
         String csv = String.Join(

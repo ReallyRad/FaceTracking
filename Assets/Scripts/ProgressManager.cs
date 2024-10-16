@@ -1,3 +1,4 @@
+using System;
 using System.Diagnostics;
 using UnityEngine;
 
@@ -17,6 +18,10 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
     private float _previousElapsed;
     private float _progressDuration;
 
+
+    //public event Action<float> OnPuckerStopwatchReset;
+    public delegate void OnPuckerStopwatchReset(float exhaleDuration);
+    public static OnPuckerStopwatchReset _OnPuckerStopwatchReset;
 
     private void OnEnable()
     {
@@ -74,6 +79,8 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
         {
             _puckerStopwatch.Stop();
             if (_progressTween != 0) LeanTween.pause(_progressTween);
+
+            _OnPuckerStopwatchReset(_puckerStopwatch.ElapsedMilliseconds);
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
     }
