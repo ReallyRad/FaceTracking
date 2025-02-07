@@ -51,8 +51,6 @@ public class CSVManager : MonoBehaviour
             }
         }
 
-
-
         string path = Path.Combine(Application.persistentDataPath, _subjectIDVariable.Value + "_log.csv");
     
         String csv = String.Join(

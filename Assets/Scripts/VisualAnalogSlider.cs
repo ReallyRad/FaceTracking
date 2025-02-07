@@ -2,9 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class VisualAnalogSlider : MonoBehaviour
+public class VisualAnalogSlider : MonoBehaviour, IPointerUpHandler
 {
     private bool _modified;
     [SerializeField] private Slider _slider;
@@ -24,4 +25,8 @@ public class VisualAnalogSlider : MonoBehaviour
         }
     }
     
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        GetComponent<ResponseLogger>().SetValue(_slider.value);
+    }
 }
