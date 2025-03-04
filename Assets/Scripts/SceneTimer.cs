@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using VolumetricFogAndMist2;
 
-public class SceneTimer : MonoBehaviour
+public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal CSV writing methods
 {
     private string currentSceneName;
     public string nextSceneName; 
@@ -38,11 +38,11 @@ public class SceneTimer : MonoBehaviour
 
         if (csvManager != null) 
         {
+            //TODO use normal CSV writing method
             csvManager._experimentDataStorage.experimentDataDictionary["exhaleCount"] = exhaleDurationsList.Count.ToString();
             csvManager._experimentDataStorage.experimentDataDictionary["exhaleSum"] = exhaleDurationsList.Sum().ToString();
             csvManager._experimentDataStorage.experimentDataDictionary["exhaleEffective"] = exhaleDurationsList.Select(value => value - 2000)
                                                                                                                .Where(result => result > 0)
-                                                                                                               .Sum()
                                                                                                                .ToString();
             csvManager.NewDataAvailableForDictionary();
         }
@@ -53,7 +53,7 @@ public class SceneTimer : MonoBehaviour
     IEnumerator StartFogFadingInWithDelay()
     {
         yield return new WaitForSeconds(timeToFadeFogIn);
-        if (currentSceneName == "PsychedelicGarden")
+        if (currentSceneName == "PsychedelicGarden") //TODO switch to snow
         {
             StartCoroutine(FogFadingInAtTheEnd());
         }
@@ -74,12 +74,12 @@ public class SceneTimer : MonoBehaviour
 
     void OnEnable()
     {
-        ProgressManager._OnPuckerStopwatchReset += HandleStopwatchReset;
+        ProgressManager.PuckerStopwatchReset += HandleStopwatchReset;
     }
 
     void OnDisable()
     {
-        ProgressManager._OnPuckerStopwatchReset -= HandleStopwatchReset;
+        ProgressManager.PuckerStopwatchReset -= HandleStopwatchReset;
     }
 
     private void HandleStopwatchReset(float progressInMilliseconds)

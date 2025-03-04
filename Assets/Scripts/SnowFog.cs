@@ -9,18 +9,12 @@ public class SnowFog : InteractiveSequenceable
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
     [SerializeField] private float _interactiveVal;
-    [SerializeField] private Transform _head;
     [SerializeField] private float _windFinalSpeed;
     [SerializeField] private float _windInitialSpeed;
 
-
-
-
-    private float intensityValue;
+    private float _intensityValue;
     private int _interactTween;
     private int _decayTween;
-
-    
 
     public override void Initialize()
     {
@@ -71,6 +65,7 @@ public class SnowFog : InteractiveSequenceable
             })
             .id;
     }
+    
     protected override void Progress(float progress)
     {
         if (_active)
@@ -91,8 +86,8 @@ public class SnowFog : InteractiveSequenceable
                 if (_transitioning && !wasTransitioning) StartNextPhase(this); //notify progressmanager to starting next phase 
 
                 var val = _progressCurve.Evaluate(_localProgress / _completedAt);
-                intensityValue = Utils.Map(val, 0, 1, _initialValue, _finalValue);
-                fog.settings.density = intensityValue;
+                _intensityValue = Utils.Map(val, 0, 1, _initialValue, _finalValue);
+                fog.settings.density = _intensityValue;
             }
         }
     }
