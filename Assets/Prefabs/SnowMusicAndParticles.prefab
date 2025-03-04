@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2841726827577891878}
   - component: {fileID: 2841726827577891877}
   m_Layer: 0
-  m_Name: SnowMusic
+  m_Name: SnowMusicAndParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

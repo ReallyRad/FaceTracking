@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SnowMusic : ProgressiveSequenceable //TODO rename - this is doing music and intensity 
+public class SnowMusicAndParticles : ProgressiveSequenceable //TODO rename - this is doing music and intensity 
 {
     [SerializeField] private AudioSource _progressiveMusic;
     [SerializeField] private ParticleSystem _snowPS;
