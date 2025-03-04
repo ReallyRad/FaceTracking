@@ -5,12 +5,13 @@ using System.Diagnostics;
 using Metaface.Debug;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class FaceTrackingManager : MonoBehaviour
 {
-    [SerializeField] private OVRFaceExpressions faceExpressions;
+    [SerializeField] private OVRFaceExpressions _faceExpressions;
 
     [Range(-0.065f, 0.0f)]
     [SerializeField] private float _mouthValue;
@@ -68,9 +69,9 @@ public class FaceTrackingManager : MonoBehaviour
     {
         float w;
         Vector2 expressionVector = new Vector2();
-        faceExpressions.TryGetFaceExpressionWeight(key1, out w);
+        _faceExpressions.TryGetFaceExpressionWeight(key1, out w);
         expressionVector.x = w;
-        faceExpressions.TryGetFaceExpressionWeight(key2, out w);
+        _faceExpressions.TryGetFaceExpressionWeight(key2, out w);
         expressionVector.y = w;
 
         return expressionVector;

@@ -970,7 +970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bee8fffe36c294aa13bc3dc220bfe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceExpressions: {fileID: 3320106019619302950}
+  _faceExpressions: {fileID: 3320106019619302950}
   _mouthValue: 0
   _puckerThreshold: -0.03
   _manualSmileControl: 0
