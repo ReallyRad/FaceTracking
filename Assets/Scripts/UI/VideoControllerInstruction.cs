@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class VideoControllerInstruction : MonoBehaviour
+public class VideoControllerInstruction : MonoBehaviour //TODO cleanup
 {
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private string _videoFileName;

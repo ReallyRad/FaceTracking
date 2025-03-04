@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WelcomeTransitionInControlScene : MonoBehaviour
+public class WelcomeTransitionInControlScene : MonoBehaviour //TODO find another way to do that
 {
     public GameObject CanvControlVideo;
     public GameObject CanvWelcome;

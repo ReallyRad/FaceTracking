@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FadingSoundIn : MonoBehaviour
+public class FadingSoundIn : MonoBehaviour //TODO cleanup
 {
     [SerializeField] private AudioSource _sound;
     [SerializeField] private float initialVolume;

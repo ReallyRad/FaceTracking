@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SnowMusic : ProgressiveSequenceable
+public class SnowMusic : ProgressiveSequenceable //TODO rename - this is doing music and intensity 
 {
     [SerializeField] private AudioSource _progressiveMusic;
     [SerializeField] private ParticleSystem _snowPS;
@@ -37,11 +37,11 @@ public class SnowMusic : ProgressiveSequenceable
 
                 var val = _musicProgressionCurve.Evaluate(_localProgress / _completedAt);
                 _progressiveMusic.volume = Utils.Map(val, 0, 1, _initialValue, _finalValue);
+                
                 var emission = _snowPS.emission;
                 emission.rateOverTime = Utils.Map(val, 0, 1, _initialSnowHeaviness, _finalSnowHeaviness);
             }
         }
     }
-
 
 }

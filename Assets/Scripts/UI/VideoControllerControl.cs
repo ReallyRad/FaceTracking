@@ -2,18 +2,11 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class VideoControllerControl : MonoBehaviour
+public class VideoControllerControl : MonoBehaviour //TODO cleanup
 {
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private string _videoFileName;
     [SerializeField] private Button _nextButton;
-
-    private void OnEnable()
-    {
-        //_videoPlayer.loopPointReached += EnableNextButton;
-
-        //PlayVideo();
-    }
 
     private void Start()
     {
@@ -24,7 +17,6 @@ public class VideoControllerControl : MonoBehaviour
         Debug.Log("videoPath: " + videoPath);
 
         PlayVideo();
-
     }
 
     public void PlayVideo()

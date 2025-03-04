@@ -8,7 +8,7 @@ using ScriptableObjectArchitecture;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class WaitingRoomTransition : MonoBehaviour
+public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
 {
     public VolumetricFog fog;
     public AnimationCurve curve;
