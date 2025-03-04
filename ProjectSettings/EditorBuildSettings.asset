@@ -5,18 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Waiting.unity
     guid: cc943b64e5e69564f9d7bbb02eab9565
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PsychedelicGarden.unity
     guid: 7cc10109cbe342846883637e2741fd49
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Control.unity
     guid: f727c64bff0863244ab922c629fefe1f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/HoleGrowthGarden.unity
     guid: 09838448a1a44f8499c2766d5451d541
+  - enabled: 0
+    path: Assets/Scenes/NightSky.unity
+    guid: 0abacd7544316d141a2454c238f9695b
+  - enabled: 1
+    path: Assets/Scenes/Snow.unity
+    guid: fb98ecae36ffcfc41af03089171ff0ba
+  - enabled: 0
+    path: Assets/Scenes/Beach.unity
+    guid: e68076cdba1142246b241ab079bd6100
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2f06d0d5929f48944ab4a04a530da67f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7fc7416be8dfeba4c9cf61bc86e8ffb1, type: 2}
