@@ -21,7 +21,7 @@ public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal 
     public float finalDensity = 1;
 
     private List<float> exhaleDurationsList = new List<float>();
-    public CSVManager csvManager;
+    public CSVManager csvManager; //TODO don't reference an object within the scene
 
     void Start()
     {
