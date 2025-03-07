@@ -5,7 +5,7 @@ public class SnowSlowing : InteractiveSequenceable
     [SerializeField] private ParticleSystem _snowPS;
     [SerializeField] private float _interactiveVal;
 
-    private int _interactTween;
+    private int _interactTween; 
     private int _decayTween;
 
     public delegate void OnSnowSlowingInitialized();

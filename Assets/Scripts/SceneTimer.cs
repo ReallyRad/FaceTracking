@@ -12,11 +12,11 @@ public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal 
     private string currentSceneName;
     public string nextSceneName; 
     
-    public float timeToEndScene;
+    public float timeToEndScene; //TODO use private serializable instead of public
     public float timeToFadeFogIn;
     public float fadeInDuration;
 
-    public VolumetricFog fog;
+    public VolumetricFog fog; //TODO shouldn't be accessing fog from somewhere eles in hierarchy
     public float initialDensity = 0;
     public float finalDensity = 1;
 
