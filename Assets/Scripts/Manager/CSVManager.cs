@@ -13,7 +13,7 @@ public class CSVManager : MonoBehaviour
     [SerializeField] private IntVariable _selectedExperience;
     [SerializeField] private ExperimentStateSO _experimentStateSO; //stores pre/post state accross scenes
     [SerializeField] private ExperimentData _experimentData; //contains one VAS answers
-    public ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
+    [SerializeField] private ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
     
     private void Start ()
     {

@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using VolumetricFogAndMist2;
 using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
 {
@@ -17,25 +12,15 @@ public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
 
     private float timeLeft;
     private bool timerRunning = false;
-    //private float waitingDuration;
 
     [SerializeField] private IntVariable _selectedExperience;
     [SerializeField] private ExperimentStateSO experimentStateSO;
-    void Start()
+    private void Start()
     {
         fog.settings.density = minDensityVolume;
-
-        //if (_selectedExperience == (int)Experience.PsychedelicGarden) waitingDuration = 15;
-        //else waitingDuration = 1;
-    }
-    
-    public void StartTimer(float duration)
-    {
-        timeLeft = duration;
-        timerRunning = true;
     }
 
-    void Update()
+    private void Update()
     {
         if (timerRunning)
         {
@@ -44,11 +29,7 @@ public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
             {
                 timeLeft = 0;
                 timerRunning = false;
-
                 SceneManager.LoadScene(((Experience) _selectedExperience.Value).ToString());
-
-                //Debug.Log("YYYYYYY" + ((Experience)_selectedExperience.Value).ToString());
-                //StartCoroutine(LoadNewScene(((Experience)_selectedExperience.Value).ToString()));
             }
            
             var normalVal = curve.Evaluate((ScenarioToggleGroup.waitingDuration - timeLeft) / ScenarioToggleGroup.waitingDuration);
@@ -70,23 +51,10 @@ public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
             Application.Quit();
         }
     }
-
-    private IEnumerator LoadNewScene(string newSceneName)
+    
+    private void StartTimer(float duration)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(newSceneName, LoadSceneMode.Additive);
-        asyncLoad.allowSceneActivation = false;
-
-        while (asyncLoad.progress < 0.9f)
-        {
-            yield return null;
-        }
-
-        asyncLoad.allowSceneActivation = true;
-
-        yield return new WaitUntil(() => asyncLoad.isDone);
-
-        Debug.Log("AFTER ASYNC");
-
-        SceneManager.UnloadSceneAsync("Waiting");
+        timeLeft = duration;
+        timerRunning = true;
     }
 }

@@ -5,85 +5,86 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using VolumetricFogAndMist2;
 
 public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal CSV writing methods
 {
-    private string currentSceneName;
-    public string nextSceneName; 
+    [SerializeField] private string _nextSceneName; 
     
-    public float timeToEndScene; //TODO use private serializable instead of public
-    public float timeToFadeFogIn;
-    public float fadeInDuration;
+    [SerializeField] private float _timeToEndScene; 
+    [SerializeField] private float _timeToFadeFogIn;
+    [SerializeField] private float _fadeInDuration;
 
-    public VolumetricFog fog; //TODO shouldn't be accessing fog from somewhere eles in hierarchy
-    public float initialDensity = 0;
-    public float finalDensity = 1;
+    [SerializeField] private VolumetricFog _fog; //TODO shouldn't be accessing fog from somewhere eles in hierarchy
+    [SerializeField] private float initialDensity = 0;
+    [SerializeField] private float finalDensity = 1;
 
-    private List<float> exhaleDurationsList = new List<float>();
-    public CSVManager csvManager; //TODO don't reference an object within the scene
-
-    void Start()
+    [SerializeField] private  CSVManager _csvManager; //TODO don't reference an object within the scene
+    
+    private string _currentSceneName;
+    private List<float> _exhaleDurationsList = new List<float>();
+    
+    private void OnEnable()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        currentSceneName = currentScene.name;        
+        ProgressManager.PuckerStopwatchReset += HandleStopwatchReset;
+    }
+
+    private void OnDisable()
+    {
+        ProgressManager.PuckerStopwatchReset -= HandleStopwatchReset;
+    }
+
+    private void Start()
+    {
+        _currentSceneName = SceneManager.GetActiveScene().name;        
 
         StartCoroutine(StartEndSceneWithDelay());
         StartCoroutine(StartFogFadingInWithDelay());
     }
 
-    IEnumerator StartEndSceneWithDelay()
+    private IEnumerator StartEndSceneWithDelay()
     {
-        yield return new WaitForSeconds(timeToEndScene);
+        yield return new WaitForSeconds(_timeToEndScene);
 
-        if (csvManager != null) 
+        if (_csvManager != null) 
         {
             //TODO use normal CSV writing method
-            csvManager._experimentDataStorage.experimentDataDictionary["exhaleCount"] = exhaleDurationsList.Count.ToString();
-            csvManager._experimentDataStorage.experimentDataDictionary["exhaleSum"] = exhaleDurationsList.Sum().ToString();
-            csvManager._experimentDataStorage.experimentDataDictionary["exhaleEffective"] = exhaleDurationsList.Select(value => value - 2000)
+            _csvManager._experimentDataStorage.experimentDataDictionary["exhaleCount"] = _exhaleDurationsList.Count.ToString();
+            _csvManager._experimentDataStorage.experimentDataDictionary["exhaleSum"] = _exhaleDurationsList.Sum().ToString();
+            _csvManager._experimentDataStorage.experimentDataDictionary["exhaleEffective"] = _exhaleDurationsList.Select(value => value - 2000)
                                                                                                                .Where(result => result > 0)
                                                                                                                .ToString();
-            csvManager.NewDataAvailableForDictionary();
+            _csvManager.NewDataAvailableForDictionary();
         }
 
-        SceneManager.LoadScene(nextSceneName);
+        SceneManager.LoadScene(_nextSceneName);
     }
 
-    IEnumerator StartFogFadingInWithDelay()
+    private IEnumerator StartFogFadingInWithDelay()
     {
-        yield return new WaitForSeconds(timeToFadeFogIn);
-        if (currentSceneName == "PsychedelicGarden") //TODO switch to snow
+        yield return new WaitForSeconds(_timeToFadeFogIn);
+        if (_currentSceneName == "PsychedelicGarden") //TODO switch to snow
         {
             StartCoroutine(FogFadingInAtTheEnd());
         }
     }
-    IEnumerator FogFadingInAtTheEnd()
+    private IEnumerator FogFadingInAtTheEnd()
     {
-        fog.settings.density = initialDensity;
+        _fog.settings.density = initialDensity;
         float startTime = Time.time;
 
-        while (Time.time < startTime + fadeInDuration)
+        while (Time.time < startTime + _fadeInDuration)
         {
-            fog.settings.density = Mathf.Lerp(initialDensity, finalDensity, (Time.time - startTime) / fadeInDuration);
+            _fog.settings.density = Mathf.Lerp(initialDensity, finalDensity, (Time.time - startTime) / _fadeInDuration);
             yield return null;
         }
 
-        fog.settings.density = finalDensity;
-    }
-
-    void OnEnable()
-    {
-        ProgressManager.PuckerStopwatchReset += HandleStopwatchReset;
-    }
-
-    void OnDisable()
-    {
-        ProgressManager.PuckerStopwatchReset -= HandleStopwatchReset;
+        _fog.settings.density = finalDensity;
     }
 
     private void HandleStopwatchReset(float progressInMilliseconds)
     {
-        exhaleDurationsList.Add(progressInMilliseconds);
+        _exhaleDurationsList.Add(progressInMilliseconds);
     }
 }

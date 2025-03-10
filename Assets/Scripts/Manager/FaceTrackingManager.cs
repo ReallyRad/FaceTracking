@@ -11,6 +11,12 @@ using Debug = UnityEngine.Debug;
 
 public class FaceTrackingManager : MonoBehaviour
 {
+    public delegate void OnMouthValue(float mouthValue);
+    public static OnMouthValue MouthValue;
+
+    public delegate void OnPuckerTrigger(bool pucker);
+    public static OnPuckerTrigger PuckerTrigger;
+
     [SerializeField] private OVRFaceExpressions _faceExpressions;
 
     [Range(-0.065f, 0.0f)]
@@ -22,15 +28,10 @@ public class FaceTrackingManager : MonoBehaviour
 
     [SerializeField] private bool _autoDebugBreathing;
     [SerializeField] private float _debugBreathRate;
-
-    public delegate void OnMouthValue(float mouthValue);
-    public static OnMouthValue MouthValue;
-
-    public delegate void OnPuckerTrigger(bool pucker);
-    public static OnPuckerTrigger PuckerTrigger;
-
+    
     private bool _sendMouthValue;
     private float _previousMouthValue;
+    
     private void Update()
     {
         Vector2 lipPucker = new Vector2();
