@@ -18,5 +18,5 @@ public class ExperimentData : ScriptableObject
     [Header("Experiment Data")]
     public QuestionnaireAnswerType answerType;
     public string answerValue;
-    public DateTime timestamp;
+    
 }

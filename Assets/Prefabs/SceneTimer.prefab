@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20cb714ac2dd2c245a2ce3c53009a023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Waiting
-  timeToEndScene: 600
-  timeToFadeFogIn: 580
-  fadeInDuration: 20
-  fog: {fileID: 0}
+  _nextSceneName: 
+  _timeToEndScene: 600
+  _timeToFadeFogIn: 580
+  _fadeInDuration: 20
+  _fog: {fileID: 0}
   initialDensity: 0
   finalDensity: 1
+  _csvManager: {fileID: 0}

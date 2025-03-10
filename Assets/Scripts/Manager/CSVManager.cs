@@ -14,7 +14,21 @@ public class CSVManager : MonoBehaviour
     [SerializeField] private ExperimentStateSO _experimentStateSO; //stores pre/post state accross scenes
     [SerializeField] private ExperimentData _experimentData; //contains one VAS answers
     [SerializeField] private ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
-    
+
+    private List<float> _exhaleDurationsList = new List<float>();
+
+    private void OnEnable()
+    {
+        ProgressManager.ExhaleEnded += LogExhaleDuration;
+        SceneTimer.SceneFinished += LogExhales;
+    }
+
+    private void OnDisable()
+    {
+        ProgressManager.ExhaleEnded -= LogExhaleDuration;
+        SceneTimer.SceneFinished -= LogExhales;
+    }
+
     private void Start ()
     {
         var fields = typeof(ExperimentData).GetFields();
@@ -37,7 +51,7 @@ public class CSVManager : MonoBehaviour
         _experimentDataStorage.experimentDataDictionary.Add("exhaleEffective", "");
     }
 
-    public void NewDataAvailableForDictionary()
+    public void NewDataAvailableForDictionary() //write data to csv
     {
         _experimentDataStorage.experimentDataDictionary["PID"] = _subjectIDVariable.Value;
         _experimentDataStorage.experimentDataDictionary["Experience"] = ((Experience) _selectedExperience.Value).ToString();
@@ -59,6 +73,21 @@ public class CSVManager : MonoBehaviour
         );
     
         File.WriteAllText(path, csv);
+    }
+
+    private void LogExhaleDuration(float progressInMilliseconds)
+    {
+        _exhaleDurationsList.Add(progressInMilliseconds);
+    }
+    
+    private void LogExhales() //bypassing experimentData data writing here. the advantage it has was to make sure data is logged as we go, instead of at the end of the scene
+    {
+        _experimentDataStorage.experimentDataDictionary["exhaleCount"] = _exhaleDurationsList.Count.ToString();
+        _experimentDataStorage.experimentDataDictionary["exhaleSum"] = _exhaleDurationsList.Sum().ToString();
+        _experimentDataStorage.experimentDataDictionary["exhaleEffective"] = _exhaleDurationsList.Select(value => value - 2000)
+            .Where(result => result > 0)
+            .ToString();
+        NewDataAvailableForDictionary();
     }
     
 }

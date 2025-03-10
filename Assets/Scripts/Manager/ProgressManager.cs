@@ -7,8 +7,8 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
     public delegate void OnProgress(float progress);
     public static OnProgress Progress;
     
-    public delegate void OnPuckerStopwatchReset(float exhaleDuration);
-    public static OnPuckerStopwatchReset PuckerStopwatchReset;
+    public delegate void OnNewBreathOutFinished(float exhaleDuration); 
+    public static OnNewBreathOutFinished ExhaleEnded;
     
     [SerializeField] private float _startProgressAt;
     [SerializeField] private float _endProgressAt;
@@ -78,7 +78,7 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
             _puckerStopwatch.Stop();
             if (_progressTween != 0) LeanTween.pause(_progressTween);
 
-            PuckerStopwatchReset(_puckerStopwatch.ElapsedMilliseconds);
+            ExhaleEnded(_puckerStopwatch.ElapsedMilliseconds);
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
     }
