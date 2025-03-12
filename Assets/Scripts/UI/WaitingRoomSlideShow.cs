@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class WaitingRoomSlideShow : SlideShow
 {
-    
     [SerializeField] private List<GameObject> _preSlides; //slides to keep in pre
     [SerializeField] private List<GameObject> _postSlides; //slides to keep in post
     [SerializeField] private ExperimentStateSO _experimentStateSO;
-
 
     private void Start()
     {
@@ -23,7 +21,5 @@ public class WaitingRoomSlideShow : SlideShow
         
         UpdateActiveSlides();
     }
-
-    
 
 }

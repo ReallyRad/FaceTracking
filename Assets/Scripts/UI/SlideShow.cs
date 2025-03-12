@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
@@ -7,8 +8,12 @@ public class SlideShow : MonoBehaviour
 {
     [SerializeField] protected GameEvent _slideShowFinished;
     [SerializeField] protected List<GameObject> _slides;
-    protected int _slideIndex;
-    protected bool _showing;
+    private int _slideIndex;
+
+    private void Start()
+    {
+        UpdateActiveSlides();
+    }
 
     public void UpdateActiveSlides()
     {
@@ -18,7 +23,7 @@ public class SlideShow : MonoBehaviour
             if (slide.gameObject.activeSelf) _slides.Add(slide.gameObject);
             slide.GetComponent<PanelDimmer>().Hide();
         }
-        _slides[_slideIndex].GetComponentInChildren<PanelDimmer>().Show();        
+        _slides[_slideIndex].GetComponentInChildren<PanelDimmer>().Show(); //TODO check if should use slide index or 0       
     }
     
     public void NextButton()
@@ -40,7 +45,6 @@ public class SlideShow : MonoBehaviour
     private void Hide() 
     {
         _slides[_slideIndex].GetComponent<PanelDimmer>().Hide();
-        _showing = false;
         _slideIndex = 0;
     }
 }
