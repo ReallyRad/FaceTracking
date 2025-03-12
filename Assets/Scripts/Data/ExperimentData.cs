@@ -8,7 +8,7 @@ public enum QuestionnaireAnswerType {
     anxiety
 }
 
-public enum Experience {PsychedelicGarden, Control, HoleGrowthGarden} //TODO update names
+public enum Experience {Snow, Control, HoleGrowthSnow} 
 
 [CreateAssetMenu]
 public class ExperimentData : ScriptableObject

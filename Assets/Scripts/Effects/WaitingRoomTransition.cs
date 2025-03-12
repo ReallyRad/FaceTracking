@@ -37,12 +37,12 @@ public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
            
             var normalVal = curve.Evaluate((_waitingDuration - timeLeft) / _waitingDuration);
             var realVal = Utils.Map(normalVal, 0, 1, minDensityVolume, maxDensityVolume);
-            if (_selectedExperience == (int) Experience.PsychedelicGarden) 
-                fog.settings.density = realVal;
+            
+            if (_selectedExperience == (int) Experience.Snow) fog.settings.density = realVal;
         }
     }
 
-    public void ExperienceSelected()
+    public void ExperienceSelected() 
     {
         if (_selectedExperience.Value == (int) Experience.Control) _waitingDuration = 10;
         else _waitingDuration = 2;
