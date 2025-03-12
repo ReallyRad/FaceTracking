@@ -1,33 +1,14 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class SlideShow : MonoBehaviour
 {
-    [SerializeField] private GameEvent _slideShowFinished;
-    [SerializeField] private List<GameObject> _slides;
-    
-    [SerializeField] private List<GameObject> _preSlides; //slides to keep in pre
-    [SerializeField] private List<GameObject> _postSlides; //slides to keep in post
-    [SerializeField] private ExperimentStateSO _experimentStateSO;
-
-    private int _slideIndex;
-    private bool _showing;
-
-    private void Start()
-    {
-        //pick slides, VAS slides are always kept
-        if (_experimentStateSO.experimentState == ExperimentState.pre)
-            foreach (GameObject postSlide in _postSlides)
-                postSlide.SetActive(false);
-            
-        if (_experimentStateSO.experimentState == ExperimentState.post)
-            foreach (GameObject preSlide in _preSlides)
-                    preSlide.SetActive(false);
-        
-        UpdateActiveSlides();
-    }
+    [SerializeField] protected GameEvent _slideShowFinished;
+    [SerializeField] protected List<GameObject> _slides;
+    protected int _slideIndex;
+    protected bool _showing;
 
     public void UpdateActiveSlides()
     {

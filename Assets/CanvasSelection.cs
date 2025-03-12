@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ScriptableObjectArchitecture;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide selection mechanism
 {
@@ -12,7 +13,7 @@ public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide s
     [SerializeField] private GameObject _experienceTitle;
     [SerializeField] private GameObject _controlTitle;
     
-    [SerializeField] private SlideShow _slideShow; 
+    [SerializeField] private WaitingRoomSlideShow _waitingRoomSlideShow; 
 
     [SerializeField] private IntVariable _experienceVariable;
 
@@ -27,7 +28,7 @@ public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide s
             _controlTitle.SetActive(true); 
             _experienceTitle.SetActive(false);
             
-            _slideShow.UpdateActiveSlides();
+            _waitingRoomSlideShow.UpdateActiveSlides();
         }
     }
 }
