@@ -4320,7 +4320,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!328 &8143437364450516080
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -4402,8 +4402,8 @@ MonoBehaviour:
   panelShown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
+      - m_Target: {fileID: 3224840091447068953}
+        m_TargetAssemblyTypeName: VideoControllerInstruction, Assembly-CSharp
         m_MethodName: PlayVideo
         m_Mode: 1
         m_Arguments:

@@ -921,7 +921,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.741, g: -0.26, b: 0.010416667, a: 1}
-    - _DetailWindDirection: {r: -0.025677202, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.04470728, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -932,7 +932,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: 0.3213938, g: 0.76604444, b: -0.5566705, a: 0}
-    - _WindDirection: {r: -0.025677202, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.04470728, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &1209007438963745827
 PrefabInstance:
@@ -941,10 +941,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 949585050}
     m_Modifications:
-    - target: {fileID: 1485979202544315381, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
-      propertyPath: panelShown.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5787171842108572113, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1029,17 +1025,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5787171842108572115, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5787171842108572142, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
       propertyPath: m_Name
       value: CanvInstruction
-      objectReference: {fileID: 0}
-    - target: {fileID: 5787171842108572142, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de23ec54c64ff2e488af1d379155bac1, type: 3}
