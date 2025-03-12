@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1539192609228190071}
   - component: {fileID: 1539192609228190070}
   - component: {fileID: 1539192609228190068}
+  - component: {fileID: 2014102706126832394}
   m_Layer: 0
   m_Name: TransitionManager
   m_TagString: Untagged
@@ -46,16 +47,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fog: {fileID: 0}
-  videoPlayer: {fileID: 0}
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5006551
+      value: 0.25142792
+      inSlope: 1.4999921
+      outSlope: 1.4999921
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.64963007
+      outSlope: 0.64963007
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07335487
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   minDensityVolume: 0
-  maxDensityVolume: 0
-  fogBackgroundNoise: {fileID: 0}
+  maxDensityVolume: 1
   _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
   experimentStateSO: {fileID: 11400000, guid: 8acf5426713064c979a69d02f7710b52, type: 2}
 --- !u!114 &1539192609228190068
@@ -81,6 +107,38 @@ MonoBehaviour:
       - m_Target: {fileID: 1539192609228190070}
         m_TargetAssemblyTypeName: WaitingRoomTransition, Assembly-CSharp
         m_MethodName: OnSlideshowFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2014102706126832394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539192609228190065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 4caa95066e303e74eb0dee66fc52d0f3, type: 2}
+  _event: {fileID: 11400000, guid: 4caa95066e303e74eb0dee66fc52d0f3, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1539192609228190070}
+        m_TargetAssemblyTypeName: WaitingRoomTransition, Assembly-CSharp
+        m_MethodName: ExperienceSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

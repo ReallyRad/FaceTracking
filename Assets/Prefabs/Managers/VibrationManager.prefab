@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5050530358735133210}
   - component: {fileID: 5976775813776319977}
+  - component: {fileID: 2536585216987333817}
   m_Layer: 0
   m_Name: VibrationManager
   m_TagString: Untagged
@@ -44,3 +45,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db5235d6eebb6d41ae3565e92a66fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _experienceVariable: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
+--- !u!114 &2536585216987333817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269617299124546411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: 4caa95066e303e74eb0dee66fc52d0f3, type: 2}
+  _event: {fileID: 11400000, guid: 4caa95066e303e74eb0dee66fc52d0f3, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5976775813776319977}
+        m_TargetAssemblyTypeName: VibrationManager, Assembly-CSharp
+        m_MethodName: ExperienceSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

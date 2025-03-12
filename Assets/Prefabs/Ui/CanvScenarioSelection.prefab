@@ -3175,7 +3175,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextButton: {fileID: 4533144651217019690}
   _canvasGroup: {fileID: 1794204931818557877}
-  _experienceVariable: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
+  _experienceSetEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5333064713812951953
 GameObject:
   m_ObjectHideFlags: 0
@@ -3298,7 +3300,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: a6f5978f73cf94697a94ef1b93a9bdf5, type: 2}
+      - m_Target: {fileID: 11400000, guid: 4caa95066e303e74eb0dee66fc52d0f3, type: 2}
         m_TargetAssemblyTypeName: ScriptableObjectArchitecture.GameEventBase, ScriptableObject-Architecture
         m_MethodName: Raise
         m_Mode: 1
@@ -5496,10 +5498,14 @@ PrefabInstance:
       objectReference: {fileID: 574807137554016217}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5507,7 +5513,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 301294817496586606}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5515,11 +5529,23 @@ PrefabInstance:
       value: SetExperience
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ScenarioToggleGroup, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScriptableObjectArchitecture.BaseVariable`1[[System.Int32, mscorlib
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5638,10 +5664,14 @@ PrefabInstance:
       objectReference: {fileID: 574807137554016217}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5649,7 +5679,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 301294817496586606}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5657,15 +5695,31 @@ PrefabInstance:
       value: SetExperience
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ScenarioToggleGroup, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScriptableObjectArchitecture.BaseVariable`1[[System.Int32, mscorlib
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5780,10 +5834,14 @@ PrefabInstance:
       objectReference: {fileID: 574807137554016217}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5791,7 +5849,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 301294817496586606}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
@@ -5799,15 +5865,31 @@ PrefabInstance:
       value: SetExperience
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_Value
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ScenarioToggleGroup, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScriptableObjectArchitecture.BaseVariable`1[[System.Int32, mscorlib
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280898281455620778, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9182730441492128679, guid: 3fec078147a84d04cb9cde52209c64bb, type: 3}

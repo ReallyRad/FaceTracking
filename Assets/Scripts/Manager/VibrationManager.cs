@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using ScriptableObjectArchitecture;
 using UnityEngine;
 
 public class VibrationManager : MonoBehaviour
 {
     private bool _pucker;
+    [SerializeField] private IntVariable _experienceVariable;
     
     private void OnEnable()
     {
@@ -13,9 +15,14 @@ public class VibrationManager : MonoBehaviour
 
     private void OnDisable()
     {
-        FaceTrackingManager.PuckerTrigger += PuckerTrigger;
+        FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
     }
 
+    public void ExperienceSelected()
+    {
+        if (_experienceVariable.Value != (int) Experience.Control) DontDestroyOnLoad(gameObject);
+    }
+    
     private void PuckerTrigger(bool pucker)
     {
         _pucker = pucker;

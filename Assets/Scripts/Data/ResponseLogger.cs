@@ -13,26 +13,13 @@ public class ResponseLogger : MonoBehaviour
     public void NextButtonPressed()
     {
         _experimentData.answerType = _answerType;
-        _experimentData.timestamp = DateTime.Now;
         _newDataAvailableEvent.Raise();
-    }
-    
-    public void SetValue(bool value)
-    {
-        if (value) _experimentData.answerValue = value.ToString();
-        else _experimentData.answerValue = value.ToString();
     }
 
     public void SetValue(float value)
     {
         _experimentData.answerValue = value.ToString();
         _experimentData.answerType = _answerType;
-        _experimentData.timestamp = DateTime.Now;
         _newDataAvailableEvent.Raise();
-    }
-
-    public void SetValue(string value)
-    {
-        _experimentData.answerValue = value;
     }
 }

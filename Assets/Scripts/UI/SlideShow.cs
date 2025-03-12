@@ -8,8 +8,8 @@ public class SlideShow : MonoBehaviour
     [SerializeField] private GameEvent _slideShowFinished;
     [SerializeField] private List<GameObject> _slides;
     
-    [SerializeField] private List<GameObject> _preSlides;
-    [SerializeField] private List<GameObject> _postSlides;
+    [SerializeField] private List<GameObject> _preSlides; //slides to keep in pre
+    [SerializeField] private List<GameObject> _postSlides; //slides to keep in post
     [SerializeField] private ExperimentStateSO _experimentStateSO;
 
     private int _slideIndex;
@@ -17,6 +17,7 @@ public class SlideShow : MonoBehaviour
 
     private void Start()
     {
+        //pick slides, VAS slides are always kept
         if (_experimentStateSO.experimentState == ExperimentState.pre)
             foreach (GameObject postSlide in _postSlides)
                 postSlide.SetActive(false);
@@ -38,8 +39,7 @@ public class SlideShow : MonoBehaviour
         }
         _slides[_slideIndex].GetComponentInChildren<PanelDimmer>().Show();        
     }
-
-
+    
     public void NextButton()
     {   
         if (_slideIndex == _slides.Count - 1) //we reached last slide 

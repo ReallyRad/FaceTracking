@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &379486947210048714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7a3ea505ea44db3a1e50eaeadf24e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelShown:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &5031469261144129223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,9 +141,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_text
-      value: "Super! Sie wissen nun, wie Sie langsames Atmen richtig praktizieren.\r\n\r\n
-        Wenn Sie bereit sind, dr\xFCcken Sie auf OK, um mit dem Slow-Paced Breathing
-        Trainingsprogramm zu beginnen.\r\n"
+      value: "Nun kommt eine Instruktion, wie du langsam atmen sollst. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 3711857102084122425, guid: e035a242a213948f8b0736dfdbe4ed52, type: 3}
       propertyPath: m_margin.x
