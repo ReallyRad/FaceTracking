@@ -80,7 +80,7 @@ public class CSVManager : MonoBehaviour
         _exhaleDurationsList.Add(progressInMilliseconds);
     }
     
-    private void LogExhales() //bypassing experimentData data writing here. the advantage it has was to make sure data is logged as we go, instead of at the end of the scene
+    private void LogExhales() //bypassing experimentData data writing here. the advantage it had was to make sure data is logged as we go, instead of at the end of the scene
     {
         _experimentDataStorage.experimentDataDictionary["exhaleCount"] = _exhaleDurationsList.Count.ToString();
         _experimentDataStorage.experimentDataDictionary["exhaleSum"] = _exhaleDurationsList.Sum().ToString();

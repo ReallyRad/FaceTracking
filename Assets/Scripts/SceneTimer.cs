@@ -31,21 +31,17 @@ public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal 
     private IEnumerator StartEndSceneWithDelay()
     {
         yield return new WaitForSeconds(_timeToEndScene);
-
         SceneFinished();
-
         SceneManager.LoadScene(_nextSceneName);
     }
 
     private IEnumerator StartFogFadingInWithDelay()
     {
         yield return new WaitForSeconds(_timeToFadeFogIn);
-        if (_currentSceneName == "PsychedelicGarden") //TODO switch to snow
-        {
-            StartCoroutine(FogFadingInAtTheEnd());
-        }
+        if (_currentSceneName == Experience.Snow.ToString()) StartCoroutine(FogFadingInAtTheEnd());
     }
-    private IEnumerator FogFadingInAtTheEnd()
+    
+    private IEnumerator FogFadingInAtTheEnd() //TODO use tweens
     {
         _fog.settings.density = initialDensity;
         float startTime = Time.time;
