@@ -3,10 +3,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
 
-public class WaitingRoomTransition : MonoBehaviour //TODO cleanup
+public class WaitingRoomTransition : MonoBehaviour
 {
     [SerializeField] private IntVariable _selectedExperience;
     [SerializeField] private ExperimentStateSO experimentStateSO;
+    [SerializeField] private ExperimentDataStorage _experimentDataStorage; //reference it here just to make sure it's persisted when switching scenes
     
     private int _waitingDuration; 
 

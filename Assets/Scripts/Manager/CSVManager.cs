@@ -11,7 +11,7 @@ public class CSVManager : MonoBehaviour
 {
     [SerializeField] private StringVariable _subjectIDVariable; 
     [SerializeField] private IntVariable _selectedExperience;
-    [SerializeField] private ExperimentStateSO _experimentStateSO; //stores pre/post state accross scenes
+    [SerializeField] private ExperimentStateSO _experimentStateSO; //stores pre/post state across scenes
     [SerializeField] private ExperimentData _experimentData; //contains one VAS answers
     [SerializeField] private ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
 
