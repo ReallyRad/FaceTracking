@@ -556,6 +556,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1255584315}
     - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: _nextSceneName
+      value: Waiting
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: timeToEndScene
       value: 1200
       objectReference: {fileID: 0}

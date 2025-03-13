@@ -1,28 +1,21 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using VolumetricFogAndMist2;
 
 public class FogTweener : MonoBehaviour
 {
-    [SerializeField] private VolumetricFog fog;
+    [SerializeField] private VolumetricFog _fog;
+    [SerializeField] private AnimationCurve _curve;
 
-    private void OnEnable()
+    [SerializeField] private ExperimentStateSO experimentStateSO;
+    
+    public void TweenFog()
     {
-        VideoPanel.VideoCompleted += TweenFog;
-    }
-
-    private void OnDisable()
-    {
-        VideoPanel.VideoCompleted -= TweenFog;
-    }
-
-    private void TweenFog()
-    {
-        LeanTween.value(0, 1, 20).setOnUpdate( val =>
+        if (experimentStateSO.experimentState == ExperimentState.pre)
         {
-            fog.settings.density = val;
-        });
+            LeanTween.value(0, 1, 10).setOnUpdate( val =>
+            {
+                _fog.settings.density = val;
+            });    
+        }
     }
 }
