@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using VolumetricFogAndMist2;
 
 public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal CSV writing methods
@@ -11,21 +12,18 @@ public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal 
     [SerializeField] private float _timeToFadeFogIn;
     [SerializeField] private float _fadeInDuration;
 
-    [SerializeField] private VolumetricFog _fog; //TODO shouldn't be accessing fog from somewhere eles in hierarchy
-    [SerializeField] private float initialDensity = 0;
-    [SerializeField] private float finalDensity = 1;
-
     private string _currentSceneName;
 
     public delegate void OnSceneFinished();
     public static OnSceneFinished SceneFinished;
 
+    //TODO fade fog in for 20 seconds so that next scene is loaded after 10 minutes of video
+    
     private void Start()
     {
         _currentSceneName = SceneManager.GetActiveScene().name;        
 
         StartCoroutine(StartEndSceneWithDelay());
-        StartCoroutine(StartFogFadingInWithDelay());
     }
 
     private IEnumerator StartEndSceneWithDelay()
@@ -35,24 +33,6 @@ public class SceneTimer : MonoBehaviour //TODO remove and merge with the normal 
         SceneManager.LoadScene(_nextSceneName);
     }
 
-    private IEnumerator StartFogFadingInWithDelay()
-    {
-        yield return new WaitForSeconds(_timeToFadeFogIn);
-        if (_currentSceneName == Experience.Snow.ToString()) StartCoroutine(FogFadingInAtTheEnd());
-    }
+    //TODO only fade in fog if we are in snow scene
     
-    private IEnumerator FogFadingInAtTheEnd() //TODO use tweens
-    {
-        _fog.settings.density = initialDensity;
-        float startTime = Time.time;
-
-        while (Time.time < startTime + _fadeInDuration)
-        {
-            _fog.settings.density = Mathf.Lerp(initialDensity, finalDensity, (Time.time - startTime) / _fadeInDuration);
-            yield return null;
-        }
-
-        _fog.settings.density = finalDensity;
-    }
-
 }
