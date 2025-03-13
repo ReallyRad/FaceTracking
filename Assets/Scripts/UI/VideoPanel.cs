@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
-public class VideoControllerControl : MonoBehaviour //TODO cleanup
+public class VideoPanel : MonoBehaviour 
 {
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private string _videoFileName;
@@ -11,12 +11,8 @@ public class VideoControllerControl : MonoBehaviour //TODO cleanup
     private void Start()
     {
         string videoPath = System.IO.Path.Combine(Application.persistentDataPath, _videoFileName);
-  
         if (System.IO.File.Exists(videoPath)) _videoPlayer.url = videoPath;
-
-        Debug.Log("videoPath: " + videoPath);
-
-        PlayVideo();
+        _videoPlayer.loopPointReached += source => _nextButton.interactable = true;
     }
 
     public void PlayVideo()
@@ -24,8 +20,4 @@ public class VideoControllerControl : MonoBehaviour //TODO cleanup
         _videoPlayer.Play();
     }
 
-    private void EnableNextButton(VideoPlayer vp)
-    {
-        _nextButton.interactable = true;
-    }
 }

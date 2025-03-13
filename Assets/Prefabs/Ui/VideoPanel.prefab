@@ -145,7 +145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Schauen Sie sich diese Video an.
+  m_text: 'Schauen Sie sich dieses Video an.
 
 '
   m_isRightToLeft: 0
@@ -442,7 +442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5232496528442385429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -572,11 +572,11 @@ GameObject:
   - component: {fileID: 21275971367474881}
   - component: {fileID: 6899680056047271058}
   - component: {fileID: 1950056863568008842}
-  - component: {fileID: 1121603378788253024}
   - component: {fileID: 9120899165993984271}
   - component: {fileID: 8198965236023575870}
+  - component: {fileID: 6759820077657162511}
   m_Layer: 5
-  m_Name: CanvControlVideo
+  m_Name: VideoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,8 +693,8 @@ MonoBehaviour:
   panelShown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
+      - m_Target: {fileID: 6759820077657162511}
+        m_TargetAssemblyTypeName: VideoPanel, Assembly-CSharp
         m_MethodName: PlayVideo
         m_Mode: 1
         m_Arguments:
@@ -705,21 +705,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1121603378788253024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6899680056047271057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6c4698d0b58063488a09f45b636e307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _videoPlayer: {fileID: 9120899165993984271}
-  _videoFileName: controlVideo.mp4
-  _nextButton: {fileID: 0}
 --- !u!328 &9120899165993984271
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -787,3 +772,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6759820077657162511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6899680056047271057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6c4698d0b58063488a09f45b636e307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _videoPlayer: {fileID: 9120899165993984271}
+  _videoFileName: controlVideo10min.mp4
+  _nextButton: {fileID: 2757657117464086846}

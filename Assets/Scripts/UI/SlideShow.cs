@@ -15,7 +15,7 @@ public class SlideShow : MonoBehaviour
         UpdateActiveSlides();
     }
 
-    public void UpdateActiveSlides()
+    public void UpdateActiveSlides() //gather slides and hide them
     {
         _slides = new List<GameObject>();
         foreach (Transform slide in transform)

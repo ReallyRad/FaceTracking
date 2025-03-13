@@ -163,27 +163,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1581966499}
     m_Modifications:
-    - target: {fileID: 3230444149242151998, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
-      propertyPath: m_text
-      value: 'Schauen Sie sich dieses Video an.
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095178665290081988, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271057, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_Name
-      value: CanvControlVideo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6899680056047271057, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6899680056047271084, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
-      propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: VideoPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6899680056047271086, guid: 88062575f3d9dfa438eddcec466e3ba0, type: 3}
       propertyPath: m_Pivot.x
@@ -624,7 +606,7 @@ MonoBehaviour:
   _showDebugFields: 0
   _enableGizmoDebugging: 1
   _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: a6f5978f73cf94697a94ef1b93a9bdf5, type: 2}
   _event: {fileID: 11400000, guid: a6f5978f73cf94697a94ef1b93a9bdf5, type: 2}
   _response:
     m_PersistentCalls:
@@ -935,6 +917,18 @@ PrefabInstance:
     - target: {fileID: 2326979262409146343, guid: 7602a467237e89542897cda98e6ff63c, type: 3}
       propertyPath: m_Name
       value: ControlIntro
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243054123897787900, guid: 7602a467237e89542897cda98e6ff63c, type: 3}
+      propertyPath: panelShown.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243054123897787900, guid: 7602a467237e89542897cda98e6ff63c, type: 3}
+      propertyPath: panelShown.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243054123897787900, guid: 7602a467237e89542897cda98e6ff63c, type: 3}
+      propertyPath: panelShown.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7602a467237e89542897cda98e6ff63c, type: 3}
