@@ -13,7 +13,7 @@ public class WaitingRoomTransition : MonoBehaviour //TODO rename to transition m
 
     public void ExperienceSelected()
     {
-        if (_selectedExperience.Value == 0) _waitingDuration = 10;
+        if (_selectedExperience.Value == (int) Experience.Snow) _waitingDuration = 10;
         else _waitingDuration = 2;
     }
     
