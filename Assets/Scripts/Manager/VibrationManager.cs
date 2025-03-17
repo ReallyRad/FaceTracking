@@ -5,17 +5,22 @@ using UnityEngine;
 
 public class VibrationManager : MonoBehaviour
 {
-    private bool _pucker;
     [SerializeField] private IntVariable _experienceVariable;
+  
+    private bool _pucker;
     
+    private bool _shouldVibrate;
+
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
+        VideoControllerInstruction.VideoInstructionsShown += ShouldVibrate;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
+        VideoControllerInstruction.VideoInstructionsShown += ShouldVibrate;
     }
 
     public void ExperienceSelected()
@@ -26,13 +31,20 @@ public class VibrationManager : MonoBehaviour
     private void PuckerTrigger(bool pucker)
     {
         _pucker = pucker;
-        
-        if (pucker) StartCoroutine(BreathVibration());
-        else
+        if (_shouldVibrate)
         {
-            OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
-            StopCoroutine("BreathVibration");
+            if (pucker) StartCoroutine(BreathVibration());
+            else 
+            {
+                OVRInput.SetControllerVibration(0, 0f, OVRInput.Controller.RTouch);
+                StopCoroutine("BreathVibration");
+            }    
         }
+    }
+
+    private void ShouldVibrate(bool shown)
+    {
+        _shouldVibrate = shown;
     }
     
     private IEnumerator BreathVibration()

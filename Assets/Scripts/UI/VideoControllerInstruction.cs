@@ -8,6 +8,9 @@ public class VideoControllerInstruction : MonoBehaviour //TODO cleanup
     [SerializeField] private string _videoFileName;
     [SerializeField] private Button _nextButton;
 
+    public delegate void OnVideoInstructionsShown(bool showing);
+    public static OnVideoInstructionsShown VideoInstructionsShown;
+    
     private void OnEnable()
     {
         _videoPlayer.loopPointReached += EnableNextButton;
@@ -16,13 +19,17 @@ public class VideoControllerInstruction : MonoBehaviour //TODO cleanup
     private void Start()
     {
         string videoPath = System.IO.Path.Combine(Application.persistentDataPath, _videoFileName);
-
         if (System.IO.File.Exists(videoPath)) _videoPlayer.url = videoPath;
-
     }
 
+    public void VideoShown()
+    {
+        VideoInstructionsShown(false);
+    }
+    
     public void PlayVideo()
     {
+        VideoInstructionsShown(true);
         _videoPlayer.Play();
     }
 
