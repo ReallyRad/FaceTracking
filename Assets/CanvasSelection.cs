@@ -17,7 +17,7 @@ public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide s
 
     [SerializeField] private IntVariable _experienceVariable;
 
-    public void ExperienceSelected() 
+    public void ExperienceSelected() //select the slides that need to be shown in the waiting scene pre
     {
         if (_experienceVariable.Value == (int) Experience.Control) 
         {

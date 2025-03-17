@@ -46,44 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b7e0470fc940f4687dfe2539480ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fog: {fileID: 0}
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5006551
-      value: 0.25142792
-      inSlope: 1.4999921
-      outSlope: 1.4999921
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0.64963007
-      outSlope: 0.64963007
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.07335487
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  minDensityVolume: 0
-  maxDensityVolume: 1
   _selectedExperience: {fileID: 11400000, guid: 48270d3b81fd8491db27172dd2c7689e, type: 2}
   experimentStateSO: {fileID: 11400000, guid: 8acf5426713064c979a69d02f7710b52, type: 2}
+  _experimentDataStorage: {fileID: 11400000, guid: 9d441e3fc228e49a9ad4ae4cc398ec22, type: 2}
 --- !u!114 &1539192609228190068
 MonoBehaviour:
   m_ObjectHideFlags: 0
