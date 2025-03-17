@@ -19,7 +19,6 @@ public class SceneTimer : MonoBehaviour  //count 10 minutes intervention time an
     {
         yield return new WaitForSeconds(_timeToEndScene);
         SceneFinished();
-        SceneManager.LoadScene("Waitings");
+        SceneManager.LoadScene("Waiting");
     }
-
 }
