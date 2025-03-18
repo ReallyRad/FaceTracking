@@ -8,7 +8,7 @@ public class VideoControllerInstruction : MonoBehaviour //TODO cleanup
     [SerializeField] private string _videoFileName;
     [SerializeField] private Button _nextButton;
 
-    public delegate void OnVideoInstructionsShown(bool showing);
+    public delegate void OnVideoInstructionsShown();
     public static OnVideoInstructionsShown VideoInstructionsShown;
     
     private void OnEnable()
@@ -22,14 +22,10 @@ public class VideoControllerInstruction : MonoBehaviour //TODO cleanup
         if (System.IO.File.Exists(videoPath)) _videoPlayer.url = videoPath;
     }
 
-    public void VideoShown()
-    {
-        VideoInstructionsShown(false);
-    }
     
     public void PlayVideo()
     {
-        VideoInstructionsShown(true);
+        VideoInstructionsShown();
         _videoPlayer.Play();
     }
 

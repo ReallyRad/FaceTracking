@@ -25,7 +25,11 @@ public class VibrationManager : MonoBehaviour
 
     public void ExperienceSelected()
     {
-        if (_experienceVariable.Value != (int) Experience.Control) DontDestroyOnLoad(gameObject);
+        if (_experienceVariable.Value != (int)Experience.Control)
+        {
+            transform.SetParent(transform.parent.transform.parent);
+            DontDestroyOnLoad(gameObject);
+        }
     }
     
     private void PuckerTrigger(bool pucker)
@@ -42,9 +46,9 @@ public class VibrationManager : MonoBehaviour
         }
     }
 
-    private void ShouldVibrate(bool shown)
+    private void ShouldVibrate()
     {
-        _shouldVibrate = shown;
+        _shouldVibrate = true;
     }
     
     private IEnumerator BreathVibration()
