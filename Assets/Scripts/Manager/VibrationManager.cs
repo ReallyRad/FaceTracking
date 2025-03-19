@@ -15,12 +15,14 @@ public class VibrationManager : MonoBehaviour
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
         VideoControllerInstruction.VideoInstructionsShown += ShouldVibrate;
+        SceneTimer.SceneFinished += ShouldNotVibrate;
     }
 
     private void OnDisable()
     {
         FaceTrackingManager.PuckerTrigger -= PuckerTrigger;
-        VideoControllerInstruction.VideoInstructionsShown += ShouldVibrate;
+        VideoControllerInstruction.VideoInstructionsShown -= ShouldVibrate;
+        SceneTimer.SceneFinished -= ShouldNotVibrate;
     }
 
     public void ExperienceSelected()
@@ -49,6 +51,11 @@ public class VibrationManager : MonoBehaviour
     private void ShouldVibrate()
     {
         _shouldVibrate = true;
+    }
+    
+    private void ShouldNotVibrate()
+    {
+        _shouldVibrate = false;
     }
     
     private IEnumerator BreathVibration()
