@@ -380,7 +380,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DetailColor: {r: 0.51186275, g: 0.51186275, b: 0.51186275, a: 0}
     - _DetailData: {r: 0.741, g: -0.26, b: 0.010416667, a: 1}
-    - _DetailWindDirection: {r: -0.09945774, g: 0, b: 0, a: 0}
+    - _DetailWindDirection: {r: -0.16369735, g: 0, b: 0, a: 0}
     - _DistanceData: {r: 0, g: -1, b: 0.000004, a: 0}
     - _FogOfWarCenter: {r: 0, g: 0, b: 0, a: 1}
     - _FogOfWarCenterAdjusted: {r: 0, g: 0, b: 0, a: 1}
@@ -391,7 +391,7 @@ Material:
     - _ShadowData: {r: 0.5, g: 0, b: 62500, a: 0}
     - _SpecularColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - _SunDir: {r: 0, g: 1, b: 0, a: 0}
-    - _WindDirection: {r: -0.09945774, g: 0, b: 0, a: 0}
+    - _WindDirection: {r: -0.16369735, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &448389485
 PrefabInstance:
@@ -532,6 +532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1532974221}
     m_Modifications:
+    - target: {fileID: 1196081693953000029, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: _previouslyRegisteredEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 65cf951760545ef438ca62017320fcc1, type: 2}
     - target: {fileID: 2175103039412891963, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: m_RootOrder
       value: 2
