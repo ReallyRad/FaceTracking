@@ -24,6 +24,7 @@ public class SceneTimer : MonoBehaviour  //count 10 minutes intervention time an
 
     public void EndScene()
     {
+        LeanTween.cancelAll();
         _experimentState.experimentState = ExperimentState.post;
         SceneFinished();
         SceneManager.LoadScene("Waiting");

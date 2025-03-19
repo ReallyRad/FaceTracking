@@ -16,7 +16,7 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
 
     private void OnDisable()
     {
-        FaceTrackingManager.PuckerTrigger += NewFaceExpressionAvailable;
+        FaceTrackingManager.PuckerTrigger -= NewFaceExpressionAvailable;
         ProgressManager.Progress -= Progress;
     }
     
