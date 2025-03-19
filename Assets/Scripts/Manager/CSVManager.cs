@@ -86,6 +86,7 @@ public class CSVManager : MonoBehaviour
         _experimentDataStorage.experimentDataDictionary["exhaleSum"] = _exhaleDurationsList.Sum().ToString();
         _experimentDataStorage.experimentDataDictionary["exhaleEffective"] = _exhaleDurationsList.Select(value => value - 2000)
             .Where(result => result > 0)
+            .Count()
             .ToString();
         NewDataAvailableForDictionary();
     }
