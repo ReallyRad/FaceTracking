@@ -33,7 +33,6 @@ public class NoBreathingMessage : MonoBehaviour
         if (_stopwatch.ElapsedMilliseconds > _timeBeforePopup * 1000 && !_shown) //show panel if too long since last breath
         {
             _panelDimmer.Show();
-            GetComponent<VisionFollower>().isCentered = true;
             _shown = true;
         }
     }
@@ -46,7 +45,6 @@ public class NoBreathingMessage : MonoBehaviour
         }
         else
         {
-            GetComponent<VisionFollower>().isCentered = false;
             _stopwatch.Stop();
             _stopwatch.Reset();
             _panelDimmer.Hide();

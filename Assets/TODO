@@ -3,15 +3,17 @@
 Arthur :
 	- snow intervention becomes main intervention
 	- make snow (no breathing), snow with breathing, sauerkraut.
-	- add a popup warning if no breathing using a timer.
 	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
 	- comprsesion on the garden music. make birds approximately 20% lower
 	- add transition from full fog to max fog at the beginning of the psychedelic scene
 	- also do the transition when back from the psychedelic scene 
  	- build the entire control scene. Add video player. decide on the interaction
  	- make sun rise/sun set scenarios
+ 	- make everything work in one scene?
+ 	- fog blocks no breathing popup
 
 Backlog : 
+	- add a popup warning if no breathing using a timer.
 	- when the control scene is selected, don't show the instructions video 
 	- make sure passthrough is included 
 	- for the first 5 minutes, progressively, synced with the hole sound, fade in the natural soundtrack of the environment. 
