@@ -36,6 +36,6 @@ public abstract class InteractiveSequenceable : Sequenceable //this abstract cla
     
     protected abstract void Decay();
     
-    protected abstract void Progress(float progress); //The handler for when progress is ongoing
+    protected abstract void Progress(float progress); //The handler for when progress is ongoing TODO this might not be needed and be inherited from sequenceable?
 }    
 

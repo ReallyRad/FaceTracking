@@ -4903,8 +4903,8 @@ MonoBehaviour:
   _transitioning: 0
   _initialValue: 0
   _finalValue: 1
-  _startNextPhaseAt: 1
-  _completedAt: 2
+  _startNextPhaseAt: 5
+  _completedAt: 6
   _localProgress: 0
   _progressiveMusic: {fileID: 460630465}
   _snowPS: {fileID: 1938957594}

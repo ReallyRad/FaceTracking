@@ -24,7 +24,7 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
-        SnowSlowing.SnowSlowingInitialized += SetStartProgressAtToZero;
+        SnowSlowing.SnowSlowingInitialized += SetStartProgressAtToZero; //TODO this should be set back to whatever it was when finished?
     }
 
     private void OnDisable()
@@ -85,6 +85,6 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
 
     private void SetStartProgressAtToZero()
     {
-        _startProgressAt = 0;
+        _startProgressAt = 0; //This is to make the snow slowing visible faster?
     }
 }
