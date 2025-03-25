@@ -12,14 +12,14 @@ public class FogTweener : MonoBehaviour
 
     private bool shouldTwen;
 
-    public void ExperienceSelected() //only tween if we're going to intervention scene
+    public void ExperienceSelected() //only tween if we're going to intervention scenes
     {
-        shouldTwen = _selectedExperience.Value == (int)Experience.Snow;
+        shouldTwen = _selectedExperience.Value == (int) Experience.Snow;
     }
     
     public void TweenFog()
     {
-        if (experimentStateSO.experimentState == ExperimentState.pre)
+        if (experimentStateSO.experimentState == ExperimentState.pre && shouldTwen)
         {
             LeanTween.value(0, 1, 10).setOnUpdate( val =>
             {
