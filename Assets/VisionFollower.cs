@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class VisionFollower : MonoBehaviour
 {
-    [SerializeField] private Transform _cameraTransform;
+    [SerializeField] private Transform _cameraTransform; //TODO use findobjectoftype
     [SerializeField] private float distance = 3f;
 
     private void Update()
