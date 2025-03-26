@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using ScriptableObjectArchitecture;
 using UnityEngine;
@@ -7,19 +8,19 @@ public class SceneTimer : MonoBehaviour  //count 10 minutes intervention time an
 {
     [SerializeField] private float _timeToEndScene; 
     [SerializeField] private ExperimentStateSO _experimentState;
-
+    [SerializeField] private bool _startTimerOnStart;
+    
     public delegate void OnSceneFinished();
     public static OnSceneFinished SceneFinished;
-    
+
     private void Start()
     {
-        StartCoroutine(StartEndSceneWithDelay());
+        if (_startTimerOnStart) StartCoroutine(StartEndSceneWithDelay());
     }
 
-    private IEnumerator StartEndSceneWithDelay()
+    public void StartTimer()
     {
-        yield return new WaitForSeconds(_timeToEndScene);
-        EndScene();
+        StartCoroutine(StartEndSceneWithDelay());
     }
 
     public void EndScene()
@@ -28,5 +29,11 @@ public class SceneTimer : MonoBehaviour  //count 10 minutes intervention time an
         _experimentState.experimentState = ExperimentState.post;
         SceneFinished();
         SceneManager.LoadScene("Waiting");
+    }
+    
+    private IEnumerator StartEndSceneWithDelay()
+    {
+        yield return new WaitForSeconds(_timeToEndScene);
+        EndScene();
     }
 }

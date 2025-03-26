@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
@@ -6,8 +7,7 @@ public class VideoPanel : MonoBehaviour
 {
     [SerializeField] private VideoPlayer _videoPlayer;
     [SerializeField] private string _videoFileName;
-    [SerializeField] private Button _nextButton;
-
+    
     private void Start()
     {
         string videoPath = System.IO.Path.Combine(Application.persistentDataPath, _videoFileName);
