@@ -1,18 +1,24 @@
 
 
 Arthur :
-	- snow intervention becomes main intervention
-	- make snow (no breathing), snow with breathing, sauerkraut.
 	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
-	- comprsesion on the garden music. make birds approximately 20% lower
+	
 	- add transition from full fog to max fog at the beginning of the psychedelic scene
 	- also do the transition when back from the psychedelic scene 
  	- build the entire control scene. Add video player. decide on the interaction
  	- make sun rise/sun set scenarios
  	- make everything work in one scene?
  	- fog blocks no breathing popup
+ 	- force exact number of digitd
+ 	- jump in particles speed from between snow and music and snow slowing phases 
+ 	- do editor trick to fix avpro inverted video problem and get maps to align perfectly everytime
+ 	- popup hidden behind hole
+ 	- UI position different in control scene, closer
 
-Backlog : 
+Done :
+	- comprsesion on the garden music. make birds approximately 20% lower 
+	- make snow (no breathing), snow with breathing, sauerkraut.
+	- snow intervention becomes main intervention
 	- add a popup warning if no breathing using a timer.
 	- when the control scene is selected, don't show the instructions video 
 	- make sure passthrough is included 

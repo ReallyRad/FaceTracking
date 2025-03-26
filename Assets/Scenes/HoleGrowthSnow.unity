@@ -443,6 +443,10 @@ PrefabInstance:
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
+      propertyPath: _timeToEndScene
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4399351269011168820, guid: b2ff5580127c14d48a2d3b2297cc4331, type: 3}
       propertyPath: timeToFadeFogIn
       value: 50
       objectReference: {fileID: 0}

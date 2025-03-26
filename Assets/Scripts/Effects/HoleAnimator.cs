@@ -2,7 +2,7 @@ using Oculus.Interaction;
 using SCPE;
 using UnityEngine;
 
-public class HoleAnimator : InteractiveSequenceable
+public class HoleAnimator : InteractiveSequenceable //TODO should be progressive
 {
     //public float maxHoleRadius;
     //public float duration;
