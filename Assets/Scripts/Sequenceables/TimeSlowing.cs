@@ -95,4 +95,5 @@ public class TimeSlowing : InteractiveSequenceable
 
         playSpeed = mediaPlayer.PlaybackRate;
     }
+    
 }

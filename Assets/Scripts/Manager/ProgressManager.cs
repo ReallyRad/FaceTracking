@@ -77,8 +77,7 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
         {
             _puckerStopwatch.Stop();
             if (_progressTween != 0) LeanTween.pause(_progressTween);
-
-            ExhaleEnded(_puckerStopwatch.ElapsedMilliseconds);
+            //ExhaleEnded(_puckerStopwatch.ElapsedMilliseconds);
             _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
         }
     }
