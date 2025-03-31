@@ -5,6 +5,7 @@ using SCPE;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
@@ -16,6 +17,8 @@ public class TimeSlowing : InteractiveSequenceable
 
     public float playSpeed;
 
+    public TMP_Text _speedText;
+    
     private int _interactTween;
     private int _decayTween;
 
@@ -93,14 +96,14 @@ public class TimeSlowing : InteractiveSequenceable
     {
         mediaPlayer.Control.SetPlaybackRate(GetClosestSnapValue(val));
 
-        wavesSound.pitch = val; 
-
-        playSpeed = mediaPlayer.PlaybackRate;
+        wavesSound.pitch = val;
+        _speedText.text = "Playback rate : " + GetClosestSnapValue(val);
+        playSpeed = GetClosestSnapValue(val);
     }
     
     private float GetClosestSnapValue(float value) // Method to find the closest snap value
     {
-        float[] snapValues = { 0.5f, 1.0f, 1.25f, 1.5f, 1.75f, 2f };
+        float[] snapValues = { 0.5f, 1.0f, 1.25f, 1.5f, 1.75f, 2f};
         
         return snapValues.OrderBy(x => Mathf.Abs(x - value)).First(); // Find the closest value from the snapValues array
     }
