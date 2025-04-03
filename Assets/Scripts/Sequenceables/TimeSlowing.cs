@@ -103,7 +103,7 @@ public class TimeSlowing : InteractiveSequenceable
     
     private float GetClosestSnapValue(float value) // Method to find the closest snap value
     {
-        float[] snapValues = { 0.5f, 1.0f, 1.25f, 1.5f, 1.75f, 2f};
+        float[] snapValues = { 0, 0.25f, 0.5f, 1.0f, 1.25f, 1.5f, 1.75f, 2f};
         
         return snapValues.OrderBy(x => Mathf.Abs(x - value)).First(); // Find the closest value from the snapValues array
     }
