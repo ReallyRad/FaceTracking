@@ -7,7 +7,8 @@ public class SnowSlowing : InteractiveSequenceable
 
     private int _interactTween; 
     private int _decayTween;
-
+    private bool _firstDecayDone;
+    
     public delegate void OnSnowSlowingInitialized();
     public static OnSnowSlowingInitialized SnowSlowingInitialized;
     
@@ -20,6 +21,8 @@ public class SnowSlowing : InteractiveSequenceable
 
     protected override void Interact()
     {
+        _firstDecayDone = true;
+
         if (_decayTween != 0)
         {
             LeanTween.pause(_decayTween);
@@ -55,7 +58,7 @@ public class SnowSlowing : InteractiveSequenceable
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
-                TweenHandling(val);
+                if (_firstDecayDone) TweenHandling(val);
             })
             .id;
     }
@@ -80,7 +83,6 @@ public class SnowSlowing : InteractiveSequenceable
             }
         }
     }
-
 
     private void TweenHandling(float val)
     {
