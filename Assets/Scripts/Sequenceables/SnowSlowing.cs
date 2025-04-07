@@ -7,7 +7,8 @@ public class SnowSlowing : InteractiveSequenceable
 
     private int _interactTween; 
     private int _decayTween;
-
+    private bool _firstDecayDone;
+    
     public delegate void OnSnowSlowingInitialized();
     public static OnSnowSlowingInitialized SnowSlowingInitialized;
     
@@ -41,23 +42,27 @@ public class SnowSlowing : InteractiveSequenceable
 
     protected override void Decay()
     {
-        if (_interactTween != 0)
+        if (_firstDecayDone)
         {
-            LeanTween.pause(_interactTween);
-            Debug.Log("paused interact tween  " + _interactTween);
-        }
-
-        float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1);//calculate the ratio of the current progress
-        float decayTime = cycleRatio * _decayTime; //time must be proportional to current progress to keep speed constant
-
-        _decayTween = LeanTween
-            .value(gameObject, _interactiveVal, _initialValue, decayTime)
-            .setOnUpdate(val =>
+            if (_interactTween != 0)
             {
-                _interactiveVal = val;
-                TweenHandling(val);
-            })
-            .id;
+                LeanTween.pause(_interactTween);
+                Debug.Log("paused interact tween  " + _interactTween);
+            }
+
+            float cycleRatio = Utils.Map(_interactiveVal, _initialValue, _finalValue, 0, 1);//calculate the ratio of the current progress
+            float decayTime = cycleRatio * _decayTime; //time must be proportional to current progress to keep speed constant
+
+            _decayTween = LeanTween
+                .value(gameObject, _interactiveVal, _initialValue, decayTime)
+                .setOnUpdate(val =>
+                {
+                    _interactiveVal = val;
+                    TweenHandling(val);
+                })
+                .id;
+            _firstDecayDone = true;
+        }
     }
 
     protected override void Progress(float progress)
@@ -80,7 +85,6 @@ public class SnowSlowing : InteractiveSequenceable
             }
         }
     }
-
 
     private void TweenHandling(float val)
     {
