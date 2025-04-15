@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.21215841, g: 0.21215841, b: 0.21215841, a: 1}
+  m_IndirectSpecularColor: {r: 0.2119132, g: 0.2119132, b: 0.2119132, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -220,14 +220,6 @@ PrefabInstance:
       value: TimeSlowing
       objectReference: {fileID: 0}
     - target: {fileID: 5524579286366860351, guid: a3acdf8122032b1408d92bdb3939b2ba, type: 3}
-      propertyPath: _riseTime
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524579286366860351, guid: a3acdf8122032b1408d92bdb3939b2ba, type: 3}
-      propertyPath: _decayTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5524579286366860351, guid: a3acdf8122032b1408d92bdb3939b2ba, type: 3}
       propertyPath: _speedText
       value: 
       objectReference: {fileID: 572603286033588097}
@@ -239,6 +231,14 @@ PrefabInstance:
       propertyPath: mediaPlayer
       value: 
       objectReference: {fileID: 1758501585}
+    - target: {fileID: 5524579286366860351, guid: a3acdf8122032b1408d92bdb3939b2ba, type: 3}
+      propertyPath: _mediaPlayer
+      value: 
+      objectReference: {fileID: 1758501585}
+    - target: {fileID: 5524579286366860351, guid: a3acdf8122032b1408d92bdb3939b2ba, type: 3}
+      propertyPath: _ambienceSound
+      value: 
+      objectReference: {fileID: 867614164}
     - target: {fileID: 6395718516980988506, guid: a3acdf8122032b1408d92bdb3939b2ba, type: 3}
       propertyPath: m_RootOrder
       value: 2

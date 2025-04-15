@@ -24,6 +24,9 @@ public class TimeSlowing : InteractiveSequenceable
 
     [SerializeField] private float _interactiveVal;
 
+    [SerializeField] private AnimationCurve _interactCurve;
+    [SerializeField] private AnimationCurve _decayCurve;
+
     protected override void Interact()
     {
         if (_decayTween != 0)
@@ -40,8 +43,9 @@ public class TimeSlowing : InteractiveSequenceable
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
-                TweenHandling(val);
+                TweenHandling(_interactCurve.Evaluate(val));
             })
+            .setEaseOutQuad()
             .id;
     }
 
@@ -61,8 +65,9 @@ public class TimeSlowing : InteractiveSequenceable
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
-                TweenHandling(val);
+                TweenHandling(_decayCurve.Evaluate(val));
             })
+            .setEaseInCirc()
             .id;
     }
 
@@ -92,10 +97,10 @@ public class TimeSlowing : InteractiveSequenceable
         _localProgress = 0;
     }
 
-    private void TweenHandling(float val)
+    private void TweenHandling(float val) //TODO make different script for beach or add options to make it work for both
     {
         _mediaPlayer.Control.SetPlaybackRate(GetClosestSnapValue(val));
-        _ambienceSound.pitch = val;
+        _ambienceSound.pitch = val * 2 + 0.5f;
         _speedText.text = "Playback rate : " + GetClosestSnapValue(val);
         _playSpeed = GetClosestSnapValue(val);
     }
