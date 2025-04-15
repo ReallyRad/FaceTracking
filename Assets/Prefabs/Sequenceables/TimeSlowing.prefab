@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _initialValue: 0.5
-  _finalValue: 2.5
+  _initialValue: 0
+  _finalValue: 2
   _startNextPhaseAt: 9
   _completedAt: 10
   _localProgress: 0
@@ -56,4 +56,5 @@ MonoBehaviour:
   wavesSound: {fileID: 0}
   mediaPlayer: {fileID: 0}
   playSpeed: 0
+  _speedText: {fileID: 0}
   _interactiveVal: 0
