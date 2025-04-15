@@ -12,12 +12,12 @@ using UnityEngine.Video;
 
 public class TimeSlowing : InteractiveSequenceable
 {
-    public AudioSource wavesSound;
-    public MediaPlayer mediaPlayer;
+    [SerializeField] private AudioSource _ambienceSound; //TODO fix up hierarchy so it can be self contained
+    [SerializeField] private MediaPlayer _mediaPlayer;
 
-    public float playSpeed;
+    [SerializeField] private float _playSpeed; //for displaying the value in the inspector
 
-    public TMP_Text _speedText;
+    public TMP_Text _speedText; //TODO make event.
     
     private int _interactTween;
     private int _decayTween;
@@ -94,11 +94,10 @@ public class TimeSlowing : InteractiveSequenceable
 
     private void TweenHandling(float val)
     {
-        mediaPlayer.Control.SetPlaybackRate(GetClosestSnapValue(val));
-
-        wavesSound.pitch = val;
+        _mediaPlayer.Control.SetPlaybackRate(GetClosestSnapValue(val));
+        _ambienceSound.pitch = val;
         _speedText.text = "Playback rate : " + GetClosestSnapValue(val);
-        playSpeed = GetClosestSnapValue(val);
+        _playSpeed = GetClosestSnapValue(val);
     }
     
     private float GetClosestSnapValue(float value) // Method to find the closest snap value
