@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b30676e3-d6b6-4c4a-b78d-5d6318f6320b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.FaceTracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FaceTracking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/hole.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/hole.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Waiting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Waiting.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSVManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CSVManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResponseLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResponseLogger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WaitingRoomTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaitingRoomTransition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Scripts/Attributes/ConsoleAttribute.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Scripts/Attributes/ConsoleAttribute.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Scripts/Attributes/ConsoleCustomTypeParserAttribute.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/IngameDebugConsole/Scripts/Attributes/ConsoleCustomTypeParserAttribute.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +35,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "timelapse",
     "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
