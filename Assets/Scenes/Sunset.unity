@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2119132, g: 0.2119132, b: 0.2119132, a: 1}
+  m_IndirectSpecularColor: {r: 0.21215841, g: 0.21215841, b: 0.21215841, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1664,6 +1664,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1862879848}
     m_Modifications:
+    - target: {fileID: 2423957277160167154, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
+      propertyPath: _mediaReference
+      value: 
+      objectReference: {fileID: 11400000, guid: 983f22aa1d269594b853593cb4064ec3, type: 2}
     - target: {fileID: 2423957277160167155, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1716,10 +1720,14 @@ PrefabInstance:
       propertyPath: _defaultTexture
       value: 
       objectReference: {fileID: 2800000, guid: fc875ab3044839841a02e235782d8fa6, type: 3}
+    - target: {fileID: 2423957277623452152, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
+      propertyPath: _texturePropertyName
+      value: _VideoTexture
+      objectReference: {fileID: 0}
     - target: {fileID: 2423957277745984864, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c579864320751d2439c8c5ffb6f72692, type: 2}
+      objectReference: {fileID: 2100000, guid: 55739f443ab774d4b9faca287cdd36da, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
 --- !u!167 &834295564822473370
