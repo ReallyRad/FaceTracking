@@ -1712,7 +1712,7 @@ PrefabInstance:
     - target: {fileID: 2423957277160167154, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
       propertyPath: _mediaReference
       value: 
-      objectReference: {fileID: 11400000, guid: 983f22aa1d269594b853593cb4064ec3, type: 2}
+      objectReference: {fileID: 11400000, guid: 956b9daa35668e34e98b4b8e2309e3f6, type: 2}
     - target: {fileID: 2423957277160167155, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1769,15 +1769,53 @@ PrefabInstance:
       propertyPath: _texturePropertyName
       value: _MainTexture
       objectReference: {fileID: 0}
+    - target: {fileID: 2423957277623452154, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
+      propertyPath: m_Name
+      value: ResolveToRenderTexture
+      objectReference: {fileID: 0}
     - target: {fileID: 2423957277745984864, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 55739f443ab774d4b9faca287cdd36da, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2423957277623452152, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2423957277623452154, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 614597272304270393}
   m_SourcePrefab: {fileID: 100100000, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
+--- !u!1 &614597272304270392 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2423957277623452154, guid: 76dbbabd9015b6e41a536d722b3d793c, type: 3}
+  m_PrefabInstance: {fileID: 614597272304270391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &614597272304270393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614597272304270392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448e5e4039505584c852da1a7cc5c361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mediaPlayer: {fileID: 2964737152451373765}
+  _options:
+    applyHSBC: 0
+    hue: 0
+    saturation: 0.5
+    brightness: 0.5
+    contrast: 0.5
+    gamma: 1
+    tint: {r: 1, g: 1, b: 1, a: 1}
+    generateMipmaps: 0
+    aspectRatio: 5
+  _resolveFlags: 23
+  _externalTexture: {fileID: 8400000, guid: 194930d47179049a5a93738c68cc4312, type: 2}
 --- !u!167 &834295564822473370
 AudioReverbZone:
   m_ObjectHideFlags: 0
