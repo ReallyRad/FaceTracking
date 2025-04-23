@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _alias: 
   _mediaPath:
-    _pathType: 0
-    _path: C:/Users/Arthur/AppData/LocalLow/unibas/biofeedback/timelapse.mp4
+    _pathType: 4
+    _path: timelapse graded half.mov
   _hints:
     transparency: 0
     alphaPacking: 1

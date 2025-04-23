@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FeedbackMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 4b72e5ef43e1342ef88c5d1c232692d5,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 4b72e5ef43e1342ef88c5d1c232692d5, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -118,7 +117,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Feedback: 0.0036
+    - _Feedback: 0.05
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
