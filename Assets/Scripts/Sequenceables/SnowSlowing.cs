@@ -81,7 +81,6 @@ public class SnowSlowing : InteractiveSequenceable
         }
     }
 
-
     private void TweenHandling(float val)
     {
         var main = _snowPS.main;

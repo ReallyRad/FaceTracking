@@ -10,15 +10,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class TimeSlowing : InteractiveSequenceable
+public class TimeSpeeding : InteractiveSequenceable
 {
-    [SerializeField] private AudioSource _ambienceSound; //TODO fix up hierarchy so it can be self contained
-    [SerializeField] private MediaPlayer _mediaPlayer;
-
-    [SerializeField] private float _playSpeed; //for displaying the value in the inspector
-
-    public TMP_Text _speedText; //TODO make event.
-    
     private int _interactTween;
     private int _decayTween;
 
@@ -27,6 +20,9 @@ public class TimeSlowing : InteractiveSequenceable
     [SerializeField] private AnimationCurve _interactCurve;
     [SerializeField] private AnimationCurve _decayCurve;
 
+    public delegate void OnTimeSpeeding(float rate);
+    public static OnTimeSpeeding SpeedTime;
+    
     protected override void Interact()
     {
         if (_decayTween != 0)
@@ -43,7 +39,7 @@ public class TimeSlowing : InteractiveSequenceable
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
-                TweenHandling(_interactCurve.Evaluate(val));
+                SpeedTime(_interactCurve.Evaluate(val));
             })
             .setEaseOutQuad()
             .id;
@@ -65,7 +61,7 @@ public class TimeSlowing : InteractiveSequenceable
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
-                TweenHandling(_decayCurve.Evaluate(val));
+            SpeedTime(_decayCurve.Evaluate(val));
             })
             .setEaseInCirc()
             .id;
@@ -91,25 +87,11 @@ public class TimeSlowing : InteractiveSequenceable
             }
         }
     }
+    
     public override void Initialize()
     {
         _active = true;
         _localProgress = 0;
     }
-
-    private void TweenHandling(float val) //TODO make different script for beach or add options to make it work for both
-    {
-        _mediaPlayer.Control.SetPlaybackRate(GetClosestSnapValue(val));
-        _ambienceSound.pitch = val * 2 + 0.5f;
-        _speedText.text = "Playback rate : " + GetClosestSnapValue(val);
-        _playSpeed = GetClosestSnapValue(val);
-    }
     
-    private float GetClosestSnapValue(float value) // Method to find the closest snap value
-    {
-        float[] snapValues = { 0, 0.25f, 0.5f, 1.0f, 1.25f, 1.5f, 1.75f, 2f};
-        
-        return snapValues.OrderBy(x => Mathf.Abs(x - value)).First(); // Find the closest value from the snapValues array
-    }
-
 }
