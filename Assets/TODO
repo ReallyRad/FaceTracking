@@ -1,19 +1,21 @@
 
 
 Arthur :
+	- test timelapse speeding. 
+	- test beach slowing scenario	
+	- video download?
 	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
-	
 	- add transition from full fog to max fog at the beginning of the psychedelic scene
 	- also do the transition when back from the psychedelic scene 
  	- build the entire control scene. Add video player. decide on the interaction
  	- make sun rise/sun set scenarios
  	- make everything work in one scene?
- 	- fog blocks no breathing popup
  	- force exact number of digitd
  	- jump in particles speed from between snow and music and snow slowing phases 
  	- do editor trick to fix avpro inverted video problem and get maps to align perfectly everytime
- 	- popup hidden behind hole
+ 	- popup hidden behind hole and fog
  	- UI position different in control scene, closer
+	- did we want fixed number of breaths or fixed time?
 
 Done :
 	- comprsesion on the garden music. make birds approximately 20% lower 
