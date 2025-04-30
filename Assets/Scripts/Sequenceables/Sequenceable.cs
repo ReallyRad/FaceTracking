@@ -16,13 +16,13 @@ public abstract class Sequenceable : MonoBehaviour
     [SerializeField] protected bool _active; //whether the item is currently receiving progress updates
     [SerializeField] protected bool _transitioning;
 
-    [SerializeField] protected float _initialValue;
-    [SerializeField] protected float _finalValue; 
+    [SerializeField] protected float _initialValue; //the value at the beginning of the sequence
+    [SerializeField] protected float _finalValue; //the value to reach at the end of the sequence
     
     [SerializeField] protected float _startNextPhaseAt; //number of full breaths necessary to complete a sequence phase
     [SerializeField] protected float _completedAt; //the number of full breaths at which we start transitioning to the next sequence phase
 
-    [SerializeField] protected float _localProgress;
+    [SerializeField] protected float _localProgress; //tracks the local progress of this sequenceable, from _initialValue to _finalValue 
 
     public abstract void Initialize(); //Initialize the values before starting to interpolate.
     
