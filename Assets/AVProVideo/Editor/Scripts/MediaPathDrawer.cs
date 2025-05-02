@@ -19,8 +19,9 @@ namespace RenderHeads.Media.AVProVideo.Editor
 
 			EditorGUILayout.PropertyField(propPathType, GUIContent.none);
 
-			string newUrl = EditorGUILayout.TextField(propPath.stringValue);
-
+			//GUI.color = HttpHeader.IsValid(valueProp.stringValue)?Color.white:Color.red;
+			string newUrl = EditorGUILayout.TextArea(propPath.stringValue, EditorHelper.IMGUI.GetWordWrappedTextAreaStyle());
+			//GUI.color = Color.white;
 			newUrl = newUrl.Trim();
 			if (EditorHelper.SafeSetPathProperty(newUrl, propPath))
 			{

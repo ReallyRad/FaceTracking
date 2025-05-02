@@ -186,7 +186,7 @@ namespace RenderHeads.Media.AVProVideo.Editor
 			#elif UNITY_EDITOR_OSX
 			{
 				MediaPlayer.OptionsApple options = new MediaPlayer.OptionsApple(MediaPlayer.OptionsApple.TextureFormat.BGRA, MediaPlayer.OptionsApple.Flags.None);
-				_thumbnailPlayer = new PlatformMediaPlayer(options);
+				_thumbnailPlayer = new AppleMediaPlayer(options);
 			}
 			#endif
 

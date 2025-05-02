@@ -6,7 +6,7 @@ PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
-  isPreloaded: 1
+  isPreloaded: 0
   platformData:
     Android:
       enabled: 1

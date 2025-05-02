@@ -63,12 +63,9 @@ namespace RenderHeads.Media.AVProVideo.Editor
 			SerializedProperty propMediaPathType = data.propPath.FindPropertyRelative("_pathType");
 
 			// Assign to properties
-			propMediaPath.stringValue = mediaPath.Path;
+			propMediaPath.stringValue = mediaPath.Path.Replace("\\", "/");
 			propMediaPathType.enumValueIndex = (int)mediaPath.PathType;
-			if (data.propMediaSource != null)
-			{
-				data.propMediaSource.enumValueIndex = (int)MediaSource.Path;
-			}
+			if (data.propMediaSource != null) data.propMediaSource.enumValueIndex = (int)MediaSource.Path;
 
 			// Mark as modified
 			data.propPath.serializedObject.ApplyModifiedProperties();
@@ -133,7 +130,7 @@ namespace RenderHeads.Media.AVProVideo.Editor
 			if (EditorHelper.OpenMediaFileDialog(startFolder, ref mediaPath, ref fullPath, data.extensions))
 			{
 				// Assign to properties
-				propFilePath.stringValue = mediaPath.Path;
+				propFilePath.stringValue = mediaPath.Path.Replace("\\", "/");
 				propFilePathType.enumValueIndex = (int)mediaPath.PathType;
 				if (data.propMediaSource != null) data.propMediaSource.enumValueIndex = (int)MediaSource.Path;
 
@@ -223,7 +220,7 @@ namespace RenderHeads.Media.AVProVideo.Editor
 			slashReplacement = " \u2215 ";
 #endif
 
-			text = text.Replace("/", slashReplacement);//.Replace("\\", slashReplacement);
+			text = text.Replace("/", slashReplacement).Replace("\\", slashReplacement);	
 
 			// Unity will place text after " _" on the right of the menu, so we replace it so this doesn't happen
 			text = text.Replace(" _", "_");
@@ -242,22 +239,19 @@ namespace RenderHeads.Media.AVProVideo.Editor
 					// Filter by type
 					for (int i = 0; i < allFiles.Length; i++)
 					{
-						string file = allFiles[i];
 						bool remove = false;
-						if (file.EndsWith(".meta", System.StringComparison.InvariantCultureIgnoreCase))
+						if (allFiles[i].EndsWith(".meta", System.StringComparison.InvariantCultureIgnoreCase))
 						{
 							remove = true;
 						}
+
 #if UNITY_EDITOR_OSX
-						remove = remove || file.EndsWith(".DS_Store");
+						remove = remove || allFiles[i].EndsWith(".DS_Store");
 #endif
+
 						if (!remove)
 						{
-#if UNITY_EDITOR_WIN
-							// Using Directory.GetFiles returns paths with \ in so correct this to be /
-							file = file.Replace("\\", "/");
-#endif
-							files.Add(file);
+							files.Add(allFiles[i]);
 						}
 					}
 				}

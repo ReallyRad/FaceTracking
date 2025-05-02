@@ -65,7 +65,7 @@ namespace RenderHeads.Media.AVProVideo
 		#elif (UNITY_EDITOR_OSX && UNITY_TVOS) || (!UNITY_EDITOR && UNITY_TVOS)
 			result = GetPlatformMediaReference(Platform.tvOS);
 		#elif (UNITY_EDITOR_OSX || (!UNITY_EDITOR && UNITY_STANDALONE_OSX))
-			result = GetPlatformMediaReference(Platform.macOS);
+			result = GetPlatformMediaReference(Platform.MacOSX);
 		#elif (UNITY_EDITOR_WIN) || (!UNITY_EDITOR && UNITY_STANDALONE_WIN)
 			result = GetPlatformMediaReference(Platform.Windows);
 		#elif (!UNITY_EDITOR && UNITY_WSA_10_0)
@@ -96,7 +96,7 @@ namespace RenderHeads.Media.AVProVideo
 				case Platform.tvOS:
 					result = _tvOS;
 					break;
-				case Platform.macOS:
+				case Platform.MacOSX:
 					result = _macOS;
 					break;
 				case Platform.Windows:

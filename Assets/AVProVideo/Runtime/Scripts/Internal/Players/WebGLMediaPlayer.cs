@@ -1,4 +1,4 @@
-//#define AVPRO_WEBGL_USE_RENDERTEXTURE
+﻿//#define AVPRO_WEBGL_USE_RENDERTEXTURE
 // NOTE: We only allow this script to compile in editor so we can easily check for compilation issues
 #if (UNITY_EDITOR || UNITY_WEBGL)
 using UnityEngine;
@@ -207,11 +207,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public static bool InitialisePlatform()
 		{
-		#if UNITY_2023_1_OR_NEWER
-			_isWebGL1 = false;
-		#else
 			_isWebGL1 = (SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.OpenGLES2);
-		#endif
 			return true;
 		}
 
@@ -228,7 +224,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override string GetVersion()
 		{
-			return "3.1.0";
+			return "2.1.6";
 		}
 
 		public override string GetExpectedVersion()
@@ -372,7 +368,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override void Play()
 		{
-			// Debug.Assert(_playerIndex != -1, "no player Play");
+			Debug.Assert(_playerIndex != -1, "no player Play");
 
 			if (!AVPPlayerPlay(_playerIndex))
 			{
@@ -382,27 +378,27 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override void Pause()
 		{
-			// Debug.Assert(_playerIndex != -1, "no player Pause");
+			Debug.Assert(_playerIndex != -1, "no player Pause");
 
 			AVPPlayerPause(_playerIndex);
 		}
 
 		public override void Stop()
 		{
-			// Debug.Assert(_playerIndex != -1, "no player Stop");
+			Debug.Assert(_playerIndex != -1, "no player Stop");
 
 			AVPPlayerPause(_playerIndex);
 		}
 
 		public override void Seek(double time)
 		{
-			// Debug.Assert(_playerIndex != -1, "no player Seek");
+			Debug.Assert(_playerIndex != -1, "no player Seek");
 			AVPPlayerSeekToTime(_playerIndex, time, false);
 		}
 
 		public override void SeekFast(double time)
 		{
-			// Debug.Assert(_playerIndex != -1, "no player SeekFast");
+			Debug.Assert(_playerIndex != -1, "no player SeekFast");
 			AVPPlayerSeekToTime(_playerIndex, time, true);
 		}
 
@@ -419,7 +415,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override void SetPlaybackRate(float rate)
 		{
-			// Debug.Assert(_playerIndex != -1, "no player SetPlaybackRate");
+			Debug.Assert(_playerIndex != -1, "no player SetPlaybackRate");
 
 			// No HTML implementations allow negative rate yet
 			rate = Mathf.Clamp(rate, 0.25f, 8f);
@@ -595,14 +591,14 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override void MuteAudio(bool bMute)
 		{
-			// Debug.Assert(_playerIndex != -1, "no player MuteAudio");
+			Debug.Assert(_playerIndex != -1, "no player MuteAudio");
 
 			AVPPlayerSetMuted(_playerIndex, bMute);
 		}
 
 		public override void SetVolume(float volume)
 		{
-			// Debug.Assert(_playerIndex != -1, "no player SetVolume");
+			Debug.Assert(_playerIndex != -1, "no player SetVolume");
 
 			AVPPlayerSetVolume(_playerIndex, volume);
 		}

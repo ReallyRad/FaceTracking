@@ -49,10 +49,17 @@ namespace RenderHeads.Media.AVProVideo.Editor
 		internal static bool SafeSetPathProperty(string path, SerializedProperty property)
 		{
 			bool result = false;
-
 			if (path == null)
 			{
 				path = string.Empty;
+			}
+			else if (path.IndexOfAny(System.IO.Path.GetInvalidPathChars()) < 0)
+			{
+				path = path.Replace("\\", "/");
+			}
+			if (path.StartsWith("//"))
+			{
+				path = path.Substring(2);
 			}
 
 			if (path != property.stringValue)
@@ -60,7 +67,7 @@ namespace RenderHeads.Media.AVProVideo.Editor
 				property.stringValue = path;
 				result = true;
 			}
-
+			
 			return result;
 		}
 
@@ -135,12 +142,9 @@ namespace RenderHeads.Media.AVProVideo.Editor
 			bool result = false;
 
 			string path = UnityEditor.EditorUtility.OpenFilePanel("Browse Media File", startPath, extensions);
-			Debug.Log($"OpenMediaFileDialog - path: {path}");
 			if (!string.IsNullOrEmpty(path) && !path.EndsWith(".meta"))
 			{
 				mediaPath = GetMediaPathFromFullPath(path);
-				fullPath = path;
-				Debug.Log($"OpenMediaFileDialog - mediaPath.Path: {mediaPath.Path}, mediaPath.PathType: {mediaPath.PathType}");
 				result = true;
 			}
 
@@ -187,13 +191,13 @@ namespace RenderHeads.Media.AVProVideo.Editor
 				}
 			}
 			else
-			// Must be persistant data
-			if (fullPath.StartsWith(Application.persistentDataPath))
 			{
-				result = new MediaPath(GetPathRelativeTo(Application.persistentDataPath, fullPath), MediaPathType.RelativeToPersistentDataFolder);
-			}
-			else
-			{
+				// Must be persistant data
+				if (fullPath.StartsWith(Application.persistentDataPath))
+				{
+					result = new MediaPath(GetPathRelativeTo(Application.persistentDataPath, fullPath), MediaPathType.RelativeToPersistentDataFolder);
+				}
+
 				// Must be absolute path
 				result = new MediaPath(fullPath, MediaPathType.AbsolutePathOrURL);
 			}

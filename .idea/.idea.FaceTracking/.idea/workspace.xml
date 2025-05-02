@@ -6,28 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="b30676e3-d6b6-4c4a-b78d-5d6318f6320b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FaceTracking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FaceTracking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/AVPro References/timelapse.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AVPro References/timelapse.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Materials/FeedbackMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/FeedbackMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Sunset.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Sunset.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Shaders/FeedbackShader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/FeedbackShader.shadergraph" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/FeedbackTexture.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/FeedbackTexture.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/VideoFeedbackTexture.renderTexture" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/VideoFeedbackTexture.renderTexture.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/hole.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Materials/hole.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Waiting.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Waiting.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CSVManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CSVManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ResponseLogger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ResponseLogger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/WaitingRoomTransition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/WaitingRoomTransition.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/91dc399f41a440558c716315c7e834ab15aa00/a8/4b7eee6f/SceneManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@14.0.11/Runtime/XR/XRPass.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ExperimentState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/apointeau/FaceTracking/Assets/Scripts/WaitingRoomTransition.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/apointeau/FaceTracking/Assets/Scripts/WaitingRoomTransition.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/ExecuteEvents.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/InputModules/StandaloneInputModule.cs" root0="SKIP_HIGHLIGHTING" />
@@ -35,10 +29,6 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
   <component name="ProjectId" id="2ebQNcv8czttcnEPqEDe8BQDE3s" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -50,38 +40,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "timelapse",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
+    "git-widget-placeholder": "develop",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Arthur\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Arthur\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Arthur\\AppData\\Local\\Symbols\\src"
-    ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
-    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\Arthur\Documents\FaceTracking -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Arthur\Documents\FaceTracking" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.30f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Arthur\Documents\FaceTracking -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\Users\Arthur\Documents\FaceTracking" />
-      <option name="PASS_PARENT_ENVS" value="1" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <method v="2" />
-    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.29f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\Labor\Documents\FaceTracking -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -120,7 +84,6 @@
       <option name="presentableId" value="Default" />
       <updated>1712170760866</updated>
       <workItem from="1712170781365" duration="1474000" />
-      <workItem from="1745401082623" duration="594000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-Shader "AVProVideo/Internal/Resolve"
+﻿Shader "AVProVideo/Internal/Resolve"
 {
 	Properties
 	{
@@ -39,7 +39,6 @@ Shader "AVProVideo/Internal/Resolve"
 			Name "RESOLVE"
 
 			CGPROGRAM
-			#pragma exclude_renderers gles
 			#pragma vertex vert
 			#pragma fragment frag
 			// TODO: replace use multi_compile_local instead (Unity 2019.1 feature)
@@ -80,7 +79,6 @@ Shader "AVProVideo/Internal/Resolve"
 			uniform fixed4 _Color;
 			uniform float4 _MainTex_ST;
 			uniform float4 _MainTex_TexelSize;
-			uniform float4x4 _MainTex_Xfrm;
 			uniform float _VertScale;
 
 			v2f vert(appdata_t v)
@@ -88,7 +86,7 @@ Shader "AVProVideo/Internal/Resolve"
 				v2f o;
 				o.vertex = XFormObjectToClip(v.vertex);
 				o.color = v.color * _Color;
-				o.uv.xy = mul(_MainTex_Xfrm, float4(v.texcoord, 0.0f, 1.0f)).xy;
+				o.uv.xy = TRANSFORM_TEX(v.texcoord, _MainTex);
 				o.uv.wz = 0.0;
 
 				#if STEREO_TOP_BOTTOM || STEREO_LEFT_RIGHT
@@ -106,6 +104,7 @@ Shader "AVProVideo/Internal/Resolve"
 			half4 frag(v2f i) : SV_Target
 			{
 				half4 col;
+
 				#if USE_YPCBCR
 					col = SampleYpCbCr(_MainTex, _ChromaTex, i.uv.xy, _YpCbCrTransform);
 				#else

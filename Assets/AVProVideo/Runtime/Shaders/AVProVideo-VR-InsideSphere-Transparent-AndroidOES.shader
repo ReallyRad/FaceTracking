@@ -52,11 +52,7 @@
 
 			INLINE bool Android_IsStereoEyeLeft()
 			{
-				#if defined(FORCEEYE_LEFT)
-					return true;
-				#elif defined(FORCEEYE_RIGHT)
-					return false;
-				#elif defined(STEREO_MULTIVIEW_ON)
+				#if defined(STEREO_MULTIVIEW_ON)
 					int eyeIndex = SetupStereoEyeIndex();
 					return (eyeIndex == 0);
 				#else
@@ -76,7 +72,7 @@
 	#endif
 			uniform vec4 _MainTex_ST;
 			uniform vec4 _MainTex_TexelSize;
-			uniform mat4 _MainTex_Xfrm;
+			uniform mat4 _TextureMatrix;
 #endif
 #if defined(STEREO_DEBUG)
 			varying vec4 tint;
@@ -114,13 +110,12 @@
 
 				// Set value for clipping if UV area is behind viewer
 				texVal.z = (gl_MultiTexCoord0.x > 0.25 && gl_MultiTexCoord0.x < 0.75) ? 1.0 : -1.0;
-				texVal.z = -gl_Normal.z;
 	#else
 				texVal.z = 0.0;
 	#endif
 
 				// Apply texture transformation matrix - adjusts for offset/cropping (when the decoder decodes in blocks that overrun the video frame size, it pads)
-				texVal.xy = (_MainTex_Xfrm * vec4(texVal.x, texVal.y, 0.0, 1.0)).xy;
+				texVal.xy = (_TextureMatrix * vec4(texVal.x, texVal.y, 0.0, 1.0)).xy;
 
 	#if defined(STEREO_TOP_BOTTOM) || defined(STEREO_LEFT_RIGHT)
 				vec4 scaleOffset = GetStereoScaleOffset(Android_IsStereoEyeLeft(), false);
@@ -162,7 +157,7 @@
 	#if defined(STEREO_TOP_BOTTOM) || defined(STEREO_LEFT_RIGHT)
 			varying vec4 texScaleOffset;
 	#endif
-			uniform mat4 _MainTex_Xfrm;
+			uniform mat4 _TextureMatrix;
 #else
 			varying vec3 texVal;
 	#if defined(ALPHAPACK_TOP_BOTTOM) || defined(ALPHAPACK_LEFT_RIGHT)
@@ -227,7 +222,7 @@
 	#endif
 
 				// Apply texture transformation matrix - adjusts for offset/cropping (when the decoder decodes in blocks that overrun the video frame size, it pads)
-				uv.xy = (_MainTex_Xfrm * vec4(uv.x, uv.y, 0.0, 1.0)).xy;
+				uv.xy = (_TextureMatrix * vec4(uv.x, uv.y, 0.0, 1.0)).xy;
 
 	#if defined(STEREO_TOP_BOTTOM) || defined(STEREO_LEFT_RIGHT)
 				uv.xy *= texScaleOffset.xy;
@@ -321,8 +316,7 @@
 					featherDirection.z *= 0.5;
 #endif
 
-//					float d = min(uv.x - featherDirection.x, min((uv.y - featherDirection.y), min(featherDirection.z - uv.x, featherDirection.w - uv.y)));
-					float d = (uv.x - featherDirection.x) * (uv.y - featherDirection.y) * (featherDirection.z - uv.x) * (featherDirection.w - uv.y) * 10.0;
+					float d = min(uv.x - featherDirection.x, min((uv.y - featherDirection.y), min(featherDirection.z - uv.x, featherDirection.w - uv.y)));
 					float a = smoothstep(0.0, _EdgeFeather, d);
 					col.a *= a;
 				}

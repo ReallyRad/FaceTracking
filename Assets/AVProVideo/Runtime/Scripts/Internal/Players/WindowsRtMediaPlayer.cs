@@ -1,7 +1,5 @@
-﻿//#define AVPROVIDEO_WINDOWS_UNIFIED_DLLS		// DEV FEATURE: are we using new unified (DS + MF + WRT) Windows DLLs?
-//
-// NOTE: We only allow this script to compile in editor so we can easily check for compilation issues
-#if ((UNITY_EDITOR || (UNITY_STANDALONE_WIN || UNITY_WSA_10_0)) && !AVPROVIDEO_WINDOWS_UNIFIED_DLLS)
+﻿// NOTE: We only allow this script to compile in editor so we can easily check for compilation issues
+#if (UNITY_EDITOR || (UNITY_STANDALONE_WIN || UNITY_WSA_10_0))
 
 #if UNITY_WSA_10 || ENABLE_IL2CPP
 	#define AVPROVIDEO_MARSHAL_RETURN_BOOL
@@ -31,20 +29,62 @@ namespace RenderHeads.Media.AVProVideo
 		Seeking = 32,
 	}
 
+	public class AuthData
+	{
+		public string URL { get; set; }
+		public string Token { get; set; }
+		public byte[] KeyBytes { get; set; }
+
+		public AuthData()
+		{
+			Clear();
+		}
+
+		public void Clear()
+		{
+			URL = string.Empty;
+			Token = string.Empty;
+			KeyBytes = null;
+		}
+
+		public string KeyBase64
+		{
+			get
+			{
+				if (KeyBytes != null)
+				{
+					return System.Convert.ToBase64String(KeyBytes);
+				}
+				else
+				{
+					return string.Empty;
+				}
+			}
+			set
+			{
+				if (value != null)
+				{
+					KeyBytes = System.Convert.FromBase64String(value);
+				}
+				else
+				{
+					KeyBytes = null;
+				}
+			}
+		}
+	};
+
 	public partial class WindowsRtMediaPlayer : BaseMediaPlayer
 	{
-		private bool _isMediaLoaded		= false;
-		private bool _isLooping			= false;
-		private float _volume			= 1.0f;
-		private bool _use10BitTextures	= false;
+		private bool _isMediaLoaded = false;
+		private bool _use10BitTextures = false;
 		private bool _useLowLiveLatency = false;
 
 		public WindowsRtMediaPlayer(MediaPlayer.OptionsWindows options) : base()
 		{
 			_playerDescription = "WinRT";
-
-			SetOptions(options);
-
+			_use10BitTextures = options.use10BitTextures;
+			_useLowLiveLatency = options.useLowLiveLatency;
 			for (int i = 0; i < _eyeTextures.Length; i++)
 			{
 				_eyeTextures[i] = new EyeTexture();
@@ -60,12 +100,6 @@ namespace RenderHeads.Media.AVProVideo
 			{
 				_eyeTextures[i] = new EyeTexture();
 			}
-		}
-
-		public void SetOptions(MediaPlayer.OptionsWindows options)
-		{
-			_use10BitTextures = options.use10BitTextures;
-			_useLowLiveLatency = options.useLowLiveLatency;
 		}
 
 		public override bool CanPlay()
@@ -180,7 +214,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override float GetVolume()
 		{
-			return _volume;//Native.GetAudioVolume(_playerInstance);
+			return Native.GetAudioVolume(_playerInstance);
 		}
 
 		public override void SetBalance(float balance)
@@ -225,7 +259,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override bool IsLooping()
 		{
-			return _isLooping;//Native.IsLooping(_playerInstance);
+			return Native.IsLooping(_playerInstance);
 		}
 
 		public override bool IsMuted()
@@ -258,8 +292,7 @@ namespace RenderHeads.Media.AVProVideo
 		{
 			bool result = false;
 
-			// RJT NOTE: Commented out as already called by 'InternalOpenMedia()' which calls this function
-//			CloseMedia();
+			CloseMedia();
 
 			if (_playerInstance == System.IntPtr.Zero)
 			{
@@ -277,13 +310,6 @@ namespace RenderHeads.Media.AVProVideo
 					{
 						Native.SetLiveOffset(_playerInstance, 0.0);
 					}
-
-					// RJT NOTE: Other platforms create their native instances earlier than 'OpenMedia()' and set looping at that
-					// point which Windows misses, so make sure once we have an instance we pass the looping flag down retrospectively
-					// - https://github.com/RenderHeads/UnityPlugin-AVProVideo/issues/1913
-					// - Same now with volume: https://github.com/RenderHeads/UnityPlugin-AVProVideo/issues/1916
-					Native.SetLooping(_playerInstance, _isLooping);
-					Native.SetAudioVolume(_playerInstance, _volume);
 				}
 				_mediaHints = mediaHints;
 			}
@@ -294,9 +320,7 @@ namespace RenderHeads.Media.AVProVideo
 		public override void CloseMedia()
 		{
 			// NOTE: This unloads the current video, but the texture should remain
-			_isMediaLoaded	= false;
-			_isLooping		= false;
-			_volume			= 1.0f;
+			_isMediaLoaded = false;
 			Native.CloseMedia(_playerInstance);
 
 			base.CloseMedia();
@@ -364,9 +388,7 @@ namespace RenderHeads.Media.AVProVideo
 							{
 								if (texturePointer != IntPtr.Zero)
 								{
-									// RJT NOTE: See notes in 'WindowsMediaPlayer::UpdateTexture()' re: 'isLinear'
-									bool isLinear = (/*!_supportsLinearColorSpace*/true && (QualitySettings.activeColorSpace == ColorSpace.Linear));
-									eyeTexture.texture = Texture2D.CreateExternalTexture(width, height, TextureFormat.BGRA32, false, isLinear, texturePointer);
+									eyeTexture.texture = Texture2D.CreateExternalTexture(width, height, TextureFormat.BGRA32, false, false, texturePointer);
 									if (eyeTexture.texture != null)
 									{
 										eyeTexture.texture.name = "AVProVideo";
@@ -427,8 +449,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override void SetLooping(bool bLooping)
 		{
-			_isLooping = bLooping;
-			Native.SetLooping(_playerInstance, _isLooping);
+			Native.SetLooping(_playerInstance, bLooping);
 		}
 
 		public override void SetPlaybackRate(float rate)
@@ -440,8 +461,7 @@ namespace RenderHeads.Media.AVProVideo
 
 		public override void SetVolume(float volume)
 		{
-			_volume = volume;
-			Native.SetAudioVolume(_playerInstance, _volume);
+			Native.SetAudioVolume(_playerInstance, volume);
 		}
 
 		public override void Stop()

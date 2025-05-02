@@ -46,72 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _active: 0
   _transitioning: 0
-  _initialValue: 0
-  _finalValue: 2
+  _initialValue: 0.5
+  _finalValue: 2.5
   _startNextPhaseAt: 9
   _completedAt: 10
   _localProgress: 0
   _riseTime: 8
-  _decayTime: 4
-  _ambienceSound: {fileID: 0}
-  _mediaPlayer: {fileID: 0}
-  _playSpeed: 0
-  _speedText: {fileID: 0}
+  _decayTime: 3
+  wavesSound: {fileID: 0}
+  mediaPlayer: {fileID: 0}
+  playSpeed: 0
   _interactiveVal: 0
-  _interactCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.9954527
-      outSlope: 0.9954527
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1.9999237
-      value: 1.9908295
-      inSlope: 0.9954527
-      outSlope: 0.9954527
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _decayCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.016666412
-      value: -0.018859863
-      inSlope: 0.1534802
-      outSlope: 0.1534802
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.29434907
-    - serializedVersion: 3
-      time: 1.8205101
-      value: 0.4942873
-      inSlope: 1.0593567
-      outSlope: 1.0593567
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 2.0001712
-      value: 2.0001295
-      inSlope: 13.584643
-      outSlope: 13.584643
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.120779224
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
