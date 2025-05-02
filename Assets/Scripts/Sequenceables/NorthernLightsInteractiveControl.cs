@@ -71,7 +71,7 @@ public class NorthernLightsInteractiveControl : InteractiveSequenceable
 
     protected override void Progress(float progress)
     {
-        int x = 2;
+        int x = 2; //TODO should track end of sequence or not?
     }
         
     private void TweenHandling(float val) //interactive tween handler

@@ -1,26 +1,40 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using VolumetricFogAndMist2;
+using Random = UnityEngine.Random;
 
 public class FogDisappearingControl : InteractiveSequenceable
 {
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
     
-    private float _prgressiveFactor;
+    [SerializeField] private float _progressiveFactor; //stores the progressive part of the fog control
+    [SerializeField] private float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
 
+    [SerializeField] private float _interactiveOvershootRange;
+
+    [SerializeField] private float _perlinSpeed;
+    [SerializeField] private float _noiseStrenghtBaseline;
+    [SerializeField] private float _noiseRange;
+    
     private int _interactTween;
     private int _decayTween;
-    
-    [SerializeField] private float _interactiveVal; //stores the current interactive progress value;
 
+    //TODO set color/alpha too?
     
+    private void Update()
+    {
+        fog.settings.noiseStrength = _noiseStrenghtBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
+    }
+
     public override void Initialize()
     {
         _active = true;
         fog.settings.density = _initialValue;
+        _interactiveVal = 0;
         fog.gameObject.SetActive(true);
         _localProgress = 0;
     }
@@ -45,7 +59,7 @@ public class FogDisappearingControl : InteractiveSequenceable
                 if (_transitioning && !wasTransitioning) StartNextPhase(this); //notify progressmanager to starting next phase 
                     
                 var val = _progressCurve.Evaluate(_localProgress/_completedAt); // get the point of local progres
-                _prgressiveFactor = Utils.Map(val, 0, 1, _initialValue, _finalValue); //map it to the progress range
+                _progressiveFactor = Utils.Map(val, 0, 1, _initialValue, _finalValue); //map it to the progress range
                 //fog.settings.density = intensityValue; //apply it to the fog
             }
         }
@@ -62,13 +76,15 @@ public class FogDisappearingControl : InteractiveSequenceable
         //float riseTime = (1 - _interactiveVal) * _riseTime; //time must be proportional to current progress to keep speed constant
         
         _interactTween = LeanTween
-            .value(gameObject, _interactiveVal, 1, _riseTime)
+            .value(gameObject, _interactiveVal, 1f, _riseTime)
             .setOnUpdate(val =>
             {
                 _interactiveVal = val;
                 TweenHandling(val);                
             })
+            .setEaseOutExpo()
             .id;
+        
     }
 
     protected override void Decay()
@@ -87,12 +103,16 @@ public class FogDisappearingControl : InteractiveSequenceable
                 _interactiveVal = val;
                 TweenHandling(val);                
             })
+            .setEaseOutExpo()
             .id;
     }
     
-    private void TweenHandling(float val) //interactive tween handler
+    private void TweenHandling(float interactiveVal) //interactive tween handler
     {
-        fog.settings.density = val;
+        _interactiveVal = interactiveVal;
+        fog.settings.density = 1 - interactiveVal * _interactiveOvershootRange;
+        //TODO use perlin noise
+
     }
 
 }
