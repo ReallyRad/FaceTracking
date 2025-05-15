@@ -1,24 +1,35 @@
-Mehdi
+Mehdi : 	
 
-Arthur :
-	- elastic breathing out. Progress should be visible.
-	
-	- The snow slowing interactivity should start at the beginning of each exhale (not after 2 seconds) and be tied to exhale linearly.
+	- rename the scenes according to the specified names
 
-	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
+	- try building webGL
 
     - VR-Mystical (SnowAuto): find a simple way to simulate the breathing? Or make the sequence unfold by itself? Create new Scene 
 
 	- VR Breathing mystical (Snow) : should be mostly there, but check the timing is OK.
 
-	- Non-VR-Breathing scenario (NoVR): a circle on the screen whose size getting bigger instructs the subject to inhale, and whose size getting smaller instructs the subject to exhale. In the exhale phase, for the first 3 seconds the color of the circle is c1, for the next 4 seconds the color is c2, and after 7 seconds the color is c3, to instruct the optimum length of exhale is between 3 and 7 seconds. example animation : https://www.youtube.com/watch?v=q0QiLqPKoZg
-
 	- VR-Control (Control) : why update video? Remove UI?
 
-	- No more data collection at all? 	 	
- 	
- 	
+	- The snow slowing interactivity should start at the beginning of each exhale (not after 2 seconds) (check that it's actually happening)
+
+Arthur :
+
+	- elastic breathing out. Progress should be visible.
+
+	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
+
+	- Remove the ratings from the waiting scene. 
+
+	- selecting the scene in the waiting scene with 4 options 
+
+	- don't load the waiting scene anymore 
+
+	- do one apk with 3 scenarios. 
+
+	- no more post 
+
 Done :
+	- Non-VR-Breathing scenario (NoVR): a circle on the screen whose size getting bigger instructs the subject to inhale, and whose size getting smaller instructs the subject to exhale. In the exhale phase, for the first 3 seconds the color of the circle is c1, for the next 4 seconds the color is c2, and after 7 seconds the color is c3, to instruct the optimum length of exhale is between 3 and 7 seconds. example animation : https://www.youtube.com/watch?v=q0QiLqPKoZg
  	- make sun rise/sun set scenarios
  	- jump in particles speed from between snow and music and snow slowing phases 
  	- popup hidden behind hole
