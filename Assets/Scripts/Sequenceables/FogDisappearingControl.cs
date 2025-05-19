@@ -11,16 +11,16 @@ public class FogDisappearingControl : InteractiveSequenceable
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
     
-    [SerializeField] private float _progressiveFactor; //stores the progressive part of the fog control
-    [Range(0f, 1f)] public float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
+    [Range(0f, 1f)] [SerializeField] private float _progressiveFactor; //stores the progressive part of the fog control
+    [Range(0f, 1f)] [SerializeField] private float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
 
-    [Range(0f, 2f)] public float _interactiveOvershootRange;
+    [Range(0f, 2f)] [SerializeField] private float _interactiveOvershootRange;
 
-    [Range(0f, 15f)] public float _perlinSpeed;
-    [Range(0f, 2f)] public float _noiseStrengthBaseline;
-    [Range(0f, 1f)] public float _noiseRange;
+    [Range(0f, 15f)] [SerializeField] private float _perlinSpeed;
+    [Range(0f, 2f)] [SerializeField] private float _noiseStrengthBaseline;
+    [Range(0f, 1f)] [SerializeField] private float _noiseRange;
     
-    [Range(0f, 1f)] public float _density; //for display
+    [Range(0f, 1f)] [SerializeField] private float _density; //for display
     
     private int _interactTween;
     private int _decayTween;
