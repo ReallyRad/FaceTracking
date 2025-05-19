@@ -12,13 +12,15 @@ public class FogDisappearingControl : InteractiveSequenceable
     [SerializeField] private AnimationCurve _progressCurve;
     
     [SerializeField] private float _progressiveFactor; //stores the progressive part of the fog control
-    [SerializeField] private float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
+    [Range(0f, 1f)] public float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
 
-    [SerializeField] private float _interactiveOvershootRange;
+    [Range(0f, 2f)] public float _interactiveOvershootRange;
 
-    [SerializeField] private float _perlinSpeed;
-    [SerializeField] private float _noiseStrenghtBaseline;
-    [SerializeField] private float _noiseRange;
+    [Range(0f, 15f)] public float _perlinSpeed;
+    [Range(0f, 2f)] public float _noiseStrengthBaseline;
+    [Range(0f, 1f)] public float _noiseRange;
+    
+    [Range(0f, 1f)] public float _density; //for display
     
     private int _interactTween;
     private int _decayTween;
@@ -27,13 +29,14 @@ public class FogDisappearingControl : InteractiveSequenceable
     
     private void Update()
     {
-        fog.settings.noiseStrength = _noiseStrenghtBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
+        fog.settings.noiseStrength = _noiseStrengthBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
     }
 
     public override void Initialize()
     {
         _active = true;
         fog.settings.density = _initialValue;
+        _density = _initialValue;
         _interactiveVal = 0;
         fog.gameObject.SetActive(true);
         _localProgress = 0;
@@ -111,8 +114,7 @@ public class FogDisappearingControl : InteractiveSequenceable
     {
         _interactiveVal = interactiveVal;
         fog.settings.density = 1 - interactiveVal * _interactiveOvershootRange;
-        //TODO use perlin noise
-
+        _density = 1 - interactiveVal * _interactiveOvershootRange;
     }
 
 }
