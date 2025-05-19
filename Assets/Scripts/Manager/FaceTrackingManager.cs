@@ -28,6 +28,9 @@ public class FaceTrackingManager : MonoBehaviour
 
     [SerializeField] private bool _autoDebugBreathing;
     [SerializeField] private float _debugBreathRate;
+
+    [SerializeField] private bool _debugPucker;
+    private bool _wasDebugPucker;
     
     private bool _sendMouthValue;
     private float _previousMouthValue;
@@ -54,13 +57,13 @@ public class FaceTrackingManager : MonoBehaviour
         bool wasPucker = _previousMouthValue < _puckerThreshold;
         bool pucker = _mouthValue < _puckerThreshold;
         
-        //if we just started pucker
-        if (pucker && !wasPucker)
-            PuckerTrigger(true);
+        if (pucker && !wasPucker) PuckerTrigger(true); //if we just started pucker
+        else if (wasPucker && !pucker) PuckerTrigger(false); //if we just stopped pucker 
         
-        //if we just stopped pucker
-        else if (wasPucker && !pucker) 
-            PuckerTrigger(false); 
+        if (_debugPucker && !_wasDebugPucker) PuckerTrigger(true); //if we just started pucker
+        else if (_wasDebugPucker && !_debugPucker) PuckerTrigger(false); //if we just stopped pucker 
+
+        _wasDebugPucker = _debugPucker; 
         
         _previousMouthValue = _mouthValue;
     }
