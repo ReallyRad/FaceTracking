@@ -8,18 +8,16 @@ public class FogTweener : MonoBehaviour
     [SerializeField] private AnimationCurve _curve;
     [SerializeField] private IntVariable _selectedExperience;
 
-    [SerializeField] private ExperimentStateSO experimentStateSO;
-
-    private bool shouldTwen;
+    private bool _shouldTween;
 
     public void ExperienceSelected() //only tween if we're going to intervention scenes
     {
-        shouldTwen = _selectedExperience.Value == (int) Experience.Snow;
+        _shouldTween = _selectedExperience.Value == (int) Experience.Snow;
     }
     
     public void TweenFog()
     {
-        if (experimentStateSO.experimentState == ExperimentState.pre && shouldTwen)
+        if (_shouldTween)
         {
             LeanTween.value(0, 1, 10).setOnUpdate( val =>
             {

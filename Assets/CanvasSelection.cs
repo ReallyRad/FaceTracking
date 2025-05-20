@@ -13,7 +13,7 @@ public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide s
     [SerializeField] private GameObject _experienceTitle;
     [SerializeField] private GameObject _controlTitle;
     
-    [SerializeField] private WaitingRoomSlideShow _waitingRoomSlideShow; 
+    [SerializeField] private SlideShow _waitingRoomSlideShow; 
 
     [SerializeField] private IntVariable _experienceVariable;
 

@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class SceneTimer : MonoBehaviour  //count 10 minutes intervention time and go back to Waiting scene
 {
     [SerializeField] private float _timeToEndScene; 
-    [SerializeField] private ExperimentStateSO _experimentState;
     [SerializeField] private bool _startTimerOnStart;
     
     public delegate void OnSceneFinished();
@@ -26,7 +25,6 @@ public class SceneTimer : MonoBehaviour  //count 10 minutes intervention time an
     public void EndScene()
     {
         LeanTween.cancelAll();
-        _experimentState.experimentState = ExperimentState.post;
         SceneFinished();
         SceneManager.LoadScene("Waiting");
     }

@@ -11,7 +11,6 @@ public class CSVManager : MonoBehaviour
 {
     [SerializeField] private StringVariable _subjectIDVariable; 
     [SerializeField] private IntVariable _selectedExperience;
-    [SerializeField] private ExperimentStateSO _experimentStateSO; //stores pre/post state across scenes
     [SerializeField] private ExperimentData _experimentData; //contains one VAS answers
     [SerializeField] private ExperimentDataStorage _experimentDataStorage; //storage of the entire data to dictionary format to be written to csv
 
@@ -37,12 +36,6 @@ public class CSVManager : MonoBehaviour
         _experimentDataStorage.experimentDataDictionary.Add("PID" , "");
         _experimentDataStorage.experimentDataDictionary.Add("Experience" , "");
 
-        //add pre and post answer types
-        foreach (var answerType in Enum.GetValues(typeof(QuestionnaireAnswerType)))
-            foreach (var state in Enum.GetValues(typeof(ExperimentState)))
-                _experimentDataStorage.experimentDataDictionary.Add(answerType + "_" + state, "");
-
-
         string timeStamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm");
         _experimentDataStorage.experimentDataDictionary.Add("Timestamp" , timeStamp);
 
@@ -55,15 +48,6 @@ public class CSVManager : MonoBehaviour
     {
         _experimentDataStorage.experimentDataDictionary["PID"] = _subjectIDVariable.Value;
         _experimentDataStorage.experimentDataDictionary["Experience"] = ((Experience) _selectedExperience.Value).ToString();
-
-        foreach (var answerType in Enum.GetValues(typeof(QuestionnaireAnswerType)))
-        {
-            if (_experimentData.answerType.ToString() == answerType.ToString()) //write the experimentdata value to the correct spot
-            {
-                var state = _experimentStateSO.experimentState.ToString();
-                _experimentDataStorage.experimentDataDictionary[answerType + "_" + state] = _experimentData.answerValue;
-            }
-        }
 
         string path = Path.Combine(Application.persistentDataPath, _subjectIDVariable.Value + "_log.csv");
     
