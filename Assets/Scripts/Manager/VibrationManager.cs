@@ -27,7 +27,7 @@ public class VibrationManager : MonoBehaviour
 
     public void ExperienceSelected()
     {
-        if (_experienceVariable.Value != (int)Experience.Control)
+        if (_experienceVariable.Value != (int)Experience.VRControl)
         {
             transform.SetParent(transform.parent.transform.parent);
             DontDestroyOnLoad(gameObject);

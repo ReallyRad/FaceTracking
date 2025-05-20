@@ -19,7 +19,7 @@ public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide s
 
     public void ExperienceSelected() //select the slides that need to be shown in the waiting scene pre
     {
-        if (_experienceVariable.Value == (int) Experience.Control) 
+        if (_experienceVariable.Value == (int) Experience.VRControl) 
         {
             //instructions and welcome are enabled by default
             _canvInstruction.SetActive(false);

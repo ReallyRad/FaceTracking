@@ -12,7 +12,7 @@ public class FogTweener : MonoBehaviour
 
     public void ExperienceSelected() //only tween if we're going to intervention scenes
     {
-        _shouldTween = _selectedExperience.Value == (int) Experience.Snow;
+        _shouldTween = _selectedExperience.Value != (int) Experience.VRControl;
     }
     
     public void TweenFog()

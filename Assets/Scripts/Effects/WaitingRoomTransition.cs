@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
 
+public enum Experience {VrBreathingMystical, VRMystical, VRControl} 
 
 public class WaitingRoomTransition : MonoBehaviour //TODO rename to transition manager? 
 {
@@ -12,7 +13,7 @@ public class WaitingRoomTransition : MonoBehaviour //TODO rename to transition m
 
     public void ExperienceSelected()
     {
-        if (_selectedExperience.Value == (int) Experience.Snow) _waitingDuration = 10;
+        if (_selectedExperience.Value != (int) Experience.VRControl) _waitingDuration = 10;
         else _waitingDuration = 2;
     }
     
