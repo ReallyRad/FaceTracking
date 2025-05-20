@@ -1,6 +1,7 @@
 using System;
-using System.Diagnostics;
+using System.Collections;
 using UnityEngine;
+using System.IO;
 
 public class ProgressManager : MonoBehaviour //handles face expression events to detect whether they should be interpreted as progress
 {
@@ -15,12 +16,12 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
     [SerializeField] private float _currentProgress;
     [SerializeField] private AnimationCurve _progressCurve;
 
-    private Stopwatch _puckerStopwatch;
-    
     private int _progressTween;
-    private float _previousElapsed;
     private float _progressDuration;
 
+    private Coroutine PuckerEnd;
+    private Coroutine PuckerStart;
+    
     private void OnEnable()
     {
         FaceTrackingManager.PuckerTrigger += PuckerTrigger;
@@ -35,50 +36,51 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
 
     private void Start()
     {
-        _puckerStopwatch = new Stopwatch();
         _progressDuration = _endProgressAt - _startProgressAt;
     }
 
-    private void Update()
+    private IEnumerator PuckerThresholdStart()
     {
-        if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _startProgressAt && 
-            _previousElapsed / 1000f < _startProgressAt) //we just passed the min duration threshold, continue progress
-        {
+        yield return new WaitForSeconds(_startProgressAt);
+        Debug.Log("start progress");
+        _progressTween = LeanTween.value(gameObject,
+                _currentProgress,
+                _currentProgress + 1,
+                _progressDuration)
+            .setOnUpdate(val =>
+            {
+                var increment = val - _currentProgress;
+                _currentProgress = val;
+                Progress(increment); //send the difference with previous value so it can be used to increment e
+            })
+            .setEase(_progressCurve)
+            .id;
+    }
 
-            _progressTween = LeanTween.value(gameObject,
-                                            _currentProgress,
-                                            _currentProgress + 1,
-                                            _progressDuration)
-                .setOnUpdate(val =>
-                {
-                    var increment = val - _currentProgress;
-                    _currentProgress = val;
-                    Progress(increment); //send the difference with previous value so it can be used to increment e
-                })
-                .setEase(_progressCurve)
-                .id;
-        }
-        else if (_puckerStopwatch.ElapsedMilliseconds / 1000f > _endProgressAt &&
-                 _previousElapsed / 1000f < _endProgressAt) //we just passed the max duration threshold, stop progress
-        {
-            if (_progressTween != 0) LeanTween.pause(_progressTween);
-        }  
-        
-        _previousElapsed = _puckerStopwatch.ElapsedMilliseconds;
+    private IEnumerator PuckerThresholdEnd()
+    {
+        yield return new WaitForSeconds(_endProgressAt);
+        Debug.Log("end progress");
+        if (_progressTween != 0) LeanTween.pause(_progressTween);
     }
 
     private void PuckerTrigger(bool pucker)
     {
-        if (pucker)
-        {
-            _puckerStopwatch.Start();
+        if (pucker) {
+            PuckerStart = StartCoroutine(PuckerThresholdStart());
+            PuckerEnd = StartCoroutine(PuckerThresholdEnd());
+            Debug.Log("start stopwatch");
         }
         else
         {
-            _puckerStopwatch.Stop();
-            if (_progressTween != 0) LeanTween.pause(_progressTween);
-            //ExhaleEnded(_puckerStopwatch.ElapsedMilliseconds);
-            _puckerStopwatch.Reset(); //only reset stopwatch once we passed 0
+            StopCoroutine(PuckerStart);
+            StopCoroutine(PuckerEnd);
+            Debug.Log("stop stopwatch");
+            if (_progressTween != 0)
+            {
+                LeanTween.pause(_progressTween);
+                Debug.Log("pause tween");
+            }
         }
     }
 
