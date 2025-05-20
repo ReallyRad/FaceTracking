@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
 
-public enum Experience {VrBreathingMystical, VRMystical, VRControl} 
+public enum Experience {VRBreathingMystical, VRMystical, VRControl}  //TODO find better place to put this
 
 public class WaitingRoomTransition : MonoBehaviour //TODO rename to transition manager? 
 {

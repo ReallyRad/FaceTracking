@@ -9,26 +9,29 @@ public class CanvasSelection : MonoBehaviour //TODO merge with slideshow slide s
 {
     [SerializeField] private GameObject _canvInstruction; 
     [SerializeField] private GameObject _canvWelcome; 
-
-    [SerializeField] private GameObject _experienceTitle;
-    [SerializeField] private GameObject _controlTitle;
+    
+    //TODO don't access objects like that in the editor
+    [SerializeField] private GameObject _VRBreathingMysticalTitle;
+    [SerializeField] private GameObject _VRMysticalTitle;
+    [SerializeField] private GameObject _VRControlTitle;
     
     [SerializeField] private SlideShow _waitingRoomSlideShow; 
-
     [SerializeField] private IntVariable _experienceVariable;
 
     public void ExperienceSelected() //select the slides that need to be shown in the waiting scene pre
     {
-        if (_experienceVariable.Value == (int) Experience.VRControl) 
+        if (_experienceVariable.Value == (int) Experience.VRBreathingMystical) 
         {
-            //instructions and welcome are enabled by default
-            _canvInstruction.SetActive(false);
-            _canvWelcome.SetActive(false);
-            //experience title is enabled by default
-            _controlTitle.SetActive(true); 
-            _experienceTitle.SetActive(false);
+            //instructions and welcome are disabled by default
+            _canvInstruction.SetActive(true);
+            _canvWelcome.SetActive(true);
             
             _waitingRoomSlideShow.UpdateActiveSlides();
         }
+        
+        //experience title is enabled by default
+        _VRBreathingMysticalTitle.SetActive(_experienceVariable.Value == (int) Experience.VRBreathingMystical);
+        _VRMysticalTitle.SetActive(_experienceVariable.Value == (int) Experience.VRMystical);
+        _VRControlTitle.SetActive(_experienceVariable.Value == (int) Experience.VRControl); 
     }
 }
