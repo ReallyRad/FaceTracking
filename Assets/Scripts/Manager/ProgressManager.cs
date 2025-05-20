@@ -9,7 +9,7 @@ public class ProgressManager : MonoBehaviour //handles face expression events to
     public static OnProgress Progress;
     
     public delegate void OnNewBreathOutFinished(float exhaleDuration); 
-    public static OnNewBreathOutFinished ExhaleEnded;
+    public static OnNewBreathOutFinished ExhaleEnded; //TODO is this still needed?
     
     [SerializeField] private float _startProgressAt;
     [SerializeField] private float _endProgressAt;
