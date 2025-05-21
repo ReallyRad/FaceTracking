@@ -11,14 +11,16 @@ public class FogDisappearingControl : InteractiveSequenceable
     [SerializeField] private VolumetricFog fog;
     [SerializeField] private AnimationCurve _progressCurve;
     
-    [SerializeField] private float _progressiveFactor; //stores the progressive part of the fog control
-    [SerializeField] private float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
+    [Range(0f, 1f)] [SerializeField] private float _progressiveFactor; //stores the progressive part of the fog control
+    [Range(0f, 1f)] [SerializeField] private float _interactiveVal; //stores the current interactive progress value; from 0 (no overshoot) to 1 (max overshoot)
 
-    [SerializeField] private float _interactiveOvershootRange;
+    [Range(0f, 2f)] [SerializeField] private float _interactiveOvershootRange;
 
-    [SerializeField] private float _perlinSpeed;
-    [SerializeField] private float _noiseStrenghtBaseline;
-    [SerializeField] private float _noiseRange;
+    [Range(0f, 15f)] [SerializeField] private float _perlinSpeed;
+    [Range(0f, 2f)] [SerializeField] private float _noiseStrengthBaseline;
+    [Range(0f, 1f)] [SerializeField] private float _noiseRange;
+    
+    [Range(0f, 1f)] [SerializeField] private float _density; //for display
     
     private int _interactTween;
     private int _decayTween;
@@ -27,13 +29,16 @@ public class FogDisappearingControl : InteractiveSequenceable
     
     private void Update()
     {
-        fog.settings.noiseStrength = _noiseStrenghtBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
+        fog.settings.noiseStrength = _noiseStrengthBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
+        fog.settings.density = 1 - (_interactiveVal * _interactiveOvershootRange + _progressiveFactor);
+        _density = 1 - (_interactiveVal * _interactiveOvershootRange + _progressiveFactor);
     }
 
     public override void Initialize()
     {
         _active = true;
         fog.settings.density = _initialValue;
+        _density = _initialValue;
         _interactiveVal = 0;
         fog.gameObject.SetActive(true);
         _localProgress = 0;
@@ -59,8 +64,7 @@ public class FogDisappearingControl : InteractiveSequenceable
                 if (_transitioning && !wasTransitioning) StartNextPhase(this); //notify progressmanager to starting next phase 
                     
                 var val = _progressCurve.Evaluate(_localProgress/_completedAt); // get the point of local progres
-                _progressiveFactor = Utils.Map(val, 0, 1, _initialValue, _finalValue); //map it to the progress range
-                //fog.settings.density = intensityValue; //apply it to the fog
+                _progressiveFactor = Utils.Map(val, 1, 0, _initialValue, _finalValue); //map it to the progress range
             }
         }
     }
@@ -73,6 +77,7 @@ public class FogDisappearingControl : InteractiveSequenceable
             Debug.Log("paused decay tween  " + _decayTween);
         }
         
+        //TODO integrate cycle ratio into interactive tween. 
         //float riseTime = (1 - _interactiveVal) * _riseTime; //time must be proportional to current progress to keep speed constant
         
         _interactTween = LeanTween
@@ -84,7 +89,6 @@ public class FogDisappearingControl : InteractiveSequenceable
             })
             .setEaseOutExpo()
             .id;
-        
     }
 
     protected override void Decay()
@@ -95,6 +99,7 @@ public class FogDisappearingControl : InteractiveSequenceable
             Debug.Log("paused interact tween  " + _interactTween);
         }
 
+        //TODO integrate cycle ratio into interactive tween. 
         //float decayTime = _interactiveVal * _decayTime; //time must be proportional to current progress to keep speed constant
         
         _decayTween = LeanTween.value(gameObject, _interactiveVal, 0, _decayTime)
@@ -110,9 +115,8 @@ public class FogDisappearingControl : InteractiveSequenceable
     private void TweenHandling(float interactiveVal) //interactive tween handler
     {
         _interactiveVal = interactiveVal;
-        fog.settings.density = 1 - interactiveVal * _interactiveOvershootRange;
-        //TODO use perlin noise
-
+        //fog.settings.density = 1 - (interactiveVal * _interactiveOvershootRange + _progressiveFactor);
+        //_density = 1 - (interactiveVal * _interactiveOvershootRange + _progressiveFactor);
     }
 
 }
