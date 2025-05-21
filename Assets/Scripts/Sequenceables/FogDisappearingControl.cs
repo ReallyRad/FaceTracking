@@ -20,7 +20,8 @@ public class FogDisappearingControl : InteractiveSequenceable
     [Range(0f, 2f)] [SerializeField] private float _noiseStrengthBaseline;
     [Range(0f, 1f)] [SerializeField] private float _noiseRange;
     
-    [Range(0f, 1f)] [SerializeField] private float _density; //for display
+    [Range(0f, 1f)] [SerializeField] private float _density; //for display only
+    [Range(0f, 3f)] [SerializeField] private float _noiseStrength; //for display only
     
     private int _interactTween;
     private int _decayTween;
@@ -29,9 +30,11 @@ public class FogDisappearingControl : InteractiveSequenceable
     
     private void Update()
     {
-        fog.settings.noiseStrength = _noiseStrengthBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
-        fog.settings.density = 1 - (_interactiveVal * _interactiveOvershootRange + _progressiveFactor);
+        _noiseStrength = _noiseStrengthBaseline + _interactiveVal * Mathf.PerlinNoise(Time.time * _perlinSpeed , 0.0f) * _noiseRange;
+        fog.settings.noiseStrength = _noiseStrength;
+            
         _density = 1 - (_interactiveVal * _interactiveOvershootRange + _progressiveFactor);
+        fog.settings.density = _density;
     }
 
     public override void Initialize()
