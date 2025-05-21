@@ -13,10 +13,7 @@ Mehdi :
 	- The snow slowing interactivity should start at the beginning of each exhale (not after 2 seconds) (check that it's actually happening)
 
 Arthur :
-	- Remove the ratings from the waiting scene. 
-
-	- selecting the scene in the waiting scene with 4 options 
-
+	
 	- don't load the waiting scene anymore 
 
 	- do one apk with 3 scenarios. 
@@ -27,7 +24,14 @@ Arthur :
 
 	- check csv data
 
+	- need message at end of scenes to notify the end of the experiment
+
 Done :
+	- Remove the ratings from the waiting scene. 
+
+	- selecting the scene in the waiting scene with 3 options 
+
+
 	- elastic breathing out. Progress should be visible.
 
 	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
