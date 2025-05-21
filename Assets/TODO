@@ -17,6 +17,8 @@ Arthur :
 
 	- Check if exhale ended is working/needed?
 
+	- add a message at the end of the exposure scene to notify the user the experience ended
+
 Done :
 	- rename the scenes according to the specified names
 
