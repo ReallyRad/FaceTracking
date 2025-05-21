@@ -1,7 +1,4 @@
 Mehdi : 	
-
-	- rename the scenes according to the specified names
-
 	- try building webGL
 
     - VR-Mystical (SnowAuto): find a simple way to simulate the breathing? Or make the sequence unfold by itself? Create new Scene 
@@ -14,13 +11,6 @@ Mehdi :
 
 Arthur :
 
-	
-	- Remove the ratings from the waiting scene. 
-
-	- selecting the scene in the waiting scene with 4 options 
-
-	- don't load the waiting scene anymore 
-
 	- do one apk with 3 scenarios. 
 
 	- no more post 
@@ -28,6 +18,14 @@ Arthur :
 	- Check if exhale ended is working/needed?
 
 Done :
+	- rename the scenes according to the specified names
+
+	- Remove the ratings from the waiting scene. 
+
+	- selecting the scene in the waiting scene with 4 options 
+
+	- don't load the waiting scene anymore 
+
 	- elastic breathing out. Progress should be visible.
 
 	- fog is moving a lot might be denser even if breathing out. less random noise? higher harmonics?
