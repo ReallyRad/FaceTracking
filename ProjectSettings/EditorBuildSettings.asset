@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/VRBreathingMystical.unity
     guid: 3e56cd67005982445b8e49a26dfb3b51
   - enabled: 1
-    path: Assets/Scenes/HoleGrowthSnow.unity
-    guid: d15838b3327b0c64b9fad6d7e5bba541
-  - enabled: 1
     path: Assets/Scenes/VRControl.unity
     guid: f727c64bff0863244ab922c629fefe1f
+  - enabled: 1
+    path: Assets/Scenes/VRMystical.unity
+    guid: b657a222a61e71542b78f73efade5e84
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2f06d0d5929f48944ab4a04a530da67f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 7fc7416be8dfeba4c9cf61bc86e8ffb1, type: 2}
